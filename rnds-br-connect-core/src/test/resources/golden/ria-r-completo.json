@@ -1,0 +1,257 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "lastUpdated": "2024-04-01T14:59:51.283-03:00"
+  },
+  "identifier": {
+    "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-29376",
+    "value": "012345678"
+  },
+  "type": "document",
+  "timestamp": "2024-04-01T14:59:51.283-03:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:transient-0",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "transient-0",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroImunobiologicoAdministradoRotina-2.0"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
+              "code": "RIA"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "01234567890"
+          }
+        },
+        "date": "2024-04-01T08:18:30-03:00",
+        "author": [
+          {
+            "identifier": {
+              "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+              "value": "0123456"
+            }
+          }
+        ],
+        "title": "Registro de Imunobiologico Administrado na Rotina",
+        "section": [
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:transient-1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:transient-1",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "transient-1",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRImunobiologicoAdministrado-3.0"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRGrupoAtendimento",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRGrupoAtendimento",
+                  "code": "000703"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCondicaoMaternal",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCondicaoMaternal",
+                  "code": "1"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoHanseniase",
+            "valueBoolean": false
+          }
+        ],
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRImunobiologico",
+              "code": "55"
+            }
+          ]
+        },
+        "patient": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "01234567890"
+          }
+        },
+        "occurrenceDateTime": "2024-04-01",
+        "primarySource": false,
+        "reportOrigin": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRRegistroOrigem",
+              "code": "01"
+            }
+          ]
+        },
+        "location": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRPais",
+            "value": "10"
+          }
+        },
+        "manufacturer": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRFabricantePNI",
+            "value": "152"
+          }
+        },
+        "lotNumber": "220262",
+        "expirationDate": "2025-05-10",
+        "site": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRLocalAplicacao",
+              "code": "0"
+            }
+          ]
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao",
+              "code": "0"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
+                  "code": "225103"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/012345678912345"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "urn:uuid:transient-2"
+          }
+        ],
+        "protocolApplied": [
+          {
+            "extension": [
+              {
+                "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaVacinacao-1.0",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BREstrategiaVacinacao",
+                      "code": "1"
+                    }
+                  ]
+                }
+              },
+              {
+                "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaVacinacaoPesquisa-1.0",
+                "extension": [
+                  {
+                    "url": "numeroProtocoloEstudoANVISA",
+                    "valueString": "GU1AMT9CYR"
+                  },
+                  {
+                    "url": "numeroVersaoProtocoloEstudo",
+                    "valueString": "F3D1U354V6"
+                  },
+                  {
+                    "url": "numeroRegistroVacinaAnvisa",
+                    "valueString": "WWZZJJWIBF"
+                  }
+                ]
+              }
+            ],
+            "doseNumberString": "1"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:transient-2",
+      "resource": {
+        "id": "transient-2",
+        "resourceType": "Condition",
+        "meta": {
+          "lastUpdated": "2024-03-30T14:59:51.283-03:00",
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCID10Avaliado-1.0"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCategoriaDiagnostico",
+                "code": "01",
+                "display": "Principal"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
+              "code": "B15"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "01234567890"
+          }
+        },
+        "onsetDateTime": "2024-03-30T14:59:51.283-03:00"
+      }
+    }
+  ]
+}

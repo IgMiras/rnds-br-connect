@@ -1,0 +1,17 @@
+Este diretorio recebe os arquivos de definicao FHIR da RNDS e o index.txt
+que o ConformancePackage le em tempo de carga.
+
+NAO copie os XMLs a mao. Rode, a partir da RAIZ do repositorio:
+
+    ./scripts/copiar-conformance.sh <diretorio-com-os-XMLs-da-RNDS>
+
+O script:
+  - varre a origem RECURSIVAMENTE e PRESERVA as subpastas
+    (CodeSystem/, Extension/, Profile/, ValueSet/);
+  - aceita apenas StructureDefinition, ValueSet e CodeSystem;
+  - aborta se duas versoes do mesmo artefato (mesma URL canonica)
+    aparecerem em subpastas diferentes;
+  - regenera o index.txt com caminhos relativos.
+
+Referencia da distribuicao usada no TCC: 36 StructureDefinition,
+38 ValueSet e 39 CodeSystem = 113 artefatos.
