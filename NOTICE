@@ -1,0 +1,18 @@
+RNDS-BR Connect
+Copyright 2026 Igor Mendes Domingues Miras
+
+Desenvolvido como Trabalho de Conclusão de Curso do Bacharelado em Ciência
+da Computação da Faculdade de Ciências e Tecnologia da Universidade Estadual
+Paulista (FCT/UNESP), Presidente Prudente, sob orientação do
+Prof. Dr. Ronaldo Celso Messias Correia.
+
+Este produto inclui artefatos de conformidade da Rede Nacional de Dados em
+Saúde (RNDS), publicados pelo Ministério da Saúde (DATASUS), em
+rnds-br-connect-core/src/main/resources/conformance/. Esses artefatos não são
+cobertos pela licença deste projeto. Foram copiados das distribuições
+oficiais; nos perfis do REDFM, do SA e do RAC, o snapshot foi gerado a partir
+do differential publicado e gravado no próprio arquivo.
+
+Os exemplos de referência em rnds-br-connect-core/src/test/resources/golden/
+derivam dos exemplos oficiais da RNDS, corrigidos dos defeitos documentados
+no README daquela pasta.

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Se você usar este software, cite-o como abaixo."
+type: software
+title: "RNDS-BR Connect"
+abstract: >-
+  Framework Java 17 que constrói e valida documentos HL7 FHIR conformes
+  aos perfis da Rede Nacional de Dados em Saúde (RNDS), com mapeamento
+  terminológico plugável.
+authors:
+  - family-names: "Miras"
+    given-names: "Igor Mendes Domingues"
+    affiliation: "Universidade Estadual Paulista (UNESP), Faculdade de Ciências e Tecnologia"
+repository-code: "https://github.com/IgMiras/rnds-br-connect"
+license: Apache-2.0
+keywords:
+  - RNDS
+  - HL7 FHIR
+  - interoperabilidade
+  - saúde digital
+  - terminologia
