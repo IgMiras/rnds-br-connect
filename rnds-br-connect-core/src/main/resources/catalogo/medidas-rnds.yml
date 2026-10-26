@@ -1,0 +1,69 @@
+# Catalogo dos codigos aceitos nas MEDIDAS OBSERVADAS da RNDS.
+#
+# GERADO por scripts/gerar-catalogo-medidas.py. NAO EDITAR A MAO.
+# Gerado em: 2026-10-13T14:22:06
+# Pacote:    conformance/rac
+# SHA-256 das fontes: 4e589f777ea511dd
+#
+# NAO e tabela de equivalencia clinica (ADR-05): responde 'este codigo e
+# aceito?', nao 'qual codigo corresponde ao que eu medi'. A segunda pergunta
+# e decisao clinica e permanece com a equipe de saude.
+#
+# Binding: Observation.code no BRMedidaObservada.xml v01.00,
+#          required -> http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoObservacao-1.0
+# Fonte:   ValueSet http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoObservacao-1.0 v1.1.0
+#        http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoObservacao: CodeSystem BRTipoObservacao v201701A, 9 codigos
+#        http://www.saude.gov.br/fhir/r4/CodeSystem/BRTabelaSUS: 1 codigos enumerados no ValueSet
+#        https://loinc.org/: 13 codigos enumerados no ValueSet
+# TOTAL: 23 codigos aceitos
+
+totalDeclarado: 23
+codigos:
+  http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoObservacao:
+    "DSIA": "Declaração Subjetiva do Indivíudo para o Atendimento"
+    "RECIDI": "Resumo da evolução clínica do indivíduo durante a internação"
+    "DF": "Dados do desfecho"
+    "IAC": "Informações Adicionais/Complementares"
+    "P": "Peso"
+    "A": "Altura"
+    "PC": "Perímetro Cefálico"
+    "CA": "Circunferência Abdominal"
+    "PA": "Pressão Arterial"
+  http://www.saude.gov.br/fhir/r4/CodeSystem/BRTabelaSUS:
+    "0301100039": ""
+  https://loinc.org/:
+    "8665-2": "Data da Última Menstruação"
+    "56832-9": "Exposição à Substâncias"
+    "11996-6": "Quantidade de Gestações"
+    "63895-7": "Tipo de Aleitamento Materno"
+    "29463-7": "Peso Corporal"
+    "8480-6": "Pressão Arterial Sistólica"
+    "8462-4": "Pressão Arterial Diastólica"
+    "8280-0": "Circuferência Abdominal"
+    "9843-4": "Perímetro Cefálico"
+    "8302-2": "Altura"
+    "11885-1": "Idade Gestacional"
+    "11612-9": "Quantidade de Abortos"
+    "48767-8": "Anotação de Comentário para Narrativa [Interpretação]"
+
+# Dois achados do artefato, registrados aqui porque nao sao escolha do framework.
+#
+# 1. A MESMA medida tem duas grafias oficiais dentro do MESMO ValueSet. O artefato
+#    de referencia do RAC escolheu a LOINC. Nao e equivalencia clinica: e a
+#    constatacao de que o binding aceita as duas.
+sinonimos:
+  - medida: "Peso"
+    codigos: ["P", "29463-7"]
+  - medida: "Altura"
+    codigos: ["A", "8302-2"]
+  - medida: "Perimetro cefalico"
+    codigos: ["PC", "9843-4"]
+  - medida: "Circunferencia abdominal"
+    codigos: ["CA", "8280-0"]
+  - medida: "Pressao arterial"
+    codigos: ["PA", "8480-6", "8462-4"]
+
+# 2. Quatro codigos do CodeSystem da RNDS nao sao medida de VALOR: sao observacao
+#    descritiva (BRObservacaoDescritiva). O mesmo ValueSet serve aos dois perfis,
+#    de modo que emitir um deles como 'medida' passa no binding e na Camada 4.
+naoSaoMedida: ["DSIA", "RECIDI", "DF", "IAC"]

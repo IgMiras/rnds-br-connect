@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="codesystem-medication-dispense-type" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDispensacaoRealizada" />
+	<meta> 
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/> 
+  </meta> 
+  <version value="1.0.0" />
+  <name value="CodeSystem-BRTipoDispensacaoRealizada" />
+  <title value="Tipo de Dispensação Realizada" />
+  <status value="draft" />
+	<experimental value="false"/> 
+  <date value="2024-12-10" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Indica o tipo de dispensação que foi realizada" />
+  <caseSensitive value="true" />
+  <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRSituacaoDispensacao"/> 
+  <content value="complete"/> 
+  <concept> 
+    <code value="fully-dispensing"/> 
+    <display value="Fully Dispensing"/> 
+  </concept> 
+  <concept> 
+    <code value="medication-return"/> 
+    <display value="Medication Return"/> 
+  </concept> 
+  <concept> 
+    <code value="partial-dispensing"/> 
+    <display value="Partial Dispensing"/> 
+  </concept> 
+  <concept> 
+    <code value="not-dispensed"/> 
+    <display value="Not Dipensed"/> 
+  </concept> 
+</CodeSystem>

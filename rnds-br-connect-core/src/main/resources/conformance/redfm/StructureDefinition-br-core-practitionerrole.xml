@@ -1,0 +1,2142 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="br-core-practitionerrole"></id>
+   <url value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitionerrole"></url>
+   <name value="BRCorePractitionerRole"></name>
+   <status value="active"></status>
+   <description value="Este perfil restringe o recurso [PractitionerRole](hl7.org/fhir/R4/practitionerrole.html) que representa um conjunto específico de funções/locais/especialidades/serviços que um profissional pode desempenhar em uma organização por um período de tempo."></description>
+   <fhirVersion value="4.0.1"></fhirVersion>
+   <kind value="resource"></kind>
+   <abstract value="false"></abstract>
+   <type value="PractitionerRole"></type>
+   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"></baseDefinition>
+   <derivation value="constraint"></derivation>
+   <snapshot>
+      <element id="PractitionerRole">
+         <path value="PractitionerRole"></path>
+         <short value="Roles/organizations the practitioner is associated with"></short>
+         <definition value="A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <constraint>
+            <key value="dom-2"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"></human>
+            <expression value="contained.contained.empty()"></expression>
+            <xpath value="not(parent::f:contained and f:contained)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-3"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource"></human>
+            <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()"></expression>
+            <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-4"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"></human>
+            <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-5"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a security label"></human>
+            <expression value="contained.meta.security.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:security))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+               <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."></valueMarkdown>
+            </extension>
+            <key value="dom-6"></key>
+            <severity value="warning"></severity>
+            <human value="A resource should have narrative for robust management"></human>
+            <expression value="text.`div`.exists()"></expression>
+            <xpath value="exists(f:text/h:div)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Entity. Role, or Act"></map>
+         </mapping>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="PRD (as one example)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Role"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="ServiceSiteProvider"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.id">
+         <path value="PractitionerRole.id"></path>
+         <short value="ID lógico deste artefato"></short>
+         <definition value="ID lógico deste artefato"></definition>
+         <comment value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="id"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="PractitionerRole.meta">
+         <path value="PractitionerRole.meta"></path>
+         <short value="Metadados sobre o recurso"></short>
+         <definition value="Metadados sobre o recurso"></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.meta"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Meta"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="PractitionerRole.implicitRules">
+         <path value="PractitionerRole.implicitRules"></path>
+         <short value="Conjunto de regras sob as quais este conteúdo foi criado"></short>
+         <definition value="Conjunto de regras sob as quais este conteúdo foi criado"></definition>
+         <comment value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.implicitRules"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation"></isModifierReason>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="PractitionerRole.language">
+         <path value="PractitionerRole.language"></path>
+         <short value="Idioma do conteúdo do recurso"></short>
+         <definition value="Idioma do conteúdo do recurso"></definition>
+         <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.language"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+               <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"></valueCanonical>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="Language"></valueString>
+            </extension>
+            <strength value="preferred"></strength>
+            <description value="A human language."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/languages"></valueSet>
+         </binding>
+      </element>
+      <element id="PractitionerRole.text">
+         <path value="PractitionerRole.text"></path>
+         <short value="Resumo textual do recurso em linguagem natural"></short>
+         <definition value="Resumo textual do recurso em linguagem natural"></definition>
+         <comment value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded information is added later."></comment>
+         <alias value="narrative"></alias>
+         <alias value="html"></alias>
+         <alias value="xhtml"></alias>
+         <alias value="display"></alias>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="DomainResource.text"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Narrative"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Act.text?"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.contained">
+         <path value="PractitionerRole.contained"></path>
+         <short value="Recursos contidos em linha"></short>
+         <definition value="Recursos contidos em linha"></definition>
+         <comment value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels."></comment>
+         <alias value="inline resources"></alias>
+         <alias value="anonymous resources"></alias>
+         <alias value="contained resources"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.contained"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Resource"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.extension">
+         <path value="PractitionerRole.extension"></path>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.modifierExtension">
+         <path value="PractitionerRole.modifierExtension"></path>
+         <short value="Extensão que não pode ser ignorada"></short>
+         <definition value="Extensão que não pode ser ignorada"></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them"></isModifierReason>
+         <isSummary value="false"></isSummary>
+      </element>
+      <element id="PractitionerRole.identifier">
+         <path value="PractitionerRole.identifier"></path>
+         <short value="Identificadores externos para este item"></short>
+         <definition value="Identificadores externos para este item"></definition>
+         <requirements value="Often, specific identities are assigned for the agent."></requirements>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.identifier"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Identifier"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.identifier"></map>
+         </mapping>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="PRD-7 (or XCN.1)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".id"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./Identifiers"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.id">
+         <path value="PractitionerRole.identifier.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.extension">
+         <path value="PractitionerRole.identifier.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.use">
+         <path value="PractitionerRole.identifier.use"></path>
+         <short value="usual | official | temp | secondary | old (If known)"></short>
+         <definition value="The purpose of this identifier."></definition>
+         <comment value="Applications can assume that an identifier is permanent unless it explicitly says that it is temporary."></comment>
+         <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Identifier.use"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one."></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <strength value="required"></strength>
+            <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="N/A"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Role.code or implied by context"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type">
+         <path value="PractitionerRole.identifier.type"></path>
+         <short value="Description of identifier"></short>
+         <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose."></definition>
+         <comment value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type."></comment>
+         <requirements value="Allows users to make use of identifiers when the identifier system is not known."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Identifier.type"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="IdentifierType"></valueString>
+            </extension>
+            <strength value="extensible"></strength>
+            <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="CX.5"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Role.code or implied by context"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.id">
+         <path value="PractitionerRole.identifier.type.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.extension">
+         <path value="PractitionerRole.identifier.type.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding">
+         <path value="PractitionerRole.identifier.type.coding"></path>
+         <short value="Code defined by a terminology system"></short>
+         <definition value="A reference to a code defined by a terminology system."></definition>
+         <comment value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true."></comment>
+         <requirements value="Allows for alternative encodings within a code system, and translations to other code systems."></requirements>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="CodeableConcept.coding"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Coding"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="C*E.1-8, C*E.10-22"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="union(., ./translation)"></map>
+         </mapping>
+         <mapping>
+            <identity value="orim"></identity>
+            <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.id">
+         <path value="PractitionerRole.identifier.type.coding.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.extension">
+         <path value="PractitionerRole.identifier.type.coding.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.system">
+         <path value="PractitionerRole.identifier.type.coding.system"></path>
+         <short value="Identity of the terminology system"></short>
+         <definition value="The identification of the code system that defines the meaning of the symbol in the code."></definition>
+         <comment value="The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should reference to some definition that establishes the system clearly and unambiguously."></comment>
+         <requirements value="Need to be unambiguous about the source of the definition of the symbol."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Coding.system"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <fixedUri value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoDocumentoIndividuo-1.0"></fixedUri>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="C*E.3"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./codeSystem"></map>
+         </mapping>
+         <mapping>
+            <identity value="orim"></identity>
+            <map value="fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.version">
+         <path value="PractitionerRole.identifier.type.coding.version"></path>
+         <short value="Version of the system - if relevant"></short>
+         <definition value="The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged."></definition>
+         <comment value="Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Coding.version"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="C*E.7"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./codeSystemVersion"></map>
+         </mapping>
+         <mapping>
+            <identity value="orim"></identity>
+            <map value="fhir:Coding.version rdfs:subPropertyOf dt:CDCoding.codeSystemVersion"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.code">
+         <path value="PractitionerRole.identifier.type.coding.code"></path>
+         <short value="Symbol in syntax defined by the system"></short>
+         <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)."></definition>
+         <requirements value="Need to refer to a particular code in the system."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Coding.code"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="C*E.1"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./code"></map>
+         </mapping>
+         <mapping>
+            <identity value="orim"></identity>
+            <map value="fhir:Coding.code rdfs:subPropertyOf dt:CDCoding.code"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.display">
+         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+            <valueBoolean value="true"></valueBoolean>
+         </extension>
+         <path value="PractitionerRole.identifier.type.coding.display"></path>
+         <short value="Representation defined by the system"></short>
+         <definition value="A representation of the meaning of the code in the system, following the rules of the system."></definition>
+         <requirements value="Need to be able to carry a human-readable meaning of the code for readers that do not know  the system."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Coding.display"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="C*E.2 - but note this is not well followed"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="CV.displayName"></map>
+         </mapping>
+         <mapping>
+            <identity value="orim"></identity>
+            <map value="fhir:Coding.display rdfs:subPropertyOf dt:CDCoding.displayName"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.userSelected">
+         <path value="PractitionerRole.identifier.type.coding.userSelected"></path>
+         <short value="If this coding was chosen directly by the user"></short>
+         <definition value="Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays)."></definition>
+         <comment value="Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely."></comment>
+         <requirements value="This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Coding.userSelected"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="Sometimes implied by being first"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="CD.codingRationale"></map>
+         </mapping>
+         <mapping>
+            <identity value="orim"></identity>
+            <map value="fhir:Coding.userSelected fhir:mapsTo dt:CDCoding.codingRationale. fhir:Coding.userSelected fhir:hasMap fhir:Coding.userSelected.map. fhir:Coding.userSelected.map a fhir:Map;   fhir:target dt:CDCoding.codingRationale. fhir:Coding.userSelected\#true a [     fhir:source &quot;true&quot;;     fhir:target dt:CDCoding.codingRationale\#O   ]"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.type.text">
+         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+            <valueBoolean value="true"></valueBoolean>
+         </extension>
+         <path value="PractitionerRole.identifier.type.text"></path>
+         <short value="Plain text representation of the concept"></short>
+         <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."></definition>
+         <comment value="Very often the text is the same as a displayName of one of the codings."></comment>
+         <requirements value="The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="CodeableConcept.text"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="C*E.9. But note many systems use C*E.2 for this"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./originalText[mediaType/code=&quot;text/plain&quot;]/data"></map>
+         </mapping>
+         <mapping>
+            <identity value="orim"></identity>
+            <map value="fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.system">
+         <path value="PractitionerRole.identifier.system"></path>
+         <short value="The namespace for the identifier value"></short>
+         <definition value="Establishes the namespace for the value - that is, a URL that describes a set values that are unique."></definition>
+         <comment value="Identifier.system is always case sensitive."></comment>
+         <requirements value="There are many sets  of identifiers.  To perform matching of two identifiers, we need to know what set we're dealing with. The system identifies a particular set of unique identifiers."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Identifier.system"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueUri value="http://www.acme.com/identifiers/patient"></valueUri>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="CX.4 / EI-2-4"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="II.root or Role.id.root"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./IdentifierType"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.value">
+         <path value="PractitionerRole.identifier.value"></path>
+         <short value="The value that is unique"></short>
+         <definition value="The portion of the identifier typically relevant to the user and which is unique within the context of the system."></definition>
+         <comment value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value's primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](extension-rendered-value.html). Identifier.value is to be treated as case sensitive unless knowledge of the Identifier.system allows the processer to be confident that non-case-sensitive processing is safe."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Identifier.value"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueString value="123456"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="CX.1 / EI.1"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./Value"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.period">
+         <path value="PractitionerRole.identifier.period"></path>
+         <short value="Time period when id is/was valid for use"></short>
+         <definition value="Time period during which identifier is/was valid for use."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Identifier.period"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="CX.7 + CX.8"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Role.effectiveTime or implied by context"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StartDate and ./EndDate"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.identifier.assigner">
+         <path value="PractitionerRole.identifier.assigner"></path>
+         <short value="Organization that issued id (may be just text)"></short>
+         <definition value="Organization that issued/manages the identifier."></definition>
+         <comment value="The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Identifier.assigner"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="CX.4 / (CX.4,CX.9,CX.10)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./IdentifierIssuingAuthority"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.active">
+         <path value="PractitionerRole.active"></path>
+         <short value="Informa de o registro de função do profissional está em uso ativo"></short>
+         <definition value="Informa de o registro de função do profissional está em uso ativo"></definition>
+         <comment value="If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active."></comment>
+         <requirements value="Need to be able to mark a practitioner role record as not to be used because it was created in error, or otherwise no longer in active use."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.active"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"></meaningWhenMissing>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.status"></map>
+         </mapping>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="STF-7"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".statusCode"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.period">
+         <path value="PractitionerRole.period"></path>
+         <short value="Período durante o qual o profissional está autorizado a exercer essa(s) função(ões)."></short>
+         <definition value="Período durante o qual o profissional está autorizado a exercer essa(s) função(ões)."></definition>
+         <requirements value="Even after the agencies is revoked, the fact that it existed must still be recorded."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.period"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.done[x]"></map>
+         </mapping>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="PRD-8/9 / PRA-5.4"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".performance[@typeCode &lt;= 'PPRF'].ActDefinitionOrEvent.effectiveTime"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.practitioner">
+         <path value="PractitionerRole.practitioner"></path>
+         <short value="Profissional capaz de fornecer os serviços definidos para a organização"></short>
+         <definition value="Profissional capaz de fornecer os serviços definidos para a organização"></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.practitioner"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".player"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.organization">
+         <path value="PractitionerRole.organization"></path>
+         <short value="Organização onde as funções estão disponíveis."></short>
+         <definition value="Organização onde as funções estão disponíveis."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.organization"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".scoper"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.code">
+         <path value="PractitionerRole.code"></path>
+         <short value="Códigos dos papeis dos profissionais de saúde."></short>
+         <definition value="Códigos dos papeis dos profissionais de saúde."></definition>
+         <comment value="A person may have more than one role."></comment>
+         <requirements value="Need to know what authority the practitioner has - what can they do?"></requirements>
+         <min value="1"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.code"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <strength value="required"></strength>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="PRD-1 / STF-18  / PRA-3  / PRT-4  / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".code"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.specialty">
+         <path value="PractitionerRole.specialty"></path>
+         <short value="Especialidade específica do profissional."></short>
+         <definition value="Especialidade específica do profissional."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.specialty"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="PractitionerSpecialty"></valueString>
+            </extension>
+            <strength value="preferred"></strength>
+            <description value="Specific specialty associated with the agency."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="PRA-5"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".player.HealthCareProvider[@classCode = 'PROV'].code"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./Specialty"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.location">
+         <path value="PractitionerRole.location"></path>
+         <short value="Local em que este profissional presta cuidados."></short>
+         <definition value="Local em que este profissional presta cuidados."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.location"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.where[x]"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode = 'SDLOC']"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)&lt;br/&gt; However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.healthcareService">
+         <path value="PractitionerRole.healthcareService"></path>
+         <short value="A lista de serviços de saúde que este profissional fornece para a organização/local(is) desta função."></short>
+         <definition value="A lista de serviços de saúde que este profissional fornece para a organização/local(is) desta função."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.healthcareService"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="EDU-2 / AFF-3"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".player.QualifiedEntity[@classCode = 'QUAL'].code"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.telecom">
+         <path value="PractitionerRole.telecom"></path>
+         <short value="Detalhes de contato específicos para a função/local/serviço."></short>
+         <definition value="Detalhes de contato específicos para a função/local/serviço."></definition>
+         <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these."></requirements>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.telecom"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="ContactPoint"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".telecom"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.availableTime">
+         <path value="PractitionerRole.availableTime"></path>
+         <short value="Horários em que o site do serviço está disponível."></short>
+         <definition value="Horários em que o site do serviço está disponível."></definition>
+         <comment value="More detailed availability information may be provided in associated Schedule/Slot resources."></comment>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.availableTime"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="BackboneElement"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.availableTime.id">
+         <path value="PractitionerRole.availableTime.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="ID exclusivo para referência entre elementos."></short>
+         <definition value="ID exclusivo para referência entre elementos."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.availableTime.extension">
+         <path value="PractitionerRole.availableTime.extension"></path>
+         <short value="Conteúdo adicional definido por implementações."></short>
+         <definition value="Conteúdo adicional definido por implementações."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+      </element>
+      <element id="PractitionerRole.availableTime.modifierExtension">
+         <path value="PractitionerRole.availableTime.modifierExtension"></path>
+         <short value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></short>
+         <definition value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="BackboneElement.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"></isModifierReason>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="PractitionerRole.availableTime.daysOfWeek">
+         <path value="PractitionerRole.availableTime.daysOfWeek"></path>
+         <short value="Dias da semana: seg| ter| qua| qui| sex| sab | dom."></short>
+         <definition value="Dias da semana: seg| ter| qua| qui| sex| sab | dom."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.availableTime.daysOfWeek"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="DaysOfWeek"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="The days of the week."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.availableTime.allDay">
+         <path value="PractitionerRole.availableTime.allDay"></path>
+         <short value="Sempre disponível? sim ou não, por exemplo: serviço 24 horas."></short>
+         <definition value="Sempre disponível? por exemplo: serviço 24 horas."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.availableTime.allDay"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.availableTime.availableStartTime">
+         <path value="PractitionerRole.availableTime.availableStartTime"></path>
+         <short value="Hora de abertura do dia (ignorado se allDay = true)"></short>
+         <definition value="Hora de abertura do dia (ignorado se allDay = true)"></definition>
+         <comment value="The timezone is expected to be for where this HealthcareService is provided at."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.availableTime.availableStartTime"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="time"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.availableTime.availableEndTime">
+         <path value="PractitionerRole.availableTime.availableEndTime"></path>
+         <short value="Horário de fechamento do dia (ignorado se allDay = true)."></short>
+         <definition value="Horário de fechamento do dia (ignorado se allDay = true)."></definition>
+         <comment value="The timezone is expected to be for where this HealthcareService is provided at."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.availableTime.availableEndTime"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="time"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.notAvailable">
+         <path value="PractitionerRole.notAvailable"></path>
+         <short value="Não disponível durante este período devido ao motivo fornecido."></short>
+         <definition value="Não disponível durante este período devido ao motivo fornecido."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.notAvailable"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="BackboneElement"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.notAvailable.id">
+         <path value="PractitionerRole.notAvailable.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="ID exclusivo para referência entre elementos."></short>
+         <definition value="ID exclusivo para referência entre elementos."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.notAvailable.extension">
+         <path value="PractitionerRole.notAvailable.extension"></path>
+         <short value="Conteúdo adicional definido por implementações."></short>
+         <definition value="Conteúdo adicional definido por implementações."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+      </element>
+      <element id="PractitionerRole.notAvailable.modifierExtension">
+         <path value="PractitionerRole.notAvailable.modifierExtension"></path>
+         <short value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></short>
+         <definition value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="BackboneElement.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"></isModifierReason>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="PractitionerRole.notAvailable.description">
+         <path value="PractitionerRole.notAvailable.description"></path>
+         <short value="Motivo apresentado ao usuário explicando porque o horário não está disponível."></short>
+         <definition value="Motivo apresentado ao usuário explicando porque o horário não está disponível."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.notAvailable.description"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.notAvailable.during">
+         <path value="PractitionerRole.notAvailable.during"></path>
+         <short value="Serviço indisponível a partir desta data."></short>
+         <definition value="Serviço indisponível a partir desta data."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.notAvailable.during"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.availabilityExceptions">
+         <path value="PractitionerRole.availabilityExceptions"></path>
+         <short value="Descrição da disponibilidade das exceções."></short>
+         <definition value="Descrição da disponibilidade das exceções."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="PractitionerRole.availabilityExceptions"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="PractitionerRole.endpoint">
+         <path value="PractitionerRole.endpoint"></path>
+         <short value="Endpoints que fornecem acesso a serviços operados para o profissional com esta função."></short>
+         <definition value="Endpoints que fornecem acesso a serviços operados para o profissional com esta função."></definition>
+         <requirements value="Organizations have multiple systems that provide various services and ,ay also be different for practitioners too.  So the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose."></requirements>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="PractitionerRole.endpoint"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+   </snapshot>
+   <differential>
+      <element id="PractitionerRole.id">
+         <path value="PractitionerRole.id"></path>
+         <short value="ID lógico deste artefato"></short>
+         <definition value="ID lógico deste artefato"></definition>
+      </element>
+      <element id="PractitionerRole.meta">
+         <path value="PractitionerRole.meta"></path>
+         <short value="Metadados sobre o recurso"></short>
+         <definition value="Metadados sobre o recurso"></definition>
+      </element>
+      <element id="PractitionerRole.implicitRules">
+         <path value="PractitionerRole.implicitRules"></path>
+         <short value="Conjunto de regras sob as quais este conteúdo foi criado"></short>
+         <definition value="Conjunto de regras sob as quais este conteúdo foi criado"></definition>
+      </element>
+      <element id="PractitionerRole.language">
+         <path value="PractitionerRole.language"></path>
+         <short value="Idioma do conteúdo do recurso"></short>
+         <definition value="Idioma do conteúdo do recurso"></definition>
+      </element>
+      <element id="PractitionerRole.text">
+         <path value="PractitionerRole.text"></path>
+         <short value="Resumo textual do recurso em linguagem natural"></short>
+         <definition value="Resumo textual do recurso em linguagem natural"></definition>
+      </element>
+      <element id="PractitionerRole.contained">
+         <path value="PractitionerRole.contained"></path>
+         <short value="Recursos contidos em linha"></short>
+         <definition value="Recursos contidos em linha"></definition>
+      </element>
+      <element id="PractitionerRole.modifierExtension">
+         <path value="PractitionerRole.modifierExtension"></path>
+         <short value="Extensão que não pode ser ignorada"></short>
+         <definition value="Extensão que não pode ser ignorada"></definition>
+      </element>
+      <element id="PractitionerRole.identifier">
+         <path value="PractitionerRole.identifier"></path>
+         <short value="Identificadores externos para este item"></short>
+         <definition value="Identificadores externos para este item"></definition>
+      </element>
+      <element id="PractitionerRole.identifier.use">
+         <path value="PractitionerRole.identifier.use"></path>
+         <min value="1"></min>
+         <binding>
+            <strength value="required"></strength>
+            <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use"></valueSet>
+         </binding>
+      </element>
+      <element id="PractitionerRole.identifier.type">
+         <path value="PractitionerRole.identifier.type"></path>
+         <min value="1"></min>
+      </element>
+      <element id="PractitionerRole.identifier.type.coding.system">
+         <path value="PractitionerRole.identifier.type.coding.system"></path>
+         <fixedUri value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoDocumentoIndividuo-1.0"></fixedUri>
+      </element>
+      <element id="PractitionerRole.active">
+         <path value="PractitionerRole.active"></path>
+         <short value="Informa de o registro de função do profissional está em uso ativo"></short>
+         <definition value="Informa de o registro de função do profissional está em uso ativo"></definition>
+         <min value="1"></min>
+      </element>
+      <element id="PractitionerRole.period">
+         <path value="PractitionerRole.period"></path>
+         <short value="Período durante o qual o profissional está autorizado a exercer essa(s) função(ões)."></short>
+         <definition value="Período durante o qual o profissional está autorizado a exercer essa(s) função(ões)."></definition>
+      </element>
+      <element id="PractitionerRole.practitioner">
+         <path value="PractitionerRole.practitioner"></path>
+         <short value="Profissional capaz de fornecer os serviços definidos para a organização"></short>
+         <definition value="Profissional capaz de fornecer os serviços definidos para a organização"></definition>
+         <min value="1"></min>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-practitioner"></targetProfile>
+         </type>
+      </element>
+      <element id="PractitionerRole.organization">
+         <path value="PractitionerRole.organization"></path>
+         <short value="Organização onde as funções estão disponíveis."></short>
+         <definition value="Organização onde as funções estão disponíveis."></definition>
+         <min value="1"></min>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-organization"></targetProfile>
+         </type>
+      </element>
+      <element id="PractitionerRole.code">
+         <path value="PractitionerRole.code"></path>
+         <short value="Códigos dos papeis dos profissionais de saúde."></short>
+         <definition value="Códigos dos papeis dos profissionais de saúde."></definition>
+         <min value="1"></min>
+         <binding>
+            <strength value="required"></strength>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0"></valueSet>
+         </binding>
+      </element>
+      <element id="PractitionerRole.specialty">
+         <path value="PractitionerRole.specialty"></path>
+         <short value="Especialidade específica do profissional."></short>
+         <definition value="Especialidade específica do profissional."></definition>
+      </element>
+      <element id="PractitionerRole.location">
+         <path value="PractitionerRole.location"></path>
+         <short value="Local em que este profissional presta cuidados."></short>
+         <definition value="Local em que este profissional presta cuidados."></definition>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-location"></targetProfile>
+         </type>
+      </element>
+      <element id="PractitionerRole.healthcareService">
+         <path value="PractitionerRole.healthcareService"></path>
+         <short value="A lista de serviços de saúde que este profissional fornece para a organização/local(is) desta função."></short>
+         <definition value="A lista de serviços de saúde que este profissional fornece para a organização/local(is) desta função."></definition>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="https://br-core.saude.gov.br/fhir/StructureDefinition/br-core-healthcareservice"></targetProfile>
+         </type>
+      </element>
+      <element id="PractitionerRole.telecom">
+         <path value="PractitionerRole.telecom"></path>
+         <short value="Detalhes de contato específicos para a função/local/serviço."></short>
+         <definition value="Detalhes de contato específicos para a função/local/serviço."></definition>
+      </element>
+      <element id="PractitionerRole.availableTime">
+         <path value="PractitionerRole.availableTime"></path>
+         <short value="Horários em que o site do serviço está disponível."></short>
+         <definition value="Horários em que o site do serviço está disponível."></definition>
+      </element>
+      <element id="PractitionerRole.availableTime.id">
+         <path value="PractitionerRole.availableTime.id"></path>
+         <short value="ID exclusivo para referência entre elementos."></short>
+         <definition value="ID exclusivo para referência entre elementos."></definition>
+      </element>
+      <element id="PractitionerRole.availableTime.extension">
+         <path value="PractitionerRole.availableTime.extension"></path>
+         <short value="Conteúdo adicional definido por implementações."></short>
+         <definition value="Conteúdo adicional definido por implementações."></definition>
+      </element>
+      <element id="PractitionerRole.availableTime.modifierExtension">
+         <path value="PractitionerRole.availableTime.modifierExtension"></path>
+         <short value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></short>
+         <definition value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></definition>
+      </element>
+      <element id="PractitionerRole.availableTime.daysOfWeek">
+         <path value="PractitionerRole.availableTime.daysOfWeek"></path>
+         <short value="Dias da semana: seg| ter| qua| qui| sex| sab | dom."></short>
+         <definition value="Dias da semana: seg| ter| qua| qui| sex| sab | dom."></definition>
+      </element>
+      <element id="PractitionerRole.availableTime.allDay">
+         <path value="PractitionerRole.availableTime.allDay"></path>
+         <short value="Sempre disponível? sim ou não, por exemplo: serviço 24 horas."></short>
+         <definition value="Sempre disponível? por exemplo: serviço 24 horas."></definition>
+      </element>
+      <element id="PractitionerRole.availableTime.availableStartTime">
+         <path value="PractitionerRole.availableTime.availableStartTime"></path>
+         <short value="Hora de abertura do dia (ignorado se allDay = true)"></short>
+         <definition value="Hora de abertura do dia (ignorado se allDay = true)"></definition>
+      </element>
+      <element id="PractitionerRole.availableTime.availableEndTime">
+         <path value="PractitionerRole.availableTime.availableEndTime"></path>
+         <short value="Horário de fechamento do dia (ignorado se allDay = true)."></short>
+         <definition value="Horário de fechamento do dia (ignorado se allDay = true)."></definition>
+      </element>
+      <element id="PractitionerRole.notAvailable">
+         <path value="PractitionerRole.notAvailable"></path>
+         <short value="Não disponível durante este período devido ao motivo fornecido."></short>
+         <definition value="Não disponível durante este período devido ao motivo fornecido."></definition>
+      </element>
+      <element id="PractitionerRole.notAvailable.id">
+         <path value="PractitionerRole.notAvailable.id"></path>
+         <short value="ID exclusivo para referência entre elementos."></short>
+         <definition value="ID exclusivo para referência entre elementos."></definition>
+      </element>
+      <element id="PractitionerRole.notAvailable.extension">
+         <path value="PractitionerRole.notAvailable.extension"></path>
+         <short value="Conteúdo adicional definido por implementações."></short>
+         <definition value="Conteúdo adicional definido por implementações."></definition>
+      </element>
+      <element id="PractitionerRole.notAvailable.modifierExtension">
+         <path value="PractitionerRole.notAvailable.modifierExtension"></path>
+         <short value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></short>
+         <definition value="Extensões que não podem ser ignoradas mesmo que não sejam reconhecidas."></definition>
+      </element>
+      <element id="PractitionerRole.notAvailable.description">
+         <path value="PractitionerRole.notAvailable.description"></path>
+         <short value="Motivo apresentado ao usuário explicando porque o horário não está disponível."></short>
+         <definition value="Motivo apresentado ao usuário explicando porque o horário não está disponível."></definition>
+      </element>
+      <element id="PractitionerRole.notAvailable.during">
+         <path value="PractitionerRole.notAvailable.during"></path>
+         <short value="Serviço indisponível a partir desta data."></short>
+         <definition value="Serviço indisponível a partir desta data."></definition>
+      </element>
+      <element id="PractitionerRole.availabilityExceptions">
+         <path value="PractitionerRole.availabilityExceptions"></path>
+         <short value="Descrição da disponibilidade das exceções."></short>
+         <definition value="Descrição da disponibilidade das exceções."></definition>
+      </element>
+      <element id="PractitionerRole.endpoint">
+         <path value="PractitionerRole.endpoint"></path>
+         <short value="Endpoints que fornecem acesso a serviços operados para o profissional com esta função."></short>
+         <definition value="Endpoints que fornecem acesso a serviços operados para o profissional com esta função."></definition>
+      </element>
+   </differential>
+</StructureDefinition>

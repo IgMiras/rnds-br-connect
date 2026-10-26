@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="26d2d54f-ffc7-42b0-a0f4-6271c07b518c" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T23:04:32.536+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoSubstanciaUso" />
+  <version value="201701A" />
+  <name value="Tipo de Substância em Uso" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T23:04:30.8771699+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identifica o tipo de substância em uso conforme declaração do indivíduo, de acordo com o especificado no modelo de informação do Registro de Atendimento Clínico da Resolução CIT nº 33/2018." />
+  <content value="complete" />
+  <concept>
+    <code value="deriv-tabaco" />
+    <display value="Derivados do Tabaco" />
+  </concept>
+  <concept>
+    <code value="alcool" />
+    <display value="Bebidas Alcóolicas" />
+  </concept>
+  <concept>
+    <code value="maconha" />
+    <display value="Maconha" />
+  </concept>
+  <concept>
+    <code value="cocaina" />
+    <display value="Cocaína" />
+  </concept>
+  <concept>
+    <code value="crack" />
+    <display value="Crack" />
+  </concept>
+  <concept>
+    <code value="anfetamina" />
+    <display value="Anfetaminas ou Êxtase" />
+  </concept>
+  <concept>
+    <code value="inalante" />
+    <display value="Inalantes" />
+  </concept>
+  <concept>
+    <code value="hipno-seda" />
+    <display value="Hipnóticos ou Sedativos" />
+  </concept>
+  <concept>
+    <code value="alucinogeno" />
+    <display value="Alucinógenos" />
+  </concept>
+  <concept>
+    <code value="opio" />
+    <display value="Opióides ou Opiáceos" />
+  </concept>
+</CodeSystem>

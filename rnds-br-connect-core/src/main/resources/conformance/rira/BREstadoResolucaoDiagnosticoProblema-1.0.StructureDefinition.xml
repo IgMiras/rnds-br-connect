@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="d8303b8c-12e6-4e3b-8895-0d2de6c77262" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-17T18:54:26.222+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstadoResolucaoDiagnosticoProblema-1.0" />
+  <version value="1.0" />
+  <name value="BREstadoResolucaoDiagnosticoProblema" />
+  <title value="Estado da Resolução do Diagnóstico ou Problema" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-09-17T18:54:32.5701295+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Condition" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Estado da Resolução do Diagnóstico ou Problema" />
+      <max value="1" />
+      <isModifier value="false" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstadoResolucaoDiagnosticoProblema-1.0" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <short value="Estado da Resolução" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Estado da Resolução do Diagnóstico ou Problema" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoResolucaoDiagnosticoProblema-1.0" />
+      </binding>
+    </element>
+    <element id="Extension.value[x].coding">
+      <path value="Extension.value[x].coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Extension.value[x].coding.system">
+      <path value="Extension.value[x].coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].coding.code">
+      <path value="Extension.value[x].coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].coding.display">
+      <path value="Extension.value[x].coding.display" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].coding.userSelected">
+      <path value="Extension.value[x].coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].text">
+      <path value="Extension.value[x].text" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

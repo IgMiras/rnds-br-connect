@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2022-05-23T11:15:35.881+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRPosicaoIndividuo" />
+  <version value="01.00" />
+  <name value="Posição do Indivíduo" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2022-05-23T11:15:35.881+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="ValueSet utilizado para identificar a posição do indivíduo no momento da ação / procedimento." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRPosicaoIndividuo" />
+      <version value="*" />
+    </include>
+    <include>
+      <system value="https://loinc.org/" />
+      <version value="*" />
+      <concept>
+        <code value="LA11868-9" />
+        <display value="Sentado" />
+      </concept>
+      <concept>
+        <code value="LA11869-7" />
+        <display value="Deitado" />
+      </concept>
+      <concept>
+        <code value="LA11870-5" />
+        <display value="De pé" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

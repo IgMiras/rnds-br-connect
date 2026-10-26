@@ -1,0 +1,31 @@
+# Observation.value[x] do BRMedidaObservada, na forma codificada.
+#
+# O único domínio do framework SEM binding no perfil: o value[x] não restringe vocabulário
+# nenhum. O vocabulário muda com a medida — substância em uso, tipo de aleitamento — e quem
+# responde pelo par (system, code) é o integrador. A Camada 4 aceita qualquer coisa aqui.
+
+domain: VALOR_MEDIDA
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoSubstanciaUso
+
+mappings:
+  "TABACO":       { code: "deriv-tabaco", display: "Derivados do Tabaco" }
+  "ALCOOL":       { code: "alcool",       display: "Bebidas Alcóolicas" }
+  "MACONHA":      { code: "maconha",      display: "Maconha" }
+  "COCAINA":      { code: "cocaina",      display: "Cocaína" }
+  "CRACK":        { code: "crack",        display: "Crack" }
+  "ALEITAMENTO_EXCLUSIVO":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAleitamentoMaterno
+    code: "exclusivo"
+    display: "Exclusivo"
+  "ALEITAMENTO_PREDOMINANTE":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAleitamentoMaterno
+    code: "predominante"
+    display: "Predominante"
+  "ALEITAMENTO_COMPLEMENTADO":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAleitamentoMaterno
+    code: "complementado"
+    display: "Complementado"
+  "ALEITAMENTO_INEXISTENTE":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAleitamentoMaterno
+    code: "inexistente"
+    display: "Inexistente"

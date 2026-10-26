@@ -1,0 +1,990 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRFabricantePNI" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRFabricantePNI" />
+  <version value="1.1.2" />
+  <name value="BRFabricantePNI" />
+  <title value="Fabricante do Imunobiológico" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-01-02T18:15:54.9540124+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Apresenta o fabricante do imunobiológico." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="141" />
+    <display value="IVB" />
+    <definition value="INSTITUTO VITAL BRAZIL S.A" />
+    <designation>
+      <language value="en" />
+      <value value="INSTITUTO VITAL BRAZIL S.A" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="INSTITUTO VITAL BRAZIL S.A" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="142" />
+    <display value="PFIZER" />
+    <definition value="LABORATORIOS PFIZER LTDA" />
+    <designation>
+      <language value="en" />
+      <value value="LABORATORIOS PFIZER LTDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="LABORATORIOS PFIZER LTDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="149" />
+    <display value="FIOCRUZ" />
+    <definition value="FUNDACAO OSWALDO CRUZ" />
+    <designation>
+      <language value="en" />
+      <value value="FUNDACAO OSWALDO CRUZ" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="FUNDACAO OSWALDO CRUZ" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="150" />
+    <display value="FUNED" />
+    <definition value="FUNDACAO EZEQUIEL DIAS" />
+    <designation>
+      <language value="en" />
+      <value value="FUNDACAO EZEQUIEL DIAS" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="FUNDACAO EZEQUIEL DIAS" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="151" />
+    <display value="F.A.P." />
+    <definition value="FUNDACAO ATAULPHO DE PAIVA" />
+    <designation>
+      <language value="en" />
+      <value value="FUNDACAO ATAULPHO DE PAIVA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="FUNDACAO ATAULPHO DE PAIVA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="152" />
+    <display value="BUTANTAN" />
+    <definition value="INSTITUTO BUTANTAN" />
+    <designation>
+      <language value="en" />
+      <value value="INSTITUTO BUTANTAN" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="INSTITUTO BUTANTAN" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="153" />
+    <display value="TECPAR" />
+    <definition value="INSTITUTO DE TECNOLOGIA DO PARANA" />
+    <designation>
+      <language value="en" />
+      <value value="INSTITUTO DE TECNOLOGIA DO PARANA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="INSTITUTO DE TECNOLOGIA DO PARANA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="156" />
+    <display value="DADO B." />
+    <definition value="DADE BEHRING MARBUG GMBH" />
+    <designation>
+      <language value="en" />
+      <value value="DADE BEHRING MARBUG GMBH" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="DADE BEHRING MARBUG GMBH" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="159" />
+    <display value="SMITHKLINE" />
+    <definition value="GLAXOSMITHKLINE BEECHAM" />
+    <designation>
+      <language value="en" />
+      <value value="GLAXOSMITHKLINE BEECHAM" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="GLAXOSMITHKLINE BEECHAM" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="160" />
+    <display value="GREENCROSS" />
+    <definition value="GREEN CROSS - PHARMACEUTICAL B. M. CORP." />
+    <designation>
+      <language value="en" />
+      <value value="GREEN CROSS - PHARMACEUTICAL B. M. CORP." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="GREEN CROSS - PHARMACEUTICAL B. M. CORP." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="161" />
+    <display value="AVENTIS" />
+    <definition value="AVENTIS PASTEUR S.A." />
+    <designation>
+      <language value="en" />
+      <value value="AVENTIS PASTEUR S.A." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="AVENTIS PASTEUR S.A." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="162" />
+    <display value="CHIRON SPA" />
+    <definition value="NOVARTIS/CHIRON S.P.A. VACCINES" />
+    <designation>
+      <language value="en" />
+      <value value="NOVARTIS/CHIRON S.P.A. VACCINES" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="NOVARTIS/CHIRON S.P.A. VACCINES" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="163" />
+    <display value="SERUM-INDIA" />
+    <definition value="SERUM INSTITUTE OF INDIA LTD." />
+    <designation>
+      <language value="en" />
+      <value value="SERUM INSTITUTE OF INDIA LTD." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SERUM INSTITUTE OF INDIA LTD." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="164" />
+    <display value="LGCHEMICAL" />
+    <definition value="LG CHEMICAL INVESTIMENT LTD" />
+    <designation>
+      <language value="en" />
+      <value value="LG CHEMICAL INVESTIMENT LTD" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="LG CHEMICAL INVESTIMENT LTD" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="165" />
+    <display value="MERCK" />
+    <definition value="MERCK SHARP DOHME CO., INC." />
+    <designation>
+      <language value="en" />
+      <value value="MERCK SHARP DOHME CO., INC." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="MERCK SHARP DOHME CO., INC." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="166" />
+    <display value="BIKEN" />
+    <definition value="FUNDACAO INVEST. DE INFERM. MICROB. DA UNIVERSIDADE DE OSAKA" />
+    <designation>
+      <language value="en" />
+      <value value="FUNDACAO INVEST. DE INFERM. MICROB. DA UNIVERSIDADE DE OSAKA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="FUNDACAO INVEST. DE INFERM. MICROB. DA UNIVERSIDADE DE OSAKA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="167" />
+    <display value="SEVAC" />
+    <definition value="SEVAC S.A." />
+    <designation>
+      <language value="en" />
+      <value value="SEVAC S.A." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SEVAC S.A." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="168" />
+    <display value="BERNE" />
+    <definition value="SWISS SERUM AND VACCINES INSTITUTE BERNE" />
+    <designation>
+      <language value="en" />
+      <value value="SWISS SERUM AND VACCINES INSTITUTE BERNE" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SWISS SERUM AND VACCINES INSTITUTE BERNE" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="235" />
+    <display value="INCQS" />
+    <definition value="INSTITUTO NACIONAL DE CONTROLE DE QUALIDADE EM SAUDE" />
+    <designation>
+      <language value="en" />
+      <value value="INSTITUTO NACIONAL DE CONTROLE DE QUALIDADE EM SAUDE" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="INSTITUTO NACIONAL DE CONTROLE DE QUALIDADE EM SAUDE" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="239" />
+    <display value="BAYER" />
+    <definition value="BAYER CORPORATION - BIOLOGICAL PRODUCTS" />
+    <designation>
+      <language value="en" />
+      <value value="BAYER CORPORATION - BIOLOGICAL PRODUCTS" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BAYER CORPORATION - BIOLOGICAL PRODUCTS" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="608" />
+    <display value="BAXTER" />
+    <definition value="BAXTER VACCINE AKTIENGESELLSCHAFT" />
+    <designation>
+      <language value="en" />
+      <value value="BAXTER VACCINE AKTIENGESELLSCHAFT" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BAXTER VACCINE AKTIENGESELLSCHAFT" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="1659" />
+    <display value="CYANAMID" />
+    <definition value="AMERICAN CYANAMID COMPANY" />
+    <designation>
+      <language value="en" />
+      <value value="AMERICAN CYANAMID COMPANY" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="AMERICAN CYANAMID COMPANY" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="1913" />
+    <display value="CPPI" />
+    <definition value="CENTRO DE PRODUCAO E PESQUISA DE IMUNOBIOLOGICOS" />
+    <designation>
+      <language value="en" />
+      <value value="CENTRO DE PRODUCAO E PESQUISA DE IMUNOBIOLOGICOS" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="CENTRO DE PRODUCAO E PESQUISA DE IMUNOBIOLOGICOS" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2250" />
+    <display value="IIMUNO" />
+    <definition value="INSTITUTE OF IMMUNOLOGY - CROACIA" />
+    <designation>
+      <language value="en" />
+      <value value="INSTITUTE OF IMMUNOLOGY - CROACIA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="INSTITUTE OF IMMUNOLOGY - CROACIA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2260" />
+    <display value="CSL" />
+    <definition value="CSL BEHRING GMBH" />
+    <designation>
+      <language value="en" />
+      <value value="CSL BEHRING GMBH" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="CSL BEHRING GMBH" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2263" />
+    <display value="WYETH-LTDA" />
+    <definition value="WYETH INDUSTRIA FARMACEUTICA LTDA" />
+    <designation>
+      <language value="en" />
+      <value value="WYETH INDUSTRIA FARMACEUTICA LTDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="WYETH INDUSTRIA FARMACEUTICA LTDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2355" />
+    <display value="NOVARTIS" />
+    <definition value="NOVARTIS PHARMA SERVICES INC." />
+    <designation>
+      <language value="en" />
+      <value value="NOVARTIS PHARMA SERVICES INC." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="NOVARTIS PHARMA SERVICES INC." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2560" />
+    <display value="HEBER" />
+    <definition value="HEBER BIOTEC" />
+    <designation>
+      <language value="en" />
+      <value value="HEBER BIOTEC" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="HEBER BIOTEC" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2769" />
+    <display value="BERNA" />
+    <definition value="BERNA BIOTECH KOREA CORPORATION" />
+    <designation>
+      <language value="en" />
+      <value value="BERNA BIOTECH KOREA CORPORATION" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BERNA BIOTECH KOREA CORPORATION" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2862" />
+    <display value="SANPASTEUR" />
+    <definition value="SANOFI PASTEUR" />
+    <designation>
+      <language value="en" />
+      <value value="SANOFI PASTEUR" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SANOFI PASTEUR" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2901" />
+    <display value="MERIAL" />
+    <definition value="MERIAL MEXICO, SA BECV" />
+    <designation>
+      <language value="en" />
+      <value value="MERIAL MEXICO, SA BECV" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="MERIAL MEXICO, SA BECV" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="3521" />
+    <display value="BIOVET" />
+    <definition value="BIOVET" />
+    <designation>
+      <language value="en" />
+      <value value="BIOVET" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BIOVET" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="10534" />
+    <display value="CRUCELL" />
+    <definition value="CRUCELL SWEDEN AB" />
+    <designation>
+      <language value="en" />
+      <value value="CRUCELL SWEDEN AB" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="CRUCELL SWEDEN AB" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="11347" />
+    <display value="VIRBAC" />
+    <definition value="VIRBAC S.A" />
+    <designation>
+      <language value="en" />
+      <value value="VIRBAC S.A" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="VIRBAC S.A" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="12551" />
+    <display value="GRIFOLS" />
+    <definition value="GRIFOLS BRASIL LTDA" />
+    <designation>
+      <language value="en" />
+      <value value="GRIFOLS BRASIL LTDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="GRIFOLS BRASIL LTDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="12572" />
+    <display value="KEDRION" />
+    <definition value="KEDRION BIOPHARMA" />
+    <designation>
+      <language value="en" />
+      <value value="KEDRION BIOPHARMA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="KEDRION BIOPHARMA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="13219" />
+    <display value="BIOGENESIS" />
+    <definition value="BIOGENESIS-BAGO S/A" />
+    <designation>
+      <language value="en" />
+      <value value="BIOGENESIS-BAGO S/A" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BIOGENESIS-BAGO S/A" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="13688" />
+    <display value="SHANTHA" />
+    <definition value="SHANTHA BIOTECHNICS" />
+    <designation>
+      <language value="en" />
+      <value value="SHANTHA BIOTECHNICS" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SHANTHA BIOTECHNICS" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16763" />
+    <display value="BIOFARMA" />
+    <definition value="BIOFARMA" />
+    <designation>
+      <language value="en" />
+      <value value="BIOFARMA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BIOFARMA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="17934" />
+    <display value="BIOLOGICAL" />
+    <definition value="BIOLOGICAL E. LIMITED" />
+    <designation>
+      <language value="en" />
+      <value value="BIOLOGICAL E. LIMITED" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BIOLOGICAL E. LIMITED" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="18189" />
+    <display value="INTERVAX" />
+    <definition value="INTERVAX LTDA." />
+    <designation>
+      <language value="en" />
+      <value value="INTERVAX LTDA." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="INTERVAX LTDA." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="18190" />
+    <display value="BB-NCIPD" />
+    <definition value="BB-NCIPD LTD." />
+    <designation>
+      <language value="en" />
+      <value value="BB-NCIPD LTD." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BB-NCIPD LTD." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22942" />
+    <display value="LGLIFE" />
+    <definition value="LG LIFE SCIENCES LTDA" />
+    <designation>
+      <language value="en" />
+      <value value="LG LIFE SCIENCES LTDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="LG LIFE SCIENCES LTDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="26313" />
+    <display value="MERCK-GO" />
+    <definition value="MERCK SHARP E DOHME FARMACEUTICA LTDA / GO" />
+    <designation>
+      <language value="en" />
+      <value value="MERCK SHARP E DOHME FARMACEUTICA LTDA / GO" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="MERCK SHARP E DOHME FARMACEUTICA LTDA / GO" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="27816" />
+    <display value="EUBIOLOGI" />
+    <definition value="EUBIOLOGICS CO., LTD." />
+    <designation>
+      <language value="en" />
+      <value value="EUBIOLOGICS CO., LTD." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="EUBIOLOGICS CO., LTD." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="27880" />
+    <display value="GSK-BRASIL" />
+    <definition value="GLAXOSMITHKLINE BRASIL LTDA." />
+    <designation>
+      <language value="en" />
+      <value value="GLAXOSMITHKLINE BRASIL LTDA." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="GLAXOSMITHKLINE BRASIL LTDA." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28211" />
+    <display value="KAMADA" />
+    <definition value="KAMADA LTD." />
+    <designation>
+      <language value="en" />
+      <value value="KAMADA LTD." />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="KAMADA LTD." />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28251" />
+    <display value="SANMEDLEY" />
+    <definition value="SANOFI MEDLEY FARMACEUTICA LTDA" />
+    <designation>
+      <language value="en" />
+      <value value="SANOFI MEDLEY FARMACEUTICA LTDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SANOFI MEDLEY FARMACEUTICA LTDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28283" />
+    <display value="VINS" />
+    <definition value="VINS BIOPRODUCTS LIMITED" />
+    <designation>
+      <language value="en" />
+      <value value="VINS BIOPRODUCTS LIMITED" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="VINS BIOPRODUCTS LIMITED" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28290" />
+    <display value="PFIZER-BELGICA" />
+    <definition value="PFIZER MANUFACTURING BELGIUM NV - BELGICA" />
+    <designation>
+      <language value="en" />
+      <value value="PFIZER MANUFACTURING BELGIUM NV - BELGICA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="PFIZER MANUFACTURING BELGIUM NV - BELGICA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28303" />
+    <display value="PANACEA" />
+    <definition value="PANACEA BIOTEC LTD" />
+    <designation>
+      <language value="en" />
+      <value value="PANACEA BIOTEC LTD" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="PANACEA BIOTEC LTD" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28425" />
+    <display value="BIOGENESIS" />
+    <definition value="BIOGENESIS BAGO SAUDE ANIMAL LTDA" />
+    <designation>
+      <language value="en" />
+      <value value="BIOGENESIS BAGO SAUDE ANIMAL LTDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BIOGENESIS BAGO SAUDE ANIMAL LTDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28738" />
+    <display value="BOEHRINGER" />
+    <definition value="BOEHRINGER INGELHEIM ANIMAL HEALTH" />
+    <designation>
+      <language value="en" />
+      <value value="BOEHRINGER INGELHEIM ANIMAL HEALTH" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BOEHRINGER INGELHEIM ANIMAL HEALTH" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29501" />
+    <display value="SINOVAC" />
+    <definition value="SINOVAC LIFE SCIENCE CO., LTD" />
+    <designation>
+      <language value="en" />
+      <value value="SINOVAC LIFE SCIENCE CO., LTD" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SINOVAC LIFE SCIENCE CO., LTD" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29909" />
+    <display value="ASTRAZENECA" />
+    <definition value="ASTRAZENECA AB" />
+    <designation>
+      <language value="en" />
+      <value value="ASTRAZENECA AB" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="ASTRAZENECA AB" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="30357" />
+    <display value="EQUIPLEX" />
+    <definition value="EQUIPLEX INDUSTRIA FARMACEUTICA LTDA" />
+    <designation>
+      <language value="en" />
+      <value value="EQUIPLEX INDUSTRIA FARMACEUTICA LTDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="EQUIPLEX INDUSTRIA FARMACEUTICA LTDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="30587" />
+    <display value="JANSSEN" />
+    <definition value="JANSSEN PHARMACEUTICA NV" />
+    <designation>
+      <language value="en" />
+      <value value="JANSSEN PHARMACEUTICA NV" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="JANSSEN PHARMACEUTICA NV" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33502" />
+    <display value="BAV-NORDIC" />
+    <definition value="BAVARIAN NORDIC A/S" />
+    <designation>
+      <language value="en" />
+      <value value="BAVARIAN NORDIC A/S" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BAVARIAN NORDIC A/S" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33713" />
+    <display value="AMYIN" />
+    <definition value="AMYIN OHIO LLC" />
+    <designation>
+      <language value="en" />
+      <value value="AMYIN OHIO LLC" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="AMYIN OHIO LLC" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="35977" />
+    <display value="GAMALEYA" />
+    <definition value="INSTITUTO GAMALEYA" />
+    <designation>
+      <language value="en" />
+      <value value="INSTITUTO GAMALEYA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="INSTITUTO GAMALEYA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="35978" />
+    <display value="MODERNA" />
+    <definition value="MODERNA BIOTECH" />
+    <designation>
+      <language value="en" />
+      <value value="MODERNA BIOTECH" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="MODERNA BIOTECH" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="35979" />
+    <display value="BHARAT" />
+    <definition value="BHARAT BIOTECH" />
+    <designation>
+      <language value="en" />
+      <value value="BHARAT BIOTECH" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BHARAT BIOTECH" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="169" />
+    <display value="FINLAY" />
+    <definition value="FINLAY VACUNAS Y SUEROS" />
+    <designation>
+      <language value="en" />
+      <value value="FINLAY VACUNAS Y SUEROS" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="FINLAY VACUNAS Y SUEROS" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="712" />
+    <display value="BIOMERIEUX" />
+    <definition value="BIO LAB MERIEUX" />
+    <designation>
+      <language value="en" />
+      <value value="BIO LAB MERIEUX" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="BIO LAB MERIEUX" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="36271" />
+    <display value="ABBOTT-HOLAN" />
+    <definition value="ABBOTT BIOLOGICALS B.V. WEESP HOLANDA" />
+    <designation>
+      <language value="en" />
+      <value value="ABBOTT BIOLOGICALS B.V. WEESP HOLANDA" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="ABBOTT BIOLOGICALS B.V. WEESP HOLANDA" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28289" />
+    <display value="GLAXO-BIO" />
+    <definition value="GLAXOSMITHKLINE BIOLOGICALS S.A. - BELGICA" />
+  </concept>
+  <concept>
+    <code value="9406" />
+    <display value="HALEXISTAR" />
+    <definition value="HALEX ISTAR INDUSTRIA FARMACEUTICA" />
+  </concept>
+  <concept>
+    <code value="37646" />
+    <display value="EMERGENT" />
+    <definition value="EMERGENT BIOSOLUTIONS INC." />
+  </concept>
+  <concept>
+    <code value="26513" />
+    <display value="BEHRING" />
+    <definition value="CSL BEHRING COMERCIO DE PRODUTOS FARMACEUTICOS LTDA" />
+  </concept>
+  <concept>
+    <code value="39263" />
+    <display value="TAKEDA" />
+    <definition value="TAKEDA PHARMA LTDA." />
+  </concept>
+  <concept>
+    <code value="39262" />
+    <display value="IDT BIOLOGIKA" />
+    <definition value="IDT BIOLOGIKA GMBH" />
+  </concept>
+  <concept>
+    <code value="42490" />
+    <display value="SINOVAC" />
+    <definition value="SINOVAC BIOTECH CO. LTD" />
+  </concept>
+  <concept>
+    <code value="42430" />
+    <display value="MODERNA" />
+    <definition value="MODERNA SWITZERLAND GMBH" />
+  </concept>
+  <concept>
+    <code value="42488" />
+    <display value="ROVI-PHARMA" />
+    <definition value="ROVI PHARMA INDUSTRIAL SERVICES S.A." />
+  </concept>
+  <concept>
+    <code value="42489" />
+    <display value="CATALENT" />
+    <definition value="CATALENT INDIANA, LLC" />
+  </concept>
+  <concept>
+    <code value="42507" />
+    <display value="ADIUM" />
+    <definition value="ADIUM LABORATORIO FARMACEUTICO" />
+  </concept>
+  <concept>
+    <code value="42655" />
+    <display value="SK-BIOSCEN" />
+    <definition value="SK BIOSCIENCE CO., LTD" />
+  </concept>
+  <concept>
+    <code value="25538" />
+    <display value="MERCK-CAMPI" />
+    <definition value="MERCK SHARP &amp; DOHME FARMACEUTICA - CAMPINAS/SP" />
+  </concept>
+  <concept>
+    <code value="27883" />
+    <display value="MERCK-RJ" />
+    <definition value="MERCK S/A - RJ" />
+  </concept>
+  <concept>
+    <code value="42932" />
+    <display value="MSD-LLC" />
+    <definition value="MERCK SHARP &amp; DOHME LLC" />
+  </concept>
+  <concept>
+    <code value="42931" />
+    <display value="MERCK-SP" />
+    <definition value="MERCK SHARP &amp; DOHME FARMACEUTICA LTDA - SAO PAULO/SP" />
+  </concept>
+  <concept>
+    <code value="43175" />
+    <display value="GSK-SRL" />
+    <definition value="GLAXOSMITHKLINE VACCINES S.R.L" />
+  </concept>
+  <concept>
+    <code value="43202" />
+    <display value="GSK-FRANCA" />
+    <definition value="GLAXOSMITHKLINE BIOLOGICALS S.A. - FRANCA" />
+  </concept>
+  <concept>
+    <code value="43499" />
+    <display value="GC-BIOPHARMA" />
+    <definition value="GC BIOPHARMA CORP." />
+  </concept>
+  <concept>
+    <code value="31101" />
+    <display value="FARMACE" />
+    <definition value="FARMACE INDUSTRIA QUIMICO-FARMACEUTICA CEARENSE LTDA" />
+  </concept>
+  <concept>
+    <code value="43897" />
+    <display value="KI BIOPHARMA" />
+    <definition value="KI BIOPHARMA LLC LIMITED." />
+  </concept>
+  <concept>
+    <code value="44618" />
+    <display value="BIONTECH" />
+    <definition value="BIONTECH MANUFACTURING GMBH" />
+  </concept>
+  <concept>
+    <code value="44779" />
+    <display value="MIBE" />
+    <definition value="MIBE GMBH ARZNEIMITTEL BRECHNA" />
+  </concept>
+  <concept>
+    <code value="44805" />
+    <display value="BEIJING" />
+    <definition value="BEIJING INSTITUTE OF BIOLOGICAL PRODUCTS CO., LTD." />
+  </concept>
+  <concept>
+    <code value="44781" />
+    <display value="JUBILANT" />
+    <definition value="JUBILANT HOLLISTERSTIER LLC" />
+  </concept>
+  <concept>
+    <code value="45086" />
+    <display value="PFIZER-IRLANDA" />
+    <definition value="PFIZER IRELAND PHARMACEUTICALS" />
+  </concept>
+</CodeSystem>

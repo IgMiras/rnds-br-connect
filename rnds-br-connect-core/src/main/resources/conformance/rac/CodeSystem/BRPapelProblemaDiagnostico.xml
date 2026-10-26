@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-03-11T18:16:07.800+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRPapelProblemaDiagnostico" />
+  <version value="1.0" />
+  <name value="Classificação do papel de um problema/diagnóstico." />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-11T18:16:28.3110021+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classificação do papel de um problema/diagnóstico." />
+  <content value="complete" />
+  <concept>
+    <code value="NAD" />
+    <display value="Diagnosis not present on admission" />
+    <designation>
+      <language value="pt-br" />
+      <value value="Diagnóstico não presente na admissão" />
+    </designation> 
+  </concept>
+  <concept>
+    <code value="UNK" />
+    <display value="Unknown" />
+    <designation>
+      <language value="pt-br" />
+      <value value="Desconhecido" />
+    </designation>
+  </concept>
+</CodeSystem>

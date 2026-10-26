@@ -1,0 +1,148 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRNomeExameGAL" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameGAL" />
+  <version value="2.0" />
+  <name value="BRNomeExameGAL" />
+  <title value="Exames do GAL" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-05-05T11:53:58.0082379+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description
+    value="Classifica o exame laboratorial realizado em amostra biológica para diagnóstico laboratorial, de acordo com o Gerenciador de Ambiente Laboratorial (GAL)." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="coronavirusnCoV" />
+    <display value="Novo coronavírus (2019-nCoV)" />
+  </concept>
+  <concept>
+    <code value="COVID" />
+    <display value="COVID-19, Biologia Molecular" />
+  </concept>
+  <concept>
+    <code value="CVIDGG" />
+    <display value="COVID-19, IgG" />
+  </concept>
+  <concept>
+    <code value="CVIDGM" />
+    <display value="COVID-19, IgM" />
+  </concept>
+  <concept>
+    <code value="CHIKBM" />
+    <display value="CHIKUNGUNYA, BIOLOGIA MOLECULAR" />
+  </concept>
+  <concept>
+    <code value="CHIKG" />
+    <display value="CHIKUNGUNYA, IGG" />
+  </concept>
+  <concept>
+    <code value="CHIKM" />
+    <display value="CHIKUNGUNYA, IGM" />
+  </concept>
+  <concept>
+    <code value="CHIKTR" />
+    <display value="CHIKUNGUNYA, TESTE RAPIDO IGM" />
+  </concept>
+  <concept>
+    <code value="DENGG" />
+    <display value="DENGUE IGG" />
+  </concept>
+  <concept>
+    <code value="DENGM" />
+    <display value="DENGUE IGM" />
+  </concept>
+  <concept>
+    <code value="DENGMS" />
+    <display value="DENGUE IGM SOROLOGIA" />
+  </concept>
+  <concept>
+    <code value="DENGTR" />
+    <display value="DENGUE TESTE RAPIDO" />
+  </concept>
+  <concept>
+    <code value="DENAN" />
+    <display value="DENGUE, DETECCAO DE ANTIGENO NS1" />
+  </concept>
+  <concept>
+    <code value="FEAMB" />
+    <display value="FEBRE AMARELA BIOLOGIA MOLECULAR" />
+  </concept>
+  <concept>
+    <code value="FEAMM" />
+    <display value="FEBRE AMARELA IGM" />
+  </concept>
+  <concept>
+    <code value="FAEAPV" />
+    <display value="FEBRE AMARELA, EVENTO ADVERSO POS VACINAL/EAPV" />
+  </concept>
+  <concept>
+    <code value="FEAMG" />
+    <display value="FEBRE AMARELA, IGG" />
+  </concept>
+  <concept>
+    <code value="FAIMIG" />
+    <display value="FEBRE AMARELA, TESTE RAPIDO IGM/IGG" />
+  </concept>
+  <concept>
+    <code value="PEQARB" />
+    <display value="PESQUISA DE ARBOVIRUS" />
+  </concept>
+  <concept>
+    <code value="PEQZDC" />
+    <display value="PESQUSA DE ARBOVIRUS (ZDC)" />
+  </concept>
+  <concept>
+    <code value="ZIKABM" />
+    <display value="ZIKA BIOLOGIA MOLECULAR" />
+  </concept>
+  <concept>
+    <code value="ZIKAGG" />
+    <display value="ZIKA IGG" />
+  </concept>
+  <concept>
+    <code value="ZIKAGM" />
+    <display value="ZIKA IGM" />
+  </concept>
+  <concept>
+    <code value="ZIKATR" />
+    <display value="ZIKA TESTE RAPIDO IGG E IGM" />
+  </concept>
+  <concept>
+    <code value="FENLB" />
+    <display value="Febre do Nilo Ocidental, Biologia Molecular" />
+  </concept>
+  <concept>
+    <code value="FENLG" />
+    <display value="Febre do Nilo Ocidental, IgG" />
+  </concept>
+  <concept>
+    <code value="FENLM" />
+    <display value="Febre do Nilo Ocidental, IgM" />
+  </concept>
+  <concept>
+    <code value="MAYBIO" />
+    <display value="Mayaro, Biologia Molecular" />
+  </concept>
+  <concept>
+    <code value="MAYIGG" />
+    <display value="Mayaro, IgG" />
+  </concept>
+  <concept>
+    <code value="MAYIGM" />
+    <display value="Mayaro, IgM" />
+  </concept>
+  <concept>
+    <code value="OROBIO" />
+    <display value="Oropouche, Biologia Molecular" />
+  </concept>
+  <concept>
+    <code value="OROIGG" />
+    <display value="Oropouche, IgG" />
+  </concept>
+  <concept>
+    <code value="OROIGM" />
+    <display value="Oropouche, IgM" />
+  </concept>
+</CodeSystem>

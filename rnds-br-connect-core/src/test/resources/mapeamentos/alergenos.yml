@@ -1,0 +1,18 @@
+# AllergyIntolerance.code — MIGRADO de alergenos.properties, que só podia carregar um
+# CodeSystem. O BRAlergenos-1.0 compõe três: CBARA (alérgenos propriamente ditos),
+# BRImunobiologico (vacinas e soros) e BRMedicamento. A entrada do SA está preservada
+# palavra por palavra; a do RAC é o soro antitetânico, que o exemplo oficial registra.
+#
+# Tabela compartilhada entre SA e RAC: mescla-se, nunca se reescreve.
+
+domain: ALERGENO
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRMedicamento
+
+mappings:
+  "DIPIRONA_SOLUCAO":
+    code: "BR0267205U0063"
+    display: "DIPIRONA SÓDICA 500 MG/ML SOLUÇÃO ORAL 10 ML"
+  "SORO_ANTITETANICO":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRImunobiologico
+    code: "2"
+    display: "SAT"

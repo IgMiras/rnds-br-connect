@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-03-11T19:14:51.806+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCategoriaCondicao" />
+  <version value="1.0" />
+  <name value="Classificação de uma condição." />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-03-11T19:15:12.2909517+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Tradução para o português do brasil da classificação de uma condição" />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/condition-category" />
+      <version value="*" />
+       <concept>
+         <code value="problem-list-item" />
+         <display value="Problem List Item" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Problema listado" />
+         </designation>
+       </concept>
+       <concept>
+         <code value="encounter-diagnosis" />
+         <display value="Encounter Diagnosis" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Diagnóstico" />
+         </designation>
+       </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,182 @@
+# Tabela de/para da RN1 do Manual de Integracao do REL.
+#
+# GERADO por scripts/extrair-rn1-manual-rel.py. NAO EDITAR A MAO.
+# Fonte: RELManualDeIntegracaoDaRNDS.pdf, secao 7.2 e Anexo (secao 12).
+#
+# RN1: "Cada tipo de interpretacao esta condicionado ao tipo de diagnostico
+#       laboratorial realizado de acordo com o anexo tabela regra de negocio"
+#
+# Para cada codigo LOINC, o CodeSystem de onde o resultado qualitativo deve vir.
+# 160 codigos cobertos: 106 DTNT, 53 RGNR, 1 PRAU
+#
+# COBERTURA PARCIAL: a tabela traz 160 codigos, mas 7 deles estao entre os
+# removidos pelo compose.exclude do ValueSet BRNomeExame-2.0 — a RN1 se
+# pronuncia sobre codigos que a RNDS nao aceita. Dos 442 efetivamente
+# aceitos, 153 constam desta tabela e 289 nao.
+#
+# Para os 289 ausentes a regra nada diz, e o validador deve ACEITAR:
+# silencio do manual nao e proibicao. Tratar ausencia como proibicao
+# impediria o envio de 289 exames legitimos.
+
+regra: RN1
+codigos:
+  "100383-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "100434-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "100885-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "100886-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "100887-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "100888-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "100889-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "100891-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "100892-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "100893-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "41853-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94306-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94307-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94308-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94309-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94310-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94311-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94312-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94313-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94314-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94315-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94316-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94500-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94502-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94503-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94504-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94505-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94506-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94507-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94508-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94509-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94510-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94511-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94531-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94532-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94533-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94534-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94547-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94558-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94559-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94562-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94563-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94564-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94565-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94639-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94640-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94641-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94642-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94643-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94644-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94645-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94646-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94647-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94660-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94661-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94720-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94745-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94746-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94756-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94757-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94758-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94759-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94760-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94761-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94762-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94763-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoPRAU
+  "94764-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94765-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94766-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94767-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94768-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94769-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "94819-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94822-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "94845-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95125-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95209-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95380-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95406-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95409-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95410-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95411-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95416-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95422-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95423-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95424-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95425-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95427-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95428-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95429-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95521-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95522-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95542-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95608-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95609-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95823-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95824-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95825-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95826-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95941-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95942-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95970-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "95971-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95972-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95973-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "95974-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "96091-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96094-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96118-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "96119-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "96120-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96121-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96122-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96123-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96448-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96603-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "96741-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96742-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "96751-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96752-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96755-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96763-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96764-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96765-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96766-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96797-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96829-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96894-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96895-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96896-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96897-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96898-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96899-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96900-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96957-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96958-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "96986-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "97097-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "97098-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "97099-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "97104-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "98062-3": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "98069-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "98080-5": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "98131-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "98132-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "98493-0": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "98494-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "98732-1": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "98733-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "98734-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "98846-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "98847-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "99314-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+  "99596-9": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "99597-7": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "99771-8": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "99772-6": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "99773-4": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR
+  "99774-2": http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoRGNR

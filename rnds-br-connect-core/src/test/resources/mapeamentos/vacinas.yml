@@ -1,0 +1,31 @@
+# Correspondência entre o vocabulário local e o BRImunobiologico da RNDS.
+#
+# Este arquivo é revisado por profissional de saúde, não por desenvolvedor.
+# O campo `display` traz o rótulo oficial da RNDS para tornar a revisão possível;
+# o campo `validatedBy` registra quem assinou a correspondência.
+#
+# ATENÇÃO ao código local "105": no vocabulário deste sistema ele é a Pfizer.
+# No BRImunobiologico, "105" TAMBÉM existe — e é a Moderna Spikevax Bivalente.
+# É exatamente por isso que a correspondência precisa ser explícita.
+
+domain: VACINA
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRImunobiologico
+
+# Cabeçalho: quem validou clinicamente a tabela inteira. Uma entrada pode
+# sobrescrever quando a revisão daquele item coube a outra pessoa.
+validatedBy: "SMS-Presidente Prudente · Enf. resp. imunização · COREN-SP 123456"
+
+mappings:
+  "105":
+    code: "87"
+    display: "COVID-19 PFIZER - COMIRNATY"
+  "106":
+    code: "88"
+    display: "COVID-19 JANSSEN - Ad26.COV2.S"
+  "HEPA_INF":
+    code: "55"
+    display: "HepAinf"
+  "BCG":
+    code: "15"
+    display: "BCG"
+    validatedBy: "PNI/SMS-Presidente Prudente · revisão específica BCG · COREN-SP 654321"

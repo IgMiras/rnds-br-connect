@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-12-07T15:41:00.201+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstrategiaVacinacaoCampanha-1.0" />
+  <version value="1.0" />
+  <name value="Estratégia de Vacinação em Campanha" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-12-07T15:41:00.2986924+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identifica a estratégia de vacinação adotada.na campanha" />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BREstrategiaVacinacao" />
+      <version value="*" />
+	  <concept>
+	    <code value="5" />
+        <display value="Campanha indiscriminada" />
+      </concept>
+      <concept>
+        <code value="6" />
+        <display value="Campanha seletiva" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

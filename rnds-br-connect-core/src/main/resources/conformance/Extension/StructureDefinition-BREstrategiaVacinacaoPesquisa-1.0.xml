@@ -1,0 +1,96 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="BREstrategiaVacinacaoPesquisa-1.0" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaVacinacaoPesquisa-1.0" />
+  <version value="01.11" />
+  <name value="BREstrategiaVacinacaoPesquisa" />
+  <title value="Estratégia de Vacinação Pesquisa" />
+  <status value="active" />
+  <date value="2021-09-03" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Extensão para as informações relacionadas aos dados da pesquisa clínica registrada na ANVISA." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Immunization.protocolApplied" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Estrategia de Vacinacao Pesquisa" />
+      <definition value="Extensão para as informações relacionadas aos dados da pesquisa clínica registrada na ANVISA." />
+      <alias value="Pesquisa Clínica" />
+      <mustSupport value="false" />
+    </element>
+    <element id="Extension.extension:numeroProtocoloEstudoANVISA">
+      <path value="Extension.extension" />
+      <sliceName value="numeroProtocoloEstudoANVISA" />
+      <label value="Anvisa Protocolo Estudo" />
+      <short value="Anvisa Protocolo Estudo" />
+      <definition value="Número do protocolo do estudo clínico na Anvisa." />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:numeroProtocoloEstudoANVISA.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="numeroProtocoloEstudoANVISA" />
+    </element>
+    <element id="Extension.extension:numeroProtocoloEstudoANVISA.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:numeroVersaoProtocoloEstudo">
+      <path value="Extension.extension" />
+      <sliceName value="numeroVersaoProtocoloEstudo" />
+      <label value="Anvisa Protocolo Versão" />
+      <short value="Anvisa Protocolo Versão" />
+      <definition value="Número da versão do protocolo do estudo na Anvisa." />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:numeroVersaoProtocoloEstudo.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="numeroVersaoProtocoloEstudo" />
+    </element>
+    <element id="Extension.extension:numeroVersaoProtocoloEstudo.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:numeroRegistroVacinaAnvisa">
+      <path value="Extension.extension" />
+      <sliceName value="numeroRegistroVacinaAnvisa" />
+      <label value="Anvisa Num Registro" />
+      <short value="Anvisa Num Registro" />
+      <definition value="Número do registro sanitário da vacina na Anvisa, seja este registro emergencial ou definitivo." />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:numeroRegistroVacinaAnvisa.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="numeroRegistroVacinaAnvisa" />
+    </element>
+    <element id="Extension.extension:numeroRegistroVacinaAnvisa.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaVacinacaoPesquisa-1.0" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

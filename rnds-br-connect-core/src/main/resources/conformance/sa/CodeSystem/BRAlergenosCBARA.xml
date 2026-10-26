@@ -1,0 +1,2467 @@
+<?xml version="1.0" ?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+
+	<id value="a091fd3f-1552-4bd2-8b92-02cfe23c4974"/>
+
+	<meta>
+
+		<lastUpdated value="2022-12-02T15:11:07.348995+00:00"/>
+
+	</meta>
+
+	<language value="pt-BR"/>
+
+	<url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRAlergenosCBARA"/>
+
+	<version value="1.1.0"/>
+
+	<name value="CBARA"/>
+
+	<title value="Catálogo Brasileiro de Alergias e Reações Adversas (CBARA)"/>
+
+	<status value="active"/>
+
+	<experimental value="false"/>
+
+	<date value="2022-12-02T15:11:07.301430+00:00"/>
+
+	<publisher value="Agência Nacional de Saúde Suplementar e Associação Médica Brasileira"/>
+
+	<description value="Classifica as alergias e reações adversas."/>
+
+	<content value="complete"/>
+
+	<concept>
+
+		<code value="abelha"/>
+
+		<display value="Abelha"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="acaro"/>
+
+		<display value="Ácaros"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="acido-azelaico"/>
+
+		<display value="Ácido azelaico"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="adesivo"/>
+
+		<display value="Adesivos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="aditivo-alimentar"/>
+
+		<display value="Aditivos alimentares"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="agente-fisico"/>
+
+		<display value="Agentes físicos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="aipo"/>
+
+		<display value="Aipo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="alcool-polivinilico"/>
+
+		<display value="Álcool polivinílico"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="alho"/>
+
+		<display value="Alho"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="aluminio"/>
+
+		<display value="Alumínio"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="ambrosia"/>
+
+		<display value="Ambrósia"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="amendoim"/>
+
+		<display value="Amendoim"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="antralina"/>
+
+		<display value="Antralina"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="aranha"/>
+
+		<display value="Aranha"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="areia"/>
+
+		<display value="Areia"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="arroz"/>
+
+		<display value="Arroz"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="arvore"/>
+
+		<display value="Árvores"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="aspartame"/>
+
+		<display value="Aspartame"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="atum"/>
+
+		<display value="Atum"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="aveia"/>
+
+		<display value="Aveia"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="avela"/>
+
+		<display value="Avelã"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="bacalhau"/>
+
+		<display value="Bacalhau"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="banana"/>
+
+		<display value="Banana"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="barata"/>
+
+		<display value="Barata"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="batata"/>
+
+		<display value="Batata"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="baunilha"/>
+
+		<display value="Baunilha"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="borracha"/>
+
+		<display value="Borracha"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="camarao"/>
+
+		<display value="Camarão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="canela"/>
+
+		<display value="Canela"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="caracol"/>
+
+		<display value="Caracol"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="caranguejo"/>
+
+		<display value="Caranguejo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="carbaril"/>
+
+		<display value="Carbaril"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="carne"/>
+
+		<display value="Carne"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="carne-ave"/>
+
+		<display value="Carne de aves"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="carne-vermelha"/>
+
+		<display value="Carne vermelha"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="castanha"/>
+
+		<display value="Castanhas"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="castanha-caju"/>
+
+		<display value="Castanha de caju"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cebola"/>
+
+		<display value="Cebola"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cenoura"/>
+
+		<display value="Cenoura"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="centeio"/>
+
+		<display value="Centeio"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cereal"/>
+
+		<display value="Cereal"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cereja"/>
+
+		<display value="Cereja"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="chocolate"/>
+
+		<display value="Chocolate"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="citrato"/>
+
+		<display value="Citrato"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="clara-ovo"/>
+
+		<display value="Clara do ovo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cloreto-metilbenzetonio"/>
+
+		<display value="Cloreto de Metilbenzetônio"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cobre"/>
+
+		<display value="Cobre"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="coco"/>
+
+		<display value="Coco"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="coelho"/>
+
+		<display value="Coelho"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cogumelo"/>
+
+		<display value="Cogumelos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cola"/>
+
+		<display value="Cola"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="contato-metal"/>
+
+		<display value="Contato com Metal"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cosmetico"/>
+
+		<display value="Cosméticos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="cravo-india"/>
+
+		<display value="Cravo-da- Índia"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="crustaceo"/>
+
+		<display value="Crustáceos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="curry"/>
+
+		<display value="Curry"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="enxofre"/>
+
+		<display value="Enxofre"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="erva-aromatica-especiaria"/>
+
+		<display value="Ervas aromáticas e especiarias"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="erva-daninha"/>
+
+		<display value="Ervas daninhas"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="etanolamina"/>
+
+		<display value="Etanolamina"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="farinha"/>
+
+		<display value="Farinha"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="feijao"/>
+
+		<display value="Feijão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="ferro"/>
+
+		<display value="Ferro"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="figo"/>
+
+		<display value="Figos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="framboesa"/>
+
+		<display value="Framboesa"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="fruta-citrica"/>
+
+		<display value="Frutas cítricas"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="gengibre"/>
+
+		<display value="Gengibre"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="glutamato"/>
+
+		<display value="Glutamato"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="grama"/>
+
+		<display value="Grama"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="grao"/>
+
+		<display value="Grão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="grao-soja"/>
+
+		<display value="Grãos de soja"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="kiwi"/>
+
+		<display value="Kiwi"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="la"/>
+
+		<display value="Lã"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="lagosta"/>
+
+		<display value="Lagosta"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="lambreta"/>
+
+		<display value="Lambreta"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="lanolina"/>
+
+		<display value="Lanolina"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="laranja"/>
+
+		<display value="Laranja"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="latao"/>
+
+		<display value="Latão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="latex"/>
+
+		<display value="Látex"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="laticinio"/>
+
+		<display value="Laticínios"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="leguminosa"/>
+
+		<display value="Leguminosas"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="lima"/>
+
+		<display value="Lima"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="limao"/>
+
+		<display value="Limão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="lula"/>
+
+		<display value="Lula"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="maca"/>
+
+		<display value="Maçã"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="madeira"/>
+
+		<display value="Madeira"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="manga"/>
+
+		<display value="Manga"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="manteiga-cacau"/>
+
+		<display value="Manteiga de cacau"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="marisco"/>
+
+		<display value="Marisco"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="material-dentario-policarboneto"/>
+
+		<display value="Material dentário em policarboneto"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="material-sutura"/>
+
+		<display value="Material de sutura"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="melancia"/>
+
+		<display value="Melancia"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="melao"/>
+
+		<display value="Melão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="mexilhao"/>
+
+		<display value="Mexilhão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="milho"/>
+
+		<display value="Milho"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="mirtilo"/>
+
+		<display value="Mirtilos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="morango"/>
+
+		<display value="Morango"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="mostarda"/>
+
+		<display value="Mostarda"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="niquel"/>
+
+		<display value="Níquel"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="noz"/>
+
+		<display value="Nozes"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="noz-moscada"/>
+
+		<display value="Noz moscada"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="oleo-eucalipto"/>
+
+		<display value="Óleo de eucalipto"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="oleo-peixe"/>
+
+		<display value="Óleo de Peixe"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="organofosfato"/>
+
+		<display value="Organofosfatos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="ostra"/>
+
+		<display value="Ostra"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="ouro"/>
+
+		<display value="Ouro"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="outro-agente-substancia"/>
+
+		<display value="Outros agentes ou substâncias"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="outro-alimento"/>
+
+		<display value="Outro alimento"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="paprica"/>
+
+		<display value="Páprica"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="parafina"/>
+
+		<display value="Parafina"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="peixe"/>
+
+		<display value="Peixe"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="peixe-aranha"/>
+
+		<display value="Peixe-Aranha"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pelo-animal"/>
+
+		<display value="Pelo de animais"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pelo-cao"/>
+
+		<display value="Pelo de cão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pelo-cavalo"/>
+
+		<display value="Pelo de cavalo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pelo-coelho"/>
+
+		<display value="Pelo de coelho"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pelo-gato"/>
+
+		<display value="Pelo de gato"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pelo-vaca"/>
+
+		<display value="Pelo de vaca"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pena"/>
+
+		<display value="Penas"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="perfluorinato"/>
+
+		<display value="Perfluorinato"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="perfume"/>
+
+		<display value="Perfume"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="peroxido-benzoila"/>
+
+		<display value="Peróxido de Benzoíla"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pessego"/>
+
+		<display value="Pêssego"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pesticida"/>
+
+		<display value="Pesticidas"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pesticida-organoclorado"/>
+
+		<display value="Pesticida organoclorado"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pimenta"/>
+
+		<display value="Pimenta"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pinhao"/>
+
+		<display value="Pinhão"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="pistache"/>
+
+		<display value="Pistache"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="podofilina"/>
+
+		<display value="Podofilina"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="polen"/>
+
+		<display value="Pólen"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="polen-grama"/>
+
+		<display value="Pólen de grama"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="polvo"/>
+
+		<display value="Polvo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="porco"/>
+
+		<display value="Porco"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="prata"/>
+
+		<display value="Prata"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="proteina-leite-vaca"/>
+
+		<display value="Proteína do leite de vaca"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="proteina-ovo"/>
+
+		<display value="Proteína do ovo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="queijo"/>
+
+		<display value="Queijo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="resina-arvore"/>
+
+		<display value="Resina de árvore"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="samambaia"/>
+
+		<display value="Samambaia"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="seda"/>
+
+		<display value="Seda"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="semente"/>
+
+		<display value="Semente"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="sepia"/>
+
+		<display value="Sépia"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="silicone-derivado"/>
+
+		<display value="Silicone e seus derivados"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="sulfito"/>
+
+		<display value="Sulfitos"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="terpeno"/>
+
+		<display value="Terpeno"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="tinta-cabelo"/>
+
+		<display value="Tinta para o cabelo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="tinta-textil"/>
+
+		<display value="Tintas para têxteis"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="tomate"/>
+
+		<display value="Tomate"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="toxina-botulinica"/>
+
+		<display value="Toxina botulínica"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="trigo"/>
+
+		<display value="Trigo"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="food"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="veneno-escorpiao"/>
+
+		<display value="Veneno de escorpião"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+	<concept>
+
+		<code value="veneno-vespa"/>
+
+		<display value="Veneno de vespa"/>
+
+		<property>
+
+			<code value="category"/>
+
+			<valueCode value="environment"/>
+
+		</property>
+
+	</concept>
+
+</CodeSystem>

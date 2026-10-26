@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRDispensacaoMedicamento" />
+  <version value="01.00" />
+  <name value="BRDispensacaoMedicamento" />
+  <status value="draft" />
+  <description value="Dispensação do Medicamento prescrito." />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationDispense" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationDispense" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationDispense.implicitRules">
+      <path value="MedicationDispense.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.language">
+      <path value="MedicationDispense.language" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.text">
+      <path value="MedicationDispense.text" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.contained">
+      <path value="MedicationDispense.contained" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.extension">
+      <path value="MedicationDispense.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.extension:medicationRequestDate">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="medicationRequestDate" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRDataPrescricao" />
+      </type>
+    </element>
+    <element id="MedicationDispense.extension:medicationRequestDate.url">
+      <path value="MedicationDispense.extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRDataPrescricao" />
+    </element>
+    <element id="MedicationDispense.extension:medicationMonetaryValue">
+      <path value="MedicationDispense.extension" />
+      <sliceName value="medicationMonetaryValue" />
+      <definition value="Valor em reais da apresentação dispensada." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRValorMedicamento" />
+      </type>
+    </element>
+    <element id="MedicationDispense.extension:medicationMonetaryValue.url">
+      <path value="MedicationDispense.extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRValorMedicamento" />
+    </element>
+    <element id="MedicationDispense.identifier">
+      <path value="MedicationDispense.identifier" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.partOf">
+      <path value="MedicationDispense.partOf" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.statusReason[x]">
+      <path value="MedicationDispense.statusReason[x]" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.category">
+      <path value="MedicationDispense.category" />
+      <short value="Modalidade da Dispensação" />
+      <definition value="Representa em qual modalidade de estabelecimento ou financiamento a dispensação está sendo realizada: Unidade de saúde pública ou privada, com pagamento pelo SUS ou Drogaria comercial, com pagamento (gratuidade de copagamento) pelo Programa Farmácia Popular do Brasil." />
+      <min value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Modalidade Financeira" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRModalidadeFinanceira" />
+      </binding>
+    </element>
+    <element id="MedicationDispense.medication[x]">
+      <path value="MedicationDispense.medication[x]" />
+      <short value="Medicamento dispensado" />
+      <definition value="Identificação do medicamento dispensado." />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedicamento" />
+      </type>
+    </element>
+    <element id="MedicationDispense.subject">
+      <path value="MedicationDispense.subject" />
+      <short value="Identificação do indivíduo" />
+      <definition value="Identificação do indivíduo dispensado do medicamento." />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+      </type>
+    </element>
+    <element id="MedicationDispense.subject.reference">
+      <path value="MedicationDispense.subject.reference" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.subject.type">
+      <path value="MedicationDispense.subject.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.subject.display">
+      <path value="MedicationDispense.subject.display" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.context">
+      <path value="MedicationDispense.context" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.supportingInformation">
+      <path value="MedicationDispense.supportingInformation" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer">
+      <path value="MedicationDispense.performer" />
+      <short value="Estabelecimento de Saúde e Profissional" />
+      <definition value="Identificação do Estabelecimento de Saúde e Profissional dispensador." />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.performer.id">
+      <path value="MedicationDispense.performer.id" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.function">
+      <path value="MedicationDispense.performer.function" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor">
+      <path value="MedicationDispense.performer.actor" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProfissional-1.0" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0" />
+      </type>
+    </element>
+    <element id="MedicationDispense.performer.actor.id">
+      <path value="MedicationDispense.performer.actor.id" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor.reference">
+      <path value="MedicationDispense.performer.actor.reference" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor.type">
+      <path value="MedicationDispense.performer.actor.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor.identifier.id">
+      <path value="MedicationDispense.performer.actor.identifier.id" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor.identifier.use">
+      <path value="MedicationDispense.performer.actor.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor.identifier.type">
+      <path value="MedicationDispense.performer.actor.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor.identifier.period">
+      <path value="MedicationDispense.performer.actor.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.performer.actor.identifier.assigner">
+      <path value="MedicationDispense.performer.actor.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.location">
+      <path value="MedicationDispense.location" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
+      <path value="MedicationDispense.authorizingPrescription" />
+      <short value="Identificação do registro de prescrição eletrônica" />
+      <definition value="Referência às informações do registro de prescrição do medicamento." />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroPrescricaoMedicamento" />
+      </type>
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.id">
+      <path value="MedicationDispense.authorizingPrescription.id" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.type">
+      <path value="MedicationDispense.authorizingPrescription.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.type">
+      <path value="MedicationDispense.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.quantity">
+      <path value="MedicationDispense.quantity" />
+      <short value="Quantidade dispensada no atendimento" />
+      <definition value="Quantidade do produto dispensado (unidade)." />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.quantity.id">
+      <path value="MedicationDispense.quantity.id" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.daysSupply">
+      <path value="MedicationDispense.daysSupply" />
+      <short value="Quantidade de dias de fornecimento" />
+      <definition value="Quantidade de dias de fornecimento de produto dispensado." />
+    </element>
+    <element id="MedicationDispense.whenPrepared">
+      <path value="MedicationDispense.whenPrepared" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.whenHandedOver">
+      <path value="MedicationDispense.whenHandedOver" />
+      <short value="Data e hora da dispensação" />
+      <definition value="Indica a data e hora da dispensação do medicamento." />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.destination">
+      <path value="MedicationDispense.destination" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.receiver">
+      <path value="MedicationDispense.receiver" />
+      <short value="Quem retirou o medicamento" />
+      <definition value="Identificação de quem retirou o medicamento." />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+      </type>
+    </element>
+    <element id="MedicationDispense.note">
+      <path value="MedicationDispense.note" />
+      <short value="Orientação de uso do produto" />
+      <definition value="Descreve orientações do uso do produto." />
+      <max value="1" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction">
+      <path value="MedicationDispense.dosageInstruction" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.substitution">
+      <path value="MedicationDispense.substitution" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.detectedIssue">
+      <path value="MedicationDispense.detectedIssue" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.eventHistory">
+      <path value="MedicationDispense.eventHistory" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

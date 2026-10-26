@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-03-26T13:20:24.501+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRNomeExame-2.0" />
+  <version value="2.0" />
+  <name value="Nome do Exame" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-26T13:20:23.3537413+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica o exame laboratorial realizado." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameLOINC" />
+      <version value="*" />
+    </include>
+    <exclude>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameLOINC" />
+      <version value="*" />
+      <concept>
+        <code value="94764-8"/>
+        <display value="SARS Coronavírus 2 [sequência de bases] genôma inteiro em isolado por sequenciamento"/>
+      </concept>
+      <concept>
+        <code value="94822-4"/>
+        <display value="SARS Coronavírus 2 [Presença de] RNA em Saliva (fluido oral) por sequenciamento"/>
+      </concept>
+      <concept>
+        <code value="95424-8"/>
+        <display value="SARS Coronavírus 2 [Presença de] RNA em Amostra respiratória por sequenciamento"/>
+      </concept>
+      <concept>
+        <code value="95609-4"/>
+        <display value="SARS Coronavírus 2 [Presença de] gene S em amostra respiratória por sequenciação"/>
+      </concept>
+      <concept>
+        <code value="95970-0"/>
+        <display value="SARS Coronavírus 2 rearranjos específicos de genes de células T de receptor beta [Presença de] em sangue por sequenciamento"/>
+      </concept>
+      <concept>
+        <code value="96741-4"/>
+        <display value="SARS Coronavírus 2 variante [Tipo] em espécie por sequenciação"/>
+      </concept>
+      <concept>
+        <code value="98062-3"/>
+        <display value="Identificador de estudo de sequenciamento"/>
+      </concept>
+    </exclude>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameGAL" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

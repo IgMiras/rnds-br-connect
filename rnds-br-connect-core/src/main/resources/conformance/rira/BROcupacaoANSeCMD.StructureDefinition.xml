@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ocupacao-ans-e-cmd" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROcupacaoANSeCMD" />
+  <version value="1.0.0" />
+  <name value="BROcupacaoANSeCMD" />
+  <title value="Ocupação" />
+  <status value="draft" />
+  <date value="2024-07-18" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Encounter.participant" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.id">
+      <path value="Extension.id" />
+      <max value="0" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROcupacaoANSeCMD" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacaoANSeCargaCMD" />
+      </binding>
+    </element>
+    <element id="Extension.value[x].id">
+      <path value="Extension.value[x].id" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].coding">
+      <path value="Extension.value[x].coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Extension.value[x].coding.id">
+      <path value="Extension.value[x].coding.id" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].coding.system">
+      <path value="Extension.value[x].coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].coding.code">
+      <path value="Extension.value[x].coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].coding.display">
+      <path value="Extension.value[x].coding.display" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].coding.userSelected">
+      <path value="Extension.value[x].coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].text">
+      <path value="Extension.value[x].text" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

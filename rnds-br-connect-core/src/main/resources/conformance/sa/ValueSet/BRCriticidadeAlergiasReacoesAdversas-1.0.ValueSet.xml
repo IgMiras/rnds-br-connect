@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="b2bc3126-eb4e-4616-8200-a908df1ecb80" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:36:31.553+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCriticidadeAlergiasReacoesAdversas-1.0" />
+  <version value="1.0" />
+  <name value="Criticidade de Alergias e Reações Adversas" />
+  <title value="Criticidade de Alergias e Reações Adversas" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:36:30.5275401+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Indica o potencial de danos nos órgãos críticos do sistema ou consequência de ameaça à vida.." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/allergy-intolerance-criticality" />
+      <version value="*" />
+      <concept>
+        <code value="low" />
+        <display value="Baixa" />
+      </concept>
+      <concept>
+        <code value="high" />
+        <display value="Alta" />
+      </concept>
+      <concept>
+        <code value="unable-to-assess" />
+        <display value="Indeterminada" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

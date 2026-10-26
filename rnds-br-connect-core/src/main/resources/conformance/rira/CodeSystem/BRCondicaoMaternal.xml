@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2021-08-19T14:10:22" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRCondicaoMaternal" />
+  <version value="1.0" />
+  <name value="Condição Maternal" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2021-08-19T14:10:22" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Indicação da condição maternal da pessoa vacinada." />
+  <content value="complete" />
+  <concept>
+    <code value="1" />
+    <display value="Nenhuma" />
+  </concept>
+  <concept>
+    <code value="2" />
+    <display value="Gestante" />
+  </concept>
+  <concept>
+    <code value="3" />
+    <display value="Puérpera" />
+  </concept>
+</CodeSystem>

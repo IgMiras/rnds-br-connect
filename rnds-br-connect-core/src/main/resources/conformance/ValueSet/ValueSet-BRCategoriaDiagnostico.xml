@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BRCategoriaDiagnostico" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCategoriaDiagnostico" />
+  <version value="1.0" />
+  <name value="BRCategoriaDiagnostico" />
+  <title value="Categoria do Diagnóstico" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2022-05-19T11:10:40.0457007+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="ValueSet utilizado para definir o tipo de categoria do diagnóstico realizado." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRCategoriaDiagnostico" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

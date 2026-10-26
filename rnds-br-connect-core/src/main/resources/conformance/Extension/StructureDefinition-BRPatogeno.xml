@@ -1,0 +1,38 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="BRPatogeno" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPatogeno" />
+  <version value="1.0" />
+  <name value="BRPatogeno" />
+  <title value="Patógeno" />
+  <status value="draft" />
+  <date value="2022-09-19" />
+  <description value="Extensão para inserção dos termos relacionados ao Patógeno identificado." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Observation" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPatogeno" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="terminologia Patogeno" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTerminologiaPatogeno" />
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

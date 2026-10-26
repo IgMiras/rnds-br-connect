@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="df9b0b6f-57ed-4353-949d-78df1d6046a5" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-17T18:38:48.188+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRLocalAtendimento-1.0" />
+  <version value="1.0" />
+  <name value="Local de Atendimento (canônico)" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-17T18:38:53.4321084+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica de forma genérica o local onde o atendimento ocorreu." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRLocalAtendimento" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

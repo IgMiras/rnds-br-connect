@@ -1,0 +1,638 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <meta>
+      <lastUpdated value="2020-03-11T04:13:12.682+00:00"></lastUpdated>
+   </meta>
+   <language value="pt-BR"></language>
+   <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRNomeIndividuo-1.0"></url>
+   <version value="1.0"></version>
+   <name value="BRNomeIndividuo"></name>
+   <title value="Nome de Indivíduos"></title>
+   <status value="active"></status>
+   <date value="2020-03-11T04:13:12.172535+00:00"></date>
+   <publisher value="Ministério da Saúde do Brasil"></publisher>
+   <description value="Padronização de uso de nomes de indivíduo no Brasil."></description>
+   <fhirVersion value="4.0.0"></fhirVersion>
+   <kind value="complex-type"></kind>
+   <abstract value="false"></abstract>
+   <type value="HumanName"></type>
+   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/HumanName"></baseDefinition>
+   <derivation value="constraint"></derivation>
+   <snapshot>
+      <element id="HumanName">
+         <path value="HumanName"></path>
+         <short value="Nome do Indivíduo"></short>
+         <definition value="Nome(s) associado(s) ao indivíduo."></definition>
+         <comment value="Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts might or might not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely."></comment>
+         <min value="1"></min>
+         <max value="*"></max>
+         <base>
+            <path value="HumanName"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <condition value="ele-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XPN"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="EN (actually, PN)"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="ProviderName"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.id">
+         <path value="HumanName.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.extension">
+         <path value="HumanName.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.use">
+         <path value="HumanName.use"></path>
+         <short value="Tipo de Nome"></short>
+         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do indivíduo.
+maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo.
+old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união.
+usual: nome social.
+temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas.
+anonymous: uso exclusivo para anonimização de registros de indivíudos."></definition>
+         <comment value="Applications can assume that a name is current unless it explicitly says that it is temporary or old."></comment>
+         <requirements value="Allows the appropriate name for a particular context of use to be selected from among a set of names."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="HumanName.use"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old name etc.for a current/permanent one"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="NameUse"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="The use of a human name."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/name-use|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XPN.7, but often indicated by which field contains the name"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="unique(./use)"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./NamePurpose"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.text">
+         <path value="HumanName.text"></path>
+         <short value="Nome Completo"></short>
+         <definition value="Nome completo do indivíduo, composto pelo nome próprio, que pode ser mais de um quando trata-se de um nome composto, pelo sobrenome e pelo sufixo (Filho, Neto, Júnior etc.) quando aplicável."></definition>
+         <comment value="Can provide both a text representation and parts. Applications updating a name SHALL ensure that when both text and parts are present,  no content is included in the text that isn't found in a part."></comment>
+         <requirements value="A renderable, unencoded form."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="HumanName.text"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="implied by XPN.11"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./formatted"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.family">
+         <path value="HumanName.family"></path>
+         <short value="Sobrenome"></short>
+         <definition value="O(s) sobrenome(s) do indivíduo, quando é possível coletar esta informação desagregada."></definition>
+         <comment value="Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures)."></comment>
+         <alias value="surname"></alias>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="HumanName.family"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XPN.1/FN.1"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./part[partType = FAM]"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./FamilyName"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.given">
+         <path value="HumanName.given"></path>
+         <short value="Nome Próprio"></short>
+         <definition value="O nome próprio do indivíduo, incluindo todos aqueles que não são o sobrenome no caso de nomes compostos, quando é possível coletar esta informação desagregada."></definition>
+         <comment value="If only initials are recorded, they may be used in place of the full name parts. Initials may be separated into multiple given names but often aren't due to paractical limitations.  This element is not called &quot;first name&quot; since given names do not always come first."></comment>
+         <alias value="first name"></alias>
+         <alias value="middle name"></alias>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="HumanName.given"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="Given Names appear in the correct order for presenting the name"></orderMeaning>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XPN.2 + XPN.3"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./part[partType = GIV]"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./GivenNames"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.prefix">
+         <path value="HumanName.prefix"></path>
+         <short value="Prefixo do Nome"></short>
+         <definition value="Prefixo do nome tipicamente utilizado quando se adquire títulos acadêmicos (Prof. ou Dr.), estados maritais (Sr., Sra., Srta.) etc., e é possível coletar esta informação."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="HumanName.prefix"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="Prefixes appear in the correct order for presenting the name"></orderMeaning>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XPN.5"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./part[partType = PFX]"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./TitleCode"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.suffix">
+         <path value="HumanName.suffix"></path>
+         <short value="Sufixo do Nome"></short>
+         <definition value="Sufixo do nome, tipicamente utilizado para identificar a geração do indivíduo (Filho, Neto, Júnior etc.), quando é possível coletar esta informação desagregada."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="HumanName.suffix"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="Suffixes appear in the correct order for presenting the name"></orderMeaning>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XPN/4"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./part[partType = SFX]"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.period">
+         <path value="HumanName.period"></path>
+         <short value="Período de Uso do Nome"></short>
+         <definition value="Indica a data inicial e final do uso do nome."></definition>
+         <requirements value="Allows names to be placed in historical context."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="HumanName.period"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XPN.13 + XPN.14"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StartDate and ./EndDate"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.period.id">
+         <path value="HumanName.period.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.period.extension">
+         <path value="HumanName.period.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.period.start">
+         <path value="HumanName.period.start"></path>
+         <short value="Data Inicial"></short>
+         <definition value="Quando o uso do nome iniciou."></definition>
+         <comment value="If the low element is missing, the meaning is that the low boundary is not known."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Period.start"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <condition value="per-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="DR.1"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./low"></map>
+         </mapping>
+      </element>
+      <element id="HumanName.period.end">
+         <path value="HumanName.period.end"></path>
+         <short value="Data Final"></short>
+         <definition value="Quando o uso do nome terminou."></definition>
+         <comment value="The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has an end value of 2012-02-03."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Period.end"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <meaningWhenMissing value="If the end of the period is missing, it means that the period is ongoing"></meaningWhenMissing>
+         <condition value="per-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="DR.2"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./high"></map>
+         </mapping>
+      </element>
+   </snapshot>
+   <differential>
+      <element id="HumanName">
+         <path value="HumanName"></path>
+         <short value="Nome do Indivíduo"></short>
+         <definition value="Nome(s) associado(s) ao indivíduo."></definition>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.use">
+         <path value="HumanName.use"></path>
+         <short value="Tipo de Nome"></short>
+         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do indivíduo.
+maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo.
+old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união.
+usual: nome social.
+temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas.
+anonymous: uso exclusivo para anonimização de registros de indivíudos."></definition>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+         <isModifierReason value="É importante que as aplicações saibam interpretar corretamente o tipo de nome que está sendo utilizado, para dar a tratativa correta ao indivíduo."></isModifierReason>
+      </element>
+      <element id="HumanName.text">
+         <path value="HumanName.text"></path>
+         <short value="Nome Completo"></short>
+         <definition value="Nome completo do indivíduo, composto pelo nome próprio, que pode ser mais de um quando trata-se de um nome composto, pelo sobrenome e pelo sufixo (Filho, Neto, Júnior etc.) quando aplicável."></definition>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.family">
+         <path value="HumanName.family"></path>
+         <short value="Sobrenome"></short>
+         <definition value="O(s) sobrenome(s) do indivíduo, quando é possível coletar esta informação desagregada."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.given">
+         <path value="HumanName.given"></path>
+         <short value="Nome Próprio"></short>
+         <definition value="O nome próprio do indivíduo, incluindo todos aqueles que não são o sobrenome no caso de nomes compostos, quando é possível coletar esta informação desagregada."></definition>
+         <max value="1"></max>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.prefix">
+         <path value="HumanName.prefix"></path>
+         <short value="Prefixo do Nome"></short>
+         <definition value="Prefixo do nome tipicamente utilizado quando se adquire títulos acadêmicos (Prof. ou Dr.), estados maritais (Sr., Sra., Srta.) etc., e é possível coletar esta informação."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.suffix">
+         <path value="HumanName.suffix"></path>
+         <short value="Sufixo do Nome"></short>
+         <definition value="Sufixo do nome, tipicamente utilizado para identificar a geração do indivíduo (Filho, Neto, Júnior etc.), quando é possível coletar esta informação desagregada."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.period">
+         <path value="HumanName.period"></path>
+         <short value="Período de Uso do Nome"></short>
+         <definition value="Indica a data inicial e final do uso do nome."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.period.start">
+         <path value="HumanName.period.start"></path>
+         <short value="Data Inicial"></short>
+         <definition value="Quando o uso do nome iniciou."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="HumanName.period.end">
+         <path value="HumanName.period.end"></path>
+         <short value="Data Final"></short>
+         <definition value="Quando o uso do nome terminou."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+   </differential>
+</StructureDefinition>

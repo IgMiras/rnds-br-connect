@@ -1,0 +1,20 @@
+# Domínio cujo ValueSet compõe DOIS CodeSystems: BRNomeExame-2.0 aceita
+# LOINC ou GAL. O alvo do mapeamento é o par (system, code) — um código
+# sem o system correto reprova o binding required na Camada 4.
+#
+# Note que os dois CodeSystems usam formatos de código incompatíveis:
+# o LOINC é numérico com dígito verificador ("94309-2"); o GAL é mnemônico
+# alfanumérico ("DENAN"). Um código do formato errado não é apenas inválido:
+# denuncia que veio do CodeSystem errado.
+
+domain: NOME_EXAME
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameLOINC
+
+mappings:
+  "COVID_PCR":
+    code: "94309-2"
+    display: "SARS-CoV-2 RNA [Presence] in Specimen by NAA with probe detection"
+  "DENGUE_NS1":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameGAL
+    code: "DENAN"
+    display: "DENGUE, DETECCAO DE ANTIGENO NS1"

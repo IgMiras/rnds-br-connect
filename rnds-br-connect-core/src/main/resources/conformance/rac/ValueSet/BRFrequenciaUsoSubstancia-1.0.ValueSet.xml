@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="0c66feb1-de36-44a3-90ce-d287411954be" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T23:02:24.54+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRFrequenciaUsoSubstancia" />
+  <version value="1.0" />
+  <name value="Frequência de Uso da Substância" />
+  <title value="Frequência de Uso da Substância" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T23:02:23.9723544+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identifica a frequência de uso da substância em uso conforme declaração do indivíduo, de acordo com o especificado no modelo de informação do Registro de Atendimento Clínico da Resolução CIT nº 33/2018." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation" />
+      <version value="*" />
+      <concept>
+        <code value="MO" />
+        <display value="Mensalmente" />
+      </concept>
+      <concept>
+        <code value="WK" />
+        <display value="Semanalmente" />
+      </concept>
+      <concept>
+        <code value="QD" />
+        <display value="Diariamente" />
+      </concept>
+    </include>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRFrequenciaUsoSubstancia" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

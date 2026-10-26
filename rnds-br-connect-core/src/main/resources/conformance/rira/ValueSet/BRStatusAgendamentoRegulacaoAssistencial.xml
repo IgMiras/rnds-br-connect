@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2023-04-13T13:17:22.715+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRStatusAgendamentoRegulacaoAssistencial" />
+  <version value="1.0" />
+  <name value="Status de agendamento de regulação assistencial" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-04-13T13:17:18.5012669+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Status de agendamento de regulação assistencial." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/appointmentstatus" />
+      <version value="*" />
+      <concept>
+        <code value="proposed"/>
+        <display value="Proposed"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Solicitado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="pending"/>
+        <display value="Pending"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Pendente"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="booked"/>
+        <display value="Booked"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Agendado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="arrived"/>
+        <display value="Arrived"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Recebido"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="fulfilled"/>
+        <display value="Fulfilled"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Atendido/Internado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="cancelled"/>
+        <display value="Cancelled"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Negado/Cancelado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="noshow"/>
+        <display value="No Show"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Falta"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="entered-in-error"/>
+        <display value="Entered in error"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Em estado de erro"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="checked-in"/>
+        <display value="Checked in"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Confirmado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="waitlist"/>
+        <display value="Waitlisted"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Em espera"/>
+        </designation>
+      </concept>
+    </include>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRStatusAgendamentoRegulacaoAssistencial" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,17 @@
+# Observation.effectiveTiming.code do BRMedidaObservada, quando a medida é exposição a
+# substâncias. O ValueSet compõe o BRFrequenciaUsoSubstancia, que tem apenas dois códigos,
+# e o v3-GTSAbbreviation do HL7 inteiro — um vocabulário de posologia (BID, QD, Q4H) que
+# existe para prescrição, não para padrão de consumo. Mapeie para os dois códigos da RNDS;
+# se precisar de granularidade maior, o alvo é o vocabulário do HL7 e a responsabilidade é
+# de quem o escolher.
+
+domain: FREQUENCIA_USO_SUBSTANCIA
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRFrequenciaUsoSubstancia
+
+mappings:
+  "NUNCA":
+    code: "nunca"
+    display: "Nunca"
+  "RARO":
+    code: "uma-ou-duas"
+    display: "1 ou 2 vezes"

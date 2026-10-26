@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2023-04-13T18:15:59.439+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoParticipante" />
+  <version value="1.0" />
+  <name value="Tipo Participante" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2023-04-13T18:16:19.9468275+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identificação do tipo do participante envolvido na solicitação." />
+  <content value="complete" />
+  <concept>
+    <code value="PCT" />
+    <display value="Paciente" />
+  </concept>
+  <concept>
+    <code value="ESS" />
+    <display value="Estabelecimento de saúde solicitante" />
+  </concept>
+  <concept>
+    <code value="ESE" />
+    <display value="Estabelecimento de saúde executante" />
+  </concept>
+  <concept>
+    <code value="ESR" />
+    <display value="Estabelecimento de saúde regulador" />
+  </concept>
+</CodeSystem>

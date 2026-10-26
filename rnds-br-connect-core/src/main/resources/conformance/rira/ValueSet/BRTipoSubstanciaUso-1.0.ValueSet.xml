@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="1a4519ea-dfee-4077-8595-7c0b79ca4680" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T23:01:22.994+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoSubstanciaUso-1.0" />
+  <version value="1.0" />
+  <name value="Tipo de Substância em Uso" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T23:01:21.4959991+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identifica o tipo de substância em uso conforme declaração do indivíduo, de acordo com o especificado no modelo de informação do Registro de Atendimento Clínico da Resolução CIT nº 33/2018." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoSubstanciaUso" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

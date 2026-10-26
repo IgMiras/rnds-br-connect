@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="e448dddb-4b3e-4e33-ab75-d926fbc9f14d" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:51:45.157+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPlanoCuidados-1.0" />
+  <version value="1.0" />
+  <name value="BRPlanoCuidados" />
+  <title value="Plano de Cuidados" />
+  <status value="draft" />
+  <date value="2020-09-20T20:51:44.9643607+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Descreve o plano de cuidados, instruções e recomendações." />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="CarePlan" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CarePlan" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="CarePlan">
+      <path value="CarePlan" />
+      <short value="Plano de cuidados de paciente ou grupo" />
+      <definition value="Descreve o plano de um ou mais profissionais para o cuidado de um paciente em particular, grupo ou comunidade em um período, possivelmente limitado ao cuidado de uma condição específica ou conjunto de condoções." />
+      <mustSupport value="true" />
+    </element>
+    <element id="CarePlan.identifier">
+      <path value="CarePlan.identifier" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.instantiatesCanonical">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="CarePlan.instantiatesCanonical" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.instantiatesUri">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="CarePlan.instantiatesUri" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.basedOn">
+      <path value="CarePlan.basedOn" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.replaces">
+      <path value="CarePlan.replaces" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.partOf">
+      <path value="CarePlan.partOf" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="CarePlan.status" />
+      <short value="Estado do Plano de Cuidados" />
+      <definition value="Indica se o plano está em curso, se representa intenções guturas ou é um registro de histórico.&#xD;&#xA;active: Ativo&#xD;&#xA;entered-in-error: Cancelado por informação errada" />
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Estado da Solicitação" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoSolicitacao-1.0" />
+      </binding>
+    </element>
+    <element id="CarePlan.intent">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="CarePlan.intent" />
+      <short value="Intenção do Plano de Cuidados" />
+      <definition value="Indica o nível de autoridade/intenção associado ao plano de cuidados e onde ele se encaixa no fluxo de trabalho." />
+      <fixedCode value="plan" />
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Intenção do Plano de Cuidados" />
+      </binding>
+    </element>
+    <element id="CarePlan.category">
+      <path value="CarePlan.category" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="CarePlan.title" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="CarePlan.description" />
+      <short value="Descrição do Plano de Cuidados, Instruções e Recomendações" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="CarePlan.subject">
+      <path value="CarePlan.subject" />
+      <short value="Indivíduo do Plano de Cuidados" />
+      <definition value="Pessoa ao qual o plano de cuidados se refere." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="CarePlan.subject.reference">
+      <path value="CarePlan.subject.reference" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.type">
+      <path value="CarePlan.subject.type" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier">
+      <path value="CarePlan.subject.identifier" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.subject.identifier.use">
+      <path value="CarePlan.subject.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier.type">
+      <path value="CarePlan.subject.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier.system">
+      <path value="CarePlan.subject.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.subject.identifier.value">
+      <path value="CarePlan.subject.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.subject.identifier.period">
+      <path value="CarePlan.subject.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier.assigner">
+      <path value="CarePlan.subject.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.display">
+      <path value="CarePlan.subject.display" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.encounter">
+      <path value="CarePlan.encounter" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.period">
+      <path value="CarePlan.period" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.created">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="normative" />
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+        <valueCode value="4.0.0" />
+      </extension>
+      <path value="CarePlan.created" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.author">
+      <path value="CarePlan.author" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.contributor">
+      <path value="CarePlan.contributor" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.careTeam">
+      <path value="CarePlan.careTeam" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses">
+      <path value="CarePlan.addresses" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.supportingInfo">
+      <path value="CarePlan.supportingInfo" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.goal">
+      <path value="CarePlan.goal" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity">
+      <path value="CarePlan.activity" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.note">
+      <path value="CarePlan.note" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

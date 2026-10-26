@@ -1,0 +1,52 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BREstadoEvento-1.0" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoEvento-1.0" />
+  <version value="01.10" />
+  <name value="BREstadoEvento" />
+  <title value="Estado do Evento" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-04-07T12:14:07.8417018+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identificação do estado de um evento." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/event-status" />
+      <version value="*" />
+      <concept>
+        <code value="preparation" />
+        <display value="Pré-procedimento" />
+      </concept>
+      <concept>
+        <code value="in-progress" />
+        <display value="Em andamento" />
+      </concept>
+      <concept>
+        <code value="not-done" />
+        <display value="Não Realizado" />
+      </concept>
+      <concept>
+        <code value="on-hold" />
+        <display value="Suspenso" />
+      </concept>
+      <concept>
+        <code value="stopped" />
+        <display value="Cancelado" />
+      </concept>
+      <concept>
+        <code value="completed" />
+        <display value="Completado" />
+      </concept>
+      <concept>
+        <code value="unknown" />
+        <display value="Desconhecido" />
+      </concept>
+      <concept>
+        <code value="entered-in-error" />
+        <display value="Entrada com erro" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BRRegistroOrigem" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRRegistroOrigem" />
+  <version value="01.00" />
+  <name value="BRRegistroOrigem" />
+  <title value="Registro de Origem" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2022-01-21T14:38:40.0457007+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Códigos para representação da Origem do Registro de Imunobiológico." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRRegistroOrigem" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAgendamentoRegulacaoAssistencial" />
+  <version value="1.0" />
+  <name value="BRAgendamentoRegulacaoAssistencial" />
+  <title value="Agendamento de Regulação Assistencial" />
+  <status value="active" />
+  <date value="2023-04-04" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Appointment" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Appointment" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Appointment.implicitRules">
+      <path value="Appointment.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.language">
+      <path value="Appointment.language" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.text">
+      <path value="Appointment.text" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.contained">
+      <path value="Appointment.contained" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.identifier">
+      <path value="Appointment.identifier" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.status">
+      <path value="Appointment.status" />
+      <short value="Status da solicitação." />
+      <definition value="O código que identifica unicamente o status da solicitação, conforme tabela de status de solicitação." />
+      <binding>
+        <strength value="required" />
+        <description value="Status do agendamento" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRStatusAgendamentoRegulacaoAssistencial" />
+      </binding>
+    </element>
+    <element id="Appointment.cancelationReason">
+      <path value="Appointment.cancelationReason" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.serviceCategory">
+      <path value="Appointment.serviceCategory" />
+      <short value="Modalidade assistencial." />
+      <definition value="O código que identifica unicamente a modalidade, conforme tabela de modalidades." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Modalidade Assistencial" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRModalidadeAssistencialMIRA" />
+      </binding>
+    </element>
+    <element id="Appointment.serviceCategory.coding">
+      <path value="Appointment.serviceCategory.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Appointment.serviceCategory.coding.system">
+      <path value="Appointment.serviceCategory.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.serviceCategory.coding.code">
+      <path value="Appointment.serviceCategory.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.serviceCategory.text">
+      <path value="Appointment.serviceCategory.text" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.serviceType">
+      <path value="Appointment.serviceType" />
+      <short value="Código do procedimento." />
+      <definition value="O código que identifica unicamente o procedimento conforme tabela SUS." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="SIGTAP" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRProcedimentosNacionais-1.0" />
+      </binding>
+    </element>
+    <element id="Appointment.serviceType.coding">
+      <path value="Appointment.serviceType.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Appointment.serviceType.coding.system">
+      <path value="Appointment.serviceType.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.serviceType.coding.code">
+      <path value="Appointment.serviceType.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.serviceType.text">
+      <path value="Appointment.serviceType.text" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.specialty">
+      <path value="Appointment.specialty" />
+      <short value="Identificador da especialidade médica do executante." />
+      <definition value="O código que identifica unicamente a especialidade do executante conforme tabela de CBO." />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Classificação Brasileira de Ocupações." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0" />
+      </binding>
+    </element>
+    <element id="Appointment.specialty.coding">
+      <path value="Appointment.specialty.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Appointment.specialty.coding.system">
+      <path value="Appointment.specialty.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.specialty.coding.code">
+      <path value="Appointment.specialty.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.specialty.text">
+      <path value="Appointment.specialty.text" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.appointmentType">
+      <path value="Appointment.appointmentType" />
+      <short value="Caráter da solicitação." />
+      <definition value="O código que identifica unicamente o caráter da solicitação, conforme tabela de caráter da solicitação." />
+      <min value="1" />
+      <binding>
+        <strength value="preferred" />
+        <description value="Caráter de atendimento." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCaraterAtendimentoMIRA" />
+      </binding>
+    </element>
+    <element id="Appointment.appointmentType.coding">
+      <path value="Appointment.appointmentType.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Appointment.appointmentType.coding.system">
+      <path value="Appointment.appointmentType.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.appointmentType.coding.code">
+      <path value="Appointment.appointmentType.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.appointmentType.text">
+      <path value="Appointment.appointmentType.text" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.reasonCode">
+      <path value="Appointment.reasonCode" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.reasonReference">
+      <path value="Appointment.reasonReference" />
+      <short value="Motivo da solicitação" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCID10Avaliado-1.0" />
+      </type>
+    </element>
+    <element id="Appointment.reasonReference.id">
+      <path value="Appointment.reasonReference.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.reasonReference.reference">
+      <path value="Appointment.reasonReference.reference" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.reasonReference.type">
+      <path value="Appointment.reasonReference.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.reasonReference.identifier">
+      <path value="Appointment.reasonReference.identifier" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.reasonReference.display">
+      <path value="Appointment.reasonReference.display" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.priority">
+      <path value="Appointment.priority" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.description">
+      <path value="Appointment.description" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation">
+      <path value="Appointment.supportingInformation" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="identifier.system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0" />
+      </type>
+    </element>
+    <element id="Appointment.supportingInformation.id">
+      <path value="Appointment.supportingInformation.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation.type">
+      <path value="Appointment.supportingInformation.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation.identifier.id">
+      <path value="Appointment.supportingInformation.identifier.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation.identifier.use">
+      <path value="Appointment.supportingInformation.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation.identifier.type">
+      <path value="Appointment.supportingInformation.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation.identifier.period">
+      <path value="Appointment.supportingInformation.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation.identifier.assigner">
+      <path value="Appointment.supportingInformation.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation.display">
+      <path value="Appointment.supportingInformation.display" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization">
+      <path value="Appointment.supportingInformation" />
+      <sliceName value="regulatoryOrganization" />
+      <short value="Estabelecimento de Saúde Regulador" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0" />
+      </type>
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.id">
+      <path value="Appointment.supportingInformation.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.type">
+      <path value="Appointment.supportingInformation.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.identifier.id">
+      <path value="Appointment.supportingInformation.identifier.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.identifier.use">
+      <path value="Appointment.supportingInformation.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.identifier.type">
+      <path value="Appointment.supportingInformation.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.identifier.system">
+      <path value="Appointment.supportingInformation.identifier.system" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.identifier.period">
+      <path value="Appointment.supportingInformation.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.identifier.assigner">
+      <path value="Appointment.supportingInformation.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.supportingInformation:regulatoryOrganization.display">
+      <path value="Appointment.supportingInformation.display" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.start">
+      <path value="Appointment.start" />
+      <short value="Data Inicial de Agendamento" />
+      <definition value="A data e hora inicial em que o procedimento regulado foi agendado no padrão ISO 8601." />
+    </element>
+    <element id="Appointment.end">
+      <path value="Appointment.end" />
+      <short value="Data Final de Agendamento" />
+      <definition value="A data e hora final em que o procedimento regulado foi agendado no padrão ISO 8601." />
+    </element>
+    <element id="Appointment.minutesDuration">
+      <path value="Appointment.minutesDuration" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.slot">
+      <path value="Appointment.slot" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.created">
+      <path value="Appointment.created" />
+      <short value="Data da Autorização" />
+      <definition value="A data e hora da autoriação do procedimento regulado no padrão ISO 8601." />
+      <mapping>
+        <identity value="rnds" />
+        <language value="MI-RIRA" />
+        <map value="Data de autorização" />
+        <comment value="Portaria conjunta SAES/SEIDIGI nº 3, de 18 de abril de 2023" />
+      </mapping>
+    </element>
+    <element id="Appointment.comment">
+      <path value="Appointment.comment" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.patientInstruction">
+      <path value="Appointment.patientInstruction" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.basedOn">
+      <path value="Appointment.basedOn" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRequisicaoRegulacaoAssistencial" />
+      </type>
+    </element>
+    <element id="Appointment.basedOn.id">
+      <path value="Appointment.basedOn.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.basedOn.reference">
+      <path value="Appointment.basedOn.reference" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.basedOn.type">
+      <path value="Appointment.basedOn.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.basedOn.identifier">
+      <path value="Appointment.basedOn.identifier" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.basedOn.display">
+      <path value="Appointment.basedOn.display" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant">
+      <path value="Appointment.participant" />
+      <short value="Paciente" />
+      <max value="1" />
+    </element>
+    <element id="Appointment.participant.id">
+      <path value="Appointment.participant.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.type">
+      <path value="Appointment.participant.type" />
+      <short value="Função do participante da solicitação" />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Função do participante da solicitação" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoParticipante" />
+      </binding>
+    </element>
+    <element id="Appointment.participant.type.id">
+      <path value="Appointment.participant.type.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.type.coding">
+      <path value="Appointment.participant.type.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Appointment.participant.type.coding.id">
+      <path value="Appointment.participant.type.coding.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.type.coding.system">
+      <path value="Appointment.participant.type.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.participant.type.coding.code">
+      <path value="Appointment.participant.type.coding.code" />
+      <min value="1" />
+      <fixedCode value="PCT" />
+    </element>
+    <element id="Appointment.participant.type.coding.userSelected">
+      <path value="Appointment.participant.type.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.type.text">
+      <path value="Appointment.participant.type.text" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor">
+      <path value="Appointment.participant.actor" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+      </type>
+    </element>
+    <element id="Appointment.participant.actor.id">
+      <path value="Appointment.participant.actor.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.reference">
+      <path value="Appointment.participant.actor.reference" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.type">
+      <path value="Appointment.participant.actor.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.identifier">
+      <path value="Appointment.participant.actor.identifier" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.participant.actor.identifier.id">
+      <path value="Appointment.participant.actor.identifier.id" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.identifier.use">
+      <path value="Appointment.participant.actor.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.identifier.type">
+      <path value="Appointment.participant.actor.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.identifier.system">
+      <path value="Appointment.participant.actor.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.participant.actor.identifier.value">
+      <path value="Appointment.participant.actor.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Appointment.participant.actor.identifier.period">
+      <path value="Appointment.participant.actor.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.identifier.assigner">
+      <path value="Appointment.participant.actor.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.actor.display">
+      <path value="Appointment.participant.actor.display" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.required">
+      <path value="Appointment.participant.required" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.participant.status">
+      <path value="Appointment.participant.status" />
+      <short value="Status da participação no agendamento." />
+      <binding>
+        <strength value="required" />
+        <description value="Status da participação no agendamento." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRStatusParticipante" />
+      </binding>
+    </element>
+    <element id="Appointment.participant.period">
+      <path value="Appointment.participant.period" />
+      <max value="0" />
+    </element>
+    <element id="Appointment.requestedPeriod">
+      <path value="Appointment.requestedPeriod" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

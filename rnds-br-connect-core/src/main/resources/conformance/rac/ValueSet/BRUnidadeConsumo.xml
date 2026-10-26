@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2021-12-01T13:16:09.8385573+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRUnidadeConsumo" />
+  <version value="1.0" />
+  <name value="Unidade de Consumo" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2021-12-01T13:16:09.8385573+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="ValueSet utilizado para definir a unidade de consumo de um medicamento prescrito." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

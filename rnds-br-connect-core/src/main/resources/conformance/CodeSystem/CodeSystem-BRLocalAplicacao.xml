@@ -1,0 +1,303 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRLocalAplicacao" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRLocalAplicacao" />
+  <version value="01.03" />
+  <name value="BRLocalAplicacao" />
+  <title value="Local de Aplicação" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2022-12-05T18:15:54.9540124+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Define a localização anatômica de aplicação de uma substância" />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="0" />
+    <display value="Sem registro no sistema de informação de origem" />
+    <designation>
+      <language value="en" />
+      <value value="No registration in the source information system" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Sin registro en el sistema de información de fuentes" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="1" />
+    <display value="Deltóide Direito" />
+    <designation>
+      <language value="en" />
+      <value value="Right deltoid" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Deltoides derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2" />
+    <display value="Deltóide Esquerdo" />
+    <designation>
+      <language value="en" />
+      <value value="Left deltoid" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Deltoides izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="3" />
+    <display value="Vasto Lateral da Coxa Direita" />
+    <designation>
+      <language value="en" />
+      <value value="Right Vastus Lateralis" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Vasto lateral derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="4" />
+    <display value="Vasto Lateral da Coxa Esquerda" />
+    <designation>
+      <language value="en" />
+      <value value="Left Vastus Lateralis" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Vasto lateral izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="5" />
+    <display value="Ventroglúteo Direito" />
+    <designation>
+      <language value="en" />
+      <value value="Right ventro gluteus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Ventro gluteus derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6" />
+    <display value="Ventroglúteo Esquerdo" />
+    <designation>
+      <language value="en" />
+      <value value="Left ventro gluteus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Ventro gluteus izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7" />
+    <display value="Glúteo (descontinuado)" />
+    <designation>
+      <language value="en" />
+      <value value="gluteus (deprecated)" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Glúteo (descontinuado)" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="8" />
+    <display value="Ferimento Local" />
+    <designation>
+      <language value="en" />
+      <value value="Local Injury" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Lesión local" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="9" />
+    <display value="Boca" />
+    <designation>
+      <language value="en" />
+      <value value="Mouth" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Boca" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="10" />
+    <display value="Dorso Glúteo Direito" />
+    <designation>
+      <language value="en" />
+      <value value="Right Gluteal Dorso" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Dorso Gluteal Derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="11" />
+    <display value="Dorso Glúteo Esquerdo" />
+    <designation>
+      <language value="en" />
+      <value value="Left Gluteal Dorso" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Dorso Gluteal Izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="12" />
+    <display value="Face Externa Inferior do Braço Direito" />
+    <designation>
+      <language value="en" />
+      <value value="External Lower Face of Right Arm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Inferior Externa del Brazo Derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="13" />
+    <display value="Face Externa Inferior do Braço Esquerdo" />
+    <designation>
+      <language value="en" />
+      <value value="External Lower Face of Left Arm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Inferior Externa del Brazo Izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="14" />
+    <display value="Face Externa Superior do Braço Direito" />
+    <designation>
+      <language value="en" />
+      <value value="External Upper Face of Right Arm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Superior Externa del Brazo Derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="15" />
+    <display value="Face Externa Superior do Braço Esquerdo" />
+    <designation>
+      <language value="en" />
+      <value value="External Upper Face of Left Arm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Superior Externa del Brazo Izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16" />
+    <display value="Rede Venosa" />
+    <designation>
+      <language value="en" />
+      <value value="Venous System" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Sistema Venoso" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="17" />
+    <display value="Face Anterolateral Externa da Coxa Direita" />
+    <designation>
+      <language value="en" />
+      <value value="External Anterolateral Face of Right Thigh" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Anterolateral Externa del Muslo Derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="18" />
+    <display value="Face Anterolateral Externa da Coxa Esquerda" />
+    <designation>
+      <language value="en" />
+      <value value="External Anterolateral Face of Left Thigh" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Anterolateral Externa del Muslo Izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="19" />
+    <display value="Face Anterolateral Externa do Braço Direito" />
+    <designation>
+      <language value="en" />
+      <value value="External Anterolateral Face of Right Arm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Anterolateral Externa del Brazo Derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="20" />
+    <display value="Face Anterolateral Externa do Braço Esquerdo" />
+    <designation>
+      <language value="en" />
+      <value value="External Anterolateral Face of Left Arm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Anterolateral Externa del Brazo Izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="21" />
+    <display value="Face Anterolateral Externa do Antebraço Direito" />
+    <designation>
+      <language value="en" />
+      <value value="External Anterolateral Face of the Right Forearm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Anterolateral Externa del Antebrazo Derecho" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22" />
+    <display value="Face Anterolateral Externa do Antebraço Esquerdo" />
+    <designation>
+      <language value="en" />
+      <value value="External Anterolateral Face of the Left Forearm" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cara Anterolateral Externa del Antebrazo Izquierdo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="99" />
+    <display value="Outro" />
+    <designation>
+      <language value="en" />
+      <value value="Other" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Otra" />
+    </designation>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,184 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BREstrategiaVacinacao" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BREstrategiaVacinacao" />
+  <version value="01.01" />
+  <name value="BREstrategiaVacinacao" />
+  <title value="Estratégia de Vacinação" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-11T18:12:20.2627546+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica a estratégia de vacinação adotada." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <property>
+    <code value="inactive" />
+    <uri value="http://hl7.org/fhir/concept-properties#inactive" />
+    <type value="boolean" />
+  </property>
+  <concept>
+    <code value="0" />
+    <display value="Sem registro no sistema de informação de origem" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="1" />
+    <display value="Rotina" />
+    <designation>
+      <language value="en" />
+      <value value="Routine immunization" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Rutina" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2" />
+    <display value="Especial" />
+    <designation>
+      <language value="en" />
+      <value value="Special" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Especial" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="3" />
+    <display value="Bloqueio" />
+    <designation>
+      <language value="en" />
+      <value value="Blocking vaccination" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Vacunación de bloqueo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="4" />
+    <display value="Intensificação" />
+    <designation>
+      <language value="en" />
+      <value value="Intensification" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Intensificación" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="5" />
+    <display value="Campanha indiscriminada" />
+    <designation>
+      <language value="en" />
+      <value value="Indiscriminate campaign" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Campaña indiscriminada" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6" />
+    <display value="Campanha seletiva" />
+    <designation>
+      <language value="en" />
+      <value value="Selective campaign" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Campaña selectiva" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7" />
+    <display value="Soroterapia" />
+    <designation>
+      <language value="en" />
+      <value value="Serum therapy" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Sueroterapia" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="8" />
+    <display value="Serviço Privado" />
+    <designation>
+      <language value="en" />
+      <value value="Private Sector" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Servicio privado" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="9" />
+    <display value="Monitoramento das Estratégias de Vacinação" />
+  </concept>
+  <concept>
+    <code value="10" />
+    <display value="Pesquisa" />
+    <designation>
+      <language value="en" />
+      <value value="Trials" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Ensayos clínicos" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="11" />
+    <display value="Pré-exposição" />
+    <designation>
+      <language value="en" />
+      <value value="Pre-exposure" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Preexposición" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="12" />
+    <display value="Pós-exposição" />
+    <designation>
+      <language value="en" />
+      <value value="Post-exposure" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Post-exposición" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="13" />
+    <display value="Reexposição" />
+    <designation>
+      <language value="en" />
+      <value value="Re-exposure" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Reexposición" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="14" />
+    <display value="Vacinação Escolar" />
+  </concept>
+  <concept>
+    <code value="15" />
+    <display value="Operação Gota" />
+  </concept>
+</CodeSystem>

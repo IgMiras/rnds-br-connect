@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-03-26T13:20:24.501+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRNomeExameTRCOVID19LOINC-1.0" />
+  <version value="1.0" />
+  <name value="Nome do Exame" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-26T13:20:23.3537413+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica o exame laboratorial realizado para COVID-19." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameLOINC" />
+      <version value="*" />
+      <concept>
+        <code value="94507-1"/>
+        <display value="SARS Coronavírus 2, [presença de] anticorpos IgG em soro ou plasma por imunoensaio"/>
+      </concept>
+      <concept>
+        <code value="94508-9"/>
+        <display value="SARS Coronavírus 2, [presença de] anticorpos IgM em soro ou plasma por imunoensaio"/>
+      </concept>
+      <concept>
+        <code value="94558-4"/>
+        <display value="SARS Coronavírus 2, [presença de] antígenos Ag em amostra respiratória por imunoensaio rápido"/>
+      </concept>
+      <concept>
+        <code value="94768-9"/>
+        <display value="SARS Coronavírus 2 [Presença de] anticorpos IgA em Soro Plasma ou Sangue por Imunoensaio rápido"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

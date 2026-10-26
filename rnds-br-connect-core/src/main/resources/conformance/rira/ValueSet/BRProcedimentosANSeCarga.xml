@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="procedimentos-ans-carga" />
+  <meta>
+    <lastUpdated value="2024-07-17T17:00:00.000-03:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRProcedimentosANSeCarga" />
+  <version value="1.0.0" />
+  <name value="Procedimento Realizado (ANS e Carga)" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2024-07-17T17:00:00.000-03:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Value Set das classificações brasileiras para procedimentos adotadas em contexto nacional, os codesystems apresentam os códigos da competência atual, para o envio de competência anterior os códigos devem ser consultados na RTS" />
+  <immutable value="false" />
+  <compose>
+    <include>
+			<valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRProcedimentosNacionais-1.0" />
+    </include>
+		<include> 
+			<system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRDadoAusenteOuDesconhecido"/>
+			<version value="*"/>
+			<concept>
+			 <code value="no-procedure-info"/>
+			 <display value="No information about past history of procedures"/>
+			</concept>
+			<concept>
+				<code value="no-known-procedures"/>
+				<display value="No known procedures"/>
+			 </concept>
+		 </include>
+  </compose>
+</ValueSet>

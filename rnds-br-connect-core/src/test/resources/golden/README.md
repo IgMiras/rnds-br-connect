@@ -46,22 +46,39 @@ Ausentes de propósito no mínimo, porque são opcionais no RIA-R: `manufacturer
 
 ## 2. Correções aplicadas — e a distinção que precisa ser feita
 
-A Arquitetura §8.0.1 lista quatro defeitos nos exemplos oficiais. **Dois deles não estão
+A Arquitetura (§12.4) cataloga os defeitos dos exemplos oficiais. **Dois dos quatro primeiros não estão
 presentes nos arquivos JSON distribuídos junto com os arquivos de definição**, e essa
 distinção precisa constar do anexo, sob pena de o TCC afirmar um defeito que o arquivo
 anexado não exibe.
 
-| # | Defeito (Arquitetura §8.0.1) | Manual impresso | Arquivo JSON distribuído | Correção neste golden file |
+| Nº | Defeito (Arquitetura §12.4) | Manual impresso | Arquivo JSON distribuído | Correção neste golden file |
 |---|---|---|---|---|
 | 1 | `meta.profile` do `Immunization` sem hífen (`BRImunobiologicoAdministrado3.0`) | presente | **ausente** — já vem com hífen | nenhuma necessária |
 | 2 | `Bundle.identifier.system` = `.../NamingSystem/BR999999` no REL | presente | presente | não se aplica ao RIA-R (Fase 3) |
 | 3 | `fullUrl: transient-2` com `id: transient-1` no `Observation` do REL | presente | **ausente** — já vêm coerentes | não se aplica ao RIA-R (Fase 3) |
 | 4 | `Condition.code` do REL ora `"01"`, ora `"B04"` | presente | presente (`B04`, mas com `system` de ValueSet) | não se aplica ao RIA-R (Fase 3) |
+| 6 | `fullUrl: urn:uuid:transient-N` — `transient-N` não é um UUID | presente | presente | **corrigido**: UUID v4 válido em `fullUrl` |
+| 25 | `Condition.meta.lastUpdated` presente só no `Condition`, ausente nos outros dois resources | presente | presente | **removido** — ver abaixo |
+| 7 | `Condition.category.coding.display` presente, enquanto todo o resto do Bundle omite `display` | presente | presente | **removido** — ver abaixo |
 
-**Resultado para o RIA-R: `ria-r-completo.json` é cópia literal do arquivo distribuído, sem
-uma única alteração.** Isso é um achado, não um não-resultado — significa que o defeito nº 1
-é da versão impressa do manual, e que o Portal distribui um artefato mais correto que a sua
-própria documentação.
+**Resultado para o RIA-R:** o único desvio estrutural em relação ao arquivo distribuído é o nº 6 —
+os identificadores transientes; os nº 25 e nº 7, inconsistências internas do exemplo, foram
+removidos (abaixo). Tudo o mais é cópia literal.
+
+O defeito nº 6 merece registro próprio porque é **estrutural e não foi detectado por
+inspeção**: só apareceu quando o validador HAPI rodou. O FHIR exige que o esquema
+`urn:uuid:` seja seguido de um UUID conforme a RFC 4122; `transient-0` não é. A mensagem é
+`Type_Specific_Checks_DT_UUID_Valid`, severidade ERROR, e ocorre em **toda** entrada de
+**todos** os três exemplos oficiais.
+
+Consequência para o ADR-07: a decisão de emitir `urn:uuid:{UUID}` deixa de ser apenas
+"a forma canônica do FHIR" e passa a ser a única forma que o próprio validador do
+Ministério da Saúde aceita. O risco se inverte — o formato do exemplo é que precisa ser
+confirmado em homologação, não o do framework.
+
+> ⚠️ **Item de homologação nº 1** (Arquitetura §10.5) — confirmar se o barramento aceita `urn:uuid` com UUID
+> real. Ele aceita `transient-N` (está nos próprios exemplos), mas isso não implica que
+> aceite ambos. Testar antes de assumir.
 
 ### Conferência terminológica
 
@@ -106,7 +123,50 @@ porque um integrador que parta do exemplo as herda.
 
 ---
 
-## 4. Avisos esperados na validação
+### Defeitos nº 25 e nº 7 — inconsistências internas do exemplo
+
+Os dois foram encontrados na comparação campo a campo com a saída do `RiaBundleBuilder`, e
+os dois são inconsistências do exemplo consigo mesmo:
+
+**`meta.lastUpdated` (nº 25).** Aparece apenas no `Condition`, com valor `2024-03-30`, e não
+na `Composition` nem no `Immunization`. É metadado de servidor — o FHIR o define como
+"quando o recurso mudou pela última vez" —, e um cliente que monta um documento não tem o
+que dizer sobre isso. O envelope oficial (Arquitetura §8.1.2) traz `meta.lastUpdated` no **Bundle**, e
+é só lá que o framework o emite.
+
+**`display` em `coding` (nº 7).** O perfil do RIA-R proíbe `coding.display` em
+`vaccineCode`, `site`, `route`, `Condition.code`, `clinicalStatus`, `performer.function` e
+`Composition.type`. Sobra permitido em `Condition.category` — e é exatamente o único ponto
+em que o exemplo o emite. O framework adota a regra uniforme de emitir apenas `system` e
+`code`, o que é conforme em todos os elementos e não depende de lembrar onde a proibição
+vale.
+
+### Os três instantes do envelope
+
+A comparação também expôs algo que passa despercebido na leitura: o exemplo distingue
+**três** marcas temporais, com valores diferentes.
+
+| Elemento | Valor no exemplo | Significado |
+|---|---|---|
+| `Bundle.timestamp` e `Bundle.meta.lastUpdated` | `2024-04-01T14:59:51.283-03:00` | instante em que o documento foi **montado** |
+| `Composition.date` | `2024-04-01T08:18:30-03:00` | quando o documento foi criado no **sistema de origem** |
+| `Condition.onsetDateTime` | `2024-03-30T14:59:51.283-03:00` | início da **condição clínica** |
+
+São seis horas e quarenta minutos entre os dois primeiros. Tratá-los como o mesmo campo —
+tentação natural, já que ambos são "a data do registro" — apaga informação real. No
+framework, `Composition.date` vem do DTO (`dataRegistroOrigem`) e `Bundle.timestamp` é
+responsabilidade do Builder, que o obtém de um relógio injetável.
+
+## 4. Pré-requisito de terminologia
+
+Estes arquivos só são aprovados se o `ConformancePackage` tiver aplicado a normalização de
+versão coringa. 35 dos 38 ValueSets da RNDS declaram `compose.include.version = "*"` —
+construção válida do FHIR R4, cujo tratamento a especificação deixa a critério do servidor.
+O expansor em memória do HAPI não a implementa, e sem a normalização **todo** binding
+`required` reprova com `HAPI-0702`. Ver o Javadoc de
+`ConformancePackage.normalizarVersaoCoringa`.
+
+## 5. Avisos esperados na validação
 
 `Immunization.performer.actor.reference` aponta para `Practitioner/012345678912345`, uma
 referência **externa ao Bundle** — o profissional não é resource do documento nos três
@@ -115,7 +175,7 @@ a suíte só reprova mensagens de severidade `ERROR` ou `FATAL`.
 
 ---
 
-## 5. Fontes
+## 6. Fontes
 
 - `ExemploJSONPreenchidoRIAR.json` — arquivos de definição da adoção FHIR R4, Portal de
   Serviços do DATASUS.

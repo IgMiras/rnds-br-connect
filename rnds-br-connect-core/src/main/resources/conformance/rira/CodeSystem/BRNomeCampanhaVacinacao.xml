@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeCampanhaVacinacao" />
+  <version value="1.0" />
+  <name value="Nome da Campanha de Vacinação" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-12-08T13:49:02" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Domínio que identifica o nome da campanha de vacinação." />
+  <content value="complete" />
+  <concept>
+    <code value="COV" />
+    <display value="COVID" />
+  </concept>
+  <concept>
+    <code value="SAR" />
+    <display value="Sarampo" />
+  </concept>
+  <concept>
+    <code value="POL" />
+    <display value="Poliomielite" />
+  </concept>
+  <concept>
+    <code value="INFLU" />
+    <display value="Influenza" />
+  </concept>
+  <concept>
+    <code value="MULTI" />
+    <display value="Multivacinação" />
+  </concept>
+</CodeSystem>

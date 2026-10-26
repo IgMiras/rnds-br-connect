@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="c1210e21-2db8-40b6-8f88-86690a4fe981" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:51:02.648+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoSolicitacao-1.0" />
+  <version value="1.0" />
+  <name value="Estado da Solicitação" />
+  <title value="Estado da Solicitação" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:51:00.5465258+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Estado da solicitação." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/request-status" />
+      <version value="*" />
+      <concept>
+        <code value="active" />
+        <display value="Ativo" />
+      </concept>
+      <concept>
+        <code value="entered-in-error" />
+        <display value="Cancelada por informação errada" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

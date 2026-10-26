@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAtestado" />
+  <version value="1.0.1" />
+  <name value="BRAtestado" />
+  <title value="Atestado Digital" />
+  <status value="active" />
+  <description value="Informações de atestado médico/odontológico" />
+  <purpose value="Modelo destinado a estruturar as informações de atestado médico/odontológico" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="CarePlan" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CarePlan" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="CarePlan">
+      <path value="CarePlan" />
+      <short value="Atestado médico/odontológico" />
+    </element>
+    <element id="CarePlan.identifier">
+      <path value="CarePlan.identifier" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.instantiatesCanonical">
+      <path value="CarePlan.instantiatesCanonical" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.instantiatesUri">
+      <path value="CarePlan.instantiatesUri" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.basedOn">
+      <path value="CarePlan.basedOn" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.replaces">
+      <path value="CarePlan.replaces" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.partOf">
+      <path value="CarePlan.partOf" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.status">
+      <path value="CarePlan.status" />
+      <short value="Estado do atestado." />
+      <fixedCode value="active" />
+      <binding>
+        <strength value="required" />
+        <description value="Estado do atestado." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoAtestado" />
+      </binding>
+    </element>
+    <element id="CarePlan.intent">
+      <path value="CarePlan.intent" />
+      <short value="Intenção do atestado" />
+      <fixedCode value="plan" />
+      <binding>
+        <strength value="required" />
+        <description value="Intenção do atestado médico/odontológico" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRIntencaoAtestado" />
+      </binding>
+    </element>
+    <element id="CarePlan.category">
+      <path value="CarePlan.category" />
+      <short value="Tipo do atestado" />
+      <definition value="Determina se é um atestado médico ou odontológico." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Tipo do atestado." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoAtestado" />
+      </binding>
+    </element>
+    <element id="CarePlan.category.coding">
+      <path value="CarePlan.category.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="CarePlan.category.coding.system">
+      <path value="CarePlan.category.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.category.coding.code">
+      <path value="CarePlan.category.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.category.coding.userSelected">
+      <path value="CarePlan.category.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.category.text">
+      <path value="CarePlan.category.text" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.title">
+      <path value="CarePlan.title" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.description">
+      <path value="CarePlan.description" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject">
+      <path value="CarePlan.subject" />
+      <short value="Identificação do Indivíduo" />
+      <definition value="Identifica o indivíduo o qual se refere este atestado." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+      </type>
+    </element>
+    <element id="CarePlan.subject.reference">
+      <path value="CarePlan.subject.reference" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.type">
+      <path value="CarePlan.subject.type" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier">
+      <path value="CarePlan.subject.identifier" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.subject.identifier.use">
+      <path value="CarePlan.subject.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier.type">
+      <path value="CarePlan.subject.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier.system">
+      <path value="CarePlan.subject.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.subject.identifier.value">
+      <path value="CarePlan.subject.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.subject.identifier.period">
+      <path value="CarePlan.subject.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.identifier.assigner">
+      <path value="CarePlan.subject.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.subject.display">
+      <path value="CarePlan.subject.display" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.encounter">
+      <path value="CarePlan.encounter" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.period">
+      <path value="CarePlan.period" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.created">
+      <path value="CarePlan.created" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.author">
+      <path value="CarePlan.author" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.contributor">
+      <path value="CarePlan.contributor" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.careTeam">
+      <path value="CarePlan.careTeam" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses">
+      <path value="CarePlan.addresses" />
+      <min value="0" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCID10Avaliado-1.0" />
+      </type>
+    </element>
+    <element id="CarePlan.addresses.reference">
+      <path value="CarePlan.addresses.reference" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.addresses.type">
+      <path value="CarePlan.addresses.type" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.identifier">
+      <path value="CarePlan.addresses.identifier" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.identifier.use">
+      <path value="CarePlan.addresses.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.identifier.type">
+      <path value="CarePlan.addresses.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.identifier.system">
+      <path value="CarePlan.addresses.identifier.system" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.identifier.value">
+      <path value="CarePlan.addresses.identifier.value" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.identifier.period">
+      <path value="CarePlan.addresses.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.identifier.assigner">
+      <path value="CarePlan.addresses.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.addresses.display">
+      <path value="CarePlan.addresses.display" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.supportingInfo">
+      <path value="CarePlan.supportingInfo" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.goal">
+      <path value="CarePlan.goal" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity">
+      <path value="CarePlan.activity" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="CarePlan.activity.id">
+      <path value="CarePlan.activity.id" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.outcomeCodeableConcept">
+      <path value="CarePlan.activity.outcomeCodeableConcept" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.outcomeReference">
+      <path value="CarePlan.activity.outcomeReference" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.progress">
+      <path value="CarePlan.activity.progress" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.reference">
+      <path value="CarePlan.activity.reference" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail">
+      <path value="CarePlan.activity.detail" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.activity.detail.id">
+      <path value="CarePlan.activity.detail.id" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.kind">
+      <path value="CarePlan.activity.detail.kind" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.instantiatesCanonical">
+      <path value="CarePlan.activity.detail.instantiatesCanonical" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.instantiatesUri">
+      <path value="CarePlan.activity.detail.instantiatesUri" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.code">
+      <path value="CarePlan.activity.detail.code" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.reasonCode">
+      <path value="CarePlan.activity.detail.reasonCode" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.reasonReference">
+      <path value="CarePlan.activity.detail.reasonReference" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.goal">
+      <path value="CarePlan.activity.detail.goal" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.status">
+      <path value="CarePlan.activity.detail.status" />
+      <fixedCode value="unknown" />
+      <binding>
+        <strength value="required" />
+        <description value="Estado do afastamento" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoAfastamentoAtestado" />
+      </binding>
+    </element>
+    <element id="CarePlan.activity.detail.statusReason">
+      <path value="CarePlan.activity.detail.statusReason" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.doNotPerform">
+      <path value="CarePlan.activity.detail.doNotPerform" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x]">
+      <path value="CarePlan.activity.detail.scheduled[x]" />
+      <min value="1" />
+      <type>
+        <code value="Timing" />
+      </type>
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].event">
+      <path value="CarePlan.activity.detail.scheduled[x].event" />
+      <short value="Data de início do afastamento" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat" />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.id">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.id" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.bounds[x]">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.bounds[x]" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.count">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.count" />
+      <short value="Tempo de afastamento" />
+      <definition value="Tempo do afastamento quantificado em dias." />
+      <min value="1" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.countMax">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.countMax" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.duration">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.duration" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.durationMax">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.durationMax" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.durationUnit">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.durationUnit" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.frequency">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.frequency" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.frequencyMax">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.frequencyMax" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.period">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.period" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.periodMax">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.periodMax" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.periodUnit">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.periodUnit" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.dayOfWeek">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.dayOfWeek" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.timeOfDay">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.timeOfDay" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.when">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.when" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].repeat.offset">
+      <path value="CarePlan.activity.detail.scheduled[x].repeat.offset" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.scheduled[x].code">
+      <path value="CarePlan.activity.detail.scheduled[x].code" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.location">
+      <path value="CarePlan.activity.detail.location" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.performer">
+      <path value="CarePlan.activity.detail.performer" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.product[x]">
+      <path value="CarePlan.activity.detail.product[x]" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.dailyAmount">
+      <path value="CarePlan.activity.detail.dailyAmount" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.quantity">
+      <path value="CarePlan.activity.detail.quantity" />
+      <max value="0" />
+    </element>
+    <element id="CarePlan.activity.detail.description">
+      <path value="CarePlan.activity.detail.description" />
+      <short value="Informações adicionais" />
+      <definition value="Informações adicionais sobre o afastamento." />
+    </element>
+    <element id="CarePlan.note">
+      <path value="CarePlan.note" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

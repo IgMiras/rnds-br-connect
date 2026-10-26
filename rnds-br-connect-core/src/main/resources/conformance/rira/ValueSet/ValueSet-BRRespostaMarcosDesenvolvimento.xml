@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="BRRespostaMarcosDesenvolvimento" />
+	<meta>
+		<profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRValueSetQuestionario" />
+	</meta>
+	<language value="pt-BR" />
+	<url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRRespostaMarcosDesenvolvimento" />
+	<version value="1.0" />
+	<name value="ValueSet-BRRespostaMarcosDesenvolvimento" />
+	<status value="active" />
+	<date value="2024-11-01T13:25:38.9038219+00:00" />
+	<publisher value="Ministério da Saúde do Brasil" />
+	<description
+		value="Valores permitidos nas resposta do questionário dos Marcos do Desenvolvimento da Criança." />
+	<immutable value="true" />
+	<compose>
+		<include>
+			<system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRPresenteAusente" />
+			<version value="*" />
+		</include>
+	</compose>
+</ValueSet>

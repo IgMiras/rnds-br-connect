@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROperadorDigitador-1.0" />
+  <version value="1.0" />
+  <name value="BROperadorDigitador" />
+  <title value="Identificador do digitador" />
+  <status value="active" />
+  <date value="2020-12-14" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identificação do operador / digitador que realizou a entrada de dados a partir da transcrição do registro de um profissional de saúde." />
+  <purpose value="Para identificar o operador / digitador que realizou a entrada de dados a partir da transcrição do registro de um profissional de saúde." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Composition" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Identificador do digitador ou operador" />
+      <definition value="Identificação do operador / digitador que realizou a entrada de dados a partir da transcrição do registro de um profissional de saúde." />
+      <max value="1" />
+      <mustSupport value="false" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROperadorDigitador-1.0" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <short value="Profissional" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProfissional-1.0" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="Extension.value[x].reference">
+      <path value="Extension.value[x].reference" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].type">
+      <path value="Extension.value[x].type" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].identifier">
+      <path value="Extension.value[x].identifier" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].identifier.use">
+      <path value="Extension.value[x].identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].identifier.type">
+      <path value="Extension.value[x].identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].identifier.system">
+      <path value="Extension.value[x].identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].identifier.value">
+      <path value="Extension.value[x].identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].identifier.period">
+      <path value="Extension.value[x].identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].identifier.assigner">
+      <path value="Extension.value[x].identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].display">
+      <path value="Extension.value[x].display" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

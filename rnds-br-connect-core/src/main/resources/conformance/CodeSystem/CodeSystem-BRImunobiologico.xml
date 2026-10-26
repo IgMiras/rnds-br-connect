@@ -1,0 +1,718 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRImunobiologico" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRImunobiologico" />
+  <version value="02.16" />
+  <name value="BRImunobiologico" />
+  <title value="Imunobiológico" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-01-12T18:40:15.6103207+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica os tipos de imunobiológicos." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <property>
+    <code value="inactive" />
+    <uri value="http://hl7.org/fhir/concept-properties#inactive" />
+    <type value="boolean" />
+  </property>
+  <concept>
+    <code value="1" />
+    <display value="IGHT" />
+    <definition value="Imunoglobulina humana antitétano" />
+  </concept>
+  <concept>
+    <code value="2" />
+    <display value="SAT" />
+    <definition value="Soro antitetânico" />
+  </concept>
+  <concept>
+    <code value="3" />
+    <display value="SARC" />
+    <definition value="Soro antiaracnídico" />
+  </concept>
+  <concept>
+    <code value="4" />
+    <display value="SAESCOR" />
+    <definition value="Soro antiescorpiônico" />
+  </concept>
+  <concept>
+    <code value="5" />
+    <display value="DT" />
+    <definition value="Vacina difteria e tétano infantil" />
+  </concept>
+  <concept>
+    <code value="6" />
+    <display value="SAELAP" />
+    <definition value="Soro antielapídico" />
+  </concept>
+  <concept>
+    <code value="7" />
+    <display value="SAR" />
+    <definition value="Soro antirrábico" />
+  </concept>
+  <concept>
+    <code value="8" />
+    <display value="SABOTR" />
+    <definition value="Soro antibotrópico (pentavalente)" />
+  </concept>
+  <concept>
+    <code value="9" />
+    <display value="HepB" />
+    <definition value="Vacina hepatite B" />
+  </concept>
+  <concept>
+    <code value="10" />
+    <display value="SAD" />
+    <definition value="Soro antidiftérico" />
+  </concept>
+  <concept>
+    <code value="11" />
+    <display value="SABOCR" />
+    <definition value="Soro antibotrópico (pentavalente) e anticrotálico" />
+  </concept>
+  <concept>
+    <code value="12" />
+    <display value="SABOLA" />
+    <definition value="Soro antibotrópico (pentavalente) e antilaquético" />
+  </concept>
+  <concept>
+    <code value="13" />
+    <display value="Meningo AC" />
+    <definition value="Vacina meningocócica AC" />
+  </concept>
+  <concept>
+    <code value="14" />
+    <display value="VFA" />
+    <definition value="Vacina febre amarela" />
+  </concept>
+  <concept>
+    <code value="15" />
+    <display value="BCG" />
+    <definition value="Vacina BCG" />
+  </concept>
+  <concept>
+    <code value="16" />
+    <display value="SACROT" />
+    <definition value="Soro anticrotálico" />
+  </concept>
+  <concept>
+    <code value="17" />
+    <display value="Hib" />
+    <definition value="Vacina Hib" />
+  </concept>
+  <concept>
+    <code value="18" />
+    <display value="VR" />
+    <definition value="Vacina raiva embrião de galinha" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="19" />
+    <display value="IGHV" />
+    <definition value="Imunoglobulina humana antivaricela" />
+  </concept>
+  <concept>
+    <code value="20" />
+    <display value="IGHHB" />
+    <definition value="Imunoglobulina humana anti-hepatite B" />
+  </concept>
+  <concept>
+    <code value="21" />
+    <display value="VPP23" />
+    <definition value="Vacina pneumo 23" />
+  </concept>
+  <concept>
+    <code value="22" />
+    <display value="VIP" />
+    <definition value="Vacina polio injetável" />
+  </concept>
+  <concept>
+    <code value="23" />
+    <display value="IGHR" />
+    <definition value="Imunoglobulina humana antirrábica" />
+  </concept>
+  <concept>
+    <code value="24" />
+    <display value="SCR" />
+    <definition value="Vacina sarampo, caxumba, rubéola" />
+  </concept>
+  <concept>
+    <code value="25" />
+    <display value="dT" />
+    <definition value="Vacina difteria e tétano adulto" />
+  </concept>
+  <concept>
+    <code value="26" />
+    <display value="VPC10" />
+    <definition value="Vacina pneumo 10" />
+  </concept>
+  <concept>
+    <code value="27" />
+    <display value="SLATRO" />
+    <definition value="Soro latrodectus" />
+  </concept>
+  <concept>
+    <code value="28" />
+    <display value="VOP" />
+    <definition value="Vacina polio oral" />
+  </concept>
+  <concept>
+    <code value="29" />
+    <display value="PENTA acelular" />
+    <definition value="Vacina penta acelular (DTPa/VIP/Hib)" />
+  </concept>
+  <concept>
+    <code value="30" />
+    <display value="FTp" />
+    <definition value="Vacina febre tifóide" />
+  </concept>
+  <concept>
+    <code value="31" />
+    <display value="SALOXO" />
+    <definition value="Soro antiloxoscélico (trivalente)" />
+  </concept>
+  <concept>
+    <code value="32" />
+    <display value="SALONO" />
+    <definition value="Soro antilonômico" />
+  </concept>
+  <concept>
+    <code value="33" />
+    <display value="INF3" />
+    <definition value="Vacina influenza trivalente" />
+    <designation>
+      <language value="en" />
+      <value value="Influenza vaccine trivalent" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Vacuna influenza trivalente" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="34" />
+    <display value="VAR" />
+    <definition value="Vacina varicela" />
+  </concept>
+  <concept>
+    <code value="35" />
+    <display value="HA" />
+    <definition value="Vacina hepatite A" />
+  </concept>
+  <concept>
+    <code value="36" />
+    <display value="SR" />
+    <definition value="Vacina sarampo, rubéola" />
+  </concept>
+  <concept>
+    <code value="37" />
+    <display value="Vero" />
+    <definition value="Vacina raiva em cultivo celular vero" />
+  </concept>
+  <concept>
+    <code value="38" />
+    <display value="SBOTULTRI" />
+    <definition value="Soro antibotulínico (trivalente)" />
+  </concept>
+  <concept>
+    <code value="39" />
+    <display value="Tetra" />
+    <definition value="Vacina DTP/Hib" />
+  </concept>
+  <concept>
+    <code value="40" />
+    <display value="Pncc7V" />
+    <definition value="Vacina pneumocócica 7V" />
+  </concept>
+  <concept>
+    <code value="41" />
+    <display value="MenC" />
+    <definition value="Vacina meningo C" />
+  </concept>
+  <concept>
+    <code value="42" />
+    <display value="PENTA" />
+    <definition value="Vacina penta (DTP/HepB/Hib)" />
+  </concept>
+  <concept>
+    <code value="43" />
+    <display value="HEXA" />
+    <definition value="Vacina hexa (DTPa/HepB/VIP/Hib)" />
+  </concept>
+  <concept>
+    <code value="44" />
+    <display value="H1N1" />
+    <definition value="Vacina Influenza H1N1" />
+  </concept>
+  <concept>
+    <code value="45" />
+    <display value="ROTA" />
+    <definition value="Vacina rotavírus" />
+  </concept>
+  <concept>
+    <code value="46" />
+    <display value="DTP" />
+    <definition value="Vacina DTP" />
+  </concept>
+  <concept>
+    <code value="47" />
+    <display value="DTPa" />
+    <definition value="Vacina DTPa infantil" />
+  </concept>
+  <concept>
+    <code value="48" />
+    <display value="DILSRC" />
+    <definition value="Diluente para vacina sarampo, caxumba, rubéola" />
+  </concept>
+  <concept>
+    <code value="49" />
+    <display value="DILVFA" />
+    <definition value="Diluente para vacina febre amarela" />
+  </concept>
+  <concept>
+    <code value="50" />
+    <display value="DILHib" />
+    <definition value="Diluente para vacina haemophilus influenzae B" />
+  </concept>
+  <concept>
+    <code value="51" />
+    <display value="Fta" />
+    <definition value="Vacina febre tifóide (atenuada)" />
+  </concept>
+  <concept>
+    <code value="52" />
+    <display value="DilMengAC" />
+    <definition value="Diluente meningo AC" />
+  </concept>
+  <concept>
+    <code value="53" />
+    <display value="DILSR" />
+    <definition value="Diluente para vacina sarampo, rubéola" />
+  </concept>
+  <concept>
+    <code value="54" />
+    <display value="DILVAR" />
+    <definition value="Diluente para vacina varicela" />
+  </concept>
+  <concept>
+    <code value="55" />
+    <display value="HepAinf" />
+    <definition value="Vacina hepatite A infantil" />
+  </concept>
+  <concept>
+    <code value="56" />
+    <display value="SCRV" />
+    <definition value="Vacina sarampo, caxumba, rubéola e varicela" />
+  </concept>
+  <concept>
+    <code value="57" />
+    <display value="dTpa" />
+    <definition value="Vacina dTpa adulto" />
+  </concept>
+  <concept>
+    <code value="58" />
+    <display value="TETRA acelular" />
+    <definition value="Vacina DTPa/VIP" />
+  </concept>
+  <concept>
+    <code value="59" />
+    <display value="VPC13" />
+    <definition value="Vacina pneumo 13" />
+  </concept>
+  <concept>
+    <code value="60" />
+    <display value="HPV2" />
+    <definition value="Vacina HPV bivalente" />
+  </concept>
+  <concept>
+    <code value="61" />
+    <display value="TT" />
+    <definition value="Vacina toxóide tetânico" />
+  </concept>
+  <concept>
+    <code value="62" />
+    <display value="HAeHBped" />
+    <definition value="Hepatite AeB (pediátrica)" />
+  </concept>
+  <concept>
+    <code value="63" />
+    <display value="HAeHB" />
+    <definition value="Vacina hepatite AeB (uso adulto)" />
+  </concept>
+  <concept>
+    <code value="64" />
+    <display value="FLU ID" />
+    <definition value="Vacina influenza ID" />
+  </concept>
+  <concept>
+    <code value="65" />
+    <display value="ROTA5" />
+    <definition value="Vacina rotavírus pentavalente" />
+  </concept>
+  <concept>
+    <code value="66" />
+    <display value="MEN BC" />
+    <definition value="Vacina meningocócica B/C" />
+  </concept>
+  <concept>
+    <code value="67" />
+    <display value="HPV4" />
+    <definition value="Vacina HPV quadrivalente" />
+  </concept>
+  <concept>
+    <code value="68" />
+    <display value="HPV Bi" />
+    <definition value="Vacina HPV bivalente" />
+  </concept>
+  <concept>
+    <code value="69" />
+    <display value="SABOT" />
+    <definition value="Soro antibotulínico AB (bivalente)" />
+  </concept>
+  <concept>
+    <code value="70" />
+    <display value="Sarampo" />
+    <definition value="Vacina sarampo" />
+  </concept>
+  <concept>
+    <code value="71" />
+    <display value="Rubeola" />
+    <definition value="Vacina rubéola" />
+  </concept>
+  <concept>
+    <code value="72" />
+    <display value="Gripe Sazonal" />
+    <definition value="Vacina gripe" />
+  </concept>
+  <concept>
+    <code value="73" />
+    <display value="Quadrupla Viral" />
+    <definition value="Vacina quádrupla viral" />
+  </concept>
+  <concept>
+    <code value="74" />
+    <display value="MenACWY" />
+    <definition value="Vacina meningo ACWY" />
+  </concept>
+  <concept>
+    <code value="75" />
+    <display value="COLERA" />
+    <definition value="Vacina cólera" />
+  </concept>
+  <concept>
+    <code value="76" />
+    <display value="VHZ" />
+    <definition value="Vacina herpes-zóster" />
+  </concept>
+  <concept>
+    <code value="77" />
+    <display value="INF4" />
+    <definition value="Vacina influenza tetravalente" />
+    <designation>
+      <language value="en" />
+      <value value="Influenza vaccine tetravalent" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Vacuna influenza tetravalente" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="78" />
+    <display value="MenB" />
+    <definition value="Vacina meningo B" />
+  </concept>
+  <concept>
+    <code value="79" />
+    <display value="DILBCG" />
+    <definition value="Diluente para vacina BCG" />
+  </concept>
+  <concept>
+    <code value="80" />
+    <display value="DILVRvero" />
+    <definition value="Diluente para vacina raiva cultivo celulas vero" />
+  </concept>
+  <concept>
+    <code value="81" />
+    <display value="DILMenC" />
+    <definition value="Diluente para vacina meningo C" />
+  </concept>
+  <concept>
+    <code value="82" />
+    <display value="Dengue" />
+    <definition value="Vacina dengue" />
+  </concept>
+  <concept>
+    <code value="83" />
+    <display value="HEPAad" />
+    <definition value="Vacina hepatite A adulto" />
+  </concept>
+  <concept>
+    <code value="84" />
+    <display value="VFA-F" />
+    <definition value="Vacina febre amarela fracionada" />
+  </concept>
+  <concept>
+    <code value="85" />
+    <display value="COVID-19 ASTRAZENECA/FIOCRUZ - COVISHIELD" />
+    <definition value="Vacina COVID-19 ASTRAZENECA/FIOCRUZ - COVISHIELD, recombinante" />
+    <designation>
+      <language value="en" />
+      <value value="XM9QW8 COVID-19 vaccine, non-replicating viral vector" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM9QW8 Vacuna COVID-19, vector viral no replicante" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86" />
+    <display value="COVID-19 SINOVAC/BUTANTAN - CORONAVAC" />
+    <definition value="Vacina COVID-19 SINOVAC/BUTANTAN - CORONAVAC, inativada" />
+    <designation>
+      <language value="en" />
+      <value value="XM1NL1 COVID-19 vaccine, inactivated virus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM1NL1 Vacuna COVID-19, virus inactivado" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87" />
+    <display value="COVID-19 PFIZER - COMIRNATY" />
+    <definition value="Vacina COVID-19 PFIZER - COMIRNATY, RNAm" />
+    <designation>
+      <language value="en" />
+      <value value="XM0GQ8 COVID-19 vaccine, RNA based" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM0GQ8 Vacuna COVID-19, basada en ARN" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="88" />
+    <display value="COVID-19 JANSSEN - Ad26.COV2.S" />
+    <definition value="Vacina COVID-19 JANSSEN - Ad26.COV2.S, recombinante" />
+    <designation>
+      <language value="en" />
+      <value value="XM9QW8 COVID-19 vaccine, non-replicating viral vector" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM9QW8 Vacuna COVID-19, vector viral no replicante" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="89" />
+    <display value="COVID-19 ASTRAZENECA - ChAdOx1-S" />
+    <definition value="Vacina COVID-19 ASTRAZENECA - ChAdOx1-S, recombinante" />
+    <designation>
+      <language value="en" />
+      <value value="XM9QW8 COVID-19 vaccine, non-replicating viral vector" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM9QW8 Vacuna COVID-19, vector viral no replicante" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="90" />
+    <display value="DILSCRV" />
+    <definition value="Diluente para vacina sarampo, caxumba, rubéola e varicela" />
+  </concept>
+  <concept>
+    <code value="91" />
+    <display value="DILVR" />
+    <definition value="Diluente para vacina raiva cultivo embrião de galinha" />
+  </concept>
+  <concept>
+    <code value="92" />
+    <display value="VRvero" />
+    <definition value="Vacina raiva cultivo celulas vero" />
+  </concept>
+  <concept>
+    <code value="93" />
+    <display value="HPV9" />
+    <definition value="Vacina HPV nonavalente" />
+  </concept>
+  <concept>
+    <code value="94" />
+    <display value="DILCOV" />
+    <definition value="Diluente COVID-19" />
+  </concept>
+  <concept>
+    <code value="95" />
+    <display value="COVID-19 GAMALEYA - SPUTNIK V" />
+    <definition value="Vacina COVID-19 GAMALEYA - SPUTNIK V recombinante" />
+    <designation>
+      <language value="en" />
+      <value value="XM9QW8 COVID-19 vaccine, non-replicating viral vector" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM9QW8 Vacuna COVID-19, vector viral no replicante" />
+    </designation>
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="96" />
+    <display value="COVID-19 BHARAT - COVAXIN" />
+    <definition value="Vacina COVID-19 BHARAT - COVAXIN inativada" />
+    <designation>
+      <language value="en" />
+      <value value="XM1NL1 COVID-19 vaccine, inactivated virus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM1NL1 Vacuna COVID-19, virus inactivado" />
+    </designation>
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="97" />
+    <display value="COVID-19 MODERNA - SPIKEVAX" />
+    <definition value="Vacina COVID-19-RNAm, Moderna (Spikevax)" />
+    <designation>
+      <language value="en" />
+      <value value="XM0GQ8 COVID-19 vaccine, RNA based" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM0GQ8 Vacuna COVID-19, basada en ARN" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="98" />
+    <display value="COVID-19 SINOVAC - CORONAVAC" />
+    <definition value="Vacina COVID-19 SINOVAC - CORONAVAC inativada" />
+    <designation>
+      <language value="en" />
+      <value value="XM1NL1 COVID-19 vaccine, inactivated virus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM1NL1 Vacuna COVID-19, virus inactivado" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="99" />
+    <display value="COVID-19 PFIZER - COMIRNATY PEDIÁTRICA" />
+    <definition value="Vacina COVID-19 PFIZER - COMIRNATY PEDIÁTRICA, RNAm" />
+    <designation>
+      <language value="en" />
+      <value value="XM0GQ8 COVID-19 vaccine, RNA based" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM0GQ8 Vacuna COVID-19, basada en ARN" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="100" />
+    <display value="VVS" />
+    <definition value="Vacina Varíola Símia (Atenuada)" />
+  </concept>
+  <concept>
+    <code value="101" />
+    <display value="VZR" />
+    <definition value="Vacina Herpes-Zoster, recombinante" />
+  </concept>
+  <concept>
+    <code value="102" />
+    <display value="COVID-19 PFIZER - COMIRNATY PEDIÁTRICA MENOR DE 5 ANOS" />
+    <definition value="Vacina COVID-19 PFIZER - COMIRNATY PEDIÁTRICA MENOR DE 5 ANOS, RNAm" />
+    <designation>
+      <language value="en" />
+      <value value="XM0GQ8 COVID-19 vaccine, RNA based" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM0GQ8 Vacuna COVID-19, basada en ARN" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="103" />
+    <display value="COVID-19 PFIZER - COMIRNATY BIVALENTE" />
+    <definition value="Vacina COVID-19 PFIZER - COMIRNATY BIVALENTE, RNAm" />
+    <designation>
+      <language value="en" />
+      <value value="XM0GQ8 COVID-19 vaccine, RNA based" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="XM0GQ8 Vacuna COVID-19, basada en ARN" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104" />
+    <display value="DNG" />
+    <definition value="Vacina dengue (atenuada)" />
+  </concept>
+  <concept>
+    <code value="105" />
+    <display value="COVID-19 MODERNA - SPIKEVAX BIVALENTE" />
+    <definition value="Vacina COVID-19-RNAm, Moderna (Spikevax) bivalente" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="106" />
+    <display value="VPC15" />
+    <definition value="Vacina adsorvida pneumocócica 15-valente (conjugada, polissacarídica)" />
+  </concept>
+  <concept>
+    <code value="107" />
+    <display value="VPC20" />
+    <definition value="Vacina Pneumo 20" />
+  </concept>
+  <concept>
+    <code value="108" />
+    <display value="VVSR-Rec" />
+    <definition value="Vacina Vírus Sincicial Respiratório A e B (recombinante)" />
+  </concept>
+  <concept>
+    <code value="109" />
+    <display value="VVSR-RecAdj" />
+    <definition value="Vacina Vírus Sincicial Respiratório (recombinante, adjuvada)" />
+  </concept>
+  <concept>
+    <code value="110" />
+    <display value="INF4-alta dosagem" />
+    <definition value="Vacina Influenza Tetravalente - Alta Dosagem" />
+  </concept>
+  <concept>
+    <code value="111" />
+    <display value="dTpa/VIP" />
+    <definition value="Vacina Tetra Acelular dTpa/VIP" />
+  </concept>
+  <concept>
+    <code value="112" />
+    <display value="COVID-19 SERUM/ZALIKA" />
+    <definition value="Vacina Covid-19-recombinante, Serum/Zalika" />
+  </concept>
+  <concept>
+    <code value="113" />
+    <display value="CHIKUNGUNYA" />
+    <definition value="Vacina Chikungunya (recombinante e atenuada)" />
+  </concept>
+  <concept>
+    <code value="114" />
+    <display value="COVID-19 SINOPHARM" />
+    <definition value="Vacina Covid-19-inativada, Sinopharm" />
+  </concept>
+</CodeSystem>

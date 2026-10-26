@@ -1,0 +1,538 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRGrupoAtendimento" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRGrupoAtendimento" />
+  <version value="3.1" />
+  <name value="BRGrupoAtendimento" />
+  <title value="Grupo de Atendimento" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2021-08-20T14:59:27.326+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description
+    value="Domínio que identifica o tipo de grupo de atendimento que o indivíduo apresentou para a vacinação em campanha." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <property>
+    <code value="inactive" />
+    <uri value="http://hl7.org/fhir/concept-properties#inactive" />
+    <type value="boolean" />
+  </property>
+  <concept>
+    <code value="00" />
+    <display value="Sem registro no modelo de informação de origem" />
+  </concept>
+  <concept>
+    <code value="000101" />
+    <display value="Hemoglobinopatia grave" />
+  </concept>
+  <concept>
+    <code value="000102" />
+    <display value="Neoplasias" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000103" />
+    <display value="Diabetes Mellitus" />
+  </concept>
+  <concept>
+    <code value="000104" />
+    <display value="Pneumopatias Crônicas Graves" />
+  </concept>
+  <concept>
+    <code value="000105" />
+    <display value="Doença Renal Crônica" />
+  </concept>
+  <concept>
+    <code value="000106" />
+    <display value="Doenças Cardiovasculares e Cerebrovasculares" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000107" />
+    <display value="Hipertensão de difícil controle ou com complicações/lesão de órgão alvo" />
+  </concept>
+  <concept>
+    <code value="000108" />
+    <display value="Indivíduos Transplantados de Órgão Sólido" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000109" />
+    <display value="Obesidade Grave (Imc≥40)" />
+  </concept>
+  <concept>
+    <code value="000110" />
+    <display value="Síndrome de Down" />
+  </concept>
+  <concept>
+    <code value="000111" />
+    <display value="Outros Imunocomprometidos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000112" />
+    <display value="Indivíduos Transplantados de Medula Óssea" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000114" />
+    <display value="Cirrose hepática" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000115" />
+    <display value="Doença neurológica crônica" />
+  </concept>
+  <concept>
+    <code value="000116" />
+    <display value="Doença cardiovascular" />
+  </concept>
+  <concept>
+    <code value="000117" />
+    <display value="Imunocomprometidos" />
+  </concept>
+  <concept>
+    <code value="000118" />
+    <display value="Trissomias" />
+  </concept>
+  <concept>
+    <code value="000119" />
+    <display value="Doença Hepática Crônica" />
+  </concept>
+  <concept>
+    <code value="000120" />
+    <display value="Prematuridade" />
+  </concept>
+  <concept>
+    <code value="000121" />
+    <display value="Anomalias de vias aéreas" />
+  </concept>
+  <concept>
+    <code value="000122" />
+    <display value="Obesidade (score-Z acima de +2)" />
+  </concept>
+  <concept>
+    <code value="000123" />
+    <display value="Erros Inatos da Imunidade (EII)" />
+  </concept>
+  <concept>
+    <code value="000201" />
+    <display value="Pessoas de 18 a 64 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000202" />
+    <display value="Pessoas de 65 a 69 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000203" />
+    <display value="Pessoas de 70 a 74 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000204" />
+    <display value="Pessoas de 75 a 79 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000205" />
+    <display value="Pessoas de 80 anos ou mais" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000206" />
+    <display value="Pessoas de 12 a 17 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000207" />
+    <display value="Pessoas de 5 a 11 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000208" />
+    <display value="Pessoas de 3 a 4 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000209" />
+    <display value="Pessoas de 6 meses a 2 anos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000210" />
+    <display value="Faixa Etária" />
+  </concept>
+  <concept>
+    <code value="000301" />
+    <display value="Pessoas de 60 nos ou mais Institucionalizadas" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000302" />
+    <display value="Pessoas Institucionalizadas" />
+  </concept>
+  <concept>
+    <code value="000401" />
+    <display value="Marinha do Brasil - MB" />
+  </concept>
+  <concept>
+    <code value="000402" />
+    <display value="Exército Brasileiro - EB" />
+  </concept>
+  <concept>
+    <code value="000403" />
+    <display value="Força Aérea Brasileira - FAB" />
+  </concept>
+  <concept>
+    <code value="000501" />
+    <display value="Bombeiro Civil" />
+  </concept>
+  <concept>
+    <code value="000502" />
+    <display value="Bombeiro Militar" />
+  </concept>
+  <concept>
+    <code value="000503" />
+    <display value="Guarda Municipal" />
+  </concept>
+  <concept>
+    <code value="000504" />
+    <display value="Policial Rodoviário Federal" />
+  </concept>
+  <concept>
+    <code value="000505" />
+    <display value="Policial Civil" />
+  </concept>
+  <concept>
+    <code value="000506" />
+    <display value="Policial Federal" />
+  </concept>
+  <concept>
+    <code value="000507" />
+    <display value="Policial Militar" />
+  </concept>
+  <concept>
+    <code value="000601" />
+    <display value="Quilombola" />
+  </concept>
+  <concept>
+    <code value="000602" />
+    <display value="Ribeirinha" />
+  </concept>
+  <concept>
+    <code value="000603" />
+    <display value="Crianças Quilombolas" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000604" />
+    <display value="Crianças Ribeirinhas" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000701" />
+    <display value="Povos indígenas em terras indígenas" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000702" />
+    <display value="Crianças Indígenas" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+  <concept>
+    <code value="000703" />
+    <display value="Povos indígenas vivendo em terras indígenas" />
+  </concept>
+  <concept>
+    <code value="000704" />
+    <display value="Povos indígenas vivendo fora das terras indígenas" />
+  </concept>
+  <concept>
+    <code value="000801" />
+    <display value="Ensino Básico" />
+  </concept>
+  <concept>
+    <code value="000802" />
+    <display value="Ensino Superior" />
+  </concept>
+  <concept>
+    <code value="000901" />
+    <display value="Auxiliar de Veterinário" />
+  </concept>
+  <concept>
+    <code value="000902" />
+    <display value="Biólogo" />
+  </concept>
+  <concept>
+    <code value="000903" />
+    <display value="Biomédico" />
+  </concept>
+  <concept>
+    <code value="000904" />
+    <display value="Cozinheiro e Auxiliares" />
+  </concept>
+  <concept>
+    <code value="000905" />
+    <display value="Cuidador de Idosos" />
+  </concept>
+  <concept>
+    <code value="000906" />
+    <display value="Doula/Parteira" />
+  </concept>
+  <concept>
+    <code value="000907" />
+    <display value="Enfermeiro(a)" />
+  </concept>
+  <concept>
+    <code value="000908" />
+    <display value="Farmacêutico" />
+  </concept>
+  <concept>
+    <code value="000909" />
+    <display value="Fisioterapeutas" />
+  </concept>
+  <concept>
+    <code value="000910" />
+    <display value="Fonoaudiólogo" />
+  </concept>
+  <concept>
+    <code value="000911" />
+    <display
+      value="Funcionário do Sistema Funerário que tenham contato com cadáveres potencialmente contaminados" />
+  </concept>
+  <concept>
+    <code value="000912" />
+    <display value="Médico" />
+  </concept>
+  <concept>
+    <code value="000913" />
+    <display value="Médico Veterinário" />
+  </concept>
+  <concept>
+    <code value="000914" />
+    <display value="Motorista de Ambulância" />
+  </concept>
+  <concept>
+    <code value="000915" />
+    <display value="Nutricionista" />
+  </concept>
+  <concept>
+    <code value="000916" />
+    <display value="Odontologista" />
+  </concept>
+  <concept>
+    <code value="000917" />
+    <display value="Profissionais e Auxiliares de limpeza" />
+  </concept>
+  <concept>
+    <code value="000918" />
+    <display value="Profissionais de Educação Física" />
+  </concept>
+  <concept>
+    <code value="000919" />
+    <display value="Psicólogo" />
+  </concept>
+  <concept>
+    <code value="000920" />
+    <display value="Recepcionista" />
+  </concept>
+  <concept>
+    <code value="000921" />
+    <display value="Segurança" />
+  </concept>
+  <concept>
+    <code value="000922" />
+    <display value="Assistente Social" />
+  </concept>
+  <concept>
+    <code value="000923" />
+    <display value="Técnico de Enfermagem" />
+  </concept>
+  <concept>
+    <code value="000924" />
+    <display value="Técnico de Veterinário" />
+  </concept>
+  <concept>
+    <code value="000925" />
+    <display value="Terapeuta Ocupacional" />
+  </concept>
+  <concept>
+    <code value="000926" />
+    <display value="Outros" />
+  </concept>
+  <concept>
+    <code value="000927" />
+    <display value="Auxiliar de Enfermagem" />
+  </concept>
+  <concept>
+    <code value="000928" />
+    <display value="Técnico de Odontologia" />
+  </concept>
+  <concept>
+    <code value="000929" />
+    <display value="Acadêmicos/estudantes em estágio em estabelecimentos de saúde" />
+  </concept>
+  <concept>
+    <code value="000930" />
+    <display value="Agente de Combate a Endemias - ACE" />
+  </concept>
+  <concept>
+    <code value="000931" />
+    <display value="Agente Comunitário de Saúde - ACS" />
+  </concept>
+  <concept>
+    <code value="000932" />
+    <display value="Auxiliar em Saúde Bucal - ASB" />
+  </concept>
+  <concept>
+    <code value="000933" />
+    <display value="Técnico em Saúde Bucal - TSB" />
+  </concept>
+  <concept>
+    <code value="001001" />
+    <display value="Aéreo" />
+  </concept>
+  <concept>
+    <code value="001002" />
+    <display value="Caminhoneiro" />
+  </concept>
+  <concept>
+    <code value="001003" />
+    <display value="Coletivo Rodoviário Passageiros Urbano e de Longo Curso" />
+  </concept>
+  <concept>
+    <code value="001004" />
+    <display value="Ferroviário" />
+  </concept>
+  <concept>
+    <code value="001005" />
+    <display value="Metroviário" />
+  </concept>
+  <concept>
+    <code value="001006" />
+    <display value="Aquaviário" />
+  </concept>
+  <concept>
+    <code value="001101" />
+    <display value="Pessoas com Deficiência Institucionalizadas" />
+  </concept>
+  <concept>
+    <code value="001102" />
+    <display value="Pessoas com Deficiência Permanente" />
+  </concept>
+  <concept>
+    <code value="001201" />
+    <display value="Pessoas em Situação de Rua" />
+  </concept>
+  <concept>
+    <code value="001301" />
+    <display value="Trabalhadores Portuários" />
+  </concept>
+  <concept>
+    <code value="001401" />
+    <display value="Funcionário do Sistema de Privação de Liberdade" />
+  </concept>
+  <concept>
+    <code value="001501" />
+    <display value="População Privada de Liberdade" />
+  </concept>
+  <concept>
+    <code value="001502" />
+    <display value="Adolescentes cumprindo medidas Socioeducativas" />
+  </concept>
+  <concept>
+    <code value="001601" />
+    <display value="Trabalhadores Industriais" />
+  </concept>
+  <concept>
+    <code value="001701" />
+    <display value="Trabalhadores de limpeza urbana e manejo de resíduos sólidos" />
+  </concept>
+  <concept>
+    <code value="001801" />
+    <display value="Gestante" />
+  </concept>
+  <concept>
+    <code value="001901" />
+    <display value="Puérpera" />
+  </concept>
+  <concept>
+    <code value="002001" />
+    <display value="População Rural" />
+  </concept>
+  <concept>
+    <code value="002101" />
+    <display value="Profissionais dos Correios" />
+  </concept>
+  <concept>
+    <code value="999999" />
+    <display value="Outros Grupos" />
+    <property>
+      <code value="inactive" />
+      <valueBoolean value="true" />
+    </property>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2023-04-13T13:17:22.715+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRModalidadeAssistencialMIRA" />
+  <version value="1.0" />
+  <name value="Modalidade Assistencial MIRA" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-04-13T13:17:18.5012669+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Modalidade assistencial que gerou a solicitação do procedimento." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial" />
+      <version value="*" />
+      <concept>
+        <code value="04" />
+        <display value="Atenção Hospitalar" />
+      </concept>
+      <concept>
+        <code value="09" />
+        <display value="Assistência Ambulatorial" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

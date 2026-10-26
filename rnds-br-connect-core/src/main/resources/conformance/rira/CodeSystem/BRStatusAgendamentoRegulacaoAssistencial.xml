@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="48e1c9b8-61e5-43a8-9905-2a514f651fa5" />
+  <meta>
+    <lastUpdated value="2020-03-26T13:19:48.112+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRStatusAgendamentoRegulacaoAssistencial" />
+  <version value="1.1" />
+  <name value="Status de agendamento de regulação assistencial" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-26T13:19:46.9743559+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Status de agendamento de regulação assistencial." />
+  <content value="complete" />
+  <concept>
+    <code value="excluded" />
+    <display value="Excluded" />
+    <definition value="When document was excluded."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Excluído"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="returned-to-requester" />
+    <display value="Returned to requester." />
+    <definition value="When document was returned to requester" />
+    <designation>
+      <language value="pt-br"/>
+      <value value="Devolvido para o solicitante."/>
+    </designation>
+  </concept>
+</CodeSystem>

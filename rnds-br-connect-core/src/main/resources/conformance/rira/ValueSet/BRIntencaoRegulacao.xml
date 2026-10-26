@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2023-04-13T13:17:22.715+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRIntencaoRegulacao" />
+  <version value="1.0" />
+  <name value="Intenção de requisição de regulação assistencial" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-04-13T13:17:18.5012669+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Intenção de requisição de regulação assistencial." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/request-intent" />
+      <version value="*" />
+      <concept>
+        <code value="proposal"/>
+        <display value="Proposal"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Proposto"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="plan"/>
+        <display value="Plan"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Planejado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="directive"/>
+        <display value="Directive"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Diretriz"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="order"/>
+        <display value="Order"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Autorizado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="original-order"/>
+        <display value="Original Order"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Autorização original"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="reflex-order"/>
+        <display value="Reflex Order"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Autorização suplementar"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="filler-order"/>
+        <display value="Filler Order"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Intenção de autorização"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="instance-order"/>
+        <display value="Instance Order"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Autorização de atividade única"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="option"/>
+        <display value="Option"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Condicional"/>
+        </designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

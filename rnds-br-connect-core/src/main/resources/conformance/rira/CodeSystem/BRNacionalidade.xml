@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2021-12-28T17:23:29+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNacionalidade" />
+  <version value="01.00" />
+  <name value="Nacionalidade" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2021-12-28T17:23:29+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Define a nacionalidade de um dado indivíduo." />
+  <content value="complete" />
+  <concept>
+    <code value="B" />
+    <display value="Brasileiro" />
+    <designation>
+        <language value="en" />
+        <value value="Brazilian" />
+    </designation>
+    <designation>
+        <language value="es" />
+        <value value="Brasileño"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="E" />
+    <display value="Estrangeiro" />
+    <designation>
+        <language value="en" />
+        <value value="Foreign" />
+    </designation>
+    <designation>
+        <language value="es" />
+        <value value="Extranjero" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="N" />
+    <display value="Naturalizado" />
+    <designation>
+        <language value="en" />
+        <value value="Naturalized" />
+    </designation>
+    <designation>
+        <language value="es" />
+        <value value="Naturalizado" />
+    </designation>
+  </concept>
+</CodeSystem>

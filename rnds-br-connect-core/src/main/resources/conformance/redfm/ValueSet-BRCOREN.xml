@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BRCOREN"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet BRCOREN</b></p><a name="BRCOREN"> </a><a name="hcBRCOREN"> </a><a name="BRCOREN-pt-BR"> </a><ul><li>Include these codes as defined in <a href="CodeSystem-BRConselhoProfissional.html"><code>https://terminologia.saude.gov.br/fhir/CodeSystem/BRConselhoProfissional</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-ac">https://saude.gov.br/sid/coren-ac</a></td><td>COREN-AC</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-al">https://saude.gov.br/sid/coren-al</a></td><td>COREN-AL</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-am">https://saude.gov.br/sid/coren-am</a></td><td>COREN-AM</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-ap">https://saude.gov.br/sid/coren-ap</a></td><td>COREN-AP</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-ba">https://saude.gov.br/sid/coren-ba</a></td><td>COREN-BA</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-ce">https://saude.gov.br/sid/coren-ce</a></td><td>COREN-CE</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-df">https://saude.gov.br/sid/coren-df</a></td><td>COREN-DF</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-es">https://saude.gov.br/sid/coren-es</a></td><td>COREN-ES</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-go">https://saude.gov.br/sid/coren-go</a></td><td>COREN-GO</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-ma">https://saude.gov.br/sid/coren-ma</a></td><td>COREN-MA</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-mg">https://saude.gov.br/sid/coren-mg</a></td><td>COREN-MG</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-ms">https://saude.gov.br/sid/coren-ms</a></td><td>COREN-MS</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-mt">https://saude.gov.br/sid/coren-mt</a></td><td>COREN-MT</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-pa">https://saude.gov.br/sid/coren-pa</a></td><td>COREN-PA</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-pb">https://saude.gov.br/sid/coren-pb</a></td><td>COREN-PB</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-pe">https://saude.gov.br/sid/coren-pe</a></td><td>COREN-PE</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-pi">https://saude.gov.br/sid/coren-pi</a></td><td>COREN-PI</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-pr">https://saude.gov.br/sid/coren-pr</a></td><td>COREN-PR</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-rj">https://saude.gov.br/sid/coren-rj</a></td><td>COREN-RJ</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-rn">https://saude.gov.br/sid/coren-rn</a></td><td>COREN-RN</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-ro">https://saude.gov.br/sid/coren-ro</a></td><td>COREN-RO</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-rr">https://saude.gov.br/sid/coren-rr</a></td><td>COREN-RR</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-rs">https://saude.gov.br/sid/coren-rs</a></td><td>COREN-RS</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-sc">https://saude.gov.br/sid/coren-sc</a></td><td>COREN-SC</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-se">https://saude.gov.br/sid/coren-se</a></td><td>COREN-SE</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-sp">https://saude.gov.br/sid/coren-sp</a></td><td>COREN-SP</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47coren-to">https://saude.gov.br/sid/coren-to</a></td><td>COREN-TO</td><td>CONSELHO REGIONAL DE ENFERMAGEM</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://terminologia.saude.gov.br/fhir/ValueSet/BRCOREN"/>
+  <identifier>
+    <system value="https://saude.gov.br/sid/valueset"/>
+    <value value="BRCOREN"/>
+  </identifier>
+  <version value="0.1.5"/>
+  <name value="BRCOREN"/>
+  <title value="Conselhos regionais de Enfermagem do Brasil"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2023-07-18T10:52:24-03:00"/>
+  <publisher value="Ministério do Saúde do Brasil"/>
+  <contact>
+    <name value="Ministério do Saúde do Brasil"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://gov.br/saude"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="contato@gointerop.com"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="Italo Macedo"/>
+    <telecom>
+      <system value="email"/>
+      <value value="italo@gointerop.com"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Conjunto de todos os conselhos regionais de enfermagem do Brasil"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="BR"/>
+      <display value="Brazil"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="O propósito deste conjunto é agrupar todos os conselhos regionais de enfermagem para fins de validação do identificador profissional do enfermeiro"/>
+  <copyright value="CC-1.0"/>
+  <compose>
+    <include>
+      <system value="https://terminologia.saude.gov.br/fhir/CodeSystem/BRConselhoProfissional"/>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-ac"/>
+        <display value="COREN-AC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-al"/>
+        <display value="COREN-AL"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-am"/>
+        <display value="COREN-AM"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-ap"/>
+        <display value="COREN-AP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-ba"/>
+        <display value="COREN-BA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-ce"/>
+        <display value="COREN-CE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-df"/>
+        <display value="COREN-DF"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-es"/>
+        <display value="COREN-ES"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-go"/>
+        <display value="COREN-GO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-ma"/>
+        <display value="COREN-MA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-mg"/>
+        <display value="COREN-MG"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-ms"/>
+        <display value="COREN-MS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-mt"/>
+        <display value="COREN-MT"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-pa"/>
+        <display value="COREN-PA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-pb"/>
+        <display value="COREN-PB"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-pe"/>
+        <display value="COREN-PE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-pi"/>
+        <display value="COREN-PI"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-pr"/>
+        <display value="COREN-PR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-rj"/>
+        <display value="COREN-RJ"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-rn"/>
+        <display value="COREN-RN"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-ro"/>
+        <display value="COREN-RO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-rr"/>
+        <display value="COREN-RR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-rs"/>
+        <display value="COREN-RS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-sc"/>
+        <display value="COREN-SC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-se"/>
+        <display value="COREN-SE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-sp"/>
+        <display value="COREN-SP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/coren-to"/>
+        <display value="COREN-TO"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

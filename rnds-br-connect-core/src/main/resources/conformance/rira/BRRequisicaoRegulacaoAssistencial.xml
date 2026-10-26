@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRequisicaoRegulacaoAssistencial" />
+  <version value="1.0" />
+  <name value="BRRequisicaoRegulacaoAssistencial" />
+  <title value="Requisição de Regulação Assistencial" />
+  <status value="active" />
+  <date value="2023-04-04" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="ServiceRequest" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ServiceRequest" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ServiceRequest.implicitRules">
+      <path value="ServiceRequest.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.language">
+      <path value="ServiceRequest.language" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.text">
+      <path value="ServiceRequest.text" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.contained">
+      <path value="ServiceRequest.contained" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.identifier">
+      <path value="ServiceRequest.identifier" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.instantiatesCanonical">
+      <path value="ServiceRequest.instantiatesCanonical" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.instantiatesUri">
+      <path value="ServiceRequest.instantiatesUri" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.basedOn">
+      <path value="ServiceRequest.basedOn" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.replaces">
+      <path value="ServiceRequest.replaces" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requisition">
+      <path value="ServiceRequest.requisition" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.status">
+      <path value="ServiceRequest.status" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRStatusRequisicaoRegulacaoAssistencial" />
+      </binding>
+    </element>
+    <element id="ServiceRequest.intent">
+      <path value="ServiceRequest.intent" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRIntencaoRegulacao" />
+      </binding>
+    </element>
+    <element id="ServiceRequest.category">
+      <path value="ServiceRequest.category" />
+      <short value="Modalidade assistencial." />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Modalidade assistencial." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRModalidadeAssistencialMIRA" />
+      </binding>
+    </element>
+    <element id="ServiceRequest.category.id">
+      <path value="ServiceRequest.category.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.category.coding">
+      <path value="ServiceRequest.category.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ServiceRequest.category.coding.id">
+      <path value="ServiceRequest.category.coding.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.category.coding.system">
+      <path value="ServiceRequest.category.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.category.coding.code">
+      <path value="ServiceRequest.category.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.category.coding.userSelected">
+      <path value="ServiceRequest.category.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.category.text">
+      <path value="ServiceRequest.category.text" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.priority">
+      <path value="ServiceRequest.priority" />
+      <short value="Caráter do atendimento." />
+      <min value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Caráter do atendimento" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCaraterAtendimentoMIRA" />
+      </binding>
+    </element>
+    <element id="ServiceRequest.doNotPerform">
+      <path value="ServiceRequest.doNotPerform" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.code">
+      <path value="ServiceRequest.code" />
+      <short value="Código do procedimento." />
+      <min value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="SIGTAP" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRProcedimentosNacionais-1.0" />
+      </binding>
+    </element>
+    <element id="ServiceRequest.code.id">
+      <path value="ServiceRequest.code.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.code.coding">
+      <path value="ServiceRequest.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ServiceRequest.code.coding.id">
+      <path value="ServiceRequest.code.coding.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.code.coding.system">
+      <path value="ServiceRequest.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.code.coding.code">
+      <path value="ServiceRequest.code.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.code.coding.userSelected">
+      <path value="ServiceRequest.code.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.code.text">
+      <path value="ServiceRequest.code.text" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.orderDetail">
+      <path value="ServiceRequest.orderDetail" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.quantity[x]">
+      <path value="ServiceRequest.quantity[x]" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject">
+      <path value="ServiceRequest.subject" />
+      <short value="Paciente" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+      </type>
+    </element>
+    <element id="ServiceRequest.subject.id">
+      <path value="ServiceRequest.subject.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.reference">
+      <path value="ServiceRequest.subject.reference" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.type">
+      <path value="ServiceRequest.subject.type" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.identifier">
+      <path value="ServiceRequest.subject.identifier" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.id">
+      <path value="ServiceRequest.subject.identifier.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.use">
+      <path value="ServiceRequest.subject.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.type">
+      <path value="ServiceRequest.subject.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.system">
+      <path value="ServiceRequest.subject.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.value">
+      <path value="ServiceRequest.subject.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.period">
+      <path value="ServiceRequest.subject.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.identifier.assigner">
+      <path value="ServiceRequest.subject.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.subject.display">
+      <path value="ServiceRequest.subject.display" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.encounter">
+      <path value="ServiceRequest.encounter" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.occurrence[x]">
+      <path value="ServiceRequest.occurrence[x]" />
+      <short value="Data de execução" />
+      <definition value="Data e hora da execução do procedimento no padrão ISO8601." />
+      <type>
+        <code value="dateTime" />
+      </type>
+    </element>
+    <element id="ServiceRequest.occurrence[x].id">
+      <path value="ServiceRequest.occurrence[x].id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.asNeeded[x]">
+      <path value="ServiceRequest.asNeeded[x]" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.authoredOn">
+      <path value="ServiceRequest.authoredOn" />
+      <short value="Data e hora em que o procediento foi solicitado." />
+      <definition value="Data e hora da solicitação do procedimento no padrão ISO8601." />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.requester">
+      <path value="ServiceRequest.requester" />
+      <short value="Estabelecimento de saúde solicitante" />
+      <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0" />
+      </type>
+    </element>
+    <element id="ServiceRequest.requester.id">
+      <path value="ServiceRequest.requester.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.reference">
+      <path value="ServiceRequest.requester.reference" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.type">
+      <path value="ServiceRequest.requester.type" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.identifier">
+      <path value="ServiceRequest.requester.identifier" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.requester.identifier.id">
+      <path value="ServiceRequest.requester.identifier.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.identifier.use">
+      <path value="ServiceRequest.requester.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.identifier.type">
+      <path value="ServiceRequest.requester.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.identifier.system">
+      <path value="ServiceRequest.requester.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.requester.identifier.value">
+      <path value="ServiceRequest.requester.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.requester.identifier.period">
+      <path value="ServiceRequest.requester.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.identifier.assigner">
+      <path value="ServiceRequest.requester.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.requester.display">
+      <path value="ServiceRequest.requester.display" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performerType">
+      <path value="ServiceRequest.performerType" />
+      <short value="Identificador da especialidade médica do executante." />
+      <binding>
+        <strength value="required" />
+        <description value="Classificação Brasileira de Ocupações." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0" />
+      </binding>
+    </element>
+    <element id="ServiceRequest.performerType.id">
+      <path value="ServiceRequest.performerType.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performerType.coding">
+      <path value="ServiceRequest.performerType.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ServiceRequest.performerType.coding.id">
+      <path value="ServiceRequest.performerType.coding.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performerType.coding.system">
+      <path value="ServiceRequest.performerType.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.performerType.coding.code">
+      <path value="ServiceRequest.performerType.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.performerType.coding.userSelected">
+      <path value="ServiceRequest.performerType.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performerType.text">
+      <path value="ServiceRequest.performerType.text" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer">
+      <path value="ServiceRequest.performer" />
+      <short value="Estabelecimento de sáude executante" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0" />
+      </type>
+    </element>
+    <element id="ServiceRequest.performer.id">
+      <path value="ServiceRequest.performer.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.reference">
+      <path value="ServiceRequest.performer.reference" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.type">
+      <path value="ServiceRequest.performer.type" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.identifier">
+      <path value="ServiceRequest.performer.identifier" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.performer.identifier.id">
+      <path value="ServiceRequest.performer.identifier.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.identifier.use">
+      <path value="ServiceRequest.performer.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.identifier.type">
+      <path value="ServiceRequest.performer.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.identifier.system">
+      <path value="ServiceRequest.performer.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.performer.identifier.value">
+      <path value="ServiceRequest.performer.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.performer.identifier.period">
+      <path value="ServiceRequest.performer.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.identifier.assigner">
+      <path value="ServiceRequest.performer.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.performer.display">
+      <path value="ServiceRequest.performer.display" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.locationCode">
+      <path value="ServiceRequest.locationCode" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.locationReference">
+      <path value="ServiceRequest.locationReference" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.reasonCode">
+      <path value="ServiceRequest.reasonCode" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.reasonReference">
+      <path value="ServiceRequest.reasonReference" />
+      <short value="Motivo da solicitação" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCID10Avaliado-1.0" />
+      </type>
+    </element>
+    <element id="ServiceRequest.reasonReference.id">
+      <path value="ServiceRequest.reasonReference.id" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.reasonReference.reference">
+      <path value="ServiceRequest.reasonReference.reference" />
+      <min value="1" />
+    </element>
+    <element id="ServiceRequest.reasonReference.type">
+      <path value="ServiceRequest.reasonReference.type" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.reasonReference.identifier">
+      <path value="ServiceRequest.reasonReference.identifier" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.reasonReference.display">
+      <path value="ServiceRequest.reasonReference.display" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.insurance">
+      <path value="ServiceRequest.insurance" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.supportingInfo">
+      <path value="ServiceRequest.supportingInfo" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.specimen">
+      <path value="ServiceRequest.specimen" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.bodySite">
+      <path value="ServiceRequest.bodySite" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.note">
+      <path value="ServiceRequest.note" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.patientInstruction">
+      <path value="ServiceRequest.patientInstruction" />
+      <max value="0" />
+    </element>
+    <element id="ServiceRequest.relevantHistory">
+      <path value="ServiceRequest.relevantHistory" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+
+	<meta>
+
+		<lastUpdated value="2022-10-07T17:23:44.703300+00:00"/>
+
+	</meta>
+
+	<language value="pt-BR"/>
+
+	<url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRSubgrupoTabelaSUS"/>
+
+	<version value="1.1.0"/>
+
+	<name value="Subgrupos da Tabela SUS"/>
+
+	<status value="active"/>
+
+	<experimental value="false"/>
+
+	<date value="2022-10-07T17:23:44.666897+00:00"/>
+
+	<publisher value="Ministério da Saúde do Brasil"/>
+
+	<description value="O subgrupo é o segundo nível de hierarquia da Tabela SUS e seus códigos ajudam a classificar e localizar procedimentos."/>
+
+	<immutable value="false"/>
+
+	<compose>
+
+		<include>
+
+			<system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRSubgrupoTabelaSUS"/>
+
+			<version value="*"/>
+
+		</include>
+
+	</compose>
+
+</ValueSet>

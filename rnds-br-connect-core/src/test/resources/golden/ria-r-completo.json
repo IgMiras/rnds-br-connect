@@ -11,10 +11,10 @@
   "timestamp": "2024-04-01T14:59:51.283-03:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:transient-0",
+      "fullUrl": "urn:uuid:0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d60",
       "resource": {
         "resourceType": "Composition",
-        "id": "transient-0",
+        "id": "0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d60",
         "meta": {
           "profile": [
             "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroImunobiologicoAdministradoRotina-2.0"
@@ -49,7 +49,7 @@
           {
             "entry": [
               {
-                "reference": "urn:uuid:transient-1"
+                "reference": "urn:uuid:0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d61"
               }
             ]
           }
@@ -57,10 +57,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:transient-1",
+      "fullUrl": "urn:uuid:0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d61",
       "resource": {
         "resourceType": "Immunization",
-        "id": "transient-1",
+        "id": "0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d61",
         "meta": {
           "profile": [
             "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRImunobiologicoAdministrado-3.0"
@@ -166,7 +166,7 @@
         ],
         "reasonReference": [
           {
-            "reference": "urn:uuid:transient-2"
+            "reference": "urn:uuid:0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d62"
           }
         ],
         "protocolApplied": [
@@ -207,12 +207,11 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:transient-2",
+      "fullUrl": "urn:uuid:0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d62",
       "resource": {
-        "id": "transient-2",
+        "id": "0a8f6b1e-5c74-4d29-9e83-1f2a3b4c5d62",
         "resourceType": "Condition",
         "meta": {
-          "lastUpdated": "2024-03-30T14:59:51.283-03:00",
           "profile": [
             "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCID10Avaliado-1.0"
           ]
@@ -230,8 +229,7 @@
             "coding": [
               {
                 "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCategoriaDiagnostico",
-                "code": "01",
-                "display": "Principal"
+                "code": "01"
               }
             ]
           }

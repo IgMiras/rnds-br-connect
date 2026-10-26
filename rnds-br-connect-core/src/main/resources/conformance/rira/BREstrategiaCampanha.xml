@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaCampanha-1.0" />
+  <version value="1.0" />
+  <name value="BREstrategiaCampanha" />
+  <title value="Estratégia de campanha de vacinação" />
+  <status value="active" />
+  <date value="2020-12-07" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Informações sobre as caracteríticas da campanha." />
+  <purpose value="Deve ser utilizado para apresentar as características de planejamento de uma campanha." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Immunization.protocolApplied" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Estratégia de campanha vacinal" />
+      <definition value="Informações sobre as caracteríticas da campanha." />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Extension.extension:estrategiaCampanha">
+      <path value="Extension.extension" />
+      <sliceName value="estrategiaCampanha" />
+      <short value="Estratégia da campanha" />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Tipo de estratégia de campanha" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstrategiaVacinacaoCampanha-1.0" />
+      </binding>
+    </element>
+    <element id="Extension.extension:estrategiaCampanha.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="estrategiaCampanha" />
+    </element>
+    <element id="Extension.extension:estrategiaCampanha.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="Extension.extension:campanha">
+      <path value="Extension.extension" />
+      <sliceName value="campanha" />
+      <min value="1" />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Nome da campanha de vacina" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCampanhaVacinacao-1.0" />
+      </binding>
+    </element>
+    <element id="Extension.extension:campanha.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="campanha" />
+    </element>
+    <element id="Extension.extension:campanha.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="Extension.extension:dataInicio">
+      <path value="Extension.extension" />
+      <sliceName value="dataInicio" />
+      <short value="Data de início do período da campanha" />
+      <definition value="Data planejada para o início da campanha vacinal." />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:dataInicio.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="dataInicio" />
+    </element>
+    <element id="Extension.extension:dataInicio.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="date" />
+      </type>
+    </element>
+    <element id="Extension.extension:dataTermino">
+      <path value="Extension.extension" />
+      <sliceName value="dataTermino" />
+      <short value="Data de término do período da campanha" />
+      <definition value="Data planejada para o término da campanha vacinal." />
+      <max value="1" />
+    </element>
+    <element id="Extension.extension:dataTermino.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="dataTermino" />
+    </element>
+    <element id="Extension.extension:dataTermino.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="date" />
+      </type>
+    </element>
+    <element id="Extension.extension:abrangenciaCampanha">
+      <path value="Extension.extension" />
+      <sliceName value="abrangenciaCampanha" />
+      <short value="Abrangência da campanha vacinal" />
+      <definition value="Abrangência planejada para a campanha vacinal." />
+      <min value="1" />
+      <max value="1" />
+      <isModifier value="false" />
+      <binding>
+        <strength value="required" />
+        <description value="Abrangência" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRAbrangencia-1.0" />
+      </binding>
+    </element>
+    <element id="Extension.extension:abrangenciaCampanha.url">
+      <path value="Extension.extension.url" />
+      <fixedUri value="abrangenciaCampanha" />
+    </element>
+    <element id="Extension.extension:abrangenciaCampanha.value[x]">
+      <path value="Extension.extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstrategiaCampanha-1.0" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

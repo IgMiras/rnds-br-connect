@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-03-11T19:14:51.806+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRPapelProblemaDiagnostico" />
+  <version value="1.0" />
+  <name value="Classificação do papel de um problema/diagnóstico." />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-03-11T19:15:12.2909517+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Tradução para o português do brasil da classificação do papel de um problema/diagnóstico." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRPapelProblemaDiagnostico" />
+      <version value="*" />
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role" />
+      <version value="*" />
+       <concept>
+         <code value="AD" />
+         <display value="Admission diagnosis" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Diagnóstico presente na admissão" />
+        </designation>
+       </concept>
+       <concept>
+         <code value="DD" />
+         <display value="Discharge diagnosis" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Diagnóstico de alta" />
+        </designation>
+       </concept>
+       <concept>
+         <code value="CC" />
+         <display value="Chief complaint" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Queixa principal." />
+        </designation>
+       </concept>
+       <concept>
+         <code value="CM" />
+         <display value="Comorbidity diagnosis" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Diagnóstico de comorbidade" />
+        </designation>
+       </concept>
+       <concept>
+         <code value="pre-op" />
+         <display value="pre-op diagnosis" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Diagnóstico pré-operatório" />
+        </designation>
+       </concept>
+       <concept>
+         <code value="post-op" />
+         <display value="post-op diagnosis" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Diagnóstico pós-operatório" />
+        </designation>
+       </concept>
+       <concept>
+         <code value="billing" />
+         <display value="Billing" />
+         <designation>
+            <language value="pt-br" />
+            <value value="Faturamento" />
+         </designation>
+       </concept>
+    </include>
+  </compose>
+</ValueSet>

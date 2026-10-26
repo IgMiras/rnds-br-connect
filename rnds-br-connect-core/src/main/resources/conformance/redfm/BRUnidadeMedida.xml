@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2021-12-01T13:16:09.8385573+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida" />
+  <version value="1.0" />
+  <name value="Unidade de Medida" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2021-12-01T13:16:09.8385573+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description
+    value="Code System utilizado para definir a unidade de medida de um medicamento prescrito, para consumo ou especificação do fabricante." />
+  <content value="complete" />
+  <concept>
+    <code value="1" />
+    <display value="Adesivo" />
+  </concept>
+  <concept>
+    <code value="2" />
+    <display value="Ampola" />
+  </concept>
+  <concept>
+    <code value="3" />
+    <display value="Anel" />
+  </concept>
+  <concept>
+    <code value="4" />
+    <display value="Aplicação" />
+  </concept>
+  <concept>
+    <code value="5" />
+    <display value="Aplicador" />
+  </concept>
+  <concept>
+    <code value="6" />
+    <display value="Atomização" />
+  </concept>
+  <concept>
+    <code value="7" />
+    <display value="Bandagem" />
+  </concept>
+  <concept>
+    <code value="8" />
+    <display value="Barra" />
+  </concept>
+  <concept>
+    <code value="9" />
+    <display value="Bisnaga" />
+  </concept>
+  <concept>
+    <code value="10" />
+    <display value="Blíster" />
+  </concept>
+  <concept>
+    <code value="11" />
+    <display value="Bolsa" />
+  </concept>
+  <concept>
+    <code value="12" />
+    <display value="Caixa" />
+  </concept>
+  <concept>
+    <code value="13" />
+    <display value="Cápsula" />
+  </concept>
+  <concept>
+    <code value="14" />
+    <display value="Carpule" />
+  </concept>
+  <concept>
+    <code value="15" />
+    <display value="Cartucho" />
+  </concept>
+  <concept>
+    <code value="16" />
+    <display value="Catéter" />
+  </concept>
+  <concept>
+    <code value="17" />
+    <display value="cm (Centímetro)" />
+  </concept>
+  <concept>
+    <code value="18" />
+    <display value="cm² (Centímetro Quadrado)" />
+  </concept>
+  <concept>
+    <code value="19" />
+    <display value="Comprimido" />
+  </concept>
+  <concept>
+    <code value="20" />
+    <display value="Desconhecido" />
+  </concept>
+  <concept>
+    <code value="21" />
+    <display value="Dispositivo" />
+  </concept>
+  <concept>
+    <code value="22" />
+    <display value="Dispositivo de injeção pré-carregado" />
+  </concept>
+  <concept>
+    <code value="23" />
+    <display value="Dose" />
+  </concept>
+  <concept>
+    <code value="24" />
+    <display value="Emplastro" />
+  </concept>
+  <concept>
+    <code value="25" />
+    <display value="Endosporos" />
+  </concept>
+  <concept>
+    <code value="26" />
+    <display value="Enema" />
+  </concept>
+  <concept>
+    <code value="27" />
+    <display value="Envelope" />
+  </concept>
+  <concept>
+    <code value="28" />
+    <display value="Estojo" />
+  </concept>
+  <concept>
+    <code value="29" />
+    <display value="Filme" />
+  </concept>
+  <concept>
+    <code value="30" />
+    <display value="Flaconete" />
+  </concept>
+  <concept>
+    <code value="31" />
+    <display value="Frasco" />
+  </concept>
+  <concept>
+    <code value="32" />
+    <display value="Frasco-ampola" />
+  </concept>
+  <concept>
+    <code value="33" />
+    <display value="g (Grama)" />
+  </concept>
+  <concept>
+    <code value="34" />
+    <display value="Goma" />
+  </concept>
+  <concept>
+    <code value="35" />
+    <display value="Gota" />
+  </concept>
+  <concept>
+    <code value="36" />
+    <display value="Hora" />
+  </concept>
+  <concept>
+    <code value="37" />
+    <display value="Implante" />
+  </concept>
+  <concept>
+    <code value="38" />
+    <display value="kg (Quilograma)" />
+  </concept>
+  <concept>
+    <code value="39" />
+    <display value="L (Litro)" />
+  </concept>
+  <concept>
+    <code value="40" />
+    <display value="Lata" />
+  </concept>
+  <concept>
+    <code value="41" />
+    <display value="m (Metro)" />
+  </concept>
+  <concept>
+    <code value="42" />
+    <display value="mEq (Miliequivalente)" />
+  </concept>
+  <concept>
+    <code value="43" />
+    <display value="mg (Miligrama)" />
+  </concept>
+  <concept>
+    <code value="44" />
+    <display value="Micrograma" />
+  </concept>
+  <concept>
+    <code value="45" />
+    <display value="Microlitro" />
+  </concept>
+  <concept>
+    <code value="46" />
+    <display value="Milhões" />
+  </concept>
+  <concept>
+    <code value="47" />
+    <display value="MUI (Milhões de unidades internacionais)" />
+  </concept>
+  <concept>
+    <code value="48" />
+    <display value="mL (Mililitro)" />
+  </concept>
+  <concept>
+    <code value="49" />
+    <display value="mm (Milímetro)" />
+  </concept>
+  <concept>
+    <code value="50" />
+    <display value="ng (Nanograma)" />
+  </concept>
+  <concept>
+    <code value="51" />
+    <display value="nL (Nanolitro)" />
+  </concept>
+  <concept>
+    <code value="52" />
+    <display value="Pastilha" />
+  </concept>
+  <concept>
+    <code value="53" />
+    <display value="Pastilha dura" />
+  </concept>
+  <concept>
+    <code value="54" />
+    <display value="Pastilha gomosa" />
+  </concept>
+  <concept>
+    <code value="55" />
+    <display value="Pílula" />
+  </concept>
+  <concept>
+    <code value="56" />
+    <display value="Saco" />
+  </concept>
+  <concept>
+    <code value="57" />
+    <display value="Seringa" />
+  </concept>
+  <concept>
+    <code value="58" />
+    <display value="Strip" />
+  </concept>
+  <concept>
+    <code value="59" />
+    <display value="Supositório" />
+  </concept>
+  <concept>
+    <code value="60" />
+    <display value="UI (Unidade Internacional)" />
+  </concept>
+  <concept>
+    <code value="61" />
+    <display value="UIC (Unidade Inibidora de Calicreína)" />
+  </concept>
+  <concept>
+    <code value="62" />
+    <display value="Unidade" />
+  </concept>
+  <concept>
+    <code value="63" />
+    <display value="UTR (Unidade Redutora da Turbidez)" />
+  </concept>
+  <concept>
+    <code value="64" />
+    <display value="Óvulo" />
+  </concept>
+  <concept>
+    <code value="66" />
+    <display value="Bastão" />
+  </concept>
+  <concept>
+    <code value="69" />
+    <display value="Capsula inalante" />
+  </concept>
+  <concept>
+    <code value="70" />
+    <display value="Cartão" />
+  </concept>
+  <concept>
+    <code value="71" />
+    <display value="Cartela" />
+  </concept>
+  <concept>
+    <code value="74" />
+    <display value="Drágea" />
+  </concept>
+  <concept>
+    <code value="75" />
+    <display value="Pote" />
+  </concept>
+  <concept>
+    <code value="76" />
+    <display value="Sachê" />
+  </concept>
+  <concept>
+    <code value="77" />
+    <display value="Seringa preenchida" />
+  </concept>
+  <concept>
+    <code value="78" />
+    <display value="Tablete" />
+  </concept>
+  <concept>
+    <code value="79" />
+    <display value="Tubete" />
+  </concept>
+  <concept>
+    <code value="80" />
+    <display value="Tubo" />
+  </concept>
+  <concept>
+    <code value="82" />
+    <display value="Glóbulo" />
+  </concept>
+</CodeSystem>

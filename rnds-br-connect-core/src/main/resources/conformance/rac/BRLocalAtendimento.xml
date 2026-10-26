@@ -1,0 +1,1435 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <meta>
+      <lastUpdated value="2020-03-11T01:07:07.432+00:00"></lastUpdated>
+   </meta>
+   <language value="pt-BR"></language>
+   <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLocalAtendimento-1.0"></url>
+   <version value="1.0"></version>
+   <name value="BRLocalAtendimento"></name>
+   <title value="Local de Atendimento"></title>
+   <status value="draft"></status>
+   <date value="2020-03-11T01:07:05.6772929+00:00"></date>
+   <publisher value="Ministério da Saúde do Brasil"></publisher>
+   <description value="Uma referência genérica aos locais onde um Contato Assistencial pode acontecer."></description>
+   <fhirVersion value="4.0.0"></fhirVersion>
+   <kind value="resource"></kind>
+   <abstract value="false"></abstract>
+   <type value="Location"></type>
+   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Location"></baseDefinition>
+   <derivation value="constraint"></derivation>
+   <snapshot>
+      <element id="Location">
+         <path value="Location"></path>
+         <short value="Local de Atendimento"></short>
+         <definition value="Uma referência genérica aos locais onde um Contato Assistencial pode acontecer."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Location"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <constraint>
+            <key value="dom-2"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"></human>
+            <expression value="contained.contained.empty()"></expression>
+            <xpath value="not(parent::f:contained and f:contained)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-3"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource"></human>
+            <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()"></expression>
+            <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-4"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"></human>
+            <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-5"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a security label"></human>
+            <expression value="contained.meta.security.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:security))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+               <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."></valueMarkdown>
+            </extension>
+            <key value="dom-6"></key>
+            <severity value="warning"></severity>
+            <human value="A resource should have narrative for robust management"></human>
+            <expression value="text.`div`.exists()"></expression>
+            <xpath value="exists(f:text/h:div)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Entity. Role, or Act"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".Role[classCode=SDLC]"></map>
+         </mapping>
+      </element>
+      <element id="Location.id">
+         <path value="Location.id"></path>
+         <short value="Logical id of this artifact"></short>
+         <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."></definition>
+         <comment value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="id"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="Location.meta">
+         <path value="Location.meta"></path>
+         <short value="Metadata about the resource"></short>
+         <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.meta"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Meta"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="Location.implicitRules">
+         <path value="Location.implicitRules"></path>
+         <short value="A set of rules under which this content was created"></short>
+         <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."></definition>
+         <comment value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.implicitRules"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation"></isModifierReason>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="Location.language">
+         <path value="Location.language"></path>
+         <short value="Language of the resource content"></short>
+         <definition value="The base language in which the resource is written."></definition>
+         <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.language"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+               <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"></valueCanonical>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="Language"></valueString>
+            </extension>
+            <strength value="preferred"></strength>
+            <description value="A human language."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/languages"></valueSet>
+         </binding>
+      </element>
+      <element id="Location.text">
+         <path value="Location.text"></path>
+         <short value="Text summary of the resource, for human interpretation"></short>
+         <definition value="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."></definition>
+         <comment value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded information is added later."></comment>
+         <alias value="narrative"></alias>
+         <alias value="html"></alias>
+         <alias value="xhtml"></alias>
+         <alias value="display"></alias>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="DomainResource.text"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Narrative"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Act.text?"></map>
+         </mapping>
+      </element>
+      <element id="Location.contained">
+         <path value="Location.contained"></path>
+         <short value="Contained, inline Resources"></short>
+         <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."></definition>
+         <comment value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels."></comment>
+         <alias value="inline resources"></alias>
+         <alias value="anonymous resources"></alias>
+         <alias value="contained resources"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.contained"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Resource"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Location.extension">
+         <path value="Location.extension"></path>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Location.modifierExtension">
+         <path value="Location.modifierExtension"></path>
+         <short value="Extensions that cannot be ignored"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."></requirements>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them"></isModifierReason>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Location.identifier">
+         <path value="Location.identifier"></path>
+         <short value="Unique code or number identifying the location to its users"></short>
+         <definition value="Unique code or number identifying the location to its users."></definition>
+         <requirements value="Organization label locations in registries, need to keep track of those."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.identifier"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Identifier"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.identifier"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".id"></map>
+         </mapping>
+      </element>
+      <element id="Location.status">
+         <path value="Location.status"></path>
+         <short value="active | suspended | inactive"></short>
+         <definition value="The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.status"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <fixedCode value="active"></fixedCode>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="LocationStatus"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="Indicates whether the location is still in use."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/location-status|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.status"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".statusCode"></map>
+         </mapping>
+      </element>
+      <element id="Location.operationalStatus">
+         <path value="Location.operationalStatus"></path>
+         <short value="The operational status of the location (typically only for a bed/room)"></short>
+         <definition value="The operational status covers operation values most relevant to beds (but can also apply to rooms/units/chairs/etc. such as an isolation unit/dialysis chair). This typically covers concepts such as contamination, housekeeping, and other activities like maintenance."></definition>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.operationalStatus"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Coding"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="OperationalStatus"></valueString>
+            </extension>
+            <strength value="preferred"></strength>
+            <description value="The operational status if the location (where typically a bed/room)."></description>
+            <valueSet value="http://terminology.hl7.org/ValueSet/v2-0116"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.status"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Location.name">
+         <path value="Location.name"></path>
+         <short value="Name of the location as used by humans"></short>
+         <definition value="Name of the location as used by humans. Does not need to be unique."></definition>
+         <comment value="If the name of a location changes, consider putting the old name in the alias column so that it can still be located through searches."></comment>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.name"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".name"></map>
+         </mapping>
+      </element>
+      <element id="Location.alias">
+         <path value="Location.alias"></path>
+         <short value="A list of alternate names that the location is known as, or was known as, in the past"></short>
+         <definition value="A list of alternate names that the location is known as, or was known as, in the past."></definition>
+         <comment value="There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the location."></comment>
+         <requirements value="Over time locations and organizations go through many changes and can be known by different names.  For searching knowing previous names that the location was known by can be very useful."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.alias"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".name"></map>
+         </mapping>
+      </element>
+      <element id="Location.description">
+         <path value="Location.description"></path>
+         <short value="Additional details about the location that could be displayed as further information to identify the location beyond its name"></short>
+         <definition value="Description of the Location, which helps in finding or referencing the place."></definition>
+         <requirements value="Humans need additional information to verify a correct location has been identified."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.description"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".playingEntity[classCode=PLC determinerCode=INSTANCE].desc"></map>
+         </mapping>
+      </element>
+      <element id="Location.mode">
+         <path value="Location.mode"></path>
+         <short value="instance | kind"></short>
+         <definition value="Indicates whether a resource instance represents a specific location or a class of locations."></definition>
+         <comment value="This is labeled as a modifier because whether or not the location is a class of locations changes how it can be used and understood."></comment>
+         <requirements value="When using a Location resource for scheduling or orders, we need to be able to refer to a class of Locations instead of a specific Location."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.mode"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <fixedCode value="kind"></fixedCode>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="LocationMode"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="Indicates whether a resource instance represents a specific location or a class of locations."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/location-mode|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.class"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".playingEntity[classCode=PLC].determinerCode"></map>
+         </mapping>
+      </element>
+      <element id="Location.type">
+         <path value="Location.type"></path>
+         <short value="Type of function performed"></short>
+         <definition value="Indicates the type of function performed at the location."></definition>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.type"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="LocationType"></valueString>
+            </extension>
+            <strength value="extensible"></strength>
+            <description value="Indicates the type of function performed at the location."></description>
+            <valueSet value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.class"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".code"></map>
+         </mapping>
+      </element>
+      <element id="Location.telecom">
+         <path value="Location.telecom"></path>
+         <short value="Contact details of the location"></short>
+         <definition value="The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites."></definition>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.telecom"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="ContactPoint"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".telecom"></map>
+         </mapping>
+      </element>
+      <element id="Location.address">
+         <path value="Location.address"></path>
+         <short value="Physical location"></short>
+         <definition value="Physical location."></definition>
+         <comment value="Additional addresses should be recorded using another instance of the Location resource, or via the Organization."></comment>
+         <requirements value="If locations can be visited, we need to keep track of their address."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.address"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Address"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".addr"></map>
+         </mapping>
+      </element>
+      <element id="Location.physicalType">
+         <path value="Location.physicalType"></path>
+         <short value="Physical form of the location"></short>
+         <definition value="Physical form of the location, e.g. building, room, vehicle, road."></definition>
+         <requirements value="For purposes of showing relevant locations in queries, we need to categorize locations."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.physicalType"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="PhysicalType"></valueString>
+            </extension>
+            <strength value="example"></strength>
+            <description value="Physical form of the location."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/location-physical-type"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.class"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".playingEntity [classCode=PLC].code"></map>
+         </mapping>
+      </element>
+      <element id="Location.position">
+         <path value="Location.position"></path>
+         <short value="The absolute geographic location"></short>
+         <definition value="The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML)."></definition>
+         <requirements value="For mobile applications and automated route-finding knowing the exact location of the Location is required."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.position"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="BackboneElement"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".playingEntity [classCode=PLC determinerCode=INSTANCE].positionText"></map>
+         </mapping>
+      </element>
+      <element id="Location.position.id">
+         <path value="Location.position.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Location.position.extension">
+         <path value="Location.position.extension"></path>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Location.position.modifierExtension">
+         <path value="Location.position.modifierExtension"></path>
+         <short value="Extensions that cannot be ignored even if unrecognized"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."></requirements>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <alias value="modifiers"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="BackboneElement.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Location.position.longitude">
+         <path value="Location.position.longitude"></path>
+         <short value="Longitude with WGS84 datum"></short>
+         <definition value="Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.position.longitude"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="decimal"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="(RIM Opted not to map the sub-elements of GPS location, is now an OBS)"></map>
+         </mapping>
+      </element>
+      <element id="Location.position.latitude">
+         <path value="Location.position.latitude"></path>
+         <short value="Latitude with WGS84 datum"></short>
+         <definition value="Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.position.latitude"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="decimal"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="(RIM Opted not to map the sub-elements of GPS location, is now an OBS)"></map>
+         </mapping>
+      </element>
+      <element id="Location.position.altitude">
+         <path value="Location.position.altitude"></path>
+         <short value="Altitude with WGS84 datum"></short>
+         <definition value="Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.position.altitude"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="decimal"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="(RIM Opted not to map the sub-elements of GPS location, is now an OBS)"></map>
+         </mapping>
+      </element>
+      <element id="Location.managingOrganization">
+         <path value="Location.managingOrganization"></path>
+         <short value="Organization responsible for provisioning and upkeep"></short>
+         <definition value="The organization responsible for the provisioning and upkeep of the location."></definition>
+         <comment value="This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource."></comment>
+         <requirements value="Need to know who manages the location."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.managingOrganization"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".scopingEntity[classCode=ORG determinerKind=INSTANCE]"></map>
+         </mapping>
+      </element>
+      <element id="Location.partOf">
+         <path value="Location.partOf"></path>
+         <short value="Another Location this one is physically a part of"></short>
+         <definition value="Another Location of which this Location is physically a part of."></definition>
+         <requirements value="For purposes of location, display and identification, knowing which locations are located within other locations is important."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.partOf"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".inboundLink[typeCode=PART].source[classCode=SDLC]"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation">
+         <path value="Location.hoursOfOperation"></path>
+         <short value="What days/times during a week is this location usually open"></short>
+         <definition value="What days/times during a week is this location usually open."></definition>
+         <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.  Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours."></comment>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.hoursOfOperation"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="BackboneElement"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation.id">
+         <path value="Location.hoursOfOperation.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation.extension">
+         <path value="Location.hoursOfOperation.extension"></path>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation.modifierExtension">
+         <path value="Location.hoursOfOperation.modifierExtension"></path>
+         <short value="Extensions that cannot be ignored even if unrecognized"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."></requirements>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <alias value="modifiers"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="BackboneElement.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation.daysOfWeek">
+         <path value="Location.hoursOfOperation.daysOfWeek"></path>
+         <short value="mon | tue | wed | thu | fri | sat | sun"></short>
+         <definition value="Indicates which days of the week are available between the start and end Times."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Location.hoursOfOperation.daysOfWeek"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="DaysOfWeek"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="The days of the week."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation.allDay">
+         <path value="Location.hoursOfOperation.allDay"></path>
+         <short value="The Location is open all day"></short>
+         <definition value="The Location is open all day."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.hoursOfOperation.allDay"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation.openingTime">
+         <path value="Location.hoursOfOperation.openingTime"></path>
+         <short value="Time that the Location opens"></short>
+         <definition value="Time that the Location opens."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.hoursOfOperation.openingTime"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="time"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="Location.hoursOfOperation.closingTime">
+         <path value="Location.hoursOfOperation.closingTime"></path>
+         <short value="Time that the Location closes"></short>
+         <definition value="Time that the Location closes."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Location.hoursOfOperation.closingTime"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="time"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".effectiveTime"></map>
+         </mapping>
+      </element>
+      <element id="Location.availabilityExceptions">
+         <path value="Location.availabilityExceptions"></path>
+         <short value="Description of availability exceptions"></short>
+         <definition value="A description of when the locations opening ours are different to normal, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as detailed in the opening hours Times."></definition>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.availabilityExceptions"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Location.endpoint">
+         <path value="Location.endpoint"></path>
+         <short value="Technical endpoints providing access to services operated for the location"></short>
+         <definition value="Technical endpoints providing access to services operated for the location."></definition>
+         <requirements value="Organizations may have different systems at different locations that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Location.endpoint"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+   </snapshot>
+   <differential>
+      <element id="Location">
+         <path value="Location"></path>
+         <short value="Local de Atendimento"></short>
+         <definition value="Uma referência genérica aos locais onde um Contato Assistencial pode acontecer."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Location.identifier">
+         <path value="Location.identifier"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.status">
+         <path value="Location.status"></path>
+         <min value="1"></min>
+         <fixedCode value="active"></fixedCode>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Location.operationalStatus">
+         <path value="Location.operationalStatus"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.name">
+         <path value="Location.name"></path>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Location.alias">
+         <path value="Location.alias"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.description">
+         <path value="Location.description"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.mode">
+         <path value="Location.mode"></path>
+         <min value="1"></min>
+         <fixedCode value="kind"></fixedCode>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Location.type">
+         <path value="Location.type"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.telecom">
+         <path value="Location.telecom"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.address">
+         <path value="Location.address"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.physicalType">
+         <path value="Location.physicalType"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.position">
+         <path value="Location.position"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.managingOrganization">
+         <path value="Location.managingOrganization"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.partOf">
+         <path value="Location.partOf"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.hoursOfOperation">
+         <path value="Location.hoursOfOperation"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.availabilityExceptions">
+         <path value="Location.availabilityExceptions"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Location.endpoint">
+         <path value="Location.endpoint"></path>
+         <max value="0"></max>
+      </element>
+   </differential>
+</StructureDefinition>

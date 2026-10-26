@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="orteses-proteses-materiais" />
+    <meta>
+        <lastUpdated value="2025-09-21T00:00:00-03:00" />
+    </meta>
+    <language value="pt-BR" />
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+        <valueString value="Base.Entities" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="2" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+        <valueCode value="business" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="oo" />
+    </extension>
+    <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROrtesesProtesesMateriais" />
+    <version value="1.0.0" />
+    <name value="BROrtesesProtesesMateriais" />
+    <title value="Órteses, Próteses e Materiais" />
+    <status value="active" />
+    <date value="2025-09-21T00:00:00-03:00" />
+    <publisher value="Ministério da Saúde do Brasil" />
+    <contact>
+        <name value="COPIS - Coordenação de Padrões de Informática em Saúde" />
+        <telecom>
+            <system value="url" />
+            <value value="https://webatendimento.saude.gov.br/faq/rnds" />
+        </telecom>
+    </contact>
+    <description
+        value="A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device." />
+    <purpose value="Allows institutions to track their devices." />
+    <fhirVersion value="4.0.1" />
+    <mapping>
+        <identity value="rim" />
+        <uri value="http://hl7.org/v3" />
+        <name value="RIM Mapping" />
+    </mapping>
+    <mapping>
+        <identity value="w5" />
+        <uri value="http://hl7.org/fhir/fivews" />
+        <name value="FiveWs Pattern Mapping" />
+    </mapping>
+    <mapping>
+        <identity value="udi" />
+        <uri value="http://fda.gov/UDI" />
+        <name value="UDI Mapping" />
+    </mapping>
+    <kind value="resource" />
+    <abstract value="false" />
+    <type value="Device" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Device" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Device.identifier">
+            <path value="Device.identifier" />
+            <max value="1" />
+        </element>
+        <element id="Device.identifier.system">
+            <path value="Device.identifier.system" />
+            <min value="1" />
+            <fixedUri value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTabelaSUS" />
+        </element>
+        <element id="Device.identifier.value">
+            <path value="Device.identifier.value" />
+            <min value="1" />
+            <binding>
+                <strength value="required" />
+                <description value="Classificações Nacionais de Procedimentos" />
+                <valueSet
+                    value="http://www.saude.gov.br/fhir/r4/ValueSet/BRProcedimentosNacionais-1.0" />
+            </binding>
+        </element>
+        <element id="Device.lotNumber">
+            <path value="Device.lotNumber" />
+            <min value="1" />
+        </element>
+        <element id="Device.patient">
+            <path value="Device.patient" />
+            <min value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile
+                    value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+            </type>
+            <mustSupport value="true" />
+        </element>
+        <element id="Device.patient.extension">
+            <path value="Device.patient.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+            <min value="0" />
+        </element>
+        <element id="Device.patient.extension:unidentifiedPatient">
+            <path value="Device.patient.extension" />
+            <sliceName value="unidentifiedPatient" />
+            <short value="Dados do Indivíduo Não Identificado" />
+            <min value="0" />
+            <type>
+                <code value="Extension" />
+                <profile
+                    value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0" />
+            </type>
+            <mustSupport value="true" />
+        </element>
+        <element id="Device.patient.extension:unidentifiedPatient.extension">
+            <path value="Device.patient.extension.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+            <min value="0" />
+        </element>
+        <element id="Device.patient.extension:unidentifiedPatient.extension:gender">
+            <path value="Device.patient.extension.extension" />
+            <sliceName value="gender" />
+            <min value="0" />
+            <mustSupport value="true" />
+        </element>
+        <element id="Device.patient.extension:unidentifiedPatient.extension:birthYear">
+            <path value="Device.patient.extension.extension" />
+            <sliceName value="birthYear" />
+            <min value="0" />
+            <mustSupport value="true" />
+        </element>
+        <element id="Device.patient.extension:unidentifiedPatient.extension:reason">
+            <path value="Device.patient.extension.extension" />
+            <sliceName value="reason" />
+            <min value="0" />
+            <mustSupport value="true" />
+        </element>
+        <element id="Device.patient.extension:unidentifiedPatient.url">
+            <path value="Device.patient.extension.url" />
+            <fixedUri
+                value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0" />
+        </element>
+        <element id="Device.patient.identifier.system">
+            <path value="Device.patient.identifier.system" />
+            <min value="1" />
+        </element>
+        <element id="Device.patient.identifier.value">
+            <path value="Device.patient.identifier.value" />
+            <min value="1" />
+        </element>
+    </differential>
+</StructureDefinition>

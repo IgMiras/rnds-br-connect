@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BRNacionalidade" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRNacionalidade" />
+  <version value="01.00" />
+  <name value="BRNacionalidade" />
+  <title value="Nacionalidade" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2021-12-29T08:40:10.279+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Códigos para representação de nacionalidade." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNacionalidade" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

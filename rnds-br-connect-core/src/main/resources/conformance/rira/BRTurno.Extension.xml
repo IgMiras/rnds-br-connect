@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRTurno" />
+  <version value="1.0" />
+  <name value="BRTurno" />
+  <status value="draft" />
+  <description value="Extensão para descrever uma unidade de tempo referenciada pelo UCUM." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Element" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.id">
+      <path value="Extension.id" />
+      <max value="0" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRTurno" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <short value="Turno do dia" />
+      <definition value="Em qual momento do dia ocorre o consumo do medicamento: Manhã, tarde, noite." />
+      <type>
+        <code value="code" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Define o turno do dia" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTurno" />
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

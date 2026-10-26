@@ -1,0 +1,23 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRRegistroOrigem" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRRegistroOrigem" />
+  <version value="01.10" />
+  <name value="BRRegistroOrigem" />
+  <title value="Registro de Origem" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2022-01-21T14:38:40.0457007+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Códigos para representação da Origem do Registro de Imunobiológico." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="01" />
+    <display value="Registro anterior/Transcrição de caderneta" />
+  </concept>
+  <concept>
+    <code value="02" />
+    <display value="Vacina no Exterior" />
+  </concept>
+</CodeSystem>

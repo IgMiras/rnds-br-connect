@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2021-01-11T14:28:22.708+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao" />
+  <version value="02.00" />
+  <name value="Via de Administração" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-11T18:28:42.5310735+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica a via na qual foi administrada uma substância em um indivíduo." />
+  <content value="complete" />
+  <concept>
+    <code value="0" />
+    <display value="Sem registro no sistema de informação de origem" />
+    <designation>
+      <language value="en"/>
+      <value value="No registration in the source information system"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Sin registro en el sistema de información de fuentes"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10862" />
+    <display value="Otológica" />
+    <designation>
+      <language value="en"/>
+      <value value="Auricular"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Auricular"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10863" />
+    <display value="Bucal" />
+    <designation>
+      <language value="en"/>
+      <value value="Buccal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Bucal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10864" />
+    <display value="Dermatológica" />
+    <designation>
+      <language value="en"/>
+      <value value="Cutaneous"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Cutáneo"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10865" />
+    <display value="Intracervical" />
+    <designation>
+      <language value="en"/>
+      <value value="Intracervical"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intracervical"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10866" />
+    <display value="Endosinusial" />
+    <designation>
+      <language value="en"/>
+      <value value="Endosinusal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Endosinusal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10867" />
+    <display value="Endotraqueopulmonar" />
+    <designation>
+      <language value="en"/>
+      <value value="Endotracheopulmonary"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Endotraqueopulmonar"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10868" />
+    <display value="Epidural" />
+    <designation>
+      <language value="en"/>
+      <value value="Epidural"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Epidural"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10869" />
+    <display value="Epilesional" />
+    <designation>
+      <language value="en"/>
+      <value value="Epilesional"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Epilesional"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10870" />
+    <display value="Extraminiótica" />
+    <designation>
+      <language value="en"/>
+      <value value="Extra-amniotic"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Extraamniótico"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10871" />
+    <display value="Gastroenteral" />
+    <designation>
+      <language value="en"/>
+      <value value="Gastroenteral"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Gastroenteral"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10874" />
+    <display value="Inalatória" />
+    <designation>
+      <language value="en"/>
+      <value value="Inhalation"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Inhalación"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10875" />
+    <display value="Intra-aminiótica" />
+    <designation>
+      <language value="en"/>
+      <value value="Intra-amniotic"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraamniótico"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10876" />
+    <display value="Intra-arterial" />
+    <designation>
+      <language value="en"/>
+      <value value="Intra-arterial"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraarterial"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10877" />
+    <display value="Intra-articular" />
+    <designation>
+      <language value="en"/>
+      <value value="Intra-articular"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraarticular"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10878" />
+    <display value="Intrabursal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intrabursal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intrabursal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10879" />
+    <display value="Intracameral" />
+    <designation>
+      <language value="en"/>
+      <value value="Intracameral"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intracameral"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10880" />
+    <display value="Intracardíaca" />
+    <designation>
+      <language value="en"/>
+      <value value="Intracardiac"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intracardiaco"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10881" />
+    <display value="Intracavernosa" />
+    <designation>
+      <language value="en"/>
+      <value value="Intracavernous"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intracavernoso"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10882" />
+    <display value="Intracerebroventricular" />
+    <designation>
+      <language value="en"/>
+      <value value="Intracerebroventricular"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intracerebroventricular"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10884" />
+    <display value="Intracoronariana" />
+    <designation>
+      <language value="en"/>
+      <value value="Intracoronary"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intracoronario"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10885" />
+    <display value="Intradérmica" />
+    <designation>
+      <language value="en"/>
+      <value value="Intradermal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intradérmica"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10886" />
+    <display value="Intradiscal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intradiscal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intradiscal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10887" />
+    <display value="Intraepidermal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intraepidermal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraepidérmico"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10888" />
+    <display value="Intralesional" />
+    <designation>
+      <language value="en"/>
+      <value value="Intra-lesional"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intralesional"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10889" />
+    <display value="Intralinfática" />
+    <designation>
+      <language value="en"/>
+      <value value="Intra-lymphatic"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intralinfática"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10890" />
+    <display value="Intramuscular" />
+    <designation>
+      <language value="en"/>
+      <value value="Intramuscular"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intramuscular"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10891" />
+    <display value="Intraocular" />
+    <designation>
+      <language value="en"/>
+      <value value="Intraocular"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraocular"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10892" />
+    <display value="Intraóssea" />
+    <designation>
+      <language value="en"/>
+      <value value="Intraosseous"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraóseo"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10893" />
+    <display value="Intraperitoneal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intraperitoneal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraperitoneal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10894" />
+    <display value="Intrapleural" />
+    <designation>
+      <language value="en"/>
+      <value value="Intrapleural"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intrapleural"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10895" />
+    <display value="Intraesternal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intra-sternal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraósea Esternal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10896" />
+    <display value="Intratecal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intrathecal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intratecal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10897" />
+    <display value="Intrauterina" />
+    <designation>
+      <language value="en"/>
+      <value value="Intrauterine"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intrauterino"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10898" />
+    <display value="Intravenosa" />
+    <designation>
+      <language value="en"/>
+      <value value="Intravenous"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intravenosa"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10899" />
+    <display value="Intraventricular cardíaca" />
+    <designation>
+      <language value="en"/>
+      <value value="Intraventricular cardiac"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intraventricular cardiaco"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10900" />
+    <display value="Intravesical" />
+    <designation>
+      <language value="en"/>
+      <value value="Intravesical"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intravesical"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10901" />
+    <display value="Intravitreal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intravitreal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intravítreo"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10902" />
+    <display value="Iontoforese" />
+    <designation>
+      <language value="en"/>
+      <value value="Iontophoresis"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Iontoforesis"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10903" />
+    <display value="Irrigação" />
+    <designation>
+      <language value="en"/>
+      <value value="Irrigation"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Irrigación"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10904" />
+    <display value="Nasal" />
+    <designation>
+      <language value="en"/>
+      <value value="Nasal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Nasal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10905" />
+    <display value="Inalatória por Via Nasal" />
+    <designation>
+      <language value="en"/>
+      <value value="Nasal Inhalation (restricted to nasal admnistration)"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Inhalación Nasal (restringida a la administración nasal)"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10906" />
+    <display value="Oftálmica" />
+    <designation>
+      <language value="en"/>
+      <value value="Ocular (Ophtalmic)"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Ocular (oftálmico)"/>
+    </designation>
+  </concept>
+   <concept>
+    <code value="10907" />
+    <display value="Oral" />
+    <designation>
+      <language value="en"/>
+      <value value="Oral"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Oral"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10908" />
+    <display value="Inalatória por Via Oral" />
+    <designation>
+      <language value="en"/>
+      <value value="Oral Inhalation (restricted to oral admnistration)"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Inhalación Oral (restringida a la administración oral)"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10910" />
+    <display value="Periarticular" />
+    <designation>
+      <language value="en"/>
+      <value value="Periarticular"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Periarticular"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10911" />
+    <display value="Perineural" />
+    <designation>
+      <language value="en"/>
+      <value value="Perineural"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Perineural"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10912" />
+    <display value="Retal" />
+    <designation>
+      <language value="en"/>
+      <value value="Rectal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Rectal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10913" />
+    <display value="Perfusão Regional" />
+    <designation>
+      <language value="en"/>
+      <value value="Regional Perfusion"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Perfusión regional"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10915" />
+    <display value="Subconjuntival" />
+    <designation>
+      <language value="en"/>
+      <value value="Subconjunctival"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Subconjuntival"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10916" />
+    <display value="Subcutânea" />
+    <designation>
+      <language value="en"/>
+      <value value="Subcutaneous"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Subcutáneo"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10917" />
+    <display value="Sublingual" />
+    <designation>
+      <language value="en"/>
+      <value value="Sublingual"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Sublingual"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10919" />
+    <display value="Transdérmica" />
+    <designation>
+      <language value="en"/>
+      <value value="Transdermal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Transdérmico"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10920" />
+    <display value="Uretral" />
+    <designation>
+      <language value="en"/>
+      <value value="Urethral"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Uretral"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10921" />
+    <display value="Vaginal" />
+    <designation>
+      <language value="en"/>
+      <value value="Vaginal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Vaginal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10922" />
+    <display value="Capilar" />
+    <designation>
+      <language value="en"/>
+      <value value="Scalp (Capillary Action)"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Cuero Cabelludo (Acción Capilar)"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10923" />
+    <display value="Não disponível" />
+    <designation>
+      <language value="en"/>
+      <value value="Unavailable"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Indisponible"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10926" />
+    <display value="Local" />
+    <designation>
+      <language value="en"/>
+      <value value="Local"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Local"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="10928" />
+    <display value="Parenteral" />
+    <designation>
+      <language value="en"/>
+      <value value="Parenteral"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Parenteral"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="244899" />
+    <display value="Peridural" />
+    <designation>
+      <language value="en"/>
+      <value value="Peridural"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Peridural"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="459120" />
+    <display value="Espinhal" />
+    <designation>
+      <language value="en"/>
+      <value value="Spinal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Espinal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="459530" />
+    <display value="Subcapsular" />
+    <designation>
+      <language value="en"/>
+      <value value="Subcapsular"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Subcapsular"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="459531" />
+    <display value="Intratraqueal" />
+    <designation>
+      <language value="en"/>
+      <value value="Intratracheal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intratraqueal"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="464156" />
+    <display value="Intrabronquial" />
+    <designation>
+      <language value="en"/>
+      <value value="Intrabronchial"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Intrabronquial"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="464157" />
+    <display value="Subtenoniana" />
+    <designation>
+      <language value="en"/>
+      <value value="Subtenonian"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Subtenoniano"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="464158" />
+    <display value="Tecidos Moles" />
+    <designation>
+      <language value="en"/>
+      <value value="Soft Tissue"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Tejido Suave"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="464159" />
+    <display value="Mucosa Oral" />
+    <designation>
+      <language value="en"/>
+      <value value="Oromucosal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Mucosa Oral"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="608807" />
+    <display value="Retrobulbar" />
+    <designation>
+      <language value="en"/>
+      <value value="Retrobulbar"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Retrobulbar"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="608808" />
+    <display value="Infiltração" />
+    <designation>
+      <language value="en"/>
+      <value value="Infiltration"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Infiltración"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="779038" />
+    <display value="Mucosa" />
+    <designation>
+      <language value="en"/>
+      <value value="Mucosal"/>
+    </designation>
+    <designation>
+      <language value="es"/>
+      <value value="Mucosa"/>
+    </designation>
+  </concept>
+</CodeSystem>

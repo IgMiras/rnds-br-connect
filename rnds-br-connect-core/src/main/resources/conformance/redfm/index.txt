@@ -1,0 +1,51 @@
+# Artefatos de conformidade da RNDS.
+# GERADO por scripts/copiar-conformance.sh. NAO EDITAR A MAO.
+# Origem: /home/igmiras/rnds-artefatos/modelagem-redfm
+# Gerado em: 2026-09-13T02:10:50-03:00
+CodeSystem-BRTipoDispensacaoRealizada.xml
+BRCBO.xml
+BRTipoDocumento.xml
+RNDSMedicamentoDispensado.StructureDefinition.xml
+ValueSet-BRCRM.xml
+RNDSMedicamento.StructureDefinition.xml
+BRNaturezaJuridica-1.0.xml
+BRUnidadeMedida.xml
+BRTipoEstabelecimentoSaude.xml
+BRTipoDocumento-1.0.xml
+StructureDefinition-br-core-practitioner.xml
+StructureDefinition-br-core-medication.xml
+RNDSRegistroEletronicoDispensacaoFornecimentoMedicamento.StructureDefinition.xml
+BRViaAdministracao-1.0.xml
+BRUnidadeMedidaMedicamento.xml
+BRTerminologiaMedicamento.xml
+BRSexo.xml
+RNDSMedicamentoDispensadoFornecido.StructureDefinition.xml
+RNDSLotacaoProfissional.StructureDefinition.xml
+BRTipoEstabelecimentoSaude-1.0.xml
+ValueSet-BRTipoDispensacaoRealizada.xml
+ValueSet-BROutrosProfissionais.xml
+RNDSProfissional.StructureDefinition.xml
+valueset-namingsystem-identifier-system-type.xml
+codesystem_ampp_obm.xml
+StructureDefinition-br-core-composition.xml
+BROcupacao-1.0.xml
+RNDSPrescricaoMedicamentoDispensado.StructureDefinition.xml
+codesystem_ampp_anvisa.xml
+ValueSet-BRCOREN.xml
+BRViaAdministracao.xml
+codesystem_vmp_catmat.xml
+codesystem_ampp_ean.xml
+BRIndividuo.xml
+StructureDefinition-br-core-practitionerrole.xml
+BRProfissional.xml
+ValueSet-BRCRF.xml
+CodeSystem-BRConselhoProfissional.xml
+ValueSet-BRCRO.xml
+BRPessoaJuridicaProfissionalLiberal.xml
+codesystem_vmp_obm.xml
+BREstabelecimentoSaude.xml
+BRNaturezaJuridica.xml
+# --- acrescentado de: /home/igmiras/rnds-artefatos/redenacionaldedadosemsaude em 2026-09-13T02:11:33-03:00
+ValueSet-BRProblemaDiagnostico.xml.json
+CodeSystem-BRCID10.xml.json
+CodeSystem-BRCIAP2.xml.json

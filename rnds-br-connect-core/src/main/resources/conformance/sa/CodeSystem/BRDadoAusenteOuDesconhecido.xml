@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-03-11T18:16:07.800+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRDadoAusenteOuDesconhecido" />
+  <version value="1.0" />
+  <name value="Classificação de dados ausentes ou desconhecidos - IPS." />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-11T18:16:28.3110021+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classificação de dados conhecidos mas ausentes e de dados desconhecidos a partir do International Patient Summary - IPS." />
+  <content value="complete" />
+  <concept>
+    <code value="no-allergy-info"/>
+    <display value="No information about allergies"/>
+    <definition
+                value="There is no information available regarding the subject's allergy conditions."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhuma informação sobre alergias"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-known-allergies"/>
+    <display value="No known allergies"/>
+    <definition value="The subject has no known allergy conditions."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhuma alergia conhecida."/>
+    </designation>
+    <concept>
+      <code value="no-known-medication-allergies"/>
+      <display value="No known medication allergies"/>
+      <definition
+                  value="The subject has no known medication allergy conditions."/>
+      <designation>
+        <language value="pt-br"/>
+        <value value="Nenhum medicamento para alergia conhecido."/>
+      </designation>
+    </concept>
+    <concept>
+      <code value="no-known-environmental-allergies"/>
+      <display value="No known environmental allergies"/>
+      <definition
+                  value="The subject has no known environmental allergy conditions."/>
+      <designation>
+        <language value="pt-br"/>
+        <value value="Nenhum fator ambiental conhecido para uma dada alergia."/>
+      </designation>
+    </concept>
+    <concept>
+      <code value="no-known-food-allergies"/>
+      <display value="No known food allergies"/>
+      <definition value="The subject has no known food allergy conditions."/>
+      <designation>
+        <language value="pt-br"/>
+        <value value="Nenhuma alergia alimentar conhecida."/>
+      </designation>
+    </concept>
+  </concept>
+  <concept>
+    <code value="no-device-info"/>
+    <display value="No information about devices"/>
+    <definition
+                value="There is no information available regarding implanted or external devices for the subject."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhuma informação sobre algum dispositivo."/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-known-devices"/>
+    <display value="No known devices in use"/>
+    <definition
+                value="There are no devices known to be implanted in or used by the subject that have to be reported in this record. This can mean either that there are none known, or that those known are not relevant for the purpose of this record."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhum dispositivo em uso"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-immunization-info"/>
+    <display value="No information about immunizations"/>
+    <definition
+                value="The subject's history of previous immunizations is not known."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhuma informação sobre imunização"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-known-immunizations"/>
+    <display value="No known immunizations"/>
+    <definition
+                value="There is no history of previous immunizations for the subject that have to be reported in this record. This can mean either that there are none known, or that those known are not relevant for the purpose of this record."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhuma informação sobre imunização."/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-medication-info"/>
+    <display value="No information about medications"/>
+    <definition
+                value="There is no information available about the subject's medication use or administration."/>
+    <designation>
+      <language value="pt-br"/>
+      <value
+             value="Sem informação de medicamentos."/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-known-medications"/>
+    <display value="No known medications"/>
+    <definition
+                value="There are no medications for the subject that have to be reported in this record. This can mean either that there are none known, or that those known are not relevant for the purpose of this record."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Sem medicação."/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-problem-info"/>
+    <display value="No information about problems"/>
+    <definition
+                value="There is no information available about the subject's health problems or disabilities."/>
+    <designation>
+      <language value="pt-br"/>
+      <value
+             value="Nenhuma informação sobre o problema."/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-known-problems"/>
+    <display value="No known problems"/>
+    <definition
+                value="The subject is not known to have any health problems or disabilities that have to be reported in this record. This can mean either that there are none known, or that those known are not relevant for the purpose of this record."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhum problema conhecido."/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-procedure-info"/>
+    <display value="No information about past history of procedures"/>
+    <definition
+                value="There is no information available about the subject's past history of procedures."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhuma informação sobre procedimento."/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="no-known-procedures"/>
+    <display value="No known procedures"/>
+    <definition
+                value="The subject has no history of procedures that have to be reported in this record. This can mean either that there are none known, or that those known are not relevant for the purpose of this record."/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Nenhum procedimento conhecido."/>
+    </designation>
+  </concept>
+</CodeSystem>

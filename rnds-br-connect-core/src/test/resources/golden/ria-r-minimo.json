@@ -1,5 +1,8 @@
 {
   "resourceType": "Bundle",
+  "meta": {
+    "lastUpdated": "2024-04-01T14:59:51.283-03:00"
+  },
   "identifier": {
     "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-29376",
     "value": "MINIMO-0001"
@@ -8,10 +11,10 @@
   "timestamp": "2024-04-01T14:59:51.283-03:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:transient-0",
+      "fullUrl": "urn:uuid:3e7d9c25-8b41-4a6f-b0d2-7c9e5a1f3b40",
       "resource": {
         "resourceType": "Composition",
-        "id": "transient-0",
+        "id": "3e7d9c25-8b41-4a6f-b0d2-7c9e5a1f3b40",
         "meta": {
           "profile": [
             "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroImunobiologicoAdministradoRotina-2.0"
@@ -46,7 +49,7 @@
           {
             "entry": [
               {
-                "reference": "urn:uuid:transient-1"
+                "reference": "urn:uuid:3e7d9c25-8b41-4a6f-b0d2-7c9e5a1f3b41"
               }
             ]
           }
@@ -54,10 +57,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:transient-1",
+      "fullUrl": "urn:uuid:3e7d9c25-8b41-4a6f-b0d2-7c9e5a1f3b41",
       "resource": {
         "resourceType": "Immunization",
-        "id": "transient-1",
+        "id": "3e7d9c25-8b41-4a6f-b0d2-7c9e5a1f3b41",
         "meta": {
           "profile": [
             "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRImunobiologicoAdministrado-3.0"

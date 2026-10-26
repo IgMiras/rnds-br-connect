@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="dd1ef4e4-3f48-45d7-9510-2bc7fee71d44" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:38:00.513+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRGrauCertezaAlergiasReacoesAdversas-1.0" />
+  <version value="01.10" />
+  <name value="Grau de Certeza de Alergias e Reações Adversas" />
+  <title value="Grau de Certeza de Alergias e Reações Adversas" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:38:00.3881645+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Indica o grau de certeza que se possui ao avaliar uma alergia ou reação adversa." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification" />
+      <version value="*" />
+      <concept>
+        <code value="unconfirmed" />
+        <display value="Não confirmada" />
+      </concept>
+      <concept>
+        <code value="confirmed" />
+        <display value="Confirmada" />
+      </concept>
+      <concept>
+        <code value="refuted" />
+        <display value="Refutada" />
+      </concept>
+      <concept>
+        <code value="entered-in-error" />
+        <display value="Cancelada por informação errada" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

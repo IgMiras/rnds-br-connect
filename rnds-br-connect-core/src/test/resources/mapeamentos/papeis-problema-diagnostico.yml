@@ -1,0 +1,18 @@
+# Encounter.diagnosis:problemAndDiagnosis.use. O ValueSet compõe o BRPapelProblemaDiagnostico
+# da RNDS e o diagnosis-role do HL7 — e os dois dizem coisas diferentes: o brasileiro informa
+# que o diagnóstico NÃO estava presente na admissão, o do HL7 que estava.
+
+domain: PAPEL_PROBLEMA_DIAGNOSTICO
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRPapelProblemaDiagnostico
+
+mappings:
+  "NAO_PRESENTE_ADMISSAO":
+    code: "NAD"
+    display: "Diagnosis not present on admission"
+  "DESCONHECIDO":
+    code: "UNK"
+    display: "Unknown"
+  "PRESENTE_ADMISSAO":
+    system: http://terminology.hl7.org/CodeSystem/diagnosis-role
+    code: "AD"
+    display: "Admission diagnosis"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRoupasUsadasMedicao" />
+  <version value="01.00" />
+  <name value="BRRoupasUsadasMedicao" />
+  <title value="Roupas Usadas na Medição" />
+  <status value="draft" />
+  <publisher value="Ministério da Saúde" />
+  <description value="Descreve o tipo de roupas usadas durante a medição com base no código LOINC 8352-7." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Observation" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRoupasUsadasMedicao" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <short value="Código do tipo de roupa usada para medição corpórea" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <binding>
+        <strength value="required" />
+        <description value="Roupas Usadas na Medição Corpórea" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/RoupasUsadasMedicao" />
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

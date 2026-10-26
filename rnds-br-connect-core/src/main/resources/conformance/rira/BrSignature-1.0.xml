@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="BRBundleSignature" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRBundleSignature" />
+  <version value="1.0.0" />
+  <name value="BRBundleSignature" />
+  <title value="Assinatura de Bundle" />
+  <status value="active" />
+  <date value="2024-11-10T16:00:00-03:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Define os elementos obrigatórios e as restrições para a assinatura de um Bundle." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="cda" />
+    <uri value="http://hl7.org/v3/cda" />
+    <name value="CDA (R2)" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle.signature">
+      <path value="Bundle.signature" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.who">
+      <path value="Bundle.signature.who" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProfissional-1.0" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0" />
+      </type>
+    </element>
+    <element id="Bundle.signature.who.identifier">
+      <path value="Bundle.signature.who.identifier" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.who.identifier.system">
+      <path value="Bundle.signature.who.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.who.identifier.value">
+      <path value="Bundle.signature.who.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.sigFormat">
+      <path value="Bundle.signature.sigFormat" />
+      <min value="0" />
+    </element>
+    <element id="Bundle.signature.data">
+      <path value="Bundle.signature.data" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

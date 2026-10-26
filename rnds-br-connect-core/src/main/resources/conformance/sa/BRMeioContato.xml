@@ -1,0 +1,581 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <meta>
+      <lastUpdated value="2020-03-11T04:06:22.238+00:00"></lastUpdated>
+   </meta>
+   <language value="pt-BR"></language>
+   <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMeioContato-1.0"></url>
+   <version value="1.0"></version>
+   <name value="BRMeioContato"></name>
+   <title value="Meio de Contato"></title>
+   <status value="active"></status>
+   <date value="2020-03-11T04:06:21.7150652+00:00"></date>
+   <publisher value="Ministério da Saúde do Brasil"></publisher>
+   <description value="Padronização de meios de contato no Brasil."></description>
+   <fhirVersion value="4.0.0"></fhirVersion>
+   <kind value="complex-type"></kind>
+   <abstract value="false"></abstract>
+   <type value="ContactPoint"></type>
+   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ContactPoint"></baseDefinition>
+   <derivation value="constraint"></derivation>
+   <snapshot>
+      <element id="ContactPoint">
+         <path value="ContactPoint"></path>
+         <short value="Meio de Contato"></short>
+         <definition value="Informações do(s) meio(s) de contato com o indivíduo."></definition>
+         <alias value="Contato"></alias>
+         <alias value="Informação de Contato"></alias>
+         <alias value="Telefone"></alias>
+         <alias value="E-Mail"></alias>
+         <alias value="Correio Eletrônico"></alias>
+         <alias value="Celular"></alias>
+         <alias value="Recado"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="ContactPoint"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <condition value="ele-1"></condition>
+         <constraint>
+            <key value="cpt-2"></key>
+            <severity value="error"></severity>
+            <human value="A system is required if a value is provided."></human>
+            <expression value="value.empty() or system.exists()"></expression>
+            <xpath value="not(exists(f:value)) or exists(f:system)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/ContactPoint"></source>
+         </constraint>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XTN"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="TEL"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="ContactPoint"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.id">
+         <path value="ContactPoint.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.extension">
+         <path value="ContactPoint.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.system">
+         <path value="ContactPoint.system"></path>
+         <short value="Tipo de Meio de Contato"></short>
+         <definition value="sms: número de telefone celular.
+phone: número de telefone fixo.
+fax: número de fax.
+email: endereço de correio eletrônico (e-mail).
+pager: número de pager/bip.
+url: endereço do sítio eletrônico na internet, inclusive redes sociais.
+other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="ContactPoint.system"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <condition value="cpt-2"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="ContactPointSystem"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="Telecommunications form for contact point."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/contact-point-system|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XTN.3"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./scheme"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./ContactPointType"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.value">
+         <path value="ContactPoint.value"></path>
+         <short value="Contato"></short>
+         <definition value="O número do telefone (preferencialmente em formato internacional +CC DDD XXXXX-XXXX, onde CC é o código do país, DDD código da cidade/localidade e XXXXX-XXXX é o número do telefone propriamente dito), endereço de correio eletrônico (ex.: fulano@provedor.br), URL ou outro valor que identifique o contato. Quando utilizar &quot;other&quot; no system, inserir uma descrição do meio de contato, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
+         <comment value="Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value."></comment>
+         <requirements value="Need to support legacy numbers that are not in a tightly controlled format."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="ContactPoint.value"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XTN.1 (or XTN.12)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./url"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./Value"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.use">
+         <path value="ContactPoint.use"></path>
+         <short value="Uso do Meio de Contato"></short>
+         <definition value="home: residencial.
+work: comercial.
+temp: temporário ou de recado.
+mobile: dispositivo móvel, como um telefone celular."></definition>
+         <comment value="Applications can assume that a contact is current unless it explicitly says that it is temporary or old."></comment>
+         <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="ContactPoint.use"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc.for a current/permanent one"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="ContactPointUse"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="Use of contact point."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/contact-point-use|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XTN.2 - but often indicated by field"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="unique(./use)"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./ContactPointPurpose"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.rank">
+         <path value="ContactPoint.rank"></path>
+         <short value="Ordem de Preferência"></short>
+         <definition value="Especifica uma ordem preferencial entre vários contatos do mesmo tipo, sendo o de valor 1 o preferido."></definition>
+         <comment value="Note that rank does not necessarily follow the order in which the contacts are represented in the instance."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="ContactPoint.rank"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="positiveInt"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="n/a"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.period">
+         <path value="ContactPoint.period"></path>
+         <short value="Período do Meio de Contato"></short>
+         <definition value="Período em que o meio de contato foi utilizado pelo indivíduo."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="ContactPoint.period"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="N/A"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StartDate and ./EndDate"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.period.id">
+         <path value="ContactPoint.period.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.period.extension">
+         <path value="ContactPoint.period.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.period.start">
+         <path value="ContactPoint.period.start"></path>
+         <short value="Data de Início do Meio de Contato"></short>
+         <definition value="Data em que o meio de contato foi cadastrado ou começou a ser utilizado pelo indivíduo."></definition>
+         <comment value="If the low element is missing, the meaning is that the low boundary is not known."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Period.start"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <condition value="per-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="DR.1"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./low"></map>
+         </mapping>
+      </element>
+      <element id="ContactPoint.period.end">
+         <path value="ContactPoint.period.end"></path>
+         <short value="Data da Término do Meio de Contato"></short>
+         <definition value="Data em que o meio de contato foi desativado ou parou de ser utilizado pelo indivíduo."></definition>
+         <comment value="The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has an end value of 2012-02-03."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Period.end"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <meaningWhenMissing value="If the end of the period is missing, it means that the period is ongoing"></meaningWhenMissing>
+         <condition value="per-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="DR.2"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./high"></map>
+         </mapping>
+      </element>
+   </snapshot>
+   <differential>
+      <element id="ContactPoint">
+         <path value="ContactPoint"></path>
+         <short value="Meio de Contato"></short>
+         <definition value="Informações do(s) meio(s) de contato com o indivíduo."></definition>
+         <alias value="Contato"></alias>
+         <alias value="Informação de Contato"></alias>
+         <alias value="Telefone"></alias>
+         <alias value="E-Mail"></alias>
+         <alias value="Correio Eletrônico"></alias>
+         <alias value="Celular"></alias>
+         <alias value="Recado"></alias>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="ContactPoint.system">
+         <path value="ContactPoint.system"></path>
+         <short value="Tipo de Meio de Contato"></short>
+         <definition value="sms: número de telefone celular.
+phone: número de telefone fixo.
+fax: número de fax.
+email: endereço de correio eletrônico (e-mail).
+pager: número de pager/bip.
+url: endereço do sítio eletrônico na internet, inclusive redes sociais.
+other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="ContactPoint.value">
+         <path value="ContactPoint.value"></path>
+         <short value="Contato"></short>
+         <definition value="O número do telefone (preferencialmente em formato internacional +CC DDD XXXXX-XXXX, onde CC é o código do país, DDD código da cidade/localidade e XXXXX-XXXX é o número do telefone propriamente dito), endereço de correio eletrônico (ex.: fulano@provedor.br), URL ou outro valor que identifique o contato. Quando utilizar &quot;other&quot; no system, inserir uma descrição do meio de contato, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="ContactPoint.use">
+         <path value="ContactPoint.use"></path>
+         <short value="Uso do Meio de Contato"></short>
+         <definition value="home: residencial.
+work: comercial.
+temp: temporário ou de recado.
+mobile: dispositivo móvel, como um telefone celular."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="ContactPoint.rank">
+         <path value="ContactPoint.rank"></path>
+         <short value="Ordem de Preferência"></short>
+         <definition value="Especifica uma ordem preferencial entre vários contatos do mesmo tipo, sendo o de valor 1 o preferido."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="ContactPoint.period">
+         <path value="ContactPoint.period"></path>
+         <short value="Período do Meio de Contato"></short>
+         <definition value="Período em que o meio de contato foi utilizado pelo indivíduo."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="ContactPoint.period.start">
+         <path value="ContactPoint.period.start"></path>
+         <short value="Data de Início do Meio de Contato"></short>
+         <definition value="Data em que o meio de contato foi cadastrado ou começou a ser utilizado pelo indivíduo."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="ContactPoint.period.end">
+         <path value="ContactPoint.period.end"></path>
+         <short value="Data da Término do Meio de Contato"></short>
+         <definition value="Data em que o meio de contato foi desativado ou parou de ser utilizado pelo indivíduo."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+   </differential>
+</StructureDefinition>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="d084faf2-ba1d-424e-933b-dc0358d20d8b" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:37:36.141+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCategoriaAgenteAlergiasReacoesAdversas-1.0" />
+  <version value="01.10" />
+  <name value="Categoria do Agente da Alergia ou Reação Adversa" />
+  <title value="Categoria do Agente da Alergia ou Reação Adversa" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:37:36.0254538+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Categoriza a substância responsável por causar uma alergia ou reação adversa." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/allergy-intolerance-category" />
+      <version value="*" />
+      <concept>
+        <code value="food" />
+        <display value="Alimento" />
+        <designation>
+          <value value="Substância recebida pelo corpo que proporciona nutrição. (DeCS/BVS)" />
+        </designation>
+      </concept>
+      <concept>
+        <code value="medication" />
+        <display value="Medicamento" />
+        <designation>
+          <value value="Substâncias farmacêuticas complexas, preparações ou produtos de origem orgânica geralmente obtidos por métodos ou ensaios biológicos. (DeCS/BVS) Ex.: vacinas, soros, hormônios, antitoxinas etc." />
+        </designation>
+      </concept>
+      <concept>
+        <code value="biologic" />
+        <display value="Biológica" />
+        <designation>
+          <value value="Drogas dirigidas para uso humano ou veterinário, apresentadas em sua formulação final. Estão incluídos aqui os materiais usados na preparação e/ou na formulação final. (DeCS/BVS)" />
+        </designation>
+      </concept>
+      <concept>
+        <code value="other" />
+        <display value="Outras substâncias" />
+        <designation>
+          <value value="Qualquer outra substância encontrada no ambiente e que não pode ser classificada como alimento, medicamento ou biológica. (tradução livre da definição original do HL7)" />
+        </designation>
+      </concept>
+      <concept>
+        <code value="environment" />
+        <display value="Fator Externo/Ambiental"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

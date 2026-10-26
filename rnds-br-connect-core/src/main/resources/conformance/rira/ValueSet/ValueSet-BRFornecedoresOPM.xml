@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="valueset-fornecedores-opm" />
+    <language value="pt-BR" />
+    <url value="http://www.saude.gov.br/fhir/r4/ValueSet/FornecedoresOPM" />
+    <version value="1.0.0" />
+    <name value="BRFornecedoresOPM" />
+    <title value="Fornecedores OPM" />
+    <status value="active" />
+    <experimental value="false" />
+    <date value="2025-09-20T00:00:00-03:00" />
+    <publisher value="Ministério da Saúde do Brasil" />
+    <contact>
+        <name value="COPIS - Coordenação de Padrões de Informática em Saúde" />
+        <telecom>
+            <system value="url" />
+            <value value="https://webatendimento.saude.gov.br/faq/rnds" />
+        </telecom>
+    </contact>
+    <description value="Fornecedores de órteses, próteses e materiais especiais" />
+    <immutable value="false" />
+    <compose>
+        <include>
+            <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRFornecedoresAnvisa" />
+            <version value="*" />
+        </include>
+        <include>
+            <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTerceirosBrasil" />
+            <version value="*" />
+        </include>
+        <include>
+            <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRMantenedoras" />
+            <version value="*" />
+        </include>
+        <include>
+            <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BREstabelecimentosCNPJ" />
+            <version value="*" />
+        </include>
+    </compose>
+</ValueSet>

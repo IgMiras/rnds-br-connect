@@ -1,0 +1,207 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <meta>
+      <lastUpdated value="2020-03-13T20:25:59.559+00:00"></lastUpdated>
+   </meta>
+   <language value="pt-BR"></language>
+   <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAtendeSUS-1.0"></url>
+   <version value="1.0"></version>
+   <name value="BRAtendeSUS"></name>
+   <title value="Atende SUS?"></title>
+   <status value="active"></status>
+   <date value="2020-03-13T20:26:23.0414137+00:00"></date>
+   <publisher value="Ministério da Saúde do Brasil"></publisher>
+   <description value="Extensão utilizada para identificar se um profissional ou Estabelecimento de Saúde oferece atendimento pelo Sistema Único de Saúde (SUS)."></description>
+   <fhirVersion value="4.0.0"></fhirVersion>
+   <kind value="complex-type"></kind>
+   <abstract value="false"></abstract>
+   <context>
+      <type value="element"></type>
+      <expression value="PractitionerRole"></expression>
+   </context>
+   <context>
+      <type value="element"></type>
+      <expression value="Organization"></expression>
+   </context>
+   <type value="Extension"></type>
+   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"></baseDefinition>
+   <derivation value="constraint"></derivation>
+   <snapshot>
+      <element id="Extension">
+         <path value="Extension"></path>
+         <short value="Atende SUS?"></short>
+         <definition value="Identifica se um profissional ou Estabelecimento de Saúde oferece atendimento pelo Sistema Único de Saúde (SUS)."></definition>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <condition value="ele-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+      </element>
+      <element id="Extension.id">
+         <path value="Extension.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Extension.extension">
+         <path value="Extension.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Extension.url">
+         <path value="Extension.url"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="identifies the meaning of the extension"></short>
+         <definition value="Source of the definition for the extension code - a logical name or a URL."></definition>
+         <comment value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension."></comment>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.url"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="uri"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAtendeSUS-1.0"></fixedUri>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Extension.value[x]">
+         <path value="Extension.value[x]"></path>
+         <short value="Value of extension"></short>
+         <definition value="Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.value[x]"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+   </snapshot>
+   <differential>
+      <element id="Extension">
+         <path value="Extension"></path>
+         <short value="Atende SUS?"></short>
+         <definition value="Identifica se um profissional ou Estabelecimento de Saúde oferece atendimento pelo Sistema Único de Saúde (SUS)."></definition>
+      </element>
+      <element id="Extension.url">
+         <path value="Extension.url"></path>
+         <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAtendeSUS-1.0"></fixedUri>
+      </element>
+      <element id="Extension.value[x]">
+         <path value="Extension.value[x]"></path>
+         <min value="1"></min>
+         <type>
+            <code value="boolean"></code>
+         </type>
+      </element>
+   </differential>
+</StructureDefinition>

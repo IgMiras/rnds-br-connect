@@ -1,0 +1,40 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="BRContatoHanseniase" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoHanseniase" />
+  <version value="1.0" />
+  <name value="BRContatoHanseniase" />
+  <title value="Contato Hanseníase" />
+  <status value="active" />
+  <date value="2020-03-13T20:26:23.0414137+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Extensão utilizada para identificar indivíduos com contato próximo de pacientes que vivem com Hanseníase." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Immunization" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Contato Hanseníase" />
+      <definition value="Identifica se um indivíduo possui contato próximo de pacientes que vivem com Hanseníase." />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoHanseniase" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="boolean" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

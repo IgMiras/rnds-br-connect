@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BRCRF"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet BRCRF</b></p><a name="BRCRF"> </a><a name="hcBRCRF"> </a><a name="BRCRF-pt-BR"> </a><ul><li>Include these codes as defined in <a href="CodeSystem-BRConselhoProfissional.html"><code>https://terminologia.saude.gov.br/fhir/CodeSystem/BRConselhoProfissional</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-ac">https://saude.gov.br/sid/crf-ac</a></td><td>CRF-AC</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-al">https://saude.gov.br/sid/crf-al</a></td><td>CRF-AL</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-am">https://saude.gov.br/sid/crf-am</a></td><td>CRF-AM</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-ap">https://saude.gov.br/sid/crf-ap</a></td><td>CRF-AP</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-ba">https://saude.gov.br/sid/crf-ba</a></td><td>CRF-BA</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-ce">https://saude.gov.br/sid/crf-ce</a></td><td>CRF-CE</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-df">https://saude.gov.br/sid/crf-df</a></td><td>CRF-DF</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-es">https://saude.gov.br/sid/crf-es</a></td><td>CRF-ES</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-go">https://saude.gov.br/sid/crf-go</a></td><td>CRF-GO</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-ma">https://saude.gov.br/sid/crf-ma</a></td><td>CRF-MA</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-mg">https://saude.gov.br/sid/crf-mg</a></td><td>CRF-MG</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-ms">https://saude.gov.br/sid/crf-ms</a></td><td>CRF-MS</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-mt">https://saude.gov.br/sid/crf-mt</a></td><td>CRF-MT</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-pa">https://saude.gov.br/sid/crf-pa</a></td><td>CRF-PA</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-pb">https://saude.gov.br/sid/crf-pb</a></td><td>CRF-PB</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-pe">https://saude.gov.br/sid/crf-pe</a></td><td>CRF-PE</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-pi">https://saude.gov.br/sid/crf-pi</a></td><td>CRF-PI</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-pr">https://saude.gov.br/sid/crf-pr</a></td><td>CRF-PR</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-rj">https://saude.gov.br/sid/crf-rj</a></td><td>CRF-RJ</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-rn">https://saude.gov.br/sid/crf-rn</a></td><td>CRF-RN</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-ro">https://saude.gov.br/sid/crf-ro</a></td><td>CRF-RO</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-rr">https://saude.gov.br/sid/crf-rr</a></td><td>CRF-RR</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-rs">https://saude.gov.br/sid/crf-rs</a></td><td>CRF-RS</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-sc">https://saude.gov.br/sid/crf-sc</a></td><td>CRF-SC</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-se">https://saude.gov.br/sid/crf-se</a></td><td>CRF-SE</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-sp">https://saude.gov.br/sid/crf-sp</a></td><td>CRF-SP</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crf-to">https://saude.gov.br/sid/crf-to</a></td><td>CRF-TO</td><td>CONSELHO REGIONAL DE FARMÁCIA</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://terminologia.saude.gov.br/fhir/ValueSet/BRCRF"/>
+  <identifier>
+    <system value="https://saude.gov.br/sid/valueset"/>
+    <value value="BRCRF"/>
+  </identifier>
+  <version value="0.1.5"/>
+  <name value="BRCRF"/>
+  <title value="Conselhos regionais de Farmácia do Brasil"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2023-07-18T10:52:24-03:00"/>
+  <publisher value="Ministério do Saúde do Brasil"/>
+  <contact>
+    <name value="Ministério do Saúde do Brasil"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://gov.br/saude"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="contato@gointerop.com"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="Italo Macedo"/>
+    <telecom>
+      <system value="email"/>
+      <value value="italo@gointerop.com"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Conjunto de todos os conselhos regionais de farmácia do Brasil"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="BR"/>
+      <display value="Brazil"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="O propósito deste conjunto é agrupar todos os conselhos regionais de farmácia para fins de validação do identificador profissional do farmacêutico"/>
+  <copyright value="CC-1.0"/>
+  <compose>
+    <include>
+      <system value="https://terminologia.saude.gov.br/fhir/CodeSystem/BRConselhoProfissional"/>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-ac"/>
+        <display value="CRF-AC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-al"/>
+        <display value="CRF-AL"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-am"/>
+        <display value="CRF-AM"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-ap"/>
+        <display value="CRF-AP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-ba"/>
+        <display value="CRF-BA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-ce"/>
+        <display value="CRF-CE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-df"/>
+        <display value="CRF-DF"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-es"/>
+        <display value="CRF-ES"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-go"/>
+        <display value="CRF-GO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-ma"/>
+        <display value="CRF-MA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-mg"/>
+        <display value="CRF-MG"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-ms"/>
+        <display value="CRF-MS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-mt"/>
+        <display value="CRF-MT"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-pa"/>
+        <display value="CRF-PA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-pb"/>
+        <display value="CRF-PB"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-pe"/>
+        <display value="CRF-PE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-pi"/>
+        <display value="CRF-PI"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-pr"/>
+        <display value="CRF-PR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-rj"/>
+        <display value="CRF-RJ"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-rn"/>
+        <display value="CRF-RN"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-ro"/>
+        <display value="CRF-RO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-rr"/>
+        <display value="CRF-RR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-rs"/>
+        <display value="CRF-RS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-sc"/>
+        <display value="CRF-SC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-se"/>
+        <display value="CRF-SE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-sp"/>
+        <display value="CRF-SP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crf-to"/>
+        <display value="CRF-TO"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

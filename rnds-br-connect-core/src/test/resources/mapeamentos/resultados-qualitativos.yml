@@ -1,0 +1,21 @@
+# BRResultadoQualitativoExame-2.0 compõe NOVE CodeSystems: o base mais oito
+# BRTipoResultado*. Cada família de exame usa a sua — detectável/não detectável
+# vem do DTNT, reagente/não reagente vem de outro. O system é estrutural.
+#
+# NÃO confundir com BRResultadoQualitativoExame-1.0, que é o ValueSet de
+# Observation.interpretation e tem apenas três códigos.
+
+domain: RESULTADO_QUALITATIVO
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT
+validatedBy: "Laboratório Central de Saúde Pública · Responsável técnico"
+
+mappings:
+  "DETECTAVEL":
+    code: "1"
+    display: "Detectável"
+  "NAO_DETECTAVEL":
+    code: "2"
+    display: "Não Detectável"
+  "INDETERMINADO":
+    code: "3"
+    display: "Indeterminado"

@@ -1,0 +1,758 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-12345",
+    "value": "c6d8d486"
+  },
+  "type": "document",
+  "timestamp": "2022-12-07T10:59:51.244-03:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:b602ff2a-11c1-498a-b1e2-afbc41476225",
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRSumarioAlta"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
+              "code": "SA"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial",
+                "code": "04"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "date": "2021-01-25",
+        "author": [
+          {
+            "identifier": {
+              "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+              "value": "1113333"
+            }
+          }
+        ],
+        "title": "Sumário de Alta",
+        "section": [
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:613e423b-175e-4adc-b062-e477da88ba3c"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:82f84a83-ccd1-44ab-9e4b-84817ed684a9"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:282704c4-979b-402a-b8ed-5e740a320982"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:42ed53db-5dec-437f-bd10-8895b6f6105d"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:efc37c9a-fdb2-4d11-ade4-b0c0d218f69c"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:6fd5513d-96f2-4e52-be36-fbbc85cb91f4"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:0e1f2a3b-4c5d-4e6f-8a7b-9c0d1e2f3a4b"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:7f396bd9-998a-4784-bbcb-8554ba5b015c"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:98d60b66-07b6-4c6c-a31f-dc6d1f80e626"
+              }
+            ]
+          },
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:038ad91c-ba1a-4560-8719-2428e998ea53"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:613e423b-175e-4adc-b062-e477da88ba3c",
+      "resource": {
+        "resourceType": "Encounter",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoAssistencial-1.0"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial",
+          "code": "04"
+        },
+        "priority": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCaraterAtendimento",
+              "code": "02"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "period": {
+          "start": "2021-01-18T11:00:00Z",
+          "end": "2021-01-25T11:00:00Z"
+        },
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "urn:uuid:82f84a83-ccd1-44ab-9e4b-84817ed684a9"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+                  "code": "AD",
+                  "display": "Diagnóstico presente na admissão"
+                }
+              ]
+            },
+            "rank": 1
+          },
+          {
+            "condition": {
+              "reference": "urn:uuid:282704c4-979b-402a-b8ed-5e740a320982"
+            },
+            "rank": 2
+          },
+          {
+            "condition": {
+              "extension": [
+                {
+                  "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRFinanciamento-1.0",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRFinanciamento",
+                        "code": "02"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "reference": "urn:uuid:42ed53db-5dec-437f-bd10-8895b6f6105d"
+            }
+          }
+        ],
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRResponsabilidadeParticipante",
+                    "code": "alta"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "identifier": {
+                "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLotacaoProfissional-1.0",
+                "value": "815113499149874-3191384"
+              }
+            },
+            "extension": [
+              {
+                "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROcupacao-1.0",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
+                      "code": "225125"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRProcedencia",
+                "code": "09"
+              }
+            ]
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRMotivoDesfecho",
+                "code": "03"
+              }
+            ]
+          }
+        },
+        "serviceProvider": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+            "value": "1113333"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:82f84a83-ccd1-44ab-9e4b-84817ed684a9",
+      "resource": {
+        "resourceType": "Condition",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProblemaDiagnostico"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Diagnóstico"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
+              "code": "J121"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:282704c4-979b-402a-b8ed-5e740a320982",
+      "resource": {
+        "resourceType": "Condition",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProblemaDiagnostico"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Diagnóstico"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
+              "code": "B342"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:42ed53db-5dec-437f-bd10-8895b6f6105d",
+      "resource": {
+        "resourceType": "Procedure",
+        "meta": {
+          "lastUpdated": "2022-05-09T17:39:08.701859Z",
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProcedimentoRealizado-1.0"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoIdentificador",
+                  "code": "AUTH"
+                }
+              ]
+            },
+            "value": "350001-M-24-01-000001-0000001-5"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTabelaSUS",
+              "code": "0206020040"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "performedDateTime": "2026-06-05T12:20:32-03:00",
+        "performer": [
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
+                  "code": "225125"
+                }
+              ]
+            },
+            "actor": {
+              "identifier": {
+                "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+                "value": "1113333"
+              }
+            }
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuantidade-1.0",
+            "valuePositiveInt": 8
+          }
+        ],
+        "note": [
+          {
+            "text": "Texto livre"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:efc37c9a-fdb2-4d11-ade4-b0c0d218f69c",
+      "resource": {
+        "resourceType": "Condition",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRestricaoFuncionalIncapacidadeSaude-1.0"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "code": {
+          "text": "Texto livre"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6fd5513d-96f2-4e52-be36-fbbc85cb91f4",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAlergiaReacaoAdversa-1.0"
+          ]
+        },
+        "patient": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "category": [
+          "medication"
+        ],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRMedicamento",
+              "code": "BR0267205U0063"
+            }
+          ]
+        },
+        "onsetDateTime": "2025-09-17",
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRMedDRA",
+                    "code": "10002198"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Alergia a dipirona sódica"
+          }
+        ],
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0e1f2a3b-4c5d-4e6f-8a7b-9c0d1e2f3a4b",
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroPrescricaoMedicamento"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
+              "code": "RPM"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "date": "2021-01-25",
+        "author": [
+          {
+            "identifier": {
+              "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+              "value": "1113333"
+            }
+          }
+        ],
+        "title": "Prescrição de Alta",
+        "section": [
+          {
+            "entry": [
+              {
+                "reference": "urn:uuid:c8e3cf5f-96b7-43a9-919e-22e9947dc415"
+              },
+              {
+                "reference": "urn:uuid:5c1de72d-fdc9-448d-9032-505dc78de8ca"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c8e3cf5f-96b7-43a9-919e-22e9947dc415",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPrescricaoMedicamento"
+          ]
+        },
+        "status": "completed",
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "medicationReference": {
+          "reference": "urn:uuid:5c1de72d-fdc9-448d-9032-505dc78de8ca"
+        },
+        "note": [
+          {
+            "authorString": "Dr. Getúlio",
+            "time": "2022-03-04",
+            "text": "Medicamento necessário para tratamento da febre devido à gripe."
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "patientInstruction": "Tomar uma vez ao dia via oral.",
+            "timing": {
+              "repeat": {
+                "count": 1,
+                "frequency": 12,
+                "extension": [
+                  {
+                    "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRTurno",
+                    "valueCode": "3"
+                  },
+                  {
+                    "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIntervaloDoses",
+                    "extension": [
+                      {
+                        "url": "periodUnit",
+                        "valueCode": "min"
+                      },
+                      {
+                        "url": "period",
+                        "valuePositiveInt": 1
+                      }
+                    ]
+                  }
+                ],
+                "countMax": 1
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao",
+                  "code": "10907"
+                }
+              ]
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida",
+                      "code": "13"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 10
+                }
+              }
+            ],
+            "maxDosePerAdministration": {
+              "value": 10
+            },
+            "text": "Texto livre",
+            "asNeededBoolean": true
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2022-02-24",
+            "end": "2022-03-03"
+          },
+          "quantity": {
+            "value": 10
+          }
+        },
+        "intent": "order",
+        "authoredOn": "2022-12-07T10:59:51.244-03:00",
+        "recorder": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProfissional-1.0",
+            "value": "898005900000003"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5c1de72d-fdc9-448d-9032-505dc78de8ca",
+      "resource": {
+        "resourceType": "Medication",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedicamento"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRObmCATMAT",
+              "code": "BR0267778"
+            }
+          ]
+        },
+        "form": {
+          "coding": [
+            {
+              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida",
+              "code": "19"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7f396bd9-998a-4784-bbcb-8554ba5b015c",
+      "resource": {
+        "resourceType": "ClinicalImpression",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRResumoEvolucaoClinica"
+          ]
+        },
+        "status": "completed",
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "summary": "Evoluiu com agravamento do desconforto respiratório, aumento da necessidade de oxigênio suplementar e transferência para unidade de terapia intensiva."
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:98d60b66-07b6-4c6c-a31f-dc6d1f80e626",
+      "resource": {
+        "resourceType": "CarePlan",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPlanoCuidados-1.0"
+          ]
+        },
+        "status": "active",
+        "intent": "plan",
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "description": "Repouso pós-medicação intramuscular"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:038ad91c-ba1a-4560-8719-2428e998ea53",
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRObservacaoDescritiva-1.0"
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+            "value": "706004324048847"
+          }
+        },
+        "valueString": "Após 7 dias de tratamento recebeu alta com encaminhamento para Unidade Básica de Saúde sem queixas ou sintomas respiratórios, com saturação O2 = 92-93%.",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://loinc.org/",
+              "code": "48767-8"
+            }
+          ]
+        },
+        "issued": "2022-12-07T10:59:51.244-03:00"
+      }
+    }
+  ]
+}

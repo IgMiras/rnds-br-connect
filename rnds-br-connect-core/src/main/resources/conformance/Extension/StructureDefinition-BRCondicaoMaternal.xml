@@ -1,0 +1,78 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="BRCondicaoMaternal" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCondicaoMaternal" />
+  <version value="1.0" />
+  <name value="BRCondicaoMaternal" />
+  <title value="Condição Maternal" />
+  <status value="active" />
+  <date value="2021-09-17" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description
+    value="Indicação da condição maternal da pessoa vacinada (Nenhuma, Gestante, Puérpera). O campo é de preenchimento obrigatório para indivíduos em idade fértil, independente do sexo." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Immunization" />
+  </context>
+  <context>
+    <type value="element" />
+    <expression value="Immunization.protocolApplied" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="Condição maternal" />
+      <definition
+        value="Indicação da condição maternal da pessoa vacinada (Nenhuma, Gestante, Puérpera). O campo é de preenchimento obrigatório para indivíduos em idade fértil, independente do sexo." />
+      <max value="1" />
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCondicaoMaternal" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <min value="1" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Condição maternal" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCondicaoMaternal-1.0" />
+      </binding>
+    </element>
+    <element id="Extension.value[x].coding">
+      <path value="Extension.value[x].coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Extension.value[x].coding.system">
+      <path value="Extension.value[x].coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].coding.code">
+      <path value="Extension.value[x].coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Extension.value[x].coding.display">
+      <path value="Extension.value[x].coding.display" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].coding.userSelected">
+      <path value="Extension.value[x].coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Extension.value[x].text">
+      <path value="Extension.value[x].text" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

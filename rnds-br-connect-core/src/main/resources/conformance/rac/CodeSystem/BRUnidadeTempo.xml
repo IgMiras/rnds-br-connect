@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2022-03-22T14:53:00.0000000+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeTempo" />
+  <version value="1.0" />
+  <name value="Unidade de tempo" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2022-03-22T14:53:00.0000000+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Code System utilizado para definir a classe de unidades de tempo." />
+  <content value="complete" />
+  <concept>  
+        <code value="min"/> 
+        <display value="minuto(s)"/> 
+        <designation> 
+          <language value="eng"/> 
+          <value value="minute"/> 
+        </designation> 
+      </concept> 
+      <concept> 
+        <code value="h"/> 
+        <display value="hora(s)"/> 
+        <designation> 
+          <language value="eng"/> 
+          <value value="hour"/> 
+        </designation> 
+      </concept> 
+      <concept> 
+        <code value="d"/> 
+        <display value="dia(s)"/> 
+        <designation> 
+          <language value="eng"/> 
+          <value value="day"/> 
+        </designation> 
+      </concept>
+      <concept> 
+        <code value="wk"/> 
+        <display value="semana(s)"/> 
+        <designation> 
+          <language value="eng"/> 
+          <value value="week"/> 
+        </designation> 
+      </concept>
+      <concept> 
+        <code value="mo"/> 
+        <display value="mês(meses)"/> 
+        <designation> 
+          <language value="eng"/> 
+          <value value="month"/> 
+        </designation> 
+      </concept>
+      <concept> 
+        <code value="a"/> 
+        <display value="ano(s)"/> 
+        <designation> 
+          <language value="eng"/> 
+          <value value="year"/> 
+        </designation> 
+    </concept>
+</CodeSystem>

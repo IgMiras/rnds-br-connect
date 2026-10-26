@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2023-04-13T13:17:22.715+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRStatusParticipante" />
+  <version value="1.0" />
+  <name value="Status do Participante do agendamento" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-04-13T13:17:18.5012669+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Status do Participante do agendamento." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/participationstatus" />
+      <version value="*" />
+      <concept>
+        <code value="accepted"/>
+        <display value="Accepted"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Aceito"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="declined"/>
+        <display value="Declined"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Negado"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="tentative"/>
+        <display value="Tentative"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Tentativa"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="needs-action"/>
+        <display value="Needs Action"/>
+        <designation>
+          <language value="pt-br"/>
+          <value value="Aguardando resposta"/>
+        </designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

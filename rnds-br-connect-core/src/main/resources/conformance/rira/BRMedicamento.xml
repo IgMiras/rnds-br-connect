@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedicamento" />
+  <version value="1.0" />
+  <name value="BRMedicamento" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Medication" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Medication" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Medication.implicitRules">
+      <path value="Medication.implicitRules" />
+      <max value="0" />
+    </element>
+    <element id="Medication.language">
+      <path value="Medication.language" />
+      <max value="0" />
+    </element>
+    <element id="Medication.text">
+      <path value="Medication.text" />
+      <max value="0" />
+    </element>
+    <element id="Medication.contained">
+      <path value="Medication.contained" />
+      <max value="0" />
+    </element>
+    <element id="Medication.extension">
+      <path value="Medication.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="0" />
+    </element>
+    <element id="Medication.extension:serialCode">
+      <path value="Medication.extension" />
+      <sliceName value="serialCode" />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCodigoSerialMedicamento" />
+      </type>
+    </element>
+    <element id="Medication.identifier">
+      <path value="Medication.identifier" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code">
+      <path value="Medication.code" />
+      <short value="Nome do Medicamento" />
+      <definition value="Nome e terminologia do medicamento fabricado." />
+      <min value="1" />
+      <binding>
+        <strength value="preferred" />
+        <description value="Define a terminologia de um dado medicamento." />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTerminologiaMedicamento" />
+      </binding>
+    </element>
+    <element id="Medication.code.id">
+      <path value="Medication.code.id" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code.coding">
+      <path value="Medication.code.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Medication.code.coding.id">
+      <path value="Medication.code.coding.id" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code.coding.system">
+      <path value="Medication.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="Medication.code.coding.version">
+      <path value="Medication.code.coding.version" />
+      <short value="Versão da terminologia - se relevante" />
+    </element>
+    <element id="Medication.code.coding.code">
+      <path value="Medication.code.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="Medication.code.coding.display">
+      <path value="Medication.code.coding.display" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code.coding.userSelected">
+      <path value="Medication.code.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="Medication.code.text">
+      <path value="Medication.code.text" />
+      <short value="Nome da terminologia" />
+    </element>
+    <element id="Medication.status">
+      <path value="Medication.status" />
+      <binding>
+        <strength value="required" />
+        <description value="Estado da Solicitação de Medicamento" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoSolicitacaoMedicamento-1.0" />
+      </binding>
+    </element>
+    <element id="Medication.manufacturer">
+      <path value="Medication.manufacturer" />
+      <max value="0" />
+    </element>
+    <element id="Medication.form">
+      <path value="Medication.form" />
+      <short value="Unidade de medida do medicamento" />
+      <definition value="Unidade de medida do medicamento prescrito (ex.: comprimido, cápsula, frasco, caixa etc.)." />
+      <binding>
+        <strength value="required" />
+        <description value="Unidade de medida do medicamento" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRUnidadeMedidaMedicamento" />
+      </binding>
+    </element>
+    <element id="Medication.amount">
+      <path value="Medication.amount" />
+      <max value="0" />
+    </element>
+    <element id="Medication.ingredient">
+      <path value="Medication.ingredient" />
+      <max value="0" />
+    </element>
+    <element id="Medication.batch">
+      <path value="Medication.batch" />
+      <short value="Detalhes sobre a medicação." />
+      <definition value="Informação sobre lote e validade da medicação." />
+    </element>
+    <element id="Medication.batch.id">
+      <path value="Medication.batch.id" />
+      <max value="0" />
+    </element>
+    <element id="Medication.batch.lotNumber">
+      <path value="Medication.batch.lotNumber" />
+      <short value="Lote de medicamento." />
+      <definition value="RN14: Se medicamento serializado/Datamatrix - Elemento lot do XML para grupo  IUM." />
+    </element>
+    <element id="Medication.batch.expirationDate">
+      <path value="Medication.batch.expirationDate" />
+      <short value="Data de validade do medicamento." />
+    </element>
+  </differential>
+</StructureDefinition>

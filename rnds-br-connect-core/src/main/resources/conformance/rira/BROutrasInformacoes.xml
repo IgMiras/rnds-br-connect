@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROutrasInformacoes" />
+  <name value="BROutrasInformacoes" />
+  <title value="Outras Informações" />
+  <status value="draft" />
+  <date value="2022-05-26" />
+  <description value="Representa quaisquer outras informações acerca dos dados de desfecho do atendimento registrad." />
+  <fhirVersion value="4.0.1" />
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <context>
+    <type value="element" />
+    <expression value="Encounter.hospitalization" />
+  </context>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROutrasInformacoes" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <type>
+        <code value="Annotation" />
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,163 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRTerminologiaPatogeno" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTerminologiaPatogeno" />
+  <version value="1.0.1" />
+  <name value="BRTerminologiaPatogeno" />
+  <title value="Patógeno" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2022-12-23T14:16:40.0457007+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Terminologia para indicação de um Patógeno." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="01" />
+    <display value="Orthopoxvirus (nome do gênero do vírus)" />
+    <designation>
+      <language value="en" />
+      <value value="Orthopoxvirus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Orthopoxvirus (género)" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="02" />
+    <display value="Orthopoxvirus não-varíola" />
+    <designation>
+      <language value="en" />
+      <value value="Orthopoxvirus species, not Variola virus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Orthopoxvirus, no Variola (especie)" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="03" />
+    <display value="Vírus Monkeypox" />
+    <designation>
+      <language value="en" />
+      <value value="Monkeypox virus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Virus de la Viruela del Mono" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="04" />
+    <display value="Parapoxvirus (nome do gênero do vírus)" />
+    <designation>
+      <language value="en" />
+      <value value="Parapoxvirus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Parapoxvirus (género)" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="05" />
+    <display value="Vírus Orf" />
+    <designation>
+      <language value="en" />
+      <value value="Orf virus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Virus del Orf" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="06" />
+    <display value="Vírus Pseudovaríola" />
+    <designation>
+      <language value="en" />
+      <value value="Pseudocowpox virus" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Virus de la Pseudoviruela Vacuna" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="07" />
+    <display value="SARS-CoV-2" />
+    <designation>
+      <language value="en" />
+      <value value="SARS-CoV-2" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="SARS-CoV-2" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="08" />
+    <display value="Chikungunya Vírus" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="09" />
+    <display value="Dengue Vírus" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="10" />
+    <display value="Vírus da Febre Amarela" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="11" />
+    <display value="Vírus da Encefalite Japonesa" />
+    <designation>
+      <language value="en" />
+      <value value="Japanese encephalitis virus" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="12" />
+    <display value="Zika Vírus" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="13" />
+    <display value="Vírus do Nilo Ocidental" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="14" />
+    <display value="Vírus Oropouche" />
+    <designation>
+      <language value="en" />
+      <value value="Oropouche virus" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="15" />
+    <display value="Vírus Mayaro" />
+    <designation>
+      <language value="en" />
+      <value value="Mayaro virus" />
+    </designation>
+  </concept>
+</CodeSystem>

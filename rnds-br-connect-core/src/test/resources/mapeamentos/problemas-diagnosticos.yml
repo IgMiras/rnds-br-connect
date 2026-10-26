@@ -1,0 +1,20 @@
+# Condition.code do BRProblemaDiagnostico. O ValueSet compõe CID-10 e CIAP-2: a atenção
+# primária costuma codificar em CIAP-2 o que a especializada codifica em CID-10, e o mesmo
+# documento aceita os dois. Por isso este domínio não é o CID10 do RIA-R — ali o alvo é um
+# CodeSystem só, aqui o system faz parte da resposta.
+
+domain: PROBLEMA_DIAGNOSTICO
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10
+
+mappings:
+  "VARIZES_ESOFAGO":
+    code: "I859"
+    display: "Varizes esofagianas sem sangramento"
+  "FEBRE_CIAP":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2
+    code: "A03"
+    display: "Febre"
+  "FADIGA_CIAP":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRCIAP2
+    code: "A04"
+    display: "Debilidade/cansaço geral/fadiga"

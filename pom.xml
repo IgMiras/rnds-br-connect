@@ -33,6 +33,7 @@
     <slf4j.version>2.0.16</slf4j.version>
     <lombok.version>1.18.34</lombok.version>
     <spotless.version>2.44.0</spotless.version>
+    <snakeyaml.version>2.3</snakeyaml.version>
   </properties>
 
   <dependencyManagement>
@@ -55,6 +56,21 @@
         <groupId>ca.uhn.hapi.fhir</groupId>
         <artifactId>hapi-fhir-validation-resources-r4</artifactId>
         <version>${hapi.version}</version>
+      </dependency>
+      <!-- Implementacao de cache resolvida por ServiceLoader: o hapi-fhir-caching-api
+           traz so a interface, e sem uma implementacao o FhirInstanceValidator falha
+           com HAPI-2200 no primeiro validate(). -->
+      <dependency>
+        <groupId>ca.uhn.hapi.fhir</groupId>
+        <artifactId>hapi-fhir-caching-caffeine</artifactId>
+        <version>${hapi.version}</version>
+      </dependency>
+
+      <!-- Fonte de mapeamento terminologico em YAML (Camada 2, Frente B). -->
+      <dependency>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>${snakeyaml.version}</version>
       </dependency>
 
       <dependency>
@@ -92,6 +108,41 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.5.2</version>
+          <configuration>
+            <!--
+              Heap de 2 GB para a JVM de teste.
+
+              O pacote de conformidade do REDFM soma 596 mil conceitos em 414
+              artefatos: BREstabelecimentosCNPJ traz 301 mil e BRFornecedoresAnvisa,
+              156 mil. Sao cadastros vestidos de CodeSystem, e o
+              PrePopulatedValidationSupport os mantem inteiros em memoria. Com o
+              heap padrao, a JVM de teste morre com OutOfMemoryError antes de o
+              primeiro teste rodar.
+
+              O numero nao e arbitrario: 77 MB em disco viram alguns GB de objetos
+              Java, porque cada conceito e um objeto com strings. Se o SA e o RAC
+              entrarem com seus proprios pacotes, este valor precisa ser revisto,
+              e o custo de manter cadastros em CodeSystem passa a ser um argumento
+              do trabalho, nao apenas um detalhe de configuracao.
+            -->
+            <argLine>-Xmx2g</argLine>
+            <forkCount>1</forkCount>
+            <reuseForks>false</reuseForks>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+          <configuration>
+            <annotationProcessorPaths>
+              <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+              </path>
+            </annotationProcessorPaths>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>com.diffplug.spotless</groupId>

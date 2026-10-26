@@ -1,0 +1,1150 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <meta>
+      <lastUpdated value="2020-03-11T04:06:40.866+00:00"></lastUpdated>
+   </meta>
+   <language value="pt-BR"></language>
+   <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREndereco-1.0"></url>
+   <version value="1.0"></version>
+   <name value="BREndereco"></name>
+   <title value="Endereço"></title>
+   <status value="active"></status>
+   <date value="2020-03-11T04:06:40.3767721+00:00"></date>
+   <publisher value="Ministério da Saúde do Brasil"></publisher>
+   <description value="Padronização de endereços no Brasil."></description>
+   <fhirVersion value="4.0.0"></fhirVersion>
+   <kind value="complex-type"></kind>
+   <abstract value="false"></abstract>
+   <type value="Address"></type>
+   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Address"></baseDefinition>
+   <derivation value="constraint"></derivation>
+   <snapshot>
+      <element id="Address">
+         <path value="Address"></path>
+         <short value="Dados de Endereçamento"></short>
+         <definition value="Dados do(s) endereço(s) onde o sujeito do endereço pode ser localizado."></definition>
+         <comment value="Note: address is intended to describe postal addresses for administrative purposes, not to describe absolute geographical coordinates.  Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource)."></comment>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Address"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <condition value="ele-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="Address"></map>
+         </mapping>
+      </element>
+      <element id="Address.id">
+         <path value="Address.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Address.extension">
+         <path value="Address.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Address.use">
+         <path value="Address.use"></path>
+         <short value="Uso do Endereço"></short>
+         <definition value="home: endereço residencial atual.
+work: endereço comercial ou de trabalho atual.
+temp: endereço temporário, como um hotel, a casa de amigos ou familiares, uma instalação/edificação provisória, etc.
+old: endereço anterior."></definition>
+         <comment value="Applications can assume that an address is current unless it explicitly says that it is temporary or old."></comment>
+         <requirements value="Allows an appropriate address to be chosen from a list of many."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.use"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueCode value="home"></valueCode>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc.for a current/permanent one"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="AddressUse"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="The use of an address."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/address-use|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.7"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="unique(./use)"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./AddressPurpose"></map>
+         </mapping>
+      </element>
+      <element id="Address.type">
+         <path value="Address.type"></path>
+         <short value="Tipo de Endereço"></short>
+         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc.
+postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
+         <comment value="The definition of Address states that &quot;address is intended to describe postal addresses, not physical locations&quot;. However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource)."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.type"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueCode value="both"></valueCode>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="AddressType"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="The type of an address (physical / postal)."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/address-type|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.18"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="unique(./use)"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="address type parameter"></map>
+         </mapping>
+      </element>
+      <element id="Address.text">
+         <path value="Address.text"></path>
+         <short value="Text representation of the address"></short>
+         <definition value="Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts."></definition>
+         <comment value="Can provide both a text representation and parts. Applications updating an address SHALL ensure that  when both text and parts are present,  no content is included in the text that isn't found in a part."></comment>
+         <requirements value="A renderable, unencoded form."></requirements>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Address.text"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueString value="137 Nowhere Street, Erewhon 9132"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.1 + XAD.2 + XAD.3 + XAD.4 + XAD.5 + XAD.6"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./formatted"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="address label parameter"></map>
+         </mapping>
+      </element>
+      <element id="Address.line">
+         <path value="Address.line"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="line"></path>
+            </discriminator>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Endereço"></short>
+         <definition value="This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information."></definition>
+         <min value="1"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Address.line"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="The order in which lines should appear in an address label"></orderMeaning>
+         <example>
+            <label value="General"></label>
+            <valueString value="137 Nowhere Street"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = AL]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="street"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StreetAddress (newline delimitted)"></map>
+         </mapping>
+      </element>
+      <element id="Address.line:streetType">
+         <path value="Address.line"></path>
+         <sliceName value="streetType"></sliceName>
+         <short value="Tipo de Logradouro"></short>
+         <definition value="Tipo de logradouro do endereço."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.line"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="The order in which lines should appear in an address label"></orderMeaning>
+         <example>
+            <label value="General"></label>
+            <valueString value="137 Nowhere Street"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <strength value="required"></strength>
+            <description value="Tipo de Logradouro"></description>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoLogradouro-1.0"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = AL]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="street"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StreetAddress (newline delimitted)"></map>
+         </mapping>
+      </element>
+      <element id="Address.line:street">
+         <path value="Address.line"></path>
+         <sliceName value="street"></sliceName>
+         <short value="Logradouro"></short>
+         <definition value="Logradouro do endereço (ex.: Visconde do Rio Branco, das Laranjeiras, QRSW 8 Bloco A-1) . Quando não for possível utilizar o elemento streetType, incluir textualmente no início do nome do logradouro o tipo de logradouro abreviado (ex.: R. Visconde do Rio Branco, Av. das Laranjeiras, Quadra QRSW 8 Bloco A-1)."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.line"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="The order in which lines should appear in an address label"></orderMeaning>
+         <example>
+            <label value="General"></label>
+            <valueString value="137 Nowhere Street"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = AL]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="street"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StreetAddress (newline delimitted)"></map>
+         </mapping>
+      </element>
+      <element id="Address.line:number">
+         <path value="Address.line"></path>
+         <sliceName value="number"></sliceName>
+         <short value="Número"></short>
+         <definition value="Número do endereço."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.line"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="The order in which lines should appear in an address label"></orderMeaning>
+         <example>
+            <label value="General"></label>
+            <valueString value="137 Nowhere Street"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = AL]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="street"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StreetAddress (newline delimitted)"></map>
+         </mapping>
+      </element>
+      <element id="Address.line:complement">
+         <path value="Address.line"></path>
+         <sliceName value="complement"></sliceName>
+         <short value="Complemento"></short>
+         <definition value="Complemento do endereço, como o nome do edifício, bloco, número do apartamento, número da sala etc."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.line"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="The order in which lines should appear in an address label"></orderMeaning>
+         <example>
+            <label value="General"></label>
+            <valueString value="137 Nowhere Street"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = AL]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="street"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StreetAddress (newline delimitted)"></map>
+         </mapping>
+      </element>
+      <element id="Address.line:neighborhood">
+         <path value="Address.line"></path>
+         <sliceName value="neighborhood"></sliceName>
+         <short value="Bairro"></short>
+         <definition value="Bairro do endereço."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.line"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <orderMeaning value="The order in which lines should appear in an address label"></orderMeaning>
+         <example>
+            <label value="General"></label>
+            <valueString value="137 Nowhere Street"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = AL]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="street"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StreetAddress (newline delimitted)"></map>
+         </mapping>
+      </element>
+      <element id="Address.city">
+         <path value="Address.city"></path>
+         <short value="Município"></short>
+         <definition value="Município do endereço."></definition>
+         <alias value="Municpality"></alias>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.city"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueString value="Erewhon"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <strength value="required"></strength>
+            <description value="Município"></description>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRMunicipio-1.0"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.3"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = CTY]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="locality"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./Jurisdiction"></map>
+         </mapping>
+      </element>
+      <element id="Address.district">
+         <path value="Address.district"></path>
+         <short value="District name (aka county)"></short>
+         <definition value="The name of the administrative area (county)."></definition>
+         <comment value="District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead."></comment>
+         <alias value="County"></alias>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Address.district"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueString value="Madison"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.9"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = CNT | CPA]"></map>
+         </mapping>
+      </element>
+      <element id="Address.state">
+         <path value="Address.state"></path>
+         <short value="UF"></short>
+         <definition value="Unidade Federativa (estados ou Distrito Federal) do endereço."></definition>
+         <alias value="Province"></alias>
+         <alias value="Territory"></alias>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.state"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <strength value="required"></strength>
+            <description value="Unidade Federativa"></description>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRUnidadeFederativa-1.0"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.4"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = STA]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="region"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./Region"></map>
+         </mapping>
+      </element>
+      <element id="Address.postalCode">
+         <path value="Address.postalCode"></path>
+         <short value="CEP"></short>
+         <definition value="Código de Endereçamento Postal. Utilizar a máscara XXXXX-XXXX."></definition>
+         <alias value="Zip"></alias>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.postalCode"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valueString value="9132"></valueString>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.5"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = ZIP]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="code"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./PostalIdentificationCode"></map>
+         </mapping>
+      </element>
+      <element id="Address.country">
+         <path value="Address.country"></path>
+         <short value="Country (e.g. can be ISO 3166 2 or 3 letter code)"></short>
+         <definition value="Country - a nation as commonly understood or generally accepted."></definition>
+         <comment value="ISO 3166 3 letter codes can be used in place of a human readable country name."></comment>
+         <min value="0"></min>
+         <max value="0"></max>
+         <base>
+            <path value="Address.country"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.6"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="AD.part[parttype = CNT]"></map>
+         </mapping>
+         <mapping>
+            <identity value="vcard"></identity>
+            <map value="country"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./Country"></map>
+         </mapping>
+      </element>
+      <element id="Address.period">
+         <path value="Address.period"></path>
+         <short value="Período do Endereço"></short>
+         <definition value="Período em que o endereço foi utilizado."></definition>
+         <requirements value="Allows addresses to be placed in historical context."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Address.period"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <example>
+            <label value="General"></label>
+            <valuePeriod>
+               <start value="2010-03-23"></start>
+               <end value="2010-07-01"></end>
+            </valuePeriod>
+         </example>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="XAD.12 / XAD.13 + XAD.14"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]"></map>
+         </mapping>
+         <mapping>
+            <identity value="servd"></identity>
+            <map value="./StartDate and ./EndDate"></map>
+         </mapping>
+      </element>
+      <element id="Address.period.id">
+         <path value="Address.period.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Address.period.extension">
+         <path value="Address.period.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Address.period.start">
+         <path value="Address.period.start"></path>
+         <short value="Data de Inicio do Endereço"></short>
+         <definition value="Data em que o endereço foi cadastrado ou começou a ser utilizado."></definition>
+         <comment value="If the low element is missing, the meaning is that the low boundary is not known."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Period.start"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <condition value="per-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="DR.1"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./low"></map>
+         </mapping>
+      </element>
+      <element id="Address.period.end">
+         <path value="Address.period.end"></path>
+         <short value="Data de Término do Endereço"></short>
+         <definition value="Data em que o endereço foi desativado ou parou de ser utilizado."></definition>
+         <comment value="The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has an end value of 2012-02-03."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Period.end"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <meaningWhenMissing value="If the end of the period is missing, it means that the period is ongoing"></meaningWhenMissing>
+         <condition value="per-1"></condition>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="v2"></identity>
+            <map value="DR.2"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./high"></map>
+         </mapping>
+      </element>
+   </snapshot>
+   <differential>
+      <element id="Address">
+         <path value="Address"></path>
+         <short value="Dados de Endereçamento"></short>
+         <definition value="Dados do(s) endereço(s) onde o sujeito do endereço pode ser localizado."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.use">
+         <path value="Address.use"></path>
+         <short value="Uso do Endereço"></short>
+         <definition value="home: endereço residencial atual.
+work: endereço comercial ou de trabalho atual.
+temp: endereço temporário, como um hotel, a casa de amigos ou familiares, uma instalação/edificação provisória, etc.
+old: endereço anterior."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.type">
+         <path value="Address.type"></path>
+         <short value="Tipo de Endereço"></short>
+         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc.
+postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.text">
+         <path value="Address.text"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Address.line">
+         <path value="Address.line"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="line"></path>
+            </discriminator>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Endereço"></short>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.line:streetType">
+         <path value="Address.line"></path>
+         <sliceName value="streetType"></sliceName>
+         <short value="Tipo de Logradouro"></short>
+         <definition value="Tipo de logradouro do endereço."></definition>
+         <max value="1"></max>
+         <mustSupport value="true"></mustSupport>
+         <binding>
+            <strength value="required"></strength>
+            <description value="Tipo de Logradouro"></description>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoLogradouro-1.0"></valueSet>
+         </binding>
+      </element>
+      <element id="Address.line:street">
+         <path value="Address.line"></path>
+         <sliceName value="street"></sliceName>
+         <short value="Logradouro"></short>
+         <definition value="Logradouro do endereço (ex.: Visconde do Rio Branco, das Laranjeiras, QRSW 8 Bloco A-1) . Quando não for possível utilizar o elemento streetType, incluir textualmente no início do nome do logradouro o tipo de logradouro abreviado (ex.: R. Visconde do Rio Branco, Av. das Laranjeiras, Quadra QRSW 8 Bloco A-1)."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.line:number">
+         <path value="Address.line"></path>
+         <sliceName value="number"></sliceName>
+         <short value="Número"></short>
+         <definition value="Número do endereço."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.line:complement">
+         <path value="Address.line"></path>
+         <sliceName value="complement"></sliceName>
+         <short value="Complemento"></short>
+         <definition value="Complemento do endereço, como o nome do edifício, bloco, número do apartamento, número da sala etc."></definition>
+         <max value="1"></max>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.line:neighborhood">
+         <path value="Address.line"></path>
+         <sliceName value="neighborhood"></sliceName>
+         <short value="Bairro"></short>
+         <definition value="Bairro do endereço."></definition>
+         <min value="1"></min>
+         <max value="1"></max>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.city">
+         <path value="Address.city"></path>
+         <short value="Município"></short>
+         <definition value="Município do endereço."></definition>
+         <min value="1"></min>
+         <binding>
+            <strength value="required"></strength>
+            <description value="Município"></description>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRMunicipio-1.0"></valueSet>
+         </binding>
+      </element>
+      <element id="Address.district">
+         <path value="Address.district"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Address.state">
+         <path value="Address.state"></path>
+         <short value="UF"></short>
+         <definition value="Unidade Federativa (estados ou Distrito Federal) do endereço."></definition>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+         <binding>
+            <strength value="required"></strength>
+            <description value="Unidade Federativa"></description>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRUnidadeFederativa-1.0"></valueSet>
+         </binding>
+      </element>
+      <element id="Address.postalCode">
+         <path value="Address.postalCode"></path>
+         <short value="CEP"></short>
+         <definition value="Código de Endereçamento Postal. Utilizar a máscara XXXXX-XXXX."></definition>
+         <min value="1"></min>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.country">
+         <path value="Address.country"></path>
+         <max value="0"></max>
+      </element>
+      <element id="Address.period">
+         <path value="Address.period"></path>
+         <short value="Período do Endereço"></short>
+         <definition value="Período em que o endereço foi utilizado."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.period.start">
+         <path value="Address.period.start"></path>
+         <short value="Data de Inicio do Endereço"></short>
+         <definition value="Data em que o endereço foi cadastrado ou começou a ser utilizado."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="Address.period.end">
+         <path value="Address.period.end"></path>
+         <short value="Data de Término do Endereço"></short>
+         <definition value="Data em que o endereço foi desativado ou parou de ser utilizado."></definition>
+         <mustSupport value="true"></mustSupport>
+      </element>
+   </differential>
+</StructureDefinition>

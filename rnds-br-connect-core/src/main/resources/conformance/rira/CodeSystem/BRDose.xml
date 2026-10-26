@@ -1,0 +1,960 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRDose" />
+  <meta>
+    <lastUpdated value="2021-01-11T14:01:22.708+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRDose" />
+  <version value="1.01" />
+  <name value="Dose de Vacina" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-01-06T18:23:38.3705+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Define a dose da administração de uma substância." />
+  <content value="complete" />
+  <concept>
+    <code value="1" />
+    <display value="1ª Dose" />
+    <designation>
+      <language value="en" />
+      <value value="First dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Primera dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="2" />
+    <display value="2ª Dose" />
+    <designation>
+      <language value="en" />
+      <value value="Second dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Segunda dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="3" />
+    <display value="3ª Dose" />
+    <designation>
+      <language value="en" />
+      <value value="Third dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tercera dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="4" />
+    <display value="4ª Dose" />
+    <designation>
+      <language value="en" />
+      <value value="Fourth dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cuarta dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="5" />
+    <display value="5ª Dose" />
+    <designation>
+      <language value="en" />
+      <value value="Fifth dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Quinta dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6" />
+    <display value="1º Reforço" />
+    <designation>
+      <language value="en" />
+      <value value="First booster dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Primer refuerzo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7" />
+    <display value="2º Reforço" />
+    <designation>
+      <language value="en" />
+      <value value="Second booster dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Segundo refuerzo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="8" />
+    <display value="Dose" />
+    <designation>
+      <language value="en" />
+      <value value="Dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="9" />
+    <display value="Única" />
+    <designation>
+      <language value="en" />
+      <value value="Single dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Dosis única" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="10" />
+    <display value="Revacinação" />
+    <designation>
+      <language value="en" />
+      <value value="Revaccination" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Revacunación" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="11" />
+    <display value="Tratamento com uma dose" />
+    <designation>
+      <language value="en" />
+      <value value="1 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 1 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="12" />
+    <display value="Tratamento com duas doses" />
+    <designation>
+      <language value="en" />
+      <value value="2 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 2 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="13" />
+    <display value="Tratamento com três doses" />
+    <designation>
+      <language value="en" />
+      <value value="3 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 3 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="14" />
+    <display value="Tratamento com quatro doses" />
+    <designation>
+      <language value="en" />
+      <value value="4 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 4 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="15" />
+    <display value="Tratamento com cinco doses" />
+    <designation>
+      <language value="en" />
+      <value value="5 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 5 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16" />
+    <display value="Tratamento com seis doses" />
+    <designation>
+      <language value="en" />
+      <value value="6 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 6 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="17" />
+    <display value="Tratamento com sete doses" />
+    <designation>
+      <language value="en" />
+      <value value="7 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 7 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="18" />
+    <display value="Tratamento com oito doses" />
+    <designation>
+      <language value="en" />
+      <value value="8 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 8 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="19" />
+    <display value="Tratamento com nove doses" />
+    <designation>
+      <language value="en" />
+      <value value="9 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 9 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="20" />
+    <display value="Tratamento com dez doses" />
+    <designation>
+      <language value="en" />
+      <value value="10 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 10 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="21" />
+    <display value="Tratamento com onze doses" />
+    <designation>
+      <language value="en" />
+      <value value="11 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 11 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22" />
+    <display value="Tratamento com doze doses" />
+    <designation>
+      <language value="en" />
+      <value value="12 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 12 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="23" />
+    <display value="Tratamento com treze doses" />
+    <designation>
+      <language value="en" />
+      <value value="13 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 13 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="24" />
+    <display value="Tratamento com quartorze doses" />
+    <designation>
+      <language value="en" />
+      <value value="14 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 14 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="25" />
+    <display value="Tratamento com quinze doses" />
+    <designation>
+      <language value="en" />
+      <value value="15 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 15 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="26" />
+    <display value="Tratamento com dezesseis doses" />
+    <designation>
+      <language value="en" />
+      <value value="16 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 16 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="27" />
+    <display value="Tratamento com dezessete doses" />
+    <designation>
+      <language value="en" />
+      <value value="17 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 17 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="28" />
+    <display value="Tratamento com dezoito doses" />
+    <designation>
+      <language value="en" />
+      <value value="18 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 18 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29" />
+    <display value="Tratamento com dezenove doses" />
+    <designation>
+      <language value="en" />
+      <value value="19 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 19 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="30" />
+    <display value="Tratamento com vinte doses" />
+    <designation>
+      <language value="en" />
+      <value value="20 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 20 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31" />
+    <display value="Tratamento com vinte e quatro doses" />
+    <designation>
+      <language value="en" />
+      <value value="24 dose treatment" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tratamiento de 24 dosis" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="32" />
+    <display value="1ª Dose Revacinação" />
+    <designation>
+      <language value="en" />
+      <value value="First dose revaccinacion" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Primera dosis revacunación" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33" />
+    <display value="2ª Dose Revacinação" />
+    <designation>
+      <language value="en" />
+      <value value="Second dose revaccinacion" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Segunda dosis revacunación" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="34" />
+    <display value="3ª Dose Revacinação" />
+    <designation>
+      <language value="en" />
+      <value value="Third dose revaccinacion" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tecera dosis revacunación" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="35" />
+    <display value="4ª Dose Revacinação" />
+    <designation>
+      <language value="en" />
+      <value value="Fourth dose revaccinacion" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cuarta dosis revacunación" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="36" />
+    <display value="Dose Inicial" />
+    <designation>
+      <language value="en" />
+      <value value="Initial dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Dosis inicial" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="37" />
+    <display value="Dose Adicional" />
+    <designation>
+      <language value="en" />
+      <value value="Additional dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Dosis adicional" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="38" />
+    <display value="Reforço" />
+    <designation>
+      <language value="en" />
+      <value value="Booster" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Refuerzo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="39" />
+    <display value="3º Reforço" />
+    <designation>
+      <language value="en" />
+      <value value="Third booster dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tercer refuerzo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="40" />
+    <display value="4º Reforço" />
+    <designation>
+      <language value="en" />
+      <value value="Fourth booster dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cuarto refuerzo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41" />
+    <display value="5º Reforço" />
+    <designation>
+      <language value="en" />
+      <value value="Fifth booster dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Quinto refuerzo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="42" />
+    <display value="6º Reforço" />
+    <designation>
+      <language value="en" />
+      <value value="Sixth booster dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Sexto refuerzo" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="43" />
+    <display value="5ª Dose Revacinação" />
+    <designation>
+      <language value="en" />
+      <value value="Fifth dose revaccinacion" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Quinta dosis revacunación" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="44" />
+    <display value="1ª Dose Fracionada" />
+    <designation>
+      <language value="en" />
+      <value value="First fractional dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Primera dosis fraccionada" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="45" />
+    <display value="2ª Dose Fracionada" />
+    <designation>
+      <language value="en" />
+      <value value="Second fractional dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Secunda dosis fraccionada" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="46" />
+    <display value="3ª Dose Fracionada" />
+    <designation>
+      <language value="en" />
+      <value value="Third fractional dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Tercera dosis fraccionada" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="47" />
+    <display value="4ª Dose Fracionada" />
+    <designation>
+      <language value="en" />
+      <value value="Fourth fractional dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Cuarta dosis fraccionada" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="48" />
+    <display value="5ª Dose Fracionada" />
+    <designation>
+      <language value="en" />
+      <value value="Fifth fractional dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Quinta dosis fraccionada" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="49" />
+    <display value="1ª Dose Dobrada" />
+    <designation>
+      <language value="en" />
+      <value value="1st double dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="1ra dosis doble" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="50" />
+    <display value="2ª Dose Dobrada" />
+    <designation>
+      <language value="en" />
+      <value value="2nd double dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="2da dosis doble" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="51" />
+    <display value="3ª Dose Dobrada" />
+    <designation>
+      <language value="en" />
+      <value value="3rd double dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="3ra dosis doble" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="52" />
+    <display value="4ª Dose Dobrada" />
+    <designation>
+      <language value="en" />
+      <value value="4th double dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="4ta dosis doble" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="53" />
+    <display value="1ª Dose Revacinação Dobrada" />
+  </concept>
+  <concept>
+    <code value="54" />
+    <display value="2ª Dose Revacinação Dobrada" />
+  </concept>
+  <concept>
+    <code value="55" />
+    <display value="3ª Dose Revacinação Dobrada" />
+  </concept>
+  <concept>
+    <code value="56" />
+    <display value="4ª Dose Revacinação Dobrada" />
+  </concept>
+  <concept>
+    <code value="57" />
+    <display value="Dose Zero" />
+    <designation>
+      <language value="en" />
+      <value value="Zero-dose" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Dosis cero" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="58" />
+    <display value="Reforço Zero" />
+  </concept>
+  <concept>
+    <code value="59" />
+    <display value="Profilaxia com 1 frasco-ampola/ampola" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 1 vial/ampoule" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 1 vial/ampolla" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60" />
+    <display value="Profilaxia com 2 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 2 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 2 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="61" />
+    <display value="Profilaxia com 3 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 3 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 3 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="62" />
+    <display value="Profilaxia com 4 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 4 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 4 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="63" />
+    <display value="Profilaxia com 5 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 5 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 5 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="64" />
+    <display value="Profilaxia com 6 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 6 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 6 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="65" />
+    <display value="Profilaxia com 7 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 7 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 7 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="66" />
+    <display value="Profilaxia com 8 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 8 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 8 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="67" />
+    <display value="Profilaxia com 9 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 9 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 9 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="68" />
+    <display value="Profilaxia com 10 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 10 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 10 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="69" />
+    <display value="Profilaxia com 11 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 11 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 11 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="70" />
+    <display value="Profilaxia com 12 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 12 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 12 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="71" />
+    <display value="Profilaxia com 13 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 13 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 13 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="72" />
+    <display value="Profilaxia com 14 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 14 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 14 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="73" />
+    <display value="Profilaxia com 15 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 15 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 15 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="74" />
+    <display value="Profilaxia com 16 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 16 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 16 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="75" />
+    <display value="Profilaxia com 17 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 17 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 17 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="76" />
+    <display value="Profilaxia com 18 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 18 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 18 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="77" />
+    <display value="Profilaxia com 19 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 19 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 19 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="78" />
+    <display value="Profilaxia com 20 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 20 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 20 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="79" />
+    <display value="Profilaxia com 21 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 21 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 21 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80" />
+    <display value="Profilaxia com 22 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 22 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 22 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81" />
+    <display value="Profilaxia com 23 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 23 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 23 viales/ampollas" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="82" />
+    <display value="Profilaxia com 24 frascos-ampolas/ampolas" />
+    <designation>
+      <language value="en" />
+      <value value="Prophylaxis with 24 vials/ampoules" />
+    </designation>
+    <designation>
+      <language value="es" />
+      <value value="Profilaxis con 24 viales/ampollas" />
+    </designation>
+  </concept>
+</CodeSystem>

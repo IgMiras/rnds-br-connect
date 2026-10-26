@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="b9b12b29-b88e-4d12-b5d4-f6d716806a97" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-17T18:55:05.871+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BREstadoResolucaoDiagnosticoProblema" />
+  <version value="201701A" />
+  <name value="Estado da Resolução do Diagnóstico ou Problema" />
+  <title value="Estado da Resolução do Diagnóstico ou Problema" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-17T18:55:12.1652704+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Estado da Resolução do Diagnóstico ou Problema." />
+  <content value="complete" />
+  <concept>
+    <code value="resolvido" />
+    <display value="Resolvido" />
+  </concept>
+  <concept>
+    <code value="resolvendo" />
+    <display value="Resolvendo" />
+  </concept>
+  <concept>
+    <code value="nao-resolvido" />
+    <display value="Não Resolvido" />
+  </concept>
+  <concept>
+    <code value="indeterminado" />
+    <display value="Indeterminado" />
+  </concept>
+</CodeSystem>

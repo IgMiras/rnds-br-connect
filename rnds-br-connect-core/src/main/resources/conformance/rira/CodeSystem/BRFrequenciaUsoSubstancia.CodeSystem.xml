@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="a3e266a0-e059-4e14-a641-172c6089fa63" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T22:59:38.544+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRFrequenciaUsoSubstancia" />
+  <version value="201701A" />
+  <name value="Frequência de Uso de Substância" />
+  <title value="Frequência de Uso de Substância" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T22:59:37.2719923+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Identifica a frequência de uso da substância conforme declaração do indivíduo, de acordo com o especificado no modelo de informação do Registro de Atendimento Clínico da Resolução CIT nº 33/2018." />
+  <content value="complete" />
+  <concept>
+    <code value="nunca" />
+    <display value="Nunca" />
+  </concept>
+  <concept>
+    <code value="uma-ou-duas" />
+    <display value="1 ou 2 vezes" />
+  </concept>
+</CodeSystem>

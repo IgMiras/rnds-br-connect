@@ -1,0 +1,27 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRTipoResultadoHISPT" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoHISPT" />
+  <version value="1.0" />
+  <name value="BRTipoResultadoHISPT" />
+  <title value="Tipo de Resultado (HISPT)" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-26T13:16:09.8385573+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Code System utilizado para definir o valor atribuído ao resultado de um exame laboratorial realizado por método de análise qualitativo com o tipo de resultado HISPT." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="1" />
+    <display value="Compatível" />
+  </concept>
+  <concept>
+    <code value="2" />
+    <display value="Não Compatível" />
+  </concept>
+  <concept>
+    <code value="3" />
+    <display value="Inconclusivo" />
+  </concept>
+</CodeSystem>

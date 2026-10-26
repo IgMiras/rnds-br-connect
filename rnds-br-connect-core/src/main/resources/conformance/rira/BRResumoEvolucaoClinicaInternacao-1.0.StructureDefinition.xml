@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="59485d5a-517d-45b9-be7b-9c840b007bfe" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:34:29.805+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRResumoEvolucaoClinicaInternacao-1.0" />
+  <version value="1.0" />
+  <name value="BRResumoEvolucaoClinicaInternacao" />
+  <title value="Resumo da Evolução Clínica Durante a Internação" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:34:29.6883931+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Observation" />
+  <baseDefinition value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRObservacaoDescritiva-1.0" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Observation">
+      <path value="Observation" />
+      <short value="Resumo da Evolução Clínica Durante a Internação" />
+    </element>
+    <element id="Observation.code.coding.system">
+      <path value="Observation.code.coding.system" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoObservacao" />
+    </element>
+    <element id="Observation.code.coding.code">
+      <path value="Observation.code.coding.code" />
+      <fixedCode value="RECIDI" />
+    </element>
+  </differential>
+</StructureDefinition>

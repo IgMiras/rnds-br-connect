@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BROutrosProfissionais"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet BROutrosProfissionais</b></p><a name="BROutrosProfissionais"> </a><a name="hcBROutrosProfissionais"> </a><a name="BROutrosProfissionais-pt-BR"> </a><ul><li>Include these codes as defined in <a href="CodeSystem-BRConselhoProfissional.html"><code>https://terminologia.saude.gov.br/fhir/CodeSystem/BRConselhoProfissional</code></a><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-ac-ro">https://saude.gov.br/sid/crp-ac-ro</a></td><td>CRP-AC-RO</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-al">https://saude.gov.br/sid/crp-al</a></td><td>CRP-AL</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-am-rr">https://saude.gov.br/sid/crp-am-rr</a></td><td>CRP-AM-RR</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-ba">https://saude.gov.br/sid/crp-ba</a></td><td>CRP-BA</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-ce">https://saude.gov.br/sid/crp-ce</a></td><td>CRP-CE</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-df">https://saude.gov.br/sid/crp-df</a></td><td>CRP-DF</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-es">https://saude.gov.br/sid/crp-es</a></td><td>CRP-ES</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-go">https://saude.gov.br/sid/crp-go</a></td><td>CRP-GO</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-ma">https://saude.gov.br/sid/crp-ma</a></td><td>CRP-MA</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-mg">https://saude.gov.br/sid/crp-mg</a></td><td>CRP-MG</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-ms">https://saude.gov.br/sid/crp-ms</a></td><td>CRP-MS</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-mt">https://saude.gov.br/sid/crp-mt</a></td><td>CRP-MT</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-pa-ap">https://saude.gov.br/sid/crp-pa-ap</a></td><td>CRP-PA-AP</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-pb">https://saude.gov.br/sid/crp-pb</a></td><td>CRP-PB</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-pe">https://saude.gov.br/sid/crp-pe</a></td><td>CRP-PE</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-pi">https://saude.gov.br/sid/crp-pi</a></td><td>CRP-PI</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-pr">https://saude.gov.br/sid/crp-pr</a></td><td>CRP-PR</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-rj">https://saude.gov.br/sid/crp-rj</a></td><td>CRP-RJ</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-rn">https://saude.gov.br/sid/crp-rn</a></td><td>CRP-RN</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-rs">https://saude.gov.br/sid/crp-rs</a></td><td>CRP-RS</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-sc">https://saude.gov.br/sid/crp-sc</a></td><td>CRP-SC</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-se">https://saude.gov.br/sid/crp-se</a></td><td>CRP-SE</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-sp">https://saude.gov.br/sid/crp-sp</a></td><td>CRP-SP</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crp-to">https://saude.gov.br/sid/crp-to</a></td><td>CRP-TO</td><td>CONSELHO REGIONAL DE PSICOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-ba">https://saude.gov.br/sid/crefito-ba</a></td><td>CREFITO-BA</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-ce">https://saude.gov.br/sid/crefito-ce</a></td><td>CREFITO-CE</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-es">https://saude.gov.br/sid/crefito-es</a></td><td>CREFITO-ES</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-go-df">https://saude.gov.br/sid/crefito-go-df</a></td><td>CREFITO-GO-DF</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-ma">https://saude.gov.br/sid/crefito-ma</a></td><td>CREFITO-MA</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-mg">https://saude.gov.br/sid/crefito-mg</a></td><td>CREFITO-MG</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-ms">https://saude.gov.br/sid/crefito-ms</a></td><td>CREFITO-MS</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-mt">https://saude.gov.br/sid/crefito-mt</a></td><td>CREFITO-MT</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-pa-am-to-rr-ap">https://saude.gov.br/sid/crefito-pa-am-to-rr-ap</a></td><td>CREFITO-PA-AM-TO-RR-AP</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-pe-pb-al-rn">https://saude.gov.br/sid/crefito-pe-pb-al-rn</a></td><td>CREFITO-PE-PB-AL-RN</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-pi">https://saude.gov.br/sid/crefito-pi</a></td><td>CREFITO-PI</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-pr">https://saude.gov.br/sid/crefito-pr</a></td><td>CREFITO-PR</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-rj">https://saude.gov.br/sid/crefito-rj</a></td><td>CREFITO-RJ</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-ro-ac">https://saude.gov.br/sid/crefito-ro-ac</a></td><td>CREFITO-RO-AC</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-rs">https://saude.gov.br/sid/crefito-rs</a></td><td>CREFITO-RS</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-sc">https://saude.gov.br/sid/crefito-sc</a></td><td>CREFITO-SC</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-se">https://saude.gov.br/sid/crefito-se</a></td><td>CREFITO-SE</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefito-sp">https://saude.gov.br/sid/crefito-sp</a></td><td>CREFITO-SP</td><td>CONSELHO REGIONAS DE FISIOTERAPIA E TERAPIA OCUPACIONAL</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-al">https://saude.gov.br/sid/crn-al</a></td><td>CRN-AL</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-ba-se">https://saude.gov.br/sid/crn-ba-se</a></td><td>CRN-BA-SE</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-ce-ma-pi">https://saude.gov.br/sid/crn-ce-ma-pi</a></td><td>CRN-CE-MA-PI</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-df-go-mt-to">https://saude.gov.br/sid/crn-df-go-mt-to</a></td><td>CRN-DF-GO-MT-TO</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-pa-ac-am-ap-ro-rr">https://saude.gov.br/sid/crn-pa-ac-am-ap-ro-rr</a></td><td>CRN-PA-AC-AM-AP-RO-RR</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-pe-al-pb-rn">https://saude.gov.br/sid/crn-pe-al-pb-rn</a></td><td>CRN-PE-AL-PB-RN</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-pr">https://saude.gov.br/sid/crn-pr</a></td><td>CRN-PR</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-rj-es">https://saude.gov.br/sid/crn-rj-es</a></td><td>CRN-RJ-ES</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-rs">https://saude.gov.br/sid/crn-rs</a></td><td>CRN-RS</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-sc">https://saude.gov.br/sid/crn-sc</a></td><td>CRN-SC</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crn-sp-ms">https://saude.gov.br/sid/crn-sp-ms</a></td><td>CRN-SP-MS</td><td>CONSELHO REGIONAL DE NUTRICIONISTA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-am-ac-ap-pa-ro-rr">https://saude.gov.br/sid/crefono-am-ac-ap-pa-ro-rr</a></td><td>CREFONO-AM-AC-AP-PA-RO-RR</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-ce-ma-pi-rn">https://saude.gov.br/sid/crefono-ce-ma-pi-rn</a></td><td>CREFONO-CE-MA-PI-RN</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-go-df-ms-mt-to">https://saude.gov.br/sid/crefono-go-df-ms-mt-to</a></td><td>CREFONO-GO-DF-MS-MT-TO</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-mg-es">https://saude.gov.br/sid/crefono-mg-es</a></td><td>CREFONO-MG-ES</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-pe-al-ba-pb-se">https://saude.gov.br/sid/crefono-pe-al-ba-pb-se</a></td><td>CREFONO-PE-AL-BA-PB-SE</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-pr-sc">https://saude.gov.br/sid/crefono-pr-sc</a></td><td>CREFONO-PR-SC</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-rj">https://saude.gov.br/sid/crefono-rj</a></td><td>CREFONO-RJ</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-rs">https://saude.gov.br/sid/crefono-rs</a></td><td>CREFONO-RS</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr><tr><td><a href="CodeSystem-BRConselhoProfissional.html#BRConselhoProfissional-https.58.47.47saude.46gov.46br.47sid.47crefono-sp">https://saude.gov.br/sid/crefono-sp</a></td><td>CREFONO-SP</td><td>CONSELHO REGIONAL DE FONOAUDIOLOGIA</td></tr></table></li></ul></div>
+  </text>
+  <url value="https://terminologia.saude.gov.br/fhir/ValueSet/BROutrosProfissionais"/>
+  <identifier>
+    <system value="https://saude.gov.br/sid/valueset"/>
+    <value value="BROutrosProfissionais"/>
+  </identifier>
+  <version value="0.1.5"/>
+  <name value="BROutrosProfissionais"/>
+  <title value="Conselhos regionais de outros profissionais da saúde do Brasil"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2023-07-18T10:52:24-03:00"/>
+  <publisher value="Ministério do Saúde do Brasil"/>
+  <contact>
+    <name value="Ministério do Saúde do Brasil"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://gov.br/saude"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="contato@gointerop.com"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="Italo Macedo"/>
+    <telecom>
+      <system value="email"/>
+      <value value="italo@gointerop.com"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Conjunto de todos os conselhos regionais de outros profissionais da saúde do Brasil"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="BR"/>
+      <display value="Brazil"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="O propósito deste conjunto é agrupar todos os conselhos regionais da categoria de outros profissionais da saúde para fins de validação do identificador profissional"/>
+  <copyright value="CC-1.0"/>
+  <compose>
+    <include>
+      <system value="https://terminologia.saude.gov.br/fhir/CodeSystem/BRConselhoProfissional"/>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-ac-ro"/>
+        <display value="CRP-AC-RO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-al"/>
+        <display value="CRP-AL"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-am-rr"/>
+        <display value="CRP-AM-RR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-ba"/>
+        <display value="CRP-BA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-ce"/>
+        <display value="CRP-CE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-df"/>
+        <display value="CRP-DF"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-es"/>
+        <display value="CRP-ES"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-go"/>
+        <display value="CRP-GO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-ma"/>
+        <display value="CRP-MA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-mg"/>
+        <display value="CRP-MG"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-ms"/>
+        <display value="CRP-MS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-mt"/>
+        <display value="CRP-MT"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-pa-ap"/>
+        <display value="CRP-PA-AP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-pb"/>
+        <display value="CRP-PB"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-pe"/>
+        <display value="CRP-PE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-pi"/>
+        <display value="CRP-PI"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-pr"/>
+        <display value="CRP-PR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-rj"/>
+        <display value="CRP-RJ"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-rn"/>
+        <display value="CRP-RN"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-rs"/>
+        <display value="CRP-RS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-sc"/>
+        <display value="CRP-SC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-se"/>
+        <display value="CRP-SE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-sp"/>
+        <display value="CRP-SP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crp-to"/>
+        <display value="CRP-TO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-ba"/>
+        <display value="CREFITO-BA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-ce"/>
+        <display value="CREFITO-CE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-es"/>
+        <display value="CREFITO-ES"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-go-df"/>
+        <display value="CREFITO-GO-DF"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-ma"/>
+        <display value="CREFITO-MA"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-mg"/>
+        <display value="CREFITO-MG"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-ms"/>
+        <display value="CREFITO-MS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-mt"/>
+        <display value="CREFITO-MT"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-pa-am-to-rr-ap"/>
+        <display value="CREFITO-PA-AM-TO-RR-AP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-pe-pb-al-rn"/>
+        <display value="CREFITO-PE-PB-AL-RN"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-pi"/>
+        <display value="CREFITO-PI"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-pr"/>
+        <display value="CREFITO-PR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-rj"/>
+        <display value="CREFITO-RJ"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-ro-ac"/>
+        <display value="CREFITO-RO-AC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-rs"/>
+        <display value="CREFITO-RS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-sc"/>
+        <display value="CREFITO-SC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-se"/>
+        <display value="CREFITO-SE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefito-sp"/>
+        <display value="CREFITO-SP"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-al"/>
+        <display value="CRN-AL"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-ba-se"/>
+        <display value="CRN-BA-SE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-ce-ma-pi"/>
+        <display value="CRN-CE-MA-PI"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-df-go-mt-to"/>
+        <display value="CRN-DF-GO-MT-TO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-pa-ac-am-ap-ro-rr"/>
+        <display value="CRN-PA-AC-AM-AP-RO-RR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-pe-al-pb-rn"/>
+        <display value="CRN-PE-AL-PB-RN"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-pr"/>
+        <display value="CRN-PR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-rj-es"/>
+        <display value="CRN-RJ-ES"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-rs"/>
+        <display value="CRN-RS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-sc"/>
+        <display value="CRN-SC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crn-sp-ms"/>
+        <display value="CRN-SP-MS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-am-ac-ap-pa-ro-rr"/>
+        <display value="CREFONO-AM-AC-AP-PA-RO-RR"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-ce-ma-pi-rn"/>
+        <display value="CREFONO-CE-MA-PI-RN"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-go-df-ms-mt-to"/>
+        <display value="CREFONO-GO-DF-MS-MT-TO"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-mg-es"/>
+        <display value="CREFONO-MG-ES"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-pe-al-ba-pb-se"/>
+        <display value="CREFONO-PE-AL-BA-PB-SE"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-pr-sc"/>
+        <display value="CREFONO-PR-SC"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-rj"/>
+        <display value="CREFONO-RJ"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-rs"/>
+        <display value="CREFONO-RS"/>
+      </concept>
+      <concept>
+        <code value="https://saude.gov.br/sid/crefono-sp"/>
+        <display value="CREFONO-SP"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

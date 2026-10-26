@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2020-03-11T18:15:59.439+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial" />
+  <version value="1.1" />
+  <name value="Modalidade Assistencial" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-03-11T18:16:19.9468275+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica os contatos assistenciais de acordo com as especificidades do modo, local e duração do atendimento" />
+  <content value="complete" />
+  <concept>
+    <code value="01" />
+    <display value="Atenção Básica" />
+  </concept>
+  <concept>
+    <code value="02" />
+    <display value="Atenção Domiciliar" />
+  </concept>
+  <concept>
+    <code value="03" />
+    <display value="Atenção Intermediária" />
+  </concept>
+  <concept>
+    <code value="04" />
+    <display value="Atenção Hospitalar" />
+  </concept>
+  <concept>
+    <code value="05" />
+    <display value="Atenção Psicossocial" />
+  </concept>
+  <concept>
+    <code value="06" />
+    <display value="Atenção à Urgência/Emergência" />
+  </concept>
+  <concept>
+    <code value="07" />
+    <display value="Ambulatorial Especializada" />
+  </concept>
+  <concept>
+    <code value="08" />
+    <display value="Assistência Farmacêutica" />
+  </concept>
+  <concept>
+    <code value="09" />
+    <display value="Assistência Ambulatorial" />
+  </concept>
+</CodeSystem>

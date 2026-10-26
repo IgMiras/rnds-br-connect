@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="73de9d23-ec51-461b-bc66-9b2241e44cbd" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:31:13.276+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRMotivoDesfechoDocumentos-1.0" />
+  <version value="1.0" />
+  <name value="Motivo do desfecho do Contato Assistencial (SA, RAC e CMD)" />
+  <title value="Motivo do desfecho do Contato Assistencial (SA, RAC e CMD)" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:31:12.9132459+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="ValueSet utilizado para classificar o motivo de conclusão total ou parcial do contato assistencial. Para uso com o Sumário de Alta, Registro de Atendimento Clínico e Conjunto Mínimo de Dados gerado por integradores." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRMotivoDesfecho" />
+      <version value="*" />
+      <concept>
+        <code value="01" />
+      </concept>
+      <concept>
+        <code value="02" />
+      </concept>
+      <concept>
+        <code value="03" />
+      </concept>
+      <concept>
+        <code value="04" />
+      </concept>
+      <concept>
+        <code value="05" />
+      </concept>
+      <concept>
+        <code value="06" />
+      </concept>
+      <concept>
+        <code value="07" />
+      </concept>
+      <concept>
+        <code value="08" />
+      </concept>
+      <concept>
+        <code value="09" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

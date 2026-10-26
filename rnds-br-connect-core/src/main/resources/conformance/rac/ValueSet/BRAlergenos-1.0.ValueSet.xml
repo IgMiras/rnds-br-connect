@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="32beb22b-1b43-4d62-beee-c37fd7315ef9" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:36:53.436+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRAlergenos-1.0" />
+  <version value="1.0" />
+  <name value="Alérgenos" />
+  <title value="Alérgenos" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:36:53.3154683+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Descreve o agente capaz de causar alergia ou reação adversa em seres humanos." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRAlergenosCBARA" />
+      <version value="*" />
+    </include>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRImunobiologico" />
+      <version value="*" />
+    </include>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRMedicamento" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>

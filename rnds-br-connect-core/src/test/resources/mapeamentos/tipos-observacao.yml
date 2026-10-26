@@ -1,0 +1,56 @@
+# Observation.code do BRMedidaObservada. O ValueSet BRTipoObservacao-1.0 compõe TRÊS
+# CodeSystems: treze códigos LOINC, o BRTipoObservacao da RNDS e um código da Tabela SUS.
+# A mesma medida tem duas grafias oficiais — peso é "29463-7" em LOINC e "P" na RNDS —,
+# e o artefato de referência usa a LOINC.
+#
+# O LOINC entra com a BARRA FINAL: https://loinc.org/, não a URI canônica http://loinc.org.
+
+domain: TIPO_OBSERVACAO
+system: https://loinc.org/
+
+mappings:
+  "PESO":
+    code: "29463-7"
+    display: "Peso Corporal"
+  "ALTURA":
+    code: "8302-2"
+    display: "Altura"
+  "CIRC_ABDOMINAL":
+    code: "8280-0"
+    display: "Circuferência Abdominal"
+  "PERIMETRO_CEFALICO":
+    code: "9843-4"
+    display: "Perímetro Cefálico"
+  "PA_SISTOLICA":
+    code: "8480-6"
+    display: "Pressão Arterial Sistólica"
+  "PA_DIASTOLICA":
+    code: "8462-4"
+    display: "Pressão Arterial Diastólica"
+  "DUM":
+    code: "8665-2"
+    display: "Data da Última Menstruação"
+  "IDADE_GESTACIONAL":
+    code: "11885-1"
+    display: "Idade Gestacional"
+  "GESTACOES":
+    code: "11996-6"
+    display: "Quantidade de Gestações"
+  "ABORTOS":
+    code: "11612-9"
+    display: "Quantidade de Abortos"
+  "ALEITAMENTO":
+    code: "63895-7"
+    display: "Tipo de Aleitamento Materno"
+  "EXPOSICAO_SUBSTANCIAS":
+    code: "56832-9"
+    display: "Exposição à Substâncias"
+  # A grafia alternativa, no CodeSystem da RNDS. Mesma medida, outro vocabulário.
+  "PESO_RNDS":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoObservacao
+    code: "P"
+    display: "Peso"
+  "ALTURA_RNDS":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoObservacao
+    code: "A"
+    display: "Altura"

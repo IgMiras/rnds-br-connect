@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="132792d4-54cb-4c1c-acd6-4d6b01170617" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:16:27.47+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BREstadoRestricaoFuncionalIncapacidadeSaude-1.0" />
+  <version value="1.0" />
+  <name value="Estado da Restrição Funcional ou Incapacidade de Saúde" />
+  <title value="Estado da Restrição Funcional ou Incapacidade de Saúde" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:16:27.4283634+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Estado da Restrição Funcional ou Incapacidade de Saúde" />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/condition-clinical" />
+      <version value="*" />
+      <concept>
+        <code value="active" />
+        <display value="Ativo" />
+      </concept>
+      <concept>
+        <code value="inactive" />
+        <display value="Inativo" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

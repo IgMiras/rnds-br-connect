@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="entrega-suprimentos" />
+    <meta>
+        <lastUpdated value="2025-09-21T00:00:00-03:00" />
+    </meta>
+    <language value="pt-BR" />
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+        <valueString value="Clinical.Request &amp;amp; Response" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="1" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+        <valueCode value="patient" />
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="oo" />
+    </extension>
+    <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BREntregaSuprimentos" />
+    <version value="1.0.0" />
+    <name value="BREntregaSuprimentos" />
+    <title value="Entrega de Suprimentos" />
+    <status value="active" />
+    <date value="2025-09-21T00:00:00-03:00" />
+    <publisher value="Ministério da Saúde do Brasil" />
+    <contact>
+        <name value="COPIS - Coordenação de Padrões de Informática em Saúde" />
+        <telecom>
+            <system value="url" />
+            <value value="https://webatendimento.saude.gov.br/faq/rnds" />
+        </telecom>
+    </contact>
+    <description value="Record of delivery of what is supplied." />
+    <fhirVersion value="4.0.1" />
+    <mapping>
+        <identity value="workflow" />
+        <uri value="http://hl7.org/fhir/workflow" />
+        <name value="Workflow Pattern" />
+    </mapping>
+    <mapping>
+        <identity value="rim" />
+        <uri value="http://hl7.org/v3" />
+        <name value="RIM Mapping" />
+    </mapping>
+    <mapping>
+        <identity value="v2" />
+        <uri value="http://hl7.org/v2" />
+        <name value="HL7 v2 Mapping" />
+    </mapping>
+    <mapping>
+        <identity value="w5" />
+        <uri value="http://hl7.org/fhir/fivews" />
+        <name value="FiveWs Pattern Mapping" />
+    </mapping>
+    <kind value="resource" />
+    <abstract value="false" />
+    <type value="SupplyDelivery" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/SupplyDelivery" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="SupplyDelivery.identifier">
+            <path value="SupplyDelivery.identifier" />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="SupplyDelivery.identifier.system">
+            <path value="SupplyDelivery.identifier.system" />
+            <min value="1" />
+            <fixedUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/BRNotaFiscal" />
+        </element>
+        <element id="SupplyDelivery.identifier.value">
+            <path value="SupplyDelivery.identifier.value" />
+            <min value="1" />
+        </element>
+        <element id="SupplyDelivery.patient">
+            <path value="SupplyDelivery.patient" />
+            <min value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+            </type>
+            <mustSupport value="true" />
+        </element>
+        <element id="SupplyDelivery.patient.extension">
+            <path value="SupplyDelivery.patient.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+            <min value="0" />
+        </element>
+        <element id="SupplyDelivery.patient.extension:unidentifiedPatient">
+            <path value="SupplyDelivery.patient.extension" />
+            <sliceName value="unidentifiedPatient" />
+            <short value="Dados do Indivíduo Não Identificado" />
+            <min value="0" />
+            <type>
+                <code value="Extension" />
+                <profile
+                    value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0" />
+            </type>
+            <mustSupport value="true" />
+        </element>
+        <element id="SupplyDelivery.patient.extension:unidentifiedPatient.extension">
+            <path value="SupplyDelivery.patient.extension.extension" />
+            <slicing>
+                <discriminator>
+                    <type value="value" />
+                    <path value="url" />
+                </discriminator>
+                <rules value="open" />
+            </slicing>
+            <min value="0" />
+        </element>
+        <element id="SupplyDelivery.patient.extension:unidentifiedPatient.extension:gender">
+            <path value="SupplyDelivery.patient.extension.extension" />
+            <sliceName value="gender" />
+            <min value="0" />
+            <mustSupport value="true" />
+        </element>
+        <element id="SupplyDelivery.patient.extension:unidentifiedPatient.extension:birthYear">
+            <path value="SupplyDelivery.patient.extension.extension" />
+            <sliceName value="birthYear" />
+            <min value="0" />
+            <mustSupport value="true" />
+        </element>
+        <element id="SupplyDelivery.patient.extension:unidentifiedPatient.extension:reason">
+            <path value="SupplyDelivery.patient.extension.extension" />
+            <sliceName value="reason" />
+            <min value="0" />
+            <mustSupport value="true" />
+        </element>
+        <element id="SupplyDelivery.patient.extension:unidentifiedPatient.url">
+            <path value="SupplyDelivery.patient.extension.url" />
+            <fixedUri
+                value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0" />
+        </element>
+        <element id="SupplyDelivery.patient.identifier.system">
+            <path value="SupplyDelivery.patient.identifier.system" />
+            <min value="1" />
+        </element>
+        <element id="SupplyDelivery.patient.identifier.value">
+            <path value="SupplyDelivery.patient.identifier.value" />
+            <min value="1" />
+        </element>
+        <element id="SupplyDelivery.suppliedItem">
+            <path value="SupplyDelivery.suppliedItem" />
+            <min value="1" />
+        </element>
+        <element id="SupplyDelivery.suppliedItem.item[x]">
+            <path value="SupplyDelivery.suppliedItem.item[x]" />
+            <min value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BROrtesesProtesesMateriais" />
+            </type>
+        </element>
+        <element id="SupplyDelivery.supplier">
+            <path value="SupplyDelivery.supplier" />
+            <min value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0" />
+            </type>
+        </element>
+        <element id="SupplyDelivery.supplier.identifier">
+            <path value="SupplyDelivery.supplier.identifier" />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="SupplyDelivery.supplier.identifier.system">
+            <path value="SupplyDelivery.supplier.identifier.system" />
+            <min value="1" />
+            <fixedUri value="https://saude.gov.br/fhir/sid/cnpj" />
+        </element>
+        <element id="SupplyDelivery.supplier.identifier.value">
+            <path value="SupplyDelivery.supplier.identifier.value" />
+            <min value="1" />
+            <binding>
+                <strength value="required" />
+                <description value="Fornecedores de OPM" />
+                <valueSet
+                    value="http://www.saude.gov.br/fhir/r4/ValueSet/FornecedoresOPM" />
+            </binding>
+        </element>
+    </differential>
+</StructureDefinition>

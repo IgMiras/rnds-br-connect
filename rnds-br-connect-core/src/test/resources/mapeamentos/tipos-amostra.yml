@@ -1,0 +1,23 @@
+# BRTipoAmostra-1.0 compõe DOIS CodeSystems: 15 códigos do HL7 v2-0487 e o
+# BRTipoAmostraGAL inteiro. É por isso que o alvo do mapeamento é o par
+# (system, code) — um código sem o system correto reprova o binding required.
+
+domain: TIPO_AMOSTRA
+system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAmostraGAL
+validatedBy: "Laboratório Central de Saúde Pública · Responsável técnico"
+
+mappings:
+  "SWAB_NASOFARINGE":
+    code: "SWNAFA"
+    display: "Swab Nasofaríngeo"
+  "SWAB_OROFARINGE":
+    code: "SWORO"
+    display: "Swab Orofaríngeo"
+  "SANGUE_TOTAL":
+    system: http://terminology.hl7.org/CodeSystem/v2-0487
+    code: "WB"
+    display: "Whole blood"
+  "SORO":
+    system: http://terminology.hl7.org/CodeSystem/v2-0487
+    code: "SER"
+    display: "Serum"

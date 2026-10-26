@@ -1,0 +1,3312 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRNomeExameLOINC" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameLOINC" />
+  <version value="3.0" />
+  <name value="BRNomeExameLOINC" />
+  <title value="Exames LOINC" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-04-29T20:29:49.3397125+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description
+    value="Classifica o exame laboratorial realizado em amostra biológica para diagnóstico laboratorial, de acordo com a terminologia LOINC." />
+  <caseSensitive value="true" />
+  <content value="complete" />
+  <concept>
+    <code value="94306-8" />
+    <display
+      value="SARS Coronavírus 2 Painel de RNA - Amostra Inespecífica por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94307-6" />
+    <display
+      value="SARS Coronavírus, [presença de] gene 2 N em amostra não especificada por amplificação de ácido nucleico usando conjunto de sonda / primer N1" />
+  </concept>
+  <concept>
+    <code value="94308-4" />
+    <display
+      value="SARS Coronavírus 2, [presença de] gene N em amostra não especificada, por amplificação de ácido nucleico usando conjunto de sonda / primer N2" />
+  </concept>
+  <concept>
+    <code value="94309-2" />
+    <display
+      value="SARS Coronavírus 2, [presença de] RNA em amostra não especificada, por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94310-0" />
+    <display
+      value="SARS (como) Coronavírus  [Presença de] gene N em Amostra Inespecífica por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94311-8" />
+    <display
+      value="SARS Coronavírus 2, [limiar de ciclo] de gene N em amostra não especificada por amplificação de ácido nucleico usando conjunto de sonda / primer N1" />
+  </concept>
+  <concept>
+    <code value="94312-6" />
+    <display
+      value="SARS Coronavírus 2, [limiar de ciclo] de gene N em amostra não especificada por amplificação de ácido nucleico usando conjunto de sonda / primer N2" />
+  </concept>
+  <concept>
+    <code value="94313-4" />
+    <display
+      value="SARS (como) Coronavírus [Limiar de ciclo de] gene N em Amostra Inespecífica por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94314-2" />
+    <display
+      value="SARS Coronavírus 2, [presença de] gene RdRp em amostra não especificada por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94315-9" />
+    <display
+      value="SARS Coronavírus 2, [presença de] gene E em amostra não especificada por amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94316-7" />
+    <display
+      value="SARS Coronavírus 2, [presença de] gene N em amostra não especificada por amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94500-6" />
+    <display
+      value="SARS Coronavírus 2, [presença de] RNA em amostra respiratória por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94502-2" />
+    <display
+      value="SARS Coronavírus relacionado, [presença de] RNA em amostra respiratória por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94503-0" />
+    <display
+      value="SARS Coronavírus 2 painel -  anticorpos em Soro, Plasma ou Sangue por Imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="94504-8" />
+    <display value="SARS Coronavírus 2 painel - anticorpos, Soro ou Plasma por Imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="94505-5" />
+    <display
+      value="SARS Coronavírus 2, [dosagem de] anticorpos IgG [Unidades/Volume] em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94506-3" />
+    <display
+      value="SARS Coronavírus 2, [dosagem de] anticorpos IgM [Unidades/Volume] em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94507-1" />
+    <display
+      value="SARS Coronavírus 2, [presença de] anticorpos IgG em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94508-9" />
+    <display
+      value="SARS Coronavírus 2, [presença de] anticorpos IgM em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94509-7" />
+    <display
+      value="SARS Coronavírus 2, [limiar de ciclo de] gene E em amostra não especificada por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94510-5" />
+    <display
+      value="SARS Coronavírus 2, [limiar de ciclo de] gene 2 N em amostra não especificada por amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94511-3" />
+    <display
+      value="SARS Coronavírus 2, [limiar de ciclo da] região ORF1ab em amostra não especificada por amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94531-1" />
+    <display
+      value="SARS Coronavírus 2 painel RNA - em Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94532-9" />
+    <display
+      value="SARS Coronavírus relacionado + MERS Coronavírus, [presença de] RNA em amostra respiratória por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94533-7" />
+    <display
+      value="SARS Coronavírus 2, [presença de] gene N em amostra respiratória por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94534-5" />
+    <display
+      value="SARS Coronavírus 2, [presença de] gene RdRp em amostra respiratória por amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94547-7" />
+    <display
+      value="SARS Coronavírus 2, [presença de] anticorpos IgG e IgM em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94558-4" />
+    <display
+      value="SARS Coronavírus 2, [presença de] antígenos Ag em amostra respiratória por imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="94559-2" />
+    <display
+      value="SARS Coronavírus 2, [presença de] gene da regição ORF1ab em amostra respiratória por amplificação do ácido nucléico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94562-6" />
+    <display
+      value="SARS Coronavírus 2, [presença de] anticorpos IgA Ab em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94563-4" />
+    <display
+      value="SARS Coronavírus 2, [presença de] anticorpos IgG Ab em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94564-2" />
+    <display
+      value="SARS Coronavírus 2, [presença de] anticorpos IgM Ab em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94565-9" />
+    <display
+      value="SARS Coronavírus 2, [presença de] DNA em rinofaringe por NAA por detecção sem sonda" />
+  </concept>
+  <concept>
+    <code value="94639-2" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] região anticorpos ORF1 em Amostra Inespecífica por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94640-0" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene S em Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94641-8" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene S em Amostra Inespecífica por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94642-6" />
+    <display
+      value="SARS Coronavírus 2 [Limiar de ciclo de] gene S em Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94643-4" />
+    <display
+      value="SARS Coronavírus 2 [Limiar de ciclo de] gene S em Amostra Inespecífica por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94644-2" />
+    <display
+      value="SARS Coronavírus 2 [Limiar de ciclo de] região anticorpos ORF1 em Amostra respiratória por Amplificação do ácido nucleico" />
+  </concept>
+  <concept>
+    <code value="94645-9" />
+    <display
+      value="SARS Coronavírus 2 [Limiar de ciclo de] gene RdRp em Amostra Inespecífica por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94646-7" />
+    <display
+      value="SARS Coronavírus 2 [Limiar de ciclo de] gene RdRp em Amostra respiratória por Amplificação do ácido nucleico" />
+  </concept>
+  <concept>
+    <code value="94647-5" />
+    <display
+      value="SARS Coronavírus relacionado [Presença de] RNA em Amosta Inespecífica por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94660-8" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] em Soro ou Plasma por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94661-6" />
+    <display value="SARS Coronavírus 2 [Interpretação de] anticorpos em Soro ou Plasma" />
+  </concept>
+  <concept>
+    <code value="94720-0" />
+    <display
+      value="SARS Coronavírus 2 [dosagem de] anticorpos IgA em Soro ou Plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94745-7" />
+    <display
+      value="SARS Coronavírus 2 [Limiar de ciclo de] RNA em Amostra respiratória por Amplificação do ácido nucleico" />
+  </concept>
+  <concept>
+    <code value="94746-5" />
+    <display
+      value="SARS Coronavírus 2 [Limiar de ciclo de] RNA em Amostra Inespecífica por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94756-4" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene N em Amostra respiratória por Amplificação do ácido nucleido usando sonda primer set N1" />
+  </concept>
+  <concept>
+    <code value="94757-2" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene N em Amostra respiratória por Amplificação do ácido nucleico usando sonda primer set N2" />
+  </concept>
+  <concept>
+    <code value="94758-0" />
+    <display
+      value="SARS Coronavírus relacionado [Presença de] gene E em Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94759-8" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] RNA em Nasofaringe por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94760-6" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene N em Nasofaringe por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94761-4" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] anticorpos IgG em teste em Amostra de sangue seco por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94762-2" />
+    <display value="SARS Coronavírus 2 [Presença de] anticorpos em Soro ou Plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94763-0" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] em Amostra não específica por cultura em organismo específico" />
+  </concept>
+  <concept>
+    <code value="94764-8" />
+    <display
+      value="SARS Coronavírus 2 [sequência de bases] genôma inteiro em isolado por sequenciamento" />
+  </concept>
+  <concept>
+    <code value="94765-5" />
+    <display
+      value="SARS Coronavírus relacionado [Presença de] gene E em Soro ou Plasma por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94766-3" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene N em Soro ou Plasma por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94767-1" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene S em Soro ou Plasma por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94768-9" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] anticorpos IgA em Soro Plasma ou Sangue por Imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="94769-7" />
+    <display value="SARS Coronavírus 2 [dosagem de] anticorpos em Soro ou Plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="94819-0" />
+    <display
+      value="SARS Coronavírus 2 [dosagem de] (carga viral) RNA em Amostra Inespecífica por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="94822-4" />
+    <display value="SARS Coronavírus 2 [Presença de] RNA em Saliva (fluido oral) por sequenciamento" />
+  </concept>
+  <concept>
+    <code value="94845-5" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] RNA em Saliva (fluido oral) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95125-1" />
+    <display value="SARS Coronavírus 2  [Presença de] IgA+IgM em Soro ou Plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="95209-3" />
+    <display
+      value="SARS Coronavírus + SARS Coronavírus 2 [Presença de] antígeno em Amostra respiratória por Imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="95380-2" />
+    <display
+      value="Vírus da Influenza A e B e SARS Coronavírus 2 e SARS Coronavírus relacionado painel de RNA por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95406-5" />
+    <display
+      value="SARS Coronavírus 2, [Presença de] RNA no Nariz por Amplificação de ácido nucléico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95409-9" />
+    <display
+      value="SARS Coronavírus 2, [Presença de] gene N em Nariz por  Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95410-7" />
+    <display
+      value="SARS Coronavírus 2, [Concentração de] neutralização de anticorpos em Soro por teste de neutralização de pseudovírus" />
+  </concept>
+  <concept>
+    <code value="95411-5" />
+    <display
+      value="SARS Coronavírus 2, [Presença de] neutralização de anticorpos em Soro por teste de neutralização de pseudovírus" />
+  </concept>
+  <concept>
+    <code value="95416-4" />
+    <display
+      value="SARS Coronavírus 2, [Presença de] anticorpos IgM teste em Amostra de Sangue seco por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="95422-2" />
+    <display
+      value="Vírus da Influenza A e B RNA e SARS Coronavírus 2 painel de gene N - Amostra respiratória por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95423-0" />
+    <display
+      value="Vírus da Influenza A e B e SARS Coronavírus 2 identificado em  Amostra respiratória por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95424-8" />
+    <display value="SARS Coronavírus 2 [Presença de] RNA em Amostra respiratória por sequenciamento" />
+  </concept>
+  <concept>
+    <code value="95425-5" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene N em Saliva (fluido oral) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95427-1" />
+    <display
+      value="SARS Coronavírus 2 [Concentração de] anticorpos IgA em Soro ou Plasma por imunofluorescência" />
+  </concept>
+  <concept>
+    <code value="95428-9" />
+    <display
+      value="SARS Coronavírus 2 [Concentração de] anticorpos IgM em Soro ou Plasma por imunofluorescência" />
+  </concept>
+  <concept>
+    <code value="95429-7" />
+    <display
+      value="SARS Coronavírus 2 [Concentração de] anticorpos IgG em Soro ou Plasma por imunofluorescência" />
+  </concept>
+  <concept>
+    <code value="95521-1" />
+    <display
+      value="SARS Coronavírus 2 [#/volume] (carga viral) gene N em Amostra respiratória por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95522-9" />
+    <display
+      value="SARS Coronavírus 2 [dosagem de] (carga viral ) gene N em Amostra respiratória por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95542-7" />
+    <display
+      value="SARS Coronavírus 2 anticorposs IgG+IgM [Presença de] em Soro Plasma ou Sangue por Imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="95608-6" />
+    <display
+      value="SARS Coronavírus 2  [Presença de] RNA em amostra respiraória por Amplificação de ácido nucleico com detecção sem sonda" />
+  </concept>
+  <concept>
+    <code value="95609-4" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] gene S em amostra respiratória por sequenciação" />
+  </concept>
+  <concept>
+    <code value="95823-1" />
+    <display
+      value="SARS Coronavírus relacionado [Presença de] gene E em Saliva (fluido oral) por Amplificação de àcido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95824-9" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] região anticorpos ORF1 em Saliva (fluido oral) por Amplificação de ácido nucléico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95825-6" />
+    <display
+      value="SARS Coronavírus 2 [Presença de] anticorpos em Amostra de Sangue seco por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="95826-4" />
+    <display
+      value="SARS Coronavírus 2 painel de RNA - Saliva (fluido oral) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95941-1" />
+    <display
+      value="Vírus da Influenza A e B e SARS Coronavírus 2 e Vírus sinciciais respiratórios painel de RNA - Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="95942-9" />
+    <display
+      value="Vírus da Influenza A e B e SARS Coronavírus + SARS Coronavírus 2 painel de antígeno - Amostra de trato respiratório superior por Imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="95970-0" />
+    <display
+      value="SARS Coronavírus 2 rearranjos específicos de genes de células T de receptor beta [Presença de] em sangue por sequenciamento" />
+  </concept>
+  <concept>
+    <code value="95971-8" />
+    <display value="SARS Coronavírus 2 estimulado por interferon gama [Presença de] em sangue" />
+  </concept>
+  <concept>
+    <code value="95972-6" />
+    <display
+      value="SARS Coronavírus 2 estimulado por  interferon gama liberação por células T [Unidades/Volumes] corrigido para fundo em sangue" />
+  </concept>
+  <concept>
+    <code value="95973-4" />
+    <display
+      value="SARS Coronavírus 2 estimulado por interferon gama liberação por células T (Unidades/Volume] em sangue" />
+  </concept>
+  <concept>
+    <code value="95974-2" />
+    <display value="SARS Coronavírus 2 estimulado por interferon gama painel - Sangue" />
+  </concept>
+  <concept>
+    <code value="96091-4" />
+    <display
+      value="SARS Coronavírus 2 gene RdRp [Presença de] em saliva (fluído oral) por Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96094-8" />
+    <display
+      value="SARS Coronavírus 2 e SARS Coronavírus relacionado painel de RNA - Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96118-5" />
+    <display
+      value="SARS Coronavírus 2 painel de anticorpos -  Amostra de sangue seco por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="96119-3" />
+    <display
+      value="SARS Coronavírus 2 antígenos [Presença de] Amostra de trato respiratório superior por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="96120-1" />
+    <display
+      value="SARS Coronavírus 2 gene RdRp [Presença de] em Amostra de trato respiratório inferior por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96121-9" />
+    <display
+      value="SARS Coronavírus relacionado gene E [Presença de] em Amostra de trato respiratório inferior por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96122-7" />
+    <display
+      value="SARS Coronavírus relacionado gene E [Presença de] em Amostra de trato respiratório superior por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96123-5" />
+    <display
+      value="SARS Coronavírus 2 gene RdRp [Presença de] em Amostra de trato respiratório superior por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96448-6" />
+    <display
+      value="SARS Coronavírus 2 gene N [Presença de] em saliva (fluído oral) por amplicação de ácido nucleico usando sonda primer set N1" />
+  </concept>
+  <concept>
+    <code value="96603-6" />
+    <display
+      value="SARS Coronavírus 2 proteína S domínio de ligação ao RNA anticorpo neutralizante [Presença] em soro ou plasma por imunonensaio" />
+  </concept>
+  <concept>
+    <code value="96741-4" />
+    <display value="SARS Coronavírus 2 variante [Tipo] em espécie por sequenciação" />
+  </concept>
+  <concept>
+    <code value="96742-2" />
+    <display
+      value="SARS Coronavírus 2 anticorpos IgG [Massa/Volume] em soro ou plasma por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="96751-3" />
+    <display
+      value="SARS Coronavírus 2 gene S mutação detectada [Identificador] em specime por método genética molecular" />
+  </concept>
+  <concept>
+    <code value="96752-1" />
+    <display
+      value="SARS Coronavírus 2 gene S mutação detectada [Presença de] em amostra por método genética molecular" />
+  </concept>
+  <concept>
+    <code value="96755-4" />
+    <display value="SARS Coronavirus 2 interpetação de variante em Amostra narrativa" />
+  </concept>
+  <concept>
+    <code value="96763-8" />
+    <display
+      value="SARS Coronavírus 2 gene E [Presença] em amostra respiratória por Amplificação de ácido nucléico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96764-6" />
+    <display
+      value="SARS Coronavírus 2 gene E [Limiar de ciclo #] em Amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96765-3" />
+    <display
+      value="SARS Coronavírus 2 gene S [Presença] em saliva (fluído oral) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96766-1" />
+    <display value="Sequencia GISAID número de registro" />
+  </concept>
+  <concept>
+    <code value="96797-6" />
+    <display
+      value="SARS coronavirus 2 RNA [Presença] em lavagem orofaríngea (gargarejo) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96829-7" />
+    <display
+      value="SARS coronavirus 2 RNA [Presença de] em Amostra de doador por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96894-1" />
+    <display
+      value="SARS coronavirus 2 painel de sequenciamento e identificação - Amostra pelo método de genética molecular" />
+  </concept>
+  <concept>
+    <code value="98062-3" />
+    <display value="Identificador de estudo de sequenciamento" />
+  </concept>
+  <concept>
+    <code value="96895-8" />
+    <display value="SARS coronavirus 2 linhagem [tipo] em amostra pelo método de genética molecular" />
+  </concept>
+  <concept>
+    <code value="96896-6" />
+    <display value="SARS coronavirus 2 clade [tipo] em amostra pelo método de genética molecular" />
+  </concept>
+  <concept>
+    <code value="96897-4" />
+    <display
+      value="SARS coronavirus 2 painel de RNA - lavagem orofaríngea (gargarejo) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96898-2" />
+    <display
+      value="SARS coronavirus 2 gene N [Limiar de ciclo#] em lavagem orofaríngea (gargarejo) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96899-0" />
+    <display
+      value="SARS coronavirus 2 [Limiar de ciclo#] região anticorpos ORF1 (Fases de leitura aberta-1) em lavagem orofaríngea (gargarejo) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96900-6" />
+    <display
+      value="SARS coronavirus 2 gene S [Limiar de ciclo#] em lavagem orofaríngea (gargarejo) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96957-6" />
+    <display
+      value="SARS Coronavirus 2 gene M [Presença de] em amostra de trato respiratório superior por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="96958-4" />
+    <display
+      value="SARS Coronavirus 2 gene N [Presença] em saliva (fluído oral) por Amplicação de ácido nucleico usando sonda primer CDC set N2" />
+  </concept>
+  <concept>
+    <code value="96986-5" />
+    <display
+      value="SARS coronavirus 2 gene N [Presença de] no nariz por Amplificação do ácido nucleico com detecção sem sonda" />
+  </concept>
+  <concept>
+    <code value="97097-0" />
+    <display
+      value="SARS coronavirus 2 [Presença] antígenos em amostra de Trato respiratório superior por imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="97098-8" />
+    <display
+      value="SARS coronavirus 2 gene de proteína não estruturada-2 [Presença] em amostra de Trato respiratório superior por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="97099-6" />
+    <display
+      value="Vírus da Influenza A e B e SARS Coronavírus 2 painel de antígenos - Amostra de trato respiratório superior por imunoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="97104-4" />
+    <display
+      value="SARS coronavirus 2 região anticorpos ORF1 (Fases de leitura aberta-1) [Unidades/Volumes] (carga viral) em amostra de trato respiratório superior por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="98069-8" />
+    <display
+      value="SARS coronavirus 2 anticorpos [Presença] em Saliva (fluído oral) por imoensaio rápido" />
+  </concept>
+  <concept>
+    <code value="98080-5" />
+    <display
+      value="SARS coronavírus 2 e SARS-relacionado coronavírus painel de RNA - Saliva (fluído oral) por Amplificação do ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="98131-6" />
+    <display
+      value="SARS coronavirus 2 região anticorpos ORF1b (Fases de leitura aberta-1b) [Presença] em amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="98132-4" />
+    <display
+      value="SARS coronavirus 2 região anticorpos ORF1a (Fases de leitura aberta-1b) [Presença] em amostra respiratória por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="98493-0" />
+    <display
+      value="SARS coronavirus 2 região anticorpos ORF1b (Fases de leitura aberta-1b) [Presença] em saliva (fluído oral)  por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="98494-8" />
+    <display
+      value="SARS coronavirus 2 região anticorpos ORF1a (Fases de leitura aberta-1a) [Presença] em saliva (fluído oral) por Amplificação de ácido nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="98732-1" />
+    <display
+      value="SARS Coronavirus 2 proteína S Domínio de Ligação ao RNA anticorpo neutralizante [Fator de diluição] em soro ou plasma por imunonensaio" />
+  </concept>
+  <concept>
+    <code value="98733-9" />
+    <display
+      value="Percentual de neutralização por SARS coronavirus 2 proteína spike Domínio de Ligação ao RNA anticorpo neutralizante em soro ou plasma por imunonensaio" />
+  </concept>
+  <concept>
+    <code value="98734-7" />
+    <display
+      value="SARS Coronavirus 2 proteína S Domínio de Ligação ao RNA anticorpo neutralizante [Unidades/Volume] em soro ou plasma por imunonensaio" />
+  </concept>
+  <concept>
+    <code value="98846-9" />
+    <display
+      value="SARS Coronavirus 2 interferon gama estimulado liberação por células T auxiliares (CD4+) [Unidades/volume] corrigido para sangue de fundo por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="98847-7" />
+    <display
+      value="SARS Coronavirus 2 interferon gama estimulado liberação por linfócitos [Unidades/volume] corrigido para sangue de fundo por imunoensaio" />
+  </concept>
+  <concept>
+    <code value="99314-7" />
+    <display
+      value="SARS Coronavirus 2 gene RdRp mutação detectada [Identificador] em amostra pelo método de genética molecular" />
+  </concept>
+  <concept>
+    <code value="99596-9" />
+    <display
+      value="SARS Coronavirus 2 proteína N [Presença] anticorpos IgG em soro ou plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="99597-7" />
+    <display
+      value="SARS Coronavirus 2  proteína S [Presença] anticorpos IgG em soro ou plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="99771-8" />
+    <display
+      value="SARS Coronavirus 2 proteína spike e proteína de nucleocapsídeo painel de interferon gama estimulado - Sangue" />
+  </concept>
+  <concept>
+    <code value="99772-6" />
+    <display
+      value="SARS Coronavirus 2 interferon gama estimulado [Interpretação] em Sangue Qualitativo" />
+  </concept>
+  <concept>
+    <code value="99773-4" />
+    <display
+      value="SARS Coronavirus 2 interferon gama estimulado liberado por células T. Antígeno spike área de contagem [#] corrigido para fundo em Sangue" />
+  </concept>
+  <concept>
+    <code value="99774-2" />
+    <display
+      value="SARS Coronavirus 2 interferon gama estimulado liberado por células T. Antígeno nucleocapsídeo área de contagem [#] corrigido para fundo em Sangue" />
+  </concept>
+  <concept>
+    <code value="41853-3" />
+    <display
+      value="Orthopoxvirus DNA [Presença de] em Amostra por Amplificação de Ácido Nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100434-0" />
+    <display
+      value="Orthopoxvirus não-varíola DNA [Presença de] em Amostra por Amplificação de Ácido Nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100383-9" />
+    <display
+      value="Vírus Monkeypox DNA [Presença de] em Amostra por Amplificação de Ácido Nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100888-7" />
+    <display
+      value="Vírus Monkeypox da Africa Ocidental DNA [Presença de] em Amostra por Amplificação de Ácido Nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100889-5" />
+    <display
+      value="Vírus Monkeypox da Bacia do Congo DNA [Presença de] em Amostra por Amplificação de Ácido Nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100885-3" />
+    <display
+      value="Parapoxvirus DNA [Presença de] em Amostra por Amplificação de Ácido Nucleico com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100886-1" />
+    <display
+      value="Vírus Orf DNA [Presença de] em Amostra por Amplificação de Ácido Nucleio com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100887-9" />
+    <display
+      value="Vírus da pseudovaríola DNA [Presença] em Amostra por Amplficação de Ácido Nucleio com detecção por sonda" />
+  </concept>
+  <concept>
+    <code value="100891-1" />
+    <display value="Orthopoxvirus IgG Ab [Presença] em Soro ou Plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="100892-9" />
+    <display value="Orthopoxvirus IgM Ab [Presença] em soro ou plasma por Imunoensaio" />
+  </concept>
+  <concept>
+    <code value="100893-7" />
+    <display value="Orthopoxvirus IgG e IgM Ab panel - Soro ou Plasma" />
+  </concept>
+  <concept>
+    <code value="40505-0" />
+    <display
+      value="Anticorpo contra o vírus Chikungunya [Título] em Soro por Inibição de Hemaglutinação" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus Ab [Titer] in Serum by Hemagglutination inhibition" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="93976-9" />
+    <display value="Painel Anticorpo IgM e IgG contra o vírus Chikungunya - Soro ou Plasma" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus Ab.IgM and IgG panel - Serum or Plasma" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="88630-9" />
+    <display
+      value="Anticorpo IgG contra o vírus Chikungunya [Presença] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgG Ab [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="56128-2" />
+    <display
+      value="Anticorpo IgG contra o vírus Chikungunya [Título] em soro ou plasma por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgG Ab [Titer] in Serum or Plasma by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97866-8" />
+    <display
+      value="Anticorpo IgG contra o vírus Chikungunya [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgG Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="88629-1" />
+    <display
+      value="Anticorpo IgM contra o vírus Chikungunya [Presença] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgM Ab [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="56130-8" />
+    <display
+      value="Anticorpo IgM contra o vírus Chikungunya [Título] em soro ou plasma por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgM Ab [Titer] in Serum or Plasma by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97867-6" />
+    <display
+      value="Anticorpo IgM contra o vírus Chikungunya [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgM Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86514-7" />
+    <display
+      value="RNA do vírus Chikungunya [Presença] no líquido amniótico por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus RNA [Presence] in Amniotic fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60260-7" />
+    <display
+      value="RNA do vírus Chikungunya [Presença] no soro ou plasma por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus RNA [Presence] in Serum or Plasma by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="51664-1" />
+    <display value="RNA do vírus Chikungunya [Presença] em espécime por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus RNA [Presence] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86515-4" />
+    <display value="RNA do vírus Chikungunya [Presença] na urina por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus RNA [Presence] in Urine by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81154-7" />
+    <display value="Painel de vírus da Dengue e chikungunya e zika pela NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue and Chikungunya and Zika virus panel by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="55369-3" />
+    <display
+      value="Anticorpo contra o vírus da Dengue [título] no soro por inibição da hemaglutinação" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Titer] in Serum by Hemagglutination inhibition" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29661-6" />
+    <display
+      value="Anticorpo IgG contra o vírus da Dengue [Presença] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="100964-6" />
+    <display
+      value="Anticorpo IgG contra o vírus da Dengue [presença] em soro, plasma ou sangue por imunoensaio rápido" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="23991-3" />
+    <display
+      value="Anticorpo IgG contra o vírus da Dengue [unidades/volume] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Units/volume] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="75223-8" />
+    <display
+      value="Anticorpo IgG e IgM contra vírus da Dengue [identificador] em soro, plasma ou sangue por imunoensaio rápido" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus IgG and IgM [Identifier] in Serum, Plasma or Blood by Rapid immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29663-2" />
+    <display
+      value="Anticorpo IgM contra o vírus da Dengue [Presença] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="34721-1" />
+    <display value="Anticorpo IgM contra o vírus da Dengue [Presença] no fluido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Presence] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="23992-1" />
+    <display
+      value="Anticorpo IgM contra o vírus da Dengue [unidades/volume] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Units/volume] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="91064-6" />
+    <display value="Antígeno  NS1 do vírus da Dengue [Presença] em Soro ou Plasma por Imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus NS1 Ag [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="75377-2" />
+    <display
+      value="Antígeno  NS1 do vírus da Dengue [Presença] em soro, plasma ou sangue por imunoensaio rápido" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus NS1 Ag [Presence] in Serum, Plasma or Blood by Rapid immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="101206-1" />
+    <display
+      value="Antígeno  NS1 do vírus da Dengue [unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus NS1 Ag [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41878-0" />
+    <display value="Painel IgG e IgM contra o vírus Dengue - Soro por Imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG and IgM panel - Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60262-3" />
+    <display value="RNA do vírus da Dengue 1 [presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1 RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33578-6" />
+    <display value="Anticorpo contra o vírus da Dengue [Título] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Titer] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="77958-7" />
+    <display
+      value="RNA do vírus da Dengue 1 e 2 e 3 e 4 [identificador] no líquido cefalorraquidiano por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1 and 2 and 3 and 4 RNA [Identifier] in Cerebral spinal fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="88188-8" />
+    <display
+      value="RNA do vírus da Dengue 1+2+3+4 [Presença] na urina por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 RNA [Presence] in Urine by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94837-2" />
+    <display
+      value="RNA do vírus da Dengue 1+2+3+4 [Presença] no líquido amniótico por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1+2+3+4 RNA [Presence] in Amniotic fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="88189-6" />
+    <display
+      value="RNA do vírus da Dengue 1+2+3+4 [Presença] no sangue por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 RNA [Presence] in Blood by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7855-0" />
+    <display
+      value="RNA do vírus da Dengue 1+2+3+4 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60420-7" />
+    <display value="RNA do vírus da Dengue 2 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 2 RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60419-9" />
+    <display value="RNA do vírus da Dengue 3 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 3 RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60418-1" />
+    <display value="RNA do vírus da Dengue 4 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 4 RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41239-5" />
+    <display
+      value="Anticorpo contra o vírus da Febre Amarela [Presença] no líquido cefalorraquidiano" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab [Presence] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97868-4" />
+    <display value="Painel de anticorpos contra o vírus da Febre Amarela - Soro ou Plasma" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab panel - Serum or Plasma" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="77954-6" />
+    <display
+      value="Anticorpo IgG contra o vírus da Febre Amarela [Presença] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgG Ab [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95675-5" />
+    <display
+      value="Anticorpo IgG contra o vírus da Febre Amarela [Presença] na amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgG Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6592-0" />
+    <display
+      value="Anticorpo IgG contra o vírus da Febre Amarela [Unidades/volume] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgG Ab [Units/volume] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="71782-7" />
+    <display
+      value="Anticorpo IgM vírus da Febre Amarela [Presença] no líquido cefalorraquidiano por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgM Ab [Presence] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="77955-3" />
+    <display value="Anticorpo IgM vírus da Febre Amarela [Presença] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgM Ab [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95690-4" />
+    <display
+      value="Anticorpo IgM contra o vírus da Febre Amarela [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgM Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6593-8" />
+    <display value="Anticorpo IgM vírus da Febre Amarela [Unidades/volume] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgM Ab [Units/volume] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="90459-9" />
+    <display
+      value="RNA do vírus da Febre Amarela [Presença] no sangue por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus RNA [Presence] in Blood by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="8057-2" />
+    <display value="RNA do vírus da Febre Amarela [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94184-9" />
+    <display
+      value="RNA do vírus da Febre Amarela [Presença] em espécime por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus RNA [Presence] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97869-2" />
+    <display value="Painel de anticorpos contra o vírus Zika - Soro ou Plasma" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus Ab panel - Serum or Plasma" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="91080-2" />
+    <display value="Anticorpo IgG contra o vírus Zika [Presença] em Soro ou Plasma por Imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgG Ab [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95663-1" />
+    <display value="Anticorpo IgG contra o vírus Zika [Presença] em espécime por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgG Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="89590-4" />
+    <display value="Anticorpo IgG contra o vírus Zika [Título] em soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgG Ab [Titer] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97870-0" />
+    <display
+      value="Anticorpo IgG contra o vírus Zika [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgG Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80823-8" />
+    <display
+      value="Anticorpo IgM contra o vírus Zika [Presença] no fluido espinhal cerebral por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Presence] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80824-6" />
+    <display value="Anticorpo IgM contra o vírus Zika[Presença] em Soro ou Plasma por Imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="91678-3" />
+    <display
+      value="Anticorpo IgM contra o vírus Zika [Presença] em Soro, Plasma ou Sangue por Imunoensaio Rápido" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="89591-2" />
+    <display value="Anticorpo IgM contra o vírus Zika [título] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Titer] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80618-2" />
+    <display
+      value="Anticorpo IgM contra o vírus Zika [Unidades/volume] no fluido espinhal cerebral por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Units/volume] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80619-0" />
+    <display
+      value="Anticorpo IgM contra o vírus Zika [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="85621-1" />
+    <display
+      value="RNA do vírus Zika [Presença] no líquido amniótico por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Amniotic fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="91078-6" />
+    <display value="RNA do vírus Zika [Presença] no sangue por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Blood by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86594-9" />
+    <display
+      value="RNA do vírus Zika [Presença] no líquido cefalorraquidiano por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Cerebral spinal fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="90462-3" />
+    <display
+      value="RNA do vírus Zika [Presença] no sangue do cordão umbilical por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Cord blood by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="91079-4" />
+    <display value="RNA do vírus Zika [Presença] na placenta por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Placenta by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="85622-9" />
+    <display value="RNA do vírus Zika [Presença] no Soro ou Plasma por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Serum or Plasma by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="79190-5" />
+    <display value="RNA do vírus Zika [Presença] em espécime por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="85623-7" />
+    <display value="RNA do vírus Zika [Presença] na urina por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Urine by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="26623-9" />
+    <display value="Anticorpo contra o vírus Chikungunya [Presença] no Soro" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="74821-0" />
+    <display
+      value="Anticorpo contra o vírus Chikungunya [Presença] no Soro por Inibição da Hemaglutinação" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus Ab [Presence] in Serum by Hemagglutination inhibition" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="43064-5" />
+    <display value="Anticorpo contra o vírus Chikungunya [Título] em Soro" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95705-0" />
+    <display value="Anticorpo IgA contra o vírus Chikungunya [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgA Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="93979-3" />
+    <display value="Anticorpo IgG contra o vírus Chikungunya [Presença] no Soro ou Plasma" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgG Ab [Presence] in Serum or Plasma" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="56129-0" />
+    <display
+      value="Anticorpo IgG contra o vírus Chikungunya [Presença] em Soro ou Plasma por Imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgG Ab [Presence] in Serum or Plasma by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95672-2" />
+    <display value="Anticorpo IgG contra o vírus Chikungunya [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgG Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104364-5" />
+    <display
+      value="Anticorpo IgG contra o vírus Chikungunya [Título] em soro por imunoensaio --1ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgG Ab [Titer] in Serum by Immunoassay --1st specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="57934-2" />
+    <display value="Anticorpo IgM contra o vírus Chikungunya [Presença] no Soro ou Plasma" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgM Ab [Presence] in Serum or Plasma" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="56131-6" />
+    <display
+      value="Anticorpo IgM contra o vírus Chikungunya [Presença] em Soro ou Plasma por Imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgM Ab [Presence] in Serum or Plasma by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95687-0" />
+    <display value="Anticorpo IgM contra o vírus Chikungunya [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus IgM Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95649-0" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Chikungunya [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81153-9" />
+    <display
+      value="RNA da proteína não estrutural 1 contra o vírus Chikungunya (nsP1) [Presença] no líquido cefalorraquidiano por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus non-structural protein 1 (nsP1) RNA [Presence] in Cerebral spinal fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81152-1" />
+    <display
+      value="RNA da proteína não estrutural 1 contra o vírus Chikungunya (nsP1) [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus non-structural protein 1 (nsP1) RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="101303-6" />
+    <display value="RNA do vírus Chikungunya [Presença] no Sangue por NAA com detecção sem sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Chikungunya virus RNA [Presence] in Blood by NAA with non-probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="85583-3" />
+    <display
+      value="RNA do vírus Chikungunya [Presença] no Plasma do Doador por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus RNA [Presence] in Plasma from Donor by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="85582-5" />
+    <display
+      value="RNA do vírus Chikungunya + RNA do vírus Dengue [Presença] no Plasma do Doador por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus RNA+Dengue virus RNA [Presence] in Plasma from Donor by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="82297-3" />
+    <display
+      value="Anticorpo IgG Proteínas estruturais do vírus Chikungunya (E1+E2) [Presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus structural proteins (E1+E2) IgG Ab [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="83068-7" />
+    <display
+      value="Anticorpo IgG Proteínas estruturais do vírus Chikungunya (E1+E2) [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus structural proteins (E1+E2) IgG Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="83067-9" />
+    <display
+      value="Anticorpo IgM Proteínas estruturais do vírus Chikungunya (E1+E2) [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Chikungunya virus structural proteins (E1+E2) IgM Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22250-5" />
+    <display value="Anticorpo contra o vírus da Dengue 1 [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1 Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7854-3" />
+    <display value="Anticorpo contra o vírus da Dengue 1 [Presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1 Ab [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16736-1" />
+    <display value="Anticorpo contra o vírus da Dengue 1 [Título] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1 Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31338-7" />
+    <display value="Anticorpo contra o vírus da Dengue 1 [Unidades/volume] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1 Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94426-4" />
+    <display
+      value="3' UTR RNA do vírus da Dengue 1+2+3+4 [Presença] no fluido espinhal cerebral por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1+2+3+4 3' UTR RNA [Presence] in Cerebral spinal fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94427-2" />
+    <display
+      value="3' UTR RNA do vírus da Dengue 1+2+3+4 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 3' UTR RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81151-3" />
+    <display
+      value="5' UTR RNA vírus da Dengue 1+2+3+4 [Presença] no fluido espinhal cerebral por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1+2+3+4 5' UTR RNA [Presence] in Cerebral spinal fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81150-5" />
+    <display
+      value="5' UTR RNA vírus da Dengue 1+2+3+4 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 5' UTR RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87438-8" />
+    <display
+      value="Anticorpo IIgA+IgG+IgM  contra o vírus da Dengue 1+2+3+4 e vírus Zika [Interpretação] em espécime por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1+2+3+4 and Zika virus IgA+IgG+IgM Ab [Interpretation] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87441-2" />
+    <display
+      value="Painel IgA+IgG+IgM contra o vírus da Dengue 1+2+3+4 e contra o vírus Zika - Amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 and Zika virus IgA+IgG+IgM panel - Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87440-4" />
+    <display
+      value="Anticorpo IgA+IgG+IgM vírus da Dengue 1+2+3+4 [Interpretação] em espécime qualitativo por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1+2+3+4 IgA+IgG+IgM Ab [Interpretation] in Specimen Qualitative by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95673-0" />
+    <display
+      value="Anticorpo IgG contra o vírus da Dengue 1+2+3+4 [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 IgG Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95688-8" />
+    <display
+      value="Anticorpo IgM contra o vírus da Dengue 1+2+3+4 [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 IgM Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="100846-5" />
+    <display
+      value="Anticorpo IgG nsP1 contra o vírus da Dengue 1+2+3+4 [Presença] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 nsP1 IgG Ab [Presence] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="100963-8" />
+    <display
+      value="Anticorpo IgG nsP1 contra o vírus da Dengue 1+2+3+4 nsP1 [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1+2+3+4 nsP1 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="55438-6" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue [Título] em soro por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus neutralizing antibody [Titer] in Serum by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22251-3" />
+    <display value="Anticorpo contra o vírus da Dengue 2 [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 2 Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7856-8" />
+    <display value="Anticorpo contra o vírus da Dengue 2 [Presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 2 Ab [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16737-9" />
+    <display value="Anticorpo contra o vírus da Dengue 2 [Título] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 2 Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31339-5" />
+    <display value="Anticorpo contra o vírus da Dengue 2 [Unidades/volume] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 2 Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86865-3" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 1 [Presença] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1 neutralizing antibody [Presence] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86860-4" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 1 [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1 neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86864-6" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 2 [Presença] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 2 neutralizing antibody [Presence] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86858-8" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 2 [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 2 neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22252-1" />
+    <display value="Anticorpo contra o vírus da Dengue 3 [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 3 Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7857-6" />
+    <display value="Anticorpo contra o vírus da Dengue 3 [Presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 3 Ab [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16738-7" />
+    <display value="Anticorpo contra o vírus da Dengue 3 [Título] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 3 Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31340-3" />
+    <display value="Anticorpo contra o vírus da Dengue 3 [Unidades/volume] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 3 Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86863-8" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 3 [Presença] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 3 neutralizing antibody [Presence] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86859-6" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 3 [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 3 neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86862-0" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 4 [Presença] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 4 neutralizing antibody [Presence] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22253-9" />
+    <display value="Anticorpo contra o vírus da Dengue 4 [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 4 Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7858-4" />
+    <display value="Anticorpo contra o vírus da Dengue 4 [Presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 4 Ab [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16739-5" />
+    <display value="Anticorpo contra o vírus da Dengue 4 [Título] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 4 Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31341-1" />
+    <display value="Anticorpo contra o vírus da Dengue 4 [Unidades/volume] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 4 Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86861-2" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue 4 [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 4 neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="82519-0" />
+    <display value="Painel de vírus da Dengue 1+3 e 2+4 - Soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+3 and 2+4 panel - Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="16740-3" />
+    <display value="Anticorpo contra o vírus da Dengue [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="40748-6" />
+    <display
+      value="Anticorpo contra o vírus da Dengue [Presença] no soro por inibição da Hemaglutinação" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Presence] in Serum by Hemagglutination inhibition" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31343-7" />
+    <display value="Anticorpo contra o vírus da Dengue [Presença] em espécime" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Presence] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33606-5" />
+    <display value="Anticorpo contra o vírus da Dengue [Título] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="40515-9" />
+    <display value="Anticorpo contra o vírus da Dengue [Título] no soro por fixação do complemento" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Titer] in Serum by Complement fixation" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="7859-2" />
+    <display value="Anticorpo contra o vírus da Dengue [unidades/volume] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31342-9" />
+    <display value="Anticorpo contra o vírus da Dengue [Unidades/volume] em espécime" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab [Units/volume] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="100962-0" />
+    <display value="Anticorpo IgG painel contra o vírus da Dengue - Soro, Plasma ou Sangue" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ab.IgG Panel - Serum, Plasma or Blood" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31798-2" />
+    <display value="Antígeno  contra o vírus da Dengue [presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ag [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6384-2" />
+    <display value="Dengue vírus Antígeno  [Presença] em Soro por Imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ag [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31799-0" />
+    <display value="Antígeno  contra o vírus da Dengue [Presença] em Amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ag [Presence] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6385-9" />
+    <display value="Dengue vírus Antígeno  [Presença] em espécime por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus Ag [Presence] in Specimen by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6386-7" />
+    <display value="DNA do vírus da Dengue [presença] no soro por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus DNA [Presence] in Serum by Probe" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6387-5" />
+    <display value="DNA do vírus da Dengue [Presença] em espécime por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus DNA [Presence] in Specimen by Probe" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95706-8" />
+    <display value="Anticorpo IgA contra o vírus da Dengue [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgA Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="100965-3" />
+    <display
+      value="Anticorpo IgG contra o vírus da Dengue [interpretação] em soro, plasma ou sangue" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Interpretation] in Serum, Plasma or Blood" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29676-4" />
+    <display value="Anticorpo IgG contra o vírus da Dengue [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="88203-5" />
+    <display
+      value="RNA do vírus da Dengue 1 e 2 e 3 e 4 [Identificador] em soro ou sangue por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus 1 and 2 and 3 and 4 RNA [Identifier] in Serum or Blood by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6811-4" />
+    <display value="Anticorpo IgG contra o vírus da Dengue [Título] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104383-5" />
+    <display
+      value="Anticorpo IgG contra o vírus da Dengue [Título] em soro por imunoensaio --1ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Titer] in Serum by Immunoassay --1st specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104384-3" />
+    <display
+      value="Anticorpo IgG contra o vírus da Dengue [Título] em soro por imunoensaio -- 2ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Titer] in Serum by Immunoassay --2nd specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="23958-2" />
+    <display value="Anticorpo IgG contra o vírus da Dengue [unidades/volume] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="51785-4" />
+    <display value="Anticorpo IgG e IgM contra o vírus da Dengue [Interpretação] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG and IgM [Interpretation] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87546-8" />
+    <display value="Painel IgG e IgM contra o vírus da Dengue - Soro Qualitativo" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgG and IgM panel - Serum Qualitative" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="101304-4" />
+    <display
+      value="RNA do vírus da Dengue 1+2+3+4 [Presença] no sangue por NAA com detecção sem sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+2+3+4 RNA [Presence] in Blood by NAA with non-probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="25338-5" />
+    <display value="Anticorpo IgM contra o vírus da Dengue [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="25392-2" />
+    <display value="Anticorpo IgM contra o vírus da Dengue [Presença] no soro por imunoblot" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Presence] in Serum by Immunoblot" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6812-2" />
+    <display value="Anticorpo IgM contra o vírus da Dengue [Título] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104386-8" />
+    <display
+      value="Anticorpo IgM contra o vírus da Dengue [Título] em soro por imunoensaio --1ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Titer] in Serum by Immunoassay --1st specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104387-6" />
+    <display
+      value="Anticorpo IgM contra o vírus da Dengue [Título] em soro por imunoensaio --2ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Titer] in Serum by Immunoassay --2nd specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="23968-1" />
+    <display value="Anticorpo IgM contra o vírus da Dengue [unidades/volume] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus IgM Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="82384-9" />
+    <display value="RNA do vírus da Dengue 1+3 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 1+3 RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="50036-3" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue [Presença] em espécime por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Dengue virus neutralizing antibody [Presence] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="99111-7" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Dengue [Título] em espécime por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="82383-1" />
+    <display value="RNA do vírus da Dengue 2+4 [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus 2+4 RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="85584-1" />
+    <display
+      value="RNA do vírus da Dengue [presença] no plasma do doador pela NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Dengue virus RNA [Presence] in Plasma from Donor by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80205-8" />
+    <display
+      value="Encefalite japonesa + Encefalite transmitida por carrapatos + Nilo Ocidental + vírus da Febre Amarela IgG Anticorpo [Presença] em soro ou plasma por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Japanese encephalitis+Tick-borne encephalitis+West Nile+Yellow fever virus IgG Ab [Presence] in Serum or Plasma by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80206-6" />
+    <display
+      value="Encefalite japonesa + Encefalite transmitida por carrapatos + Nilo Ocidental + vírus da Febre Amarela IgM Anticorpo [Presença] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Japanese encephalitis+Tick-borne encephalitis+West Nile+Yellow fever virus IgM Ab [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41249-4" />
+    <display value="Anticorpo contra o vírus da Febre Amarela [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="22618-3" />
+    <display value="Anticorpo contra o vírus da Febre Amarela [Título] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41247-8" />
+    <display value="Anticorpo contra o vírus da Febre Amarela [Título] em soro - 1ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab [Titer] in Serum --1st specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41246-0" />
+    <display value="Anticorpo contra o vírus da Febre Amarela [Título] em soro - 2ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab [Titer] in Serum --2nd specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6589-6" />
+    <display
+      value="Anticorpo contra o vírus da Febre Amarela [Título] em soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab [Titer] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="8054-9" />
+    <display value="Anticorpo contra o vírus da Febre Amarela [Unidades/volume] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95708-4" />
+    <display
+      value="Anticorpo IgA contra o vírus da Febre Amarela [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgA Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41217-1" />
+    <display value="Anticorpo IgG vírus da Febre Amarela [Presença] no Soro" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgG Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104461-9" />
+    <display value="Anticorpo IgG contra o vírus da Febre Amarela [Título] em soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgG Ab [Titer] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104463-5" />
+    <display
+      value="Anticorpo IgG contra o vírus da Febre Amarela [Título] em soro por imunoensaio - 2ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgG Ab [Titer] in Serum by Immunoassay --2nd specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="8055-6" />
+    <display value="Anticorpo IgG contra o vírus da Febre Amarela [Unidades/volume] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgG Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41216-3" />
+    <display value="Anticorpo IgM vírus da Febre Amarela [Presença] no Soro" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgM Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="8056-4" />
+    <display value="Anticorpo IgM contra o vírus da Febre Amarela [Unidades/volume] em soro" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus IgM Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="71783-5" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Febre Amarela [Título] no líquido cefalorraquidiano por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Yellow fever virus neutralizing antibody [Titer] in Cerebral spinal fluid by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95651-6" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Febre Amarela [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Yellow fever virus neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="6591-2" />
+    <display
+      value="Anticorpo neutralizante contra o vírus da Febre Amarela [Unidades/volume] em soro por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Yellow fever virus neutralizing antibody [Units/volume] in Serum by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="77959-5" />
+    <display
+      value="Gene ns5 contra o vírus da Febre Amarela [Presença] no fluido espinhal cerebral por NAA com detecção sem sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Yellow fever virus ns5 gene [Presence] in Cerebral spinal fluid by NAA with non-probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="103722-5" />
+    <display
+      value="RNA do vírus da Febre Amarela [Presença] no sangue por NAA com detecção sem sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Yellow fever virus RNA [Presence] in Blood by NAA with non-probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81149-7" />
+    <display
+      value="Gene E do envelope contra o vírus Zika [Presença] no líquido amniótico por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus envelope E gene [Presence] in Amniotic fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80826-1" />
+    <display
+      value="Gene E do envelope contra o vírus Zika [Presença] no fluido espinhal cerebral por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus envelope E gene [Presence] in Cerebral spinal fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80825-3" />
+    <display
+      value="Gene E do envelope contra o vírus Zika [Presença] no soro por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus envelope E gene [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81148-9" />
+    <display
+      value="Gene E do envelope contra o vírus Zika [Presença] na urina por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus envelope E gene [Presence] in Urine by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87439-6" />
+    <display
+      value="Anticorpo contra o vírus Zika IgA+IgG+IgM [Interpretação] em espécime qualitativo por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus IgA+IgG+IgM Ab [Interpretation] in Specimen Qualitative by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104475-9" />
+    <display value="Anticorpo IgG contra o vírus Zika [Título] em soro por imunoensaio – 1ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgG Ab [Titer] in Serum by Immunoassay --1st specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="104476-7" />
+    <display value="Anticorpo IgG contra o vírus Zika [Título] em soro por imunoensaio – 2ª amostra" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgG Ab [Titer] in Serum by Immunoassay --2nd specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="82731-1" />
+    <display value="Anticorpo IgM contra o vírus Zika [Presença] no Soro por Imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87622-7" />
+    <display value="Anticorpo contra o vírus da Dengue[Presença] em espécime por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus IgM Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="103963-5" />
+    <display
+      value="LinhAntígeno em contra o vírus Zika [Identificador] em espécime pelo método de genética molecular" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus lineage [Identifier] in Specimen by Molecular genetics method" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80821-2" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Presença] no fluido espinhal cerebral por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus neutralizing antibody [Presence] in Cerebral spinal fluid by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80822-0" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Presença] no soro por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus neutralizing antibody [Presence] in Serum by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86320-9" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Presença] em espécime por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus neutralizing antibody [Presence] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80621-6" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Título] no líquido cefalorraquidiano por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus neutralizing antibody [Titer] in Cerebral spinal fluid by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80624-0" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Título] no líquido cefalorraquidiano por teste de neutralização --1ª amostra" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus neutralizing antibody [Titer] in Cerebral spinal fluid by Neutralization test --1st specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80625-7" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Título] no líquido cefalorraquidiano por teste de neutralização --2ª amostra" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus neutralizing antibody [Titer] in Cerebral spinal fluid by Neutralization test --2nd specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80620-8" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Título] no soro por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus neutralizing antibody [Titer] in Serum by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80622-4" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Título] em soro por teste de neutralização --1ª amostra" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus neutralizing antibody [Titer] in Serum by Neutralization test --1st specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80623-2" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Título] em soro por teste de neutralização --2ª amostra" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus neutralizing antibody [Titer] in Serum by Neutralization test --2nd specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86321-7" />
+    <display
+      value="Anticorpo neutralizante contra o vírus Zika [Título] em espécime por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="83069-5" />
+    <display
+      value="Proteína não estrutural 1 IgG Anticorpo contra o vírus Zika [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus non-structural protein 1 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="89370-1" />
+    <display
+      value="Proteína não estrutural 1 IgM Anticorpo contra o vírus Zika [Interpretação] em soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus non-structural protein 1 IgM Ab [Interpretation] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="89369-3" />
+    <display
+      value="Anticorpo IgM Proteína não estrutural 1 contra o vírus Zika [Unidades/volume] em soro ou plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Zika virus non-structural protein 1 IgM Ab [Units/volume] in Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="89368-5" />
+    <display
+      value="Painel IgM de proteína não estrutural 1 contra o vírus Zika - Soro ou Plasma por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus non-structural protein 1 IgM panel - Serum or Plasma by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="86190-6" />
+    <display value="RNA do vírus Zika [Presença] no Plasma do Doador por NAA com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Zika virus RNA [Presence] in Plasma from Donor by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="36900-9" />
+    <display value="Vírus do Nilo Ocidental polivalente E Ac [presença] em amostra" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus polyvalent E Ab [Presence] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41225-4" />
+    <display value="Vírus do Nilo Ocidental Ac [Título] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="39555-8" />
+    <display value="Vírus do Nilo Ocidental Ac [unidades/volume] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31701-6" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31704-0" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29535-2" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [unidades/volume] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29536-0" />
+    <display value="Vírus do Nilo Ocidental IgM Ac [unidades/volume] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Units/volume] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31700-8" />
+    <display value="Vírus do Nilo Ocidental Ac [unidades/volume] em amostra" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Units/volume] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="75404-4" />
+    <display value="Vírus do Nilo Ocidental Ac [presença] no soro por inibição da hemaglutinação" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Presence] in Serum by Hemagglutination inhibition" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33468-0" />
+    <display value="Vírus do Nilo Ocidental Ac [presença] em amostra" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Presence] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29568-3" />
+    <display
+      value="Anticorpos neutralizantes contra vírus do Nilo Ocidental [Título] no soro por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus neutralizing antibody [Titer] in Serum by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81097-8" />
+    <display value="Vírus do Nilo Ocidental Kunjin Strain Ac [presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Kunjin strain Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29779-6" />
+    <display
+      value="Anticorpo neutralizante do vírus do Nilo Ocidental [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="West Nile virus neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="36896-9" />
+    <display value="Vírus do Nilo Ocidental polivalente E Ac [presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus polyvalent E Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="34892-0" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] em amostra por AAN com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41194-2" />
+    <display value="Vírus do Nilo Ocidental Ac [unidades/volume] em soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Units/volume] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="55380-0" />
+    <display value="Vírus do Nilo Ocidental Ac [Título] em soro por inibição da hemaglutinação" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Titer] in Serum by Hemagglutination inhibition" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29781-2" />
+    <display value="Vírus do Nilo Ocidental Ac [Título] na amostra" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Titer] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31702-4" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [presença] em amostra" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Presence] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41211-4" />
+    <display value="Vírus do Nilo Ocidental IgG+IgM Ac [Presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG+IgM Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="32371-7" />
+    <display value="Vírus do Nilo Ocidental AG [presença] em tecido por mancha imunológica" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ag [Presence] in Tissue by Immune stain" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="36901-7" />
+    <display value="Vírus do Nilo Ocidental NS5 Ac [Presença] em amostras" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus NS5 Ab [Presence] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="39558-2" />
+    <display value="Vírus do Nilo Ocidental Ac [presença] no fluido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Presence] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="55402-2" />
+    <display value="Painel IgG e IgM do vírus do Nilo Ocidental - soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG and IgM panel - Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="36897-7" />
+    <display value="Vírus do Nilo Ocidental Ac [presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95650-8" />
+    <display
+      value="Anticorpos neutralizantes contra vírus Mayaro [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value value="Mayaro virus neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="99120-8" />
+    <display
+      value="Anticorpos neutralizantes contra vírus Oropouche [Título] em amostra por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Oropouche virus neutralizing antibody [Titer] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="96506-1" />
+    <display value="Anticorpos IgG contra vírus Oropouche [Presença] em espécime por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Oropouche virus IgG Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41224-7" />
+    <display value="Vírus do Nilo Ocidental Ac [Título] no líquido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Titer] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="96531-9" />
+    <display value="Anticorpos IgM contra vírus Oropouche [Presença] em espécime por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Oropouche virus IgM Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94853-9" />
+    <display
+      value="Painel de IgG e IgM do Vírus do Nilo Ocidental - qualitativa de líquido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG and IgM panel - Cerebral spinal fluid Qualitative" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="77953-8" />
+    <display
+      value="Vírus do Nilo Ocidental Anticorpos IgG [Presença] no líquido cerebroespinhal por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Presence] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94854-7" />
+    <display value="Painel de IgG e IgM do vírus do Nilo Ocidental - qualitativo sérico" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG and IgM panel - Serum Qualitative" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60028-8" />
+    <display value="Vírus do Nilo Ocidental IgG Ac Avidez [Presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab avidity [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29538-6" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [unidades/volume] em líquido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Units/volume] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="37985-9" />
+    <display value="RNA do vírus do Nilo Ocidental [presença] em amostra por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Specimen by Probe" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97931-0" />
+    <display value="RNA do vírus Mayaro [Presença] em espécime por AAN com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Mayaro virus RNA [Presence] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29780-4" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [Presença] em amostra" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Specimen" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="43343-3" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [Título] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Titer] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81096-0" />
+    <display value="Vírus do Nilo Ocidental Kunjin Strain igm Ac [presença] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Kunjin strain IgM Ab [Presence] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95703-5" />
+    <display value="Vírus do Nilo Ocidental IGA Ac [presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgA Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60030-4" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [presença] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="30178-8" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97917-9" />
+    <display value="RNA do vírus Oropouche [Presença] em espécime por AAN com detecção por sonda" />
+    <designation>
+      <language value="en" />
+      <value value="Oropouche virus RNA [Presence] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41195-9" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [Título] no fluido corporal" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Titer] in Body fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33330-2" />
+    <display value="Vírus do Nilo Ocidental Anticorpos IgM [Título] em líquido cerebroespinhal" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Titer] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94602-0" />
+    <display value="Vírus do Nilo Ocidental IgM AB/Controle positivo no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab/Positive control in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41206-4" />
+    <display value="Vírus do Nilo Ocidental Ac [unidades/volume] em líquido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ab [Units/volume] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="50015-7" />
+    <display value="Vírus do Nilo Ocidental AG [presença] em sangue ou medula de doador" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ag [Presence] in Blood or Marrow from Donor" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41643-8" />
+    <display value="Vírus do Nilo Ocidental AG [presença] em amostra por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus Ag [Presence] in Specimen by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="36898-5" />
+    <display value="Vírus do Nilo Ocidental NS5 Ac [presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus NS5 Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41196-7" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [Título] no fluido corporal" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Titer] in Body fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29566-7" />
+    <display value="Vírus do Nilo Ocidental Anticorpos IgG [presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="60029-6" />
+    <display value="Vírus do Nilo Ocidental IgG Ac Avidez [presença] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab avidity [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41236-1" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [presença] no fluido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Presence] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="62436-1" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [presença] no líquido corporal por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Body fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41642-0" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [presença] em amostra por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Specimen by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33328-6" />
+    <display value="Vírus do Nilo Ocidental Anticorpos IgG [Título] no líquido cerebroespinhal" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Titer] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33329-4" />
+    <display value="Vírus do Nilo Ocidental Anticorpos IgG [Título] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="94289-6" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [Título] no soro" />
+    <designation>
+      <language value="en" />
+      <value
+        value="West Nile virus neutralizing antibody [Presence] in Specimen by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="39572-3" />
+    <display
+      value="Vírus do Nilo Ocidental Anticorpos IgG [unidades/volume] em líquido cerebroespinhal por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Units/volume] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="43342-5" />
+    <display
+      value="Vírus do Nilo Ocidental Igm Ac [Título] em líquido espinhal cerebral por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Titer] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29537-8" />
+    <display value="Vírus do Nilo Ocidental IgG Ac [unidades/volume] em líquido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Units/volume] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="38997-3" />
+    <display
+      value="Vírus do Nilo Ocidental Anticorpos IgG [unidades/volume] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgG Ab [Units/volume] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29570-9" />
+    <display
+      value="Anticorpo neutralizante do vírus do Nilo Ocidental [Título] no líquido espinhal cerebral por teste de neutralização" />
+    <designation>
+      <language value="en" />
+      <value
+        value="West Nile virus neutralizing antibody [Titer] in Cerebral spinal fluid by Neutralization test" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="32361-8" />
+    <display value="RNA do vírus do Nilo Ocidental [presença] no soro por NaA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Serum by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="32370-9" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] em tecido por NAA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Tissue by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="97185-3" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] na urina por NaA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Urine by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="34460-6" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] no sangue por NaA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Blood by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80206-6" />
+    <display
+      value="Encefalite japonesa+encefalite transmitida por carrapatos+Nilo Ocidental+Vírus da febre amarela IgM Ac [presença] no soro por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Japanese encephalitis+Tick-borne encephalitis+West Nile+Yellow fever virus IgM Ab [Presence] in Serum by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="103721-7" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] no sangue por NAA com detecção sem probe" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Blood by NAA with non-probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="41212-2" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] no soro do doador pela NAA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Presence] in Serum from Donor by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29569-1" />
+    <display
+      value="Vírus do Nilo Ocidental Anticorpos IgM [Presença] no líquido cerebroespinhal por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="87395-0" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [limiar de ciclo #] em amostras por NaA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus RNA [Cycle Threshold #] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="34461-4" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] no líquido espinhal cerebral por NaA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="West Nile virus RNA [Presence] in Cerebral spinal fluid by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="74857-4" />
+    <display
+      value="RNA do vírus do Nilo Ocidental [presença] no soro ou plasma do doador pela NAA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="West Nile virus RNA [Presence] in Serum or Plasma from Donor by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="80205-8" />
+    <display
+      value="Encefalite japonesa+encefalite transmitida por carrapatos+Nilo Ocidental+Vírus da Febre Amarela IgG [presença] no soro ou plasma por imunofluorescência" />
+    <designation>
+      <language value="en" />
+      <value
+        value="Japanese encephalitis+Tick-borne encephalitis+West Nile+Yellow fever virus IgG Ab [Presence] in Serum or Plasma by Immunofluorescence" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="81650-4" />
+    <display
+      value="Vírus do Nilo Ocidental Kunjin Strain RNA [presença] em amostra por NaA com detecção de sonda" />
+    <designation>
+      <language value="en" />
+      <value
+        value="West Nile virus Kunjin strain RNA [Presence] in Specimen by NAA with probe detection" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29778-8" />
+    <display value="Vírus do Nilo Ocidental IgM Ac [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95674-8" />
+    <display value="Anticorpos IgG contra vírus Mayaro [Presença] em amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Mayaro virus IgG Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="31703-2" />
+    <display value="Vírus do Nilo Ocidental Igm Ac [presença] no fluido espinhal cerebral" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Cerebral spinal fluid" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95707-6" />
+    <display value="Vírus Mayaro IgA Ac [Presença] na amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Mayaro virus IgA Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="29567-5" />
+    <display value="Vírus do Nilo Ocidental Anticorpos IgM [presença] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Presence] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="33331-0" />
+    <display value="Vírus do Nilo Ocidental Anticorpos IgM [Título] no soro" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Titer] in Serum" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="39573-1" />
+    <display
+      value="Vírus do Nilo Ocidental Anticorpos IgM [unidades/volume] em líquido cerebroespinhal por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Units/volume] in Cerebral spinal fluid by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="38166-5" />
+    <display
+      value="Vírus do Nilo Ocidental Anticorpos IgM [unidades/volume] no soro por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="West Nile virus IgM Ab [Units/volume] in Serum by Immunoassay" />
+    </designation>
+  </concept>
+  <concept>
+    <code value="95689-6" />
+    <display value="Vírus Mayaro Anticorpos IgM [Presença] na amostra por imunoensaio" />
+    <designation>
+      <language value="en" />
+      <value value="Mayaro virus IgM Ab [Presence] in Specimen by Immunoassay" />
+    </designation>
+  </concept>
+</CodeSystem>

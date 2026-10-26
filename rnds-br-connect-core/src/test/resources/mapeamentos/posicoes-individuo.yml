@@ -1,0 +1,26 @@
+# Observation.method do BRMedidaObservada — a posição do indivíduo na aferição, que muda
+# a pressão arterial o bastante para mudar conduta. O ValueSet compõe o BRPosicaoIndividuo
+# da RNDS (cinco códigos) e três códigos LOINC, que se sobrepõem parcialmente: "De pé" e
+# "Sentado" existem nos dois, "Reclinado" só na RNDS.
+
+domain: POSICAO_INDIVIDUO
+system: https://loinc.org/
+
+mappings:
+  "DE_PE":
+    code: "LA11870-5"
+    display: "De pé"
+  "SENTADO":
+    code: "LA11868-9"
+    display: "Sentado"
+  "DEITADO":
+    code: "LA11869-7"
+    display: "Deitado"
+  "RECLINADO":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRPosicaoIndividuo
+    code: "3"
+    display: "Reclinado"
+  "DEITADO_INCLINADO_ESQ":
+    system: http://www.saude.gov.br/fhir/r4/CodeSystem/BRPosicaoIndividuo
+    code: "5"
+    display: "Deitado com inclinação para esquerda"

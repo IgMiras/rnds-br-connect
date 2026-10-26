@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="cc23cb24-5487-4869-8130-b3528ff9c6e7" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2022-06-02T20:21:40.9790981+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAlergiaReacaoAdversa-1.0" />
+  <version value="01.10" />
+  <name value="BRAlergiaReacaoAdversa" />
+  <title value="Alergia ou Reação Adversa" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:40:24.2353053+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <fhirVersion value="4.0.1" />
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="AllergyIntolerance" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="AllergyIntolerance">
+      <path value="AllergyIntolerance" />
+      <short value="Alergia ou Reação Adversa" />
+      <definition value="Reatividade alterada a um antígeno pode resultar em reações patológicas consequentes à exposição subsequente àquele antígeno particular." />
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.contained">
+      <path value="AllergyIntolerance.contained" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.identifier">
+      <path value="AllergyIntolerance.identifier" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.verificationStatus">
+      <path value="AllergyIntolerance.verificationStatus" />
+      <short value="Grau de Certeza" />
+      <definition value="Indica o grau de certeza que se possui ao avaliar uma alergia ou reação adversa." />
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Grau de Certeza de Alergias e Reações Adversas" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRGrauCertezaAlergiasReacoesAdversas-1.0" />
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.coding">
+      <path value="AllergyIntolerance.verificationStatus.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.coding.system">
+      <path value="AllergyIntolerance.verificationStatus.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.coding.code">
+      <path value="AllergyIntolerance.verificationStatus.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.coding.display">
+      <path value="AllergyIntolerance.verificationStatus.coding.display" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.coding.userSelected">
+      <path value="AllergyIntolerance.verificationStatus.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.verificationStatus.text">
+      <path value="AllergyIntolerance.verificationStatus.text" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.type">
+      <path value="AllergyIntolerance.type" />
+      <short value="Tipo de Reação" />
+      <definition value="Tipo de mecanismos fisiológico subjacente à reação.&#xD;&#xA;allergy: alergia&#xD;&#xA;intolerance: intolerância" />
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.category">
+      <path value="AllergyIntolerance.category" />
+      <short value="Categoria do Agente Causador" />
+      <definition value="Categoriza a substância responsável por causar uma alergia ou reação adversa." />
+      <min value="1" />
+      <max value="1" />
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Categoria do Agente da Alergia ou Reação Adversa" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCategoriaAgenteAlergiasReacoesAdversas-1.0" />
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.criticality">
+      <path value="AllergyIntolerance.criticality" />
+      <short value="Criticidade" />
+      <definition value="Estimativa da criticidade do dano clínico ou gravidade da reação a uma substância identificada." />
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Criticidade" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRCriticidadeAlergiasReacoesAdversas-1.0" />
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.code">
+      <path value="AllergyIntolerance.code" />
+      <short value="Agente ou Substância" />
+      <definition value="Agente ou substância específica responsável pela alergia ou reação adversa." />
+      <requirements value="Pode utilizar a descrição em texto livre, no elemento text, ou texto codificado utilizando o Catálogo Brasileiro de Alergias e Reações Adversas - CBARA (preferencial)." />
+      <min value="1" />
+      <mustSupport value="true" />
+      <binding>
+        <strength value="required" />
+        <description value="Alérgenos" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRAlergenos-1.0" />
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.code.coding">
+      <path value="AllergyIntolerance.code.coding" />
+      <short value="Agente ou Substância Codificada" />
+      <definition value="Texto codificado do agente ou substância causador da alergia ou reação adversa." />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.code.coding.system">
+      <path value="AllergyIntolerance.code.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.code.coding.code">
+      <path value="AllergyIntolerance.code.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.code.coding.display">
+      <path value="AllergyIntolerance.code.coding.display" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.code.coding.userSelected">
+      <path value="AllergyIntolerance.code.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.code.text">
+      <path value="AllergyIntolerance.code.text" />
+      <short value="Agente ou Substância em Texto Livre" />
+      <definition value="Descrição em texto livre do agente ou substância causador da alergia ou reação adversa." />
+      <requirements value="Um e somente um agente ou substância deve ser informado em cada recurso de AllergyIntolerance que compor um documento. Ou seja, na hipótese de se informar mais de um agente ou substância, deve ser enviado um recurso AllergyIntolerance para cada um deles no documento." />
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.patient">
+      <path value="AllergyIntolerance.patient" />
+      <short value="Indivíduo" />
+      <definition value="Indivíduo que possui a alergia ou reação adversa." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.patient.reference">
+      <path value="AllergyIntolerance.patient.reference" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.patient.type">
+      <path value="AllergyIntolerance.patient.type" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.patient.identifier">
+      <path value="AllergyIntolerance.patient.identifier" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.patient.identifier.use">
+      <path value="AllergyIntolerance.patient.identifier.use" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.patient.identifier.type">
+      <path value="AllergyIntolerance.patient.identifier.type" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.patient.identifier.system">
+      <path value="AllergyIntolerance.patient.identifier.system" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.patient.identifier.value">
+      <path value="AllergyIntolerance.patient.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.patient.identifier.period">
+      <path value="AllergyIntolerance.patient.identifier.period" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.patient.identifier.assigner">
+      <path value="AllergyIntolerance.patient.identifier.assigner" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.patient.display">
+      <path value="AllergyIntolerance.patient.display" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.encounter">
+      <path value="AllergyIntolerance.encounter" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.onset[x]">
+      <path value="AllergyIntolerance.onset[x]" />
+      <short value="Data da Instalação da Alergia ou Reação Adversa" />
+      <definition value="Ano, mês e ano ou dia, mês e ano, podendo conter também a hora em que a alergia ou reação adversa foi conhecida." />
+      <type>
+        <code value="dateTime" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.recordedDate">
+      <path value="AllergyIntolerance.recordedDate" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.recorder">
+      <path value="AllergyIntolerance.recorder" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.asserter">
+      <path value="AllergyIntolerance.asserter" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.lastOccurrence">
+      <path value="AllergyIntolerance.lastOccurrence" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.note">
+      <path value="AllergyIntolerance.note" />
+      <short value="Evolução da Alergia ou Reação Adversa" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.note.author[x]">
+      <path value="AllergyIntolerance.note.author[x]" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.note.time">
+      <path value="AllergyIntolerance.note.time" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction">
+      <path value="AllergyIntolerance.reaction" />
+      <max value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="AllergyIntolerance.reaction.substance">
+      <path value="AllergyIntolerance.reaction.substance" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation">
+      <path value="AllergyIntolerance.reaction.manifestation" />
+      <short value="Sinais e sintomas clínicos associados ao evento" />
+      <definition value="Sinais e/ou sintomas clínicos observados ou associados ao evento de reação adversa." />
+      <max value="1" />
+      <binding>
+        <strength value="required" />
+        <description value="Reações Adversas da MedDRA" />
+        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRReacoesAdversasMedDRA-1.0" />
+      </binding>
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation.coding">
+      <path value="AllergyIntolerance.reaction.manifestation.coding" />
+      <max value="1" />
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation.coding.system">
+      <path value="AllergyIntolerance.reaction.manifestation.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation.coding.code">
+      <path value="AllergyIntolerance.reaction.manifestation.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation.coding.display">
+      <path value="AllergyIntolerance.reaction.manifestation.coding.display" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation.coding.userSelected">
+      <path value="AllergyIntolerance.reaction.manifestation.coding.userSelected" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction.description">
+      <path value="AllergyIntolerance.reaction.description" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction.onset">
+      <path value="AllergyIntolerance.reaction.onset" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction.severity">
+      <path value="AllergyIntolerance.reaction.severity" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction.exposureRoute">
+      <path value="AllergyIntolerance.reaction.exposureRoute" />
+      <max value="0" />
+    </element>
+    <element id="AllergyIntolerance.reaction.note">
+      <path value="AllergyIntolerance.reaction.note" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

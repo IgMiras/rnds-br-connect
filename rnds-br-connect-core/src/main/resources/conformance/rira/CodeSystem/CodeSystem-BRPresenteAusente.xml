@@ -1,0 +1,28 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="BRPresenteAusente" />
+  <meta>
+    <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCodeSystemQuestionario" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRPresenteAusente" />
+  <version value="1.0" />
+  <name value="CodeSystem-BRPresenteAusente" />
+  <status value="active" />
+  <date value="2024-11-01T14:53:09-03:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Code System utilizado para definir o valor atribuído ao nas resposta do questionário dos Marcos do Desenvolvimento da Criança." />
+  <caseSensitive value="true" />
+	<content value="complete" />
+  <concept>
+    <code value="Presente" />
+    <display value="Presente" />
+  </concept>
+  <concept>
+    <code value="Ausente" />
+    <display value="Ausente" />
+  </concept>
+  <concept>
+    <code value="Vazio" />
+    <display value="Vazio" />
+  </concept>
+</CodeSystem>

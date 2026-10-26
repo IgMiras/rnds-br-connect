@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+	<id value="a091fd3f-1552-4bd2-8b92-02cfe23c4974"/>
+	<meta>
+		<lastUpdated value="2022-12-02T15:35:49.359189+00:00"/>
+	</meta>
+	<language value="pt-BR"/>
+	<url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRMedDRA"/>
+	<version value="1.2.0"/>
+	<name value="MedDRA"/>
+	<title value="Medical Dictionary for Regulatory Activities (MedDRA)"/>
+	<status value="active"/>
+	<experimental value="false"/>
+	<date value="2022-12-02T15:35:49.327439+00:00"/>
+	<publisher value="Ministério da Saúde do Brasil"/>
+	<description value="Medical Dictionary for Regulatory Activities."/>
+	<content value="complete"/>
+	<concept>
+		<code value="10002198"/>
+		<display value="Anafilaxia"/>
+		<definition value="Anafilaxia é uma reação alérgica aguda e grave que começa subitamente, entre menos de um minuto e até algumas horas após a exposição a um alérgeno, ao qual a pessoa desenvolveu hipersensibilidade, e que pode ser fatal."/>
+	</concept>
+	<concept>
+		<code value="10002424"/>
+		<display value="Angioedema"/>
+		<definition value="Edema súbito da derme, tecido subcutâneo, mucosa e tecido submucoso."/>
+	</concept>
+	<concept>
+		<code value="10003246"/>
+		<display value="Artrite"/>
+		<definition value="Inflamação numa ou mais articulações."/>
+	</concept>
+	<concept>
+		<code value="10003553"/>
+		<display value="Asma"/>
+		<definition value="Asma é uma doença inflamatória das vias aéreas."/>
+	</concept>
+	<concept>
+		<code value="10006482"/>
+		<display value="Broncoespasmo"/>
+		<definition value="Estreitamento do lúmen brônquico, em consequência da contração da musculatura brônquica."/>
+	</concept>
+	<concept>
+		<code value="10010741"/>
+		<display value="Conjuntivite"/>
+		<definition value="Inflamação da conjuntiva."/>
+	</concept>
+	<concept>
+		<code value="10003639"/>
+		<display value="Dermatite atópica"/>
+		<definition value="Caracteriza-se pela presença de erupções pruriginosas e com crosta."/>
+	</concept>
+	<concept>
+		<code value="10012442"/>
+		<display value="Dermatite de contato"/>
+		<definition value="Reação inflamatória que ocorre devido ao contato da pele com um agente irritante."/>
+	</concept>
+	<concept>
+		<code value="10012735"/>
+		<display value="Diarréia"/>
+		<definition value="Evacuação de fezes líquidas de forma frequente e sem controle, podendo ser aguda ou crônica"/>
+	</concept>
+	<concept>
+		<code value="10013968"/>
+		<display value="Dispnéia"/>
+		<definition value="É uma sensação de dificuldade em respirar."/>
+	</concept>
+	<concept>
+		<code value="10014184"/>
+		<display value="Eczema"/>
+		<definition value="Tipo de inflamação cutânea."/>
+	</concept>
+	<concept>
+		<code value="10023845"/>
+		<display value="Edema de Glote"/>
+		<definition value="Edema súbito da glote que impede a passagem de ar."/>
+	</concept>
+	<concept>
+		<code value="10015218"/>
+		<display value="Eritema Multiforme"/>
+		<definition value="Reação imunológica da pele e mucosas."/>
+	</concept>
+	<concept>
+		<code value="10012441"/>
+		<display value="Exantema bolhoso"/>
+		<definition value="Erupção cutânea constituída por bolhas."/>
+	</concept>
+	<concept>
+		<code value="10037868"/>
+		<display value="Exantema maculopapular"/>
+		<definition value="Erupção cutânea que se caracteriza pelo aparecimento de manchas e pápulas eritematosas."/>
+	</concept>
+	<concept>
+		<code value="10034972"/>
+		<display value="Fotossensibilidade"/>
+		<definition value="Queimaduras ou outras reações cutâneas desencadeadas pela exposição aos raios ultravioleta."/>
+	</concept>
+	<concept>
+		<code value="10028116"/>
+		<display value="Mucosite"/>
+		<definition value="A mucosite é uma inflamação da mucosa do tubo digestivo."/>
+	</concept>
+	<concept>
+		<code value="10029117"/>
+		<display value="Nefrite"/>
+		<definition value="Processo inflamatório localizado ao rim."/>
+	</concept>
+	<concept>
+		<code value="10007617"/>
+		<display value="Parada Cardiorespiratória"/>
+		<definition value="Interrupção súbita da circulação sanguínea e dos movimentos respiratórios."/>
+	</concept>
+	<concept>
+		<code value="10037087"/>
+		<display value="Prurido"/>
+		<definition value="Sensação de irritação intensa da pele, que induz a coceira."/>
+	</concept>
+	<concept>
+		<code value="10039083"/>
+		<display value="Rinite"/>
+		<definition value="Irritação e inflamação crônica ou aguda da mucosa nasal."/>
+	</concept>
+	<concept>
+		<code value="10073508"/>
+		<display value="Síndrome de DRESS"/>
+		<definition value="Reação adversa sistêmica a um fármaco, consistindo em erupções cutâneas graves, febre, adenopatias, hepatite e alterações hematológicas (hipereosinofilia e linfocitose atípica)."/>
+	</concept>
+	<concept>
+		<code value="10044223"/>
+		<display value="Síndrome de Lyell"/>
+		<definition value="Lesão dermatológica rara, de extrema gravidade, caracterizada pelo aparecimento súbito de febre elevada, sinais de toxicidade sistémica e exfoliação mucocutânea intensa."/>
+	</concept>
+	<concept>
+		<code value="10042033"/>
+		<display value="Síndrome de Stevens-Johnson"/>
+		<definition value="Erupções cutâneas generalizadas, febre, mucosite oral e conjuntivite purulenta graves."/>
+	</concept>
+	<concept>
+		<code value="10011224"/>
+		<display value="Tosse"/>
+		<definition value="Resposta reflexa ou voluntária do organismo, resultante de irritação das vias áreas e que funciona como uma contração espasmódica e normalmente repetitiva, do tórax."/>
+	</concept>
+	<concept>
+		<code value="10046735"/>
+		<display value="Urticária"/>
+		<definition value="Tipo de erupção cutânea, pruriginosa, caracterizada por placas salientes, que se assemelham às produzidas pela urtiga."/>
+	</concept>
+	<concept>
+		<code value="10047115"/>
+		<display value="Vasculite"/>
+		<definition value="Inflamação vascular, que pode estender-se ao endotélio, causando estenose e/ou oclusão."/>
+	</concept>
+	<concept>
+		<code value="10047700"/>
+		<display value="Vômito"/>
+		<definition value="É a expulsão ativa do conteúdo gástrico pela boca."/>
+	</concept>
+</CodeSystem>

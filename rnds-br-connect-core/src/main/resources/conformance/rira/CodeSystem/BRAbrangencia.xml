@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRAbrangencia" />
+  <version value="1.0" />
+  <name value="Abrangência" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-12-08T17:34:45" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica a abrangência territorial da atividade." />
+  <content value="complete" />
+  <concept>
+    <code value="01" />
+    <display value="" />
+  </concept>
+  <concept>
+    <code value="02" />
+    <display value="" />
+  </concept>
+  <concept>
+    <code value="03" />
+    <display value="" />
+  </concept>
+  <concept>
+    <code value="04" />
+    <display value="" />
+  </concept>
+</CodeSystem>

@@ -1,0 +1,56 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="BRSexo-1.0" />
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRSexo-1.0" />
+  <version value="01.01" />
+  <name value="BRSexo" />
+  <title value="Sexo" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-04-07T21:07:00.8812267+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Sexo de um indivíduo." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/administrative-gender" />
+      <version value="*" />
+      <concept>
+        <code value="male" />
+        <display value="Masculino" />
+        <designation>
+          <language value="en" />
+          <value value="Male" />
+        </designation>
+        <designation>
+          <language value="es" />
+          <value value="Masculino" />
+        </designation>
+      </concept>
+      <concept>
+        <code value="female" />
+        <display value="Feminino" />
+        <designation>
+          <language value="en" />
+          <value value="Female" />
+        </designation>
+        <designation>
+          <language value="es" />
+          <value value="Femenino" />
+        </designation>
+      </concept>
+      <concept>
+        <code value="unknown" />
+        <display value="Ignorado" />
+        <designation>
+          <language value="en" />
+          <value value="Unknow" />
+        </designation>
+        <designation>
+          <language value="es" />
+          <value value="Desconocido" />
+        </designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

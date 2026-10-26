@@ -25,7 +25,7 @@ import org.hl7.fhir.instance.model.api.IBaseResource;
  *
  * <ol>
  *   <li>{@code DefaultProfileValidationSupport} — resolve os resources base do FHIR R4 dos
- *       quais os nove perfis da RNDS derivam.
+ *       quais derivam os perfis da geração {@code BR*} da RNDS.
  *   <li>{@code PrePopulatedValidationSupport} — os artefatos da RNDS, na forma avulsa em
  *       que o DATASUS os distribui (ADR-03).
  *   <li>{@code SnapshotGeneratingValidationSupport} — <strong>obrigatório.</strong> Os
@@ -94,8 +94,8 @@ public class LocalFhirValidator {
     /**
      * Valida sem lançar exceção, devolvendo o resultado bruto.
      *
-     * <p>Usado pela suíte de testes e pelo {@code HomologationEvidenceCollector} da Fase 4,
-     * que precisa do {@code ValidationResult} inteiro — inclusive dos avisos.
+     * <p>Usado pela suíte de testes e, quando a Camada 5 existir, pelo coletor de evidências de
+     * homologação, que precisa do {@code ValidationResult} inteiro — inclusive dos avisos.
      *
      * @param recurso Bundle (ou qualquer resource) a validar
      * @return resultado completo da validação
@@ -110,8 +110,7 @@ public class LocalFhirValidator {
      */
     public static List<ca.uhn.fhir.validation.SingleValidationMessage> erros(ValidationResult resultado) {
         return resultado.getMessages().stream()
-                .filter(m -> m.getSeverity() == ResultSeverityEnum.ERROR
-                        || m.getSeverity() == ResultSeverityEnum.FATAL)
+                .filter(m -> m.getSeverity() == ResultSeverityEnum.ERROR || m.getSeverity() == ResultSeverityEnum.FATAL)
                 .toList();
     }
 

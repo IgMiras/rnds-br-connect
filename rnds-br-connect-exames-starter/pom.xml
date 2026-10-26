@@ -13,10 +13,14 @@
   <artifactId>rnds-br-connect-exames-starter</artifactId>
   <name>RNDS-BR Connect :: Catalogo de Exames</name>
   <description>
-    Catalogo dos 484 codigos de exame aceitos pela RNDS (451 LOINC + 33 GAL),
-    gerado por script a partir dos CodeSystems oficiais (Arquitetura 8.4, ADR-05).
-    Modulo reservado na Semana 1 apenas para fixar as coordenadas Maven.
-    Conteudo entra na Fase 3.
+    Catalogo dos 475 codigos de exame aceitos pela RNDS: 442 LOINC + 33 GAL.
+    Chegar a 442 exige deduplicar o BRNomeExameLOINC, que declara 2 codigos
+    duas vezes, e aplicar o compose.exclude do ValueSet BRNomeExame-2.0, que
+    remove outros 7. Somar os conceitos dos CodeSystems da 484; parar apos o
+    exclude da 477. Gerado por scripts/gerar-catalogo-exames.py.
+
+    NAO e tabela de equivalencia clinica (ADR-05): responde "este codigo e
+    aceito?", nao "qual codigo corresponde ao meu exame".
   </description>
 
   <dependencies>
@@ -24,6 +28,19 @@
       <groupId>br.rndsconnect</groupId>
       <artifactId>rnds-br-connect-core</artifactId>
       <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
     </dependency>
   </dependencies>
 </project>

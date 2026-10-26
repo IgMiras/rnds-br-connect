@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <lastUpdated value="2022-05-23T10:37:59.848+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoObservacao-1.0" />
+  <version value="1.1.0" />
+  <name value="Tipo de Observação" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2022-05-23T10:37:59.848+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Tipo de Observação." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoObservacao" />
+      <version value="*" />
+    </include>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRTabelaSUS" />
+      <version value="*" />
+      <concept>
+        <code value="0301100039" />
+      </concept>
+    </include>
+    <include>
+      <system value="https://loinc.org/" />
+      <version value="*" />
+      <concept>
+        <code value="8665-2" />
+        <display value="Data da Última Menstruação" />
+      </concept>
+      <concept>
+        <code value="56832-9" />
+        <display value="Exposição à Substâncias" />
+      </concept>
+      <concept>
+        <code value="11996-6" />
+        <display value="Quantidade de Gestações" />
+      </concept>
+      <concept>
+        <code value="63895-7" />
+        <display value="Tipo de Aleitamento Materno" />
+      </concept>
+      <concept>
+        <code value="29463-7" />
+        <display value="Peso Corporal" />
+      </concept>
+      <concept>
+        <code value="8480-6" />
+        <display value="Pressão Arterial Sistólica" />
+      </concept>
+      <concept>
+        <code value="8462-4" />
+        <display value="Pressão Arterial Diastólica" />
+      </concept>
+      <concept>
+        <code value="8280-0" />
+        <display value="Circuferência Abdominal" />
+      </concept>
+      <concept>
+        <code value="9843-4" />
+        <display value="Perímetro Cefálico" />
+      </concept>
+      <concept>
+        <code value="8302-2" />
+        <display value="Altura" />
+      </concept>
+      <concept>
+        <code value="11885-1" />
+        <display value="Idade Gestacional" />
+      </concept>
+      <concept>
+        <code value="11612-9" />
+        <display value="Quantidade de Abortos" />
+      </concept>
+      <concept>
+        <code value="48767-8" />
+        <display value="Anotação de Comentário para Narrativa [Interpretação]" />
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

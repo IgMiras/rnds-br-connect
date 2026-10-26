@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="ocupacao-ans-cargacmd" />
+  <meta>
+    <lastUpdated value="2024-07-17T17:00:00.000-03:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacaoANSeCargaCMD" />
+  <version value="1.0" />
+  <name value="Classificação Brasileira de Ocupações - CBO" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2024-07-17T17:00:00.000-03:00" />
+  <publisher value="Ministério do Trabalho e Emprego do Brasil" />
+  <description value="Classifica as profissões do mercado de trabalho brasileiro." />
+  <immutable value="false" />
+  <compose>
+		<include>
+			<valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BROcupacao-1.0" />
+    </include>
+		<include> 
+			<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+			<version value="*"/>
+			<concept>
+			 <code value="unknown"/>
+			 <display value="Unknown"/>
+			</concept>
+		 </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="48e1c9b8-61e5-43a8-9905-2a514f651fa5" />
+  <meta>
+    <lastUpdated value="2020-03-26T13:19:48.112+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRStatusRegulacaoAssistencial" />
+  <version value="1.0" />
+  <name value="Status da regulação assistencial" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-03-26T13:19:46.9743559+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Status da regulação assistencial." />
+  <content value="complete" />
+  <concept>
+    <code value="pending"/>
+    <display value="Pending"/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Pendente"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="booked"/>
+    <display value="Booked"/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Agendado"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="attended"/>
+    <display value="Attended/Hospitalized"/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Atendido/Internado"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Negado/Cancelado"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="absence"/>
+    <display value="Absence"/>
+    <designation>
+      <language value="pt-br"/>
+      <value value="Falta"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="excluded" />
+    <display value="Excluded" />
+    <designation>
+      <language value="pt-br"/>
+      <value value="Excluído"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="returned-to-requester" />
+    <display value="Returned to requester." />
+    <designation>
+      <language value="pt-br"/>
+      <value value="Devolvido para o solicitante."/>
+    </designation>
+  </concept>
+</CodeSystem>

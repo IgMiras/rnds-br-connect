@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="fee50b21-7f07-4048-ae8d-2c29acba98e1" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2020-09-20T20:38:38.152+00:00" />
+  </meta>
+  <language value="pt-BR" />
+  <url value="http://www.saude.gov.br/fhir/r4/ValueSet/BRReacoesAdversasMedDRA-1.0" />
+  <version value="1.0" />
+  <name value="Reações Adversas da MedDRA" />
+  <title value="Reações Adversas da MedDRA" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2020-09-20T20:38:38.026206+00:00" />
+  <publisher value="Ministério da Saúde do Brasil" />
+  <description value="Classifica as reações adversas de acordo com o Medical Dictionary for Regulatory Activities." />
+  <immutable value="false" />
+  <compose>
+    <include>
+      <system value="http://www.saude.gov.br/fhir/r4/CodeSystem/BRMedDRA" />
+      <version value="*" />
+    </include>
+  </compose>
+</ValueSet>
