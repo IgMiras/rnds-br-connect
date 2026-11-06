@@ -3,7 +3,16 @@
 Gera o catalogo dos codigos de exame que a RNDS aceita, a partir dos artefatos
 de conformidade oficiais.
 
-    uso: python3 scripts/gerar-catalogo-exames.py <diretorio-com-os-XMLs-da-RNDS>
+    uso: python3 scripts/gerar-catalogo-exames.py <pasta de UM pacote da RNDS>
+
+    exemplo: python3 scripts/gerar-catalogo-exames.py ../rnds-artefatos/br-core-ril-ria-rel
+
+Os tres artefatos sao localizados pela URL canonica, e nao pelo nome do arquivo,
+que muda entre distribuicoes. A pasta deve conter um pacote so: se houver duas
+copias da mesma URL com conteudos diferentes (o defeito no. 11), o gerador
+aborta em vez de escolher uma. E o que acontece se apontado para a raiz de
+conformance/ do framework, onde o pacote do RIRA traz copias proprias do
+BRNomeExame-2.0 e dos dois CodeSystems.
 
 O catalogo NAO e uma tabela de equivalencia clinica (ADR-05). Ele responde
 "este codigo e aceito pela RNDS?", nao "qual codigo corresponde ao meu exame".
@@ -25,17 +34,55 @@ A conta exige DUAS correcoes sobre a soma ingenua dos CodeSystems:
 Somar os conceitos dos dois CodeSystems da 484; parar apos o exclude da 477.
 Nenhum dos dois e o numero de codigos que a RNDS aceita.
 """
-import sys, os, glob, hashlib, datetime
+import sys, os, hashlib, datetime
 import xml.etree.ElementTree as ET
 
 NS = {'f': 'http://hl7.org/fhir'}
 CS = "http://www.saude.gov.br/fhir/r4/CodeSystem/"
+VS = "http://www.saude.gov.br/fhir/r4/ValueSet/BRNomeExame-2.0"
+
+# Diretorios de controle do Simplifier, ignorados como no copiar-conformance.sh.
+IGNORAR = {".simplifier", ".forge-corrected-files", "arquivos-marcos-desenv", ".git"}
 
 
-def achar(origem, nome):
-    for f in glob.glob(os.path.join(origem, "**", nome), recursive=True):
-        return f
-    raise SystemExit(f"ERRO: artefato nao encontrado na origem: {nome}")
+def url_de(f):
+    """URL canonica que o recurso do arquivo declara, ou None."""
+    profundidade = 0
+    try:
+        for evento, el in ET.iterparse(f, events=("start", "end")):
+            if evento == "start":
+                profundidade += 1
+                if profundidade == 2 and el.tag == "{http://hl7.org/fhir}url":
+                    return el.get("value")
+            else:
+                profundidade -= 1
+                if profundidade == 1:
+                    el.clear()
+    except ET.ParseError:
+        return None
+    return None
+
+
+def achar(origem, url):
+    """Arquivo da origem cujo recurso declara esta URL canonica.
+
+    Casa pela URL, nunca pelo nome do arquivo: a versao anterior procurava
+    ValueSet-BRNomeExame-2_0.xml, nome que nenhuma distribuicao versionada usa,
+    e abortava sem gerar nada.
+    """
+    achados = []
+    for pasta, dirs, arquivos in os.walk(origem):
+        dirs[:] = sorted(d for d in dirs if d not in IGNORAR)
+        for nome in sorted(arquivos):
+            if nome.endswith(".xml") and url_de(os.path.join(pasta, nome)) == url:
+                achados.append(os.path.join(pasta, nome))
+    if not achados:
+        raise SystemExit(f"ERRO: nenhum artefato declara a URL {url} em {origem}")
+    if len({open(f, "rb").read() for f in achados}) > 1:
+        raise SystemExit(
+            f"ERRO: {len(achados)} copias de {url} com conteudos diferentes em {origem} "
+            f"(defeito no. 11): {', '.join(achados)}. Aponte para a pasta de um pacote so.")
+    return achados[0]
 
 
 def raiz(f):
@@ -81,9 +128,9 @@ def versao(f):
 
 
 def main(origem):
-    f_loinc = achar(origem, "CodeSystem-BRNomeExameLOINC.xml")
-    f_gal = achar(origem, "CodeSystem-BRNomeExameGAL.xml")
-    f_vs = achar(origem, "ValueSet-BRNomeExame-2_0.xml")
+    f_loinc = achar(origem, CS + "BRNomeExameLOINC")
+    f_gal = achar(origem, CS + "BRNomeExameGAL")
+    f_vs = achar(origem, VS)
 
     excluidos = set()
     for e in raiz(f_vs).iter('{http://hl7.org/fhir}exclude'):
