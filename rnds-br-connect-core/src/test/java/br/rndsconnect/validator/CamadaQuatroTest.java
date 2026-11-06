@@ -85,7 +85,7 @@ class CamadaQuatroTest {
     }
 
     @Test
-    @DisplayName("Os perfis da RNDS vêm sem snapshot — a cadeia precisa gerá-lo")
+    @DisplayName("Os perfis do pacote do RIA e do REL vêm sem snapshot — a cadeia precisa gerá-lo")
     void perfisNaoTrazemSnapshot() {
         assertThat(sdSemSnapshotNaCarga)
                 .as("Se algum dia vierem com snapshot, o elo SnapshotGeneratingValidationSupport "

@@ -33,7 +33,8 @@ import org.hl7.fhir.r4.model.ValueSet;
  *
  * <h2>O problema que resolve</h2>
  *
- * <p>Nenhum StructureDefinition da RNDS traz {@code snapshot}. Ate o RIRA, gera-los em tempo
+ * <p>A maioria dos StructureDefinition da RNDS vem sem {@code snapshot}; no pacote do RIA e do
+ * REL, nenhum dos 36 o traz. Ate o RIRA, gera-los em tempo
  * de execucao custava pouco mais de um segundo. O REDFM mudou o quadro: seus perfis derivam do
  * IG BR-Core em cadeias de ate tres niveis, e a JVM morre com {@code OutOfMemoryError} mesmo
  * com 4 GB de heap -- com apenas 102 artefatos e 8 MB em disco.

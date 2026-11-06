@@ -8,8 +8,9 @@ MustSupport com max != 0 no `differential` e no `snapshot`, e mostra a
 diferenca. A lista de servicos e de perfis e LIDA do proprio
 AuditoriaEmissao.java, para nao divergir dele.
 
-Nenhum StructureDefinition da RNDS e publicado com snapshot: quem o tem foi
-gerado por scripts/gerar-snapshots.sh e gravado de volta no arquivo. Perfil
+A maioria dos StructureDefinition da RNDS e publicada sem snapshot (no pacote do
+RIA e do REL, nenhum dos 36; no do REDFM, 19 de 183): quem o tem veio assim da
+distribuicao ou foi gerado por scripts/gerar-snapshots.sh e gravado de volta. Perfil
 sem snapshot aparece como SEM SNAPSHOT -- e esse e o dado que decide se a
 troca da auditoria e possivel hoje ou se depende de gerar snapshot antes.
 
