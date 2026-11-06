@@ -11,7 +11,7 @@ import java.util.Set;
  * Registro das estratégias de mapeamento, uma por domínio.
  *
  * <p>É o ponto onde o sistema cliente declara <em>como</em> seu vocabulário se traduz para o
- * da RNDS. Montado uma vez na inicialização da aplicação e consultado a cada envio.
+ * da RNDS. Montado uma vez na inicialização da aplicação e consultado a cada documento preparado.
  *
  * <p><strong>Domínio sem estratégia registrada é erro, não omissão.</strong> Se o fluxo
  * precisa traduzir {@code VACINA} e ninguém registrou uma estratégia para {@code VACINA}, o

@@ -1372,8 +1372,8 @@ class FacadeIntegracaoTest {
         // Deixou de ser relatório. A igualdade vale nos dois sentidos de propósito: lacuna nova
         // reprova, e lacuna que deixou de existir reprova também — quem implementa um MustSupport
         // declarado inexequível tem de apagar a declaração, e quem apaga uma declaração sem
-        // implementar vê a suíte vermelha. Era este o passo que faltava para o número 30 deixar
-        // de ser alegação.
+        // implementar vê a suíte vermelha. Era este o passo que faltava para a contagem das lacunas
+        // declaradas deixar de ser alegação.
         assertThat(documentos)
                 .as("os sete documentos do escopo foram auditados")
                 .hasSize(7);

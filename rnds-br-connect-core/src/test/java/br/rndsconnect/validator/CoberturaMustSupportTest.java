@@ -123,7 +123,7 @@ class CoberturaMustSupportTest {
      * oficiais excedem o que cada serviço precisa.
      */
     private static final Map<Servico, List<String>> PERFIS_INSTANCIADOS = Map.of(
-            // Os tres servicos que emitem Condition usam perfis DIFERENTES para ele, e as
+            // Os servicos que emitem Condition usam perfis DIFERENTES para ele, e as
             // regras se contradizem: clinicalStatus e obrigatorio no BRCID10Avaliado-1.0 e
             // PROIBIDO no BRCondicaoSaude. E a terceira inversao documentada entre servicos.
             // A constante RIA cobre as DUAS variantes, rotina e campanha, como o Javadoc do

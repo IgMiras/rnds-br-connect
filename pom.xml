@@ -120,10 +120,11 @@
               primeiro teste rodar.
 
               O numero nao e arbitrario: 77 MB em disco viram alguns GB de objetos
-              Java, porque cada conceito e um objeto com strings. Se o SA e o RAC
-              entrarem com seus proprios pacotes, este valor precisa ser revisto,
-              e o custo de manter cadastros em CodeSystem passa a ser um argumento
-              do trabalho, nao apenas um detalhe de configuracao.
+              Java, porque cada conceito e um objeto com strings. O SA e o RAC ja
+              entraram com seus proprios pacotes, e a suite passa com este valor; se
+              outros pacotes entrarem, ele precisa ser revisto, e o custo de manter
+              cadastros em CodeSystem e um argumento do trabalho, nao apenas um
+              detalhe de configuracao.
             -->
             <argLine>-Xmx2g</argLine>
             <forkCount>1</forkCount>

@@ -17,7 +17,7 @@ import org.hl7.fhir.instance.model.api.IBaseResource;
 /**
  * Camada 4 — validação de conformidade local, aplicando Fail-Fast.
  *
- * <p>Executa em processo, a cada envio, o que o validador desktop do DATASUS executa
+ * <p>Executa em processo, a cada documento preparado, o que o validador desktop do DATASUS executa
  * manualmente: mesma base de artefatos, mesmo motor de validação, dentro do ciclo de vida
  * da integração.
  *
@@ -28,15 +28,14 @@ import org.hl7.fhir.instance.model.api.IBaseResource;
  *       quais derivam os perfis da geração {@code BR*} da RNDS.
  *   <li>{@code PrePopulatedValidationSupport} — os artefatos da RNDS, na forma avulsa em
  *       que o DATASUS os distribui (ADR-03).
- *   <li>{@code SnapshotGeneratingValidationSupport} — <strong>obrigatório.</strong> Os
- *       StructureDefinition da RNDS contêm apenas {@code differential}. Sem este elo o HAPI
+ *   <li>{@code SnapshotGeneratingValidationSupport} — <strong>obrigatório.</strong> A maioria
+ *       dos StructureDefinition da RNDS contém apenas {@code differential}. Sem este elo o HAPI
  *       não monta o snapshot, não aplica as restrições do perfil e aprova Bundles que a
  *       RNDS recusa. É a diferença entre validar e parecer validar.
  *   <li>{@code InMemoryTerminologyServerValidationSupport} — expande os ValueSets avulsos;
  *       sem ele os bindings {@code required} não são efetivamente conferidos.
- *   <li>{@code CommonCodeSystemsTerminologyService} — cobre os CodeSystems do HL7 que os
- *       ValueSets da RNDS compõem e que não estão nos arquivos do DATASUS:
- *       {@code composition-status}, {@code event-status} e {@code condition-clinical}.
+ *   <li>{@code CommonCodeSystemsTerminologyService} — valida os sistemas de códigos que não
+ *       se distribuem como CodeSystem, como UCUM, BCP-47, ISO 3166 e os tipos MIME.
  * </ol>
  *
  * @author Igor Mendes Domingues Miras
@@ -70,8 +69,8 @@ public class LocalFhirValidator {
         FhirInstanceValidator instanceValidator = new FhirInstanceValidator(chain);
         instanceValidator.setNoTerminologyChecks(false);
 
-        // Nota: Practitioner/{CNS} é referência externa legítima — o profissional não é
-        // resource do Bundle em nenhum dos três serviços. O HAPI emite AVISO de referência
+        // Nota: Practitioner/{CNS} é referência externa legítima nos documentos em que o
+        // profissional não é resource do Bundle. O HAPI emite AVISO de referência
         // não resolvida, e o contrato desta classe só reprova ERROR e FATAL.
 
         this.validator = ctx.newValidator();

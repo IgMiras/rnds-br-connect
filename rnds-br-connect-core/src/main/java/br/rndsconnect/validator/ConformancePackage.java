@@ -28,9 +28,10 @@ import org.hl7.fhir.r4.model.ValueSet;
  * A extensão do escopo aos seis serviços revelou que a premissa não generaliza.
  *
  * <p>O DATASUS distribui <strong>um pacote de artefatos por serviço</strong>, e eles divergem
- * entre si: <strong>153 de 402 URLs canônicas carregam conteúdos diferentes conforme o pacote
- * de origem</strong> — com a <strong>mesma versão declarada</strong>. É o defeito nº 11, e o
- * mais grave dos doze documentados, porque ataca o próprio mecanismo de rastreabilidade.
+ * entre si: nas quatro distribuições de serviço, <strong>145 de 424 URLs canônicas carregam
+ * conteúdos diferentes conforme o pacote de origem</strong>, 135 delas com a <strong>mesma versão
+ * declarada</strong> (ver {@code scripts/sonda-urls-divergentes.py}). É o defeito nº 11, e o mais
+ * grave dos documentados, porque ataca o próprio mecanismo de rastreabilidade.
  *
  * <p>O caso mais claro é o {@code BRImunobiologico}, versão {@code 02.16} e data
  * {@code 2023-01-12} em todos os pacotes:
@@ -62,8 +63,9 @@ import org.hl7.fhir.r4.model.ValueSet;
  * <h2>Duas características dos artefatos que exigem tratamento</h2>
  *
  * <ol>
- *   <li><em>Nenhum StructureDefinition da RNDS traz {@code snapshot}</em> — todos publicam
- *       apenas {@code differential}. Isso não é tratado aqui, e sim na cadeia de validação,
+ *   <li><em>A maioria dos StructureDefinition da RNDS não traz {@code snapshot}</em> — publica
+ *       apenas {@code differential}, e no pacote do RIA e do REL nenhum o traz. Isso não é
+ *       tratado aqui, e sim na cadeia de validação,
  *       pelo elo {@code SnapshotGeneratingValidationSupport} (ver {@link LocalFhirValidator}).
  *   <li><em>A maioria dos ValueSets declara {@code compose.include.version = "*"}</em> — ver
  *       {@link #normalizarVersaoCoringa(ValueSet)}.

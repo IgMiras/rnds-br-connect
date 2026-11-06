@@ -10,7 +10,7 @@ import lombok.Value;
  * DTO enriquecido do REL: o que a Camada 2 entrega à Camada 3 no serviço de resultado de
  * exame laboratorial.
  *
- * <p>É o primeiro dos três serviços com <strong>cardinalidade variável de resources</strong>.
+ * <p>É o primeiro serviço com <strong>cardinalidade variável de resources</strong>.
  * O RIA-R produz dois ou três; o RIA-C, sempre dois. O REL produz
  * {@code 2 + 2 × (número de exames)}: uma {@code Composition}, uma {@code Condition} e, para
  * cada exame, um {@code Observation} com seu {@code Specimen}.

@@ -40,8 +40,9 @@
 # pertencem a OUTROS servicos e que o REDFM nunca referencia.
 #
 # UM PACOTE POR SERVICO. O DATASUS distribui pacotes distintos por servico, e
-# eles DIVERGEM entre si: 153 de 402 URLs canonicas carregam conteudos
-# diferentes conforme a origem, COM A MESMA VERSAO DECLARADA (defeito no. 11).
+# eles DIVERGEM entre si: nas quatro distribuicoes de servico, 145 de 424 URLs
+# canonicas carregam conteudos diferentes conforme a origem, 135 delas COM A
+# MESMA VERSAO DECLARADA (defeito no. 11; ver scripts/sonda-urls-divergentes.py).
 # Por isso o destino e parametrizavel e os pacotes convivem lado a lado, cada
 # um no seu subdiretorio.
 #
