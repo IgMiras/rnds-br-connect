@@ -13,7 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
- * O catálogo dos 477 códigos de exame aceitos pela RNDS.
+ * O catálogo dos 475 códigos de exame aceitos pela RNDS.
  *
  * <p>O teste que carrega o argumento é {@link #osSeteExcluidosNaoSaoAceitos()}: os sete
  * códigos que o {@code compose.exclude} do ValueSet remove <strong>existem</strong> no
