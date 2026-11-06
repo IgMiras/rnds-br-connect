@@ -66,9 +66,11 @@ import org.hl7.fhir.r4.model.Specimen;
  * <p>Verificado por experimento (ver {@code SondaValueQuantityTest}): {@code Quantity} com
  * {@code system} e {@code code} UCUM é <strong>reprovado</strong>; com {@code unit} textual e
  * sem os dois, é <strong>aprovado</strong>. O Builder emite a segunda forma. A consequência é
- * que a unidade chega legível para humano e não processável por máquina — e que o
- * {@code LoincUcumCrossValidator} previsto para a Frente A não tem objeto neste perfil, porque
- * não há unidade UCUM a cruzar.
+ * que a unidade chega legível para humano e não processável por máquina (defeito nº 9). O
+ * cruzamento exame × unidade previsto para a Frente A continua possível sobre os dados de
+ * entrada, na Camada 2, mas protegeria só o emissor: o receptor recebe a unidade como texto e
+ * não tem contra o que conferi-la. O que o perfil impede é transmitir a unidade codificada, e
+ * não verificá-la localmente.
  *
  * <p><strong>4. O {@code Specimen} é quase vazio.</strong> O perfil
  * {@code BRAmostraBiologica-1.0} proíbe tudo exceto {@code type} — sem {@code subject}, sem

@@ -121,11 +121,12 @@ public class EnrichedRegistroExameLaboratorial {
         /**
          * Resultado numérico. Exige {@link #unidadeMedida}.
          *
-         * <p><strong>Limitação estrutural do perfil.</strong> O framework não verifica se a
-         * unidade é compatível com o exame, e <em>não tem como</em>: o perfil proíbe codificar
-         * a unidade (ver {@link #unidadeMedida}), de modo que não existe vocabulário contra o
-         * qual cruzá-la. O {@code LoincUcumCrossValidator} previsto como elo 5 da Frente A não
-         * tem objeto no REL v3.2.1.
+         * <p><strong>Limitação.</strong> O framework não verifica se a unidade é compatível
+         * com o exame. A verificação seria possível sobre os dados de entrada, contra uma
+         * tabela exame × unidade fornecida pela instituição, mas protegeria só o emissor: o
+         * perfil proíbe codificar a unidade (ver {@link #unidadeMedida}), e o receptor a recebe
+         * como texto, sem contra o que conferi-la (defeito nº 9). O elo 5 da Frente A, previsto
+         * para isso, não foi implementado e consta dos trabalhos futuros como regra opcional.
          */
         BigDecimal resultadoQuantitativo;
         /**
