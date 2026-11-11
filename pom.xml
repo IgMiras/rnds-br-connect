@@ -60,6 +60,17 @@
         <artifactId>hapi-fhir-validation-resources-r4</artifactId>
         <version>${hapi.version}</version>
       </dependency>
+      <!-- Estruturas R5, so em tempo de execucao. O FhirInstanceValidator do HAPI 5.1.0
+           converte tudo para R5 e cria um FhirContext R5 ao inicializar; sem este jar, a
+           primeira validacao falha com "Could not find the HAPI-FHIR structure JAR on the
+           classpath for version R5". O hapi-fhir-validation 5.1.0 nao o declara; o
+           Validador Local da RNDS o traz em libs/. -->
+      <dependency>
+        <groupId>ca.uhn.hapi.fhir</groupId>
+        <artifactId>hapi-fhir-structures-r5</artifactId>
+        <version>${hapi.version}</version>
+        <scope>runtime</scope>
+      </dependency>
       <!-- Fonte de mapeamento terminologico em YAML (Camada 2, Frente B). -->
       <dependency>
         <groupId>org.yaml</groupId>
