@@ -246,6 +246,52 @@ class RacBundleBuilderTest {
                         System.out.printf("  [%s] %s: %s%n", m.getSeverity(), m.getLocationString(), m.getMessage()));
     }
 
+    // ══ Combinações de opcionais entre o mínimo e o máximo ══════════════
+
+    @Test
+    @DisplayName("Variação 1: mínimo com alergia e plano de cuidados, sem medidas, prescrição nem atestado")
+    void variacaoAlergiaEPlanoDeCuidados() {
+        EnrichedRegistroAtendimentoClinico base = completo().build();
+        Bundle b = builder()
+                .build(minimo()
+                        .alergias(base.getAlergias())
+                        .planoCuidados("Repouso pós-medicação intramuscular")
+                        .build());
+        imprimir(b);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 2: paciente por CPF, com medidas e atestado, sem alergia nem prescrição")
+    void variacaoCpfComMedidasEAtestado() {
+        EnrichedRegistroAtendimentoClinico base = completo().build();
+        Bundle b = builder()
+                .build(minimo()
+                        .cnsPaciente(null)
+                        .cpfPaciente("01234567890")
+                        .medidas(medidas())
+                        .atestados(base.getAtestados())
+                        .build());
+        imprimir(b);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 3: contato com local e motivo e prescrição, sem medidas, alergia nem atestado")
+    void variacaoContatoDetalhadoComPrescricao() {
+        EnrichedRegistroAtendimentoClinico base = completo().build();
+        Bundle b = builder()
+                .build(minimo()
+                        .contato(contato()
+                                .localAtendimento("Consultório")
+                                .motivoAtendimento("Varizes esofagianas sem sangramento.")
+                                .build())
+                        .prescricao(base.getPrescricao())
+                        .build());
+        imprimir(b);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
     @Test
     @DisplayName("O Bundle completo do RAC passa na Camada 4")
     void bundleCompletoEConforme() {

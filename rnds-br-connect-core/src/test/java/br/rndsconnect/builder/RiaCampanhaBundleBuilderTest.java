@@ -208,6 +208,42 @@ class RiaCampanhaBundleBuilderTest {
         assertThat(c.getMeta().getProfile().get(0).getValue()).endsWith("Campanha-2.0");
     }
 
+    // ══ Variações: o RIA-C não tem opcionais; o que varia são as formas alternativas ══
+
+    @Test
+    @DisplayName("Variação 1: paciente identificado pelo CNS, e não pelo CPF")
+    void variacaoPacientePorCns() {
+        Bundle b = builderCom("cccccccc-0001-4ccc-8ccc-ccccccccccc1", "cccccccc-0001-4ccc-8ccc-ccccccccccc2")
+                .build(campanha()
+                        .cpfPaciente(null)
+                        .cnsPaciente("898005900000823")
+                        .build());
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 2: outro grupo de atendimento, outra condição maternal e dose de reforço")
+    void variacaoOutrosCodigosDeDominio() {
+        Bundle b = builderCom("cccccccc-0002-4ccc-8ccc-ccccccccccc1", "cccccccc-0002-4ccc-8ccc-ccccccccccc2")
+                .build(campanha()
+                        .grupoAtendimento(CodedValue.rnds("BRGrupoAtendimento", "000701"))
+                        .condicaoMaternal(CodedValue.rnds("BRCondicaoMaternal", "2"))
+                        .doseNumber("9")
+                        .build());
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 3: lote alfanumérico e outro fabricante")
+    void variacaoLoteAlfanumerico() {
+        Bundle b = builderCom("cccccccc-0003-4ccc-8ccc-ccccccccccc1", "cccccccc-0003-4ccc-8ccc-ccccccccccc2")
+                .build(campanha()
+                        .codigoFabricante("152")
+                        .lote("AB-123/X")
+                        .build());
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
     // ══ Auxiliares ══════════════════════════════════════════════════════
 
     private static org.hl7.fhir.r4.model.CodeableConcept conceito(String cs, String code) {

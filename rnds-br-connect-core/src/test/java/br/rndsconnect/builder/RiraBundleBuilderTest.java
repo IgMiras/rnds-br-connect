@@ -202,6 +202,57 @@ class RiraBundleBuilderTest {
                         "pending", "returned-to-requester", "booked", "attended", "cancelled", "absence", "excluded");
     }
 
+    // ══ Combinações de opcionais e de estados ═══════════════════════════
+
+    @Test
+    @DisplayName("Variação 1: os sete estados da regulação no mesmo documento")
+    void variacaoSeteEstados() {
+        List<EventoRegulacao> todos = java.util.Arrays.stream(EstadoRegulacao.values())
+                .map(e -> EventoRegulacao.builder().estado(e).quando(QUANDO).build())
+                .toList();
+        Bundle b = builder().build(solicitacao().eventos(todos).build());
+        Composition c = (Composition) b.getEntry().get(0).getResource();
+        assertThat(c.getEvent()).hasSize(7);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 2: urgente, paciente por CPF, observação da condição e sem executante")
+    void variacaoUrgenteSemExecutante() {
+        Bundle b = builder()
+                .build(solicitacao()
+                        .cnsPaciente(null)
+                        .cpfPaciente("01234567890")
+                        .caraterAtendimento(new CodedValue("http://hl7.org/fhir/request-priority", "urgent"))
+                        .observacaoCondicao("Suspeita de varizes esofagianas.")
+                        .cnesExecutante(null)
+                        .build());
+        assertThat(b.getEntry()).hasSize(4);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 3: trajetória que termina sem agendamento (pendente, cancelada, excluída)")
+    void variacaoSemAgendamento() {
+        Bundle b = builder()
+                .build(solicitacao()
+                        .eventos(List.of(
+                                EventoRegulacao.builder()
+                                        .estado(EstadoRegulacao.PENDENTE)
+                                        .quando(QUANDO)
+                                        .build(),
+                                EventoRegulacao.builder()
+                                        .estado(EstadoRegulacao.CANCELADA)
+                                        .quando(QUANDO)
+                                        .build(),
+                                EventoRegulacao.builder()
+                                        .estado(EstadoRegulacao.EXCLUIDA)
+                                        .quando(QUANDO)
+                                        .build()))
+                        .build());
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
     // ══ Topologia encadeada ═════════════════════════════════════════════
 
     @Test

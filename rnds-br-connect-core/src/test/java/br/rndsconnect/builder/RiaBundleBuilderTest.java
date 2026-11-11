@@ -212,6 +212,55 @@ class RiaBundleBuilderTest {
                 .hasMessageContaining("viaAdministracao");
     }
 
+    // ══ Combinações de opcionais entre o mínimo e o máximo ══════════════
+
+    @Test
+    @DisplayName("Variação 1: estratégia Especial, só com CID-10 e CBO do prescritor")
+    void variacaoEspecialSoComCidECbo() {
+        Bundle b = builderCom(
+                        "aaaaaaaa-0001-4aaa-8aaa-aaaaaaaaaaa1",
+                        "aaaaaaaa-0001-4aaa-8aaa-aaaaaaaaaaa2",
+                        "aaaaaaaa-0001-4aaa-8aaa-aaaaaaaaaaa3")
+                .build(minimo()
+                        .estrategiaVacinacao(CodedValue.rnds("BREstrategiaVacinacao", "2"))
+                        .cboPrescritor(CodedValue.rnds("BRCBO", "225103"))
+                        .cid10(CodedValue.rnds("BRCID10", "B15"))
+                        .dataInicioCondicao(INICIO_CONDICAO)
+                        .build());
+        assertThat(b.getEntry()).hasSize(3);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 2: transcrição de caderneta, com país de origem e sem fabricante nem lote")
+    void variacaoTranscricaoSemFabricanteNemLote() {
+        Bundle b = builderCom("aaaaaaaa-0002-4aaa-8aaa-aaaaaaaaaaa1", "aaaaaaaa-0002-4aaa-8aaa-aaaaaaaaaaa2")
+                .build(minimo()
+                        .registroOrigem(CodedValue.rnds("BRRegistroOrigem", "01"))
+                        .primarySource(false)
+                        .codigoPaisOrigem("10")
+                        .build());
+        assertThat(b.getEntry()).hasSize(2);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 3: fabricante, lote e validade, hanseníase e pesquisa clínica parcial, sem CID-10")
+    void variacaoLoteEPesquisaParcial() {
+        Bundle b = builderCom("aaaaaaaa-0003-4aaa-8aaa-aaaaaaaaaaa1", "aaaaaaaa-0003-4aaa-8aaa-aaaaaaaaaaa2")
+                .build(minimo()
+                        .codigoFabricante("152")
+                        .lote("220262")
+                        .validadeLote(LocalDate.of(2025, 5, 10))
+                        .contatoHanseniase(true)
+                        .pesquisaClinica(PesquisaClinica.builder()
+                                .numeroProtocoloEstudoAnvisa("GU1AMT9CYR")
+                                .build())
+                        .build());
+        assertThat(b.getEntry()).hasSize(2);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
     // ══ Auxiliares ══════════════════════════════════════════════════════
 
     private static String canonico(Bundle b) {

@@ -148,6 +148,55 @@ class SaBundleBuilderTest {
                         System.out.printf("  [%s] %s: %s%n", m.getSeverity(), m.getLocationString(), m.getMessage()));
     }
 
+    // ══ Combinações de opcionais entre o mínimo e o máximo ══════════════
+
+    @Test
+    @DisplayName("Variação 1: contato, um diagnóstico, um procedimento e o resumo, sem alergia nem prescrição")
+    void variacaoSoObrigatoriosDeSecao() {
+        Bundle b = builder()
+                .build(sumario()
+                        .diagnosticos(List.of(Diagnostico.builder()
+                                .cid10(rnds("BRCID10", "J121"))
+                                .ordem(1)
+                                .build()))
+                        .restricaoFuncional(null)
+                        .alergia(null)
+                        .prescricaoAlta(null)
+                        .planoCuidados(null)
+                        .informacoesAdicionais(null)
+                        .build());
+        imprimir(b);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 2: alergia e plano de cuidados, sem prescrição nem restrição funcional")
+    void variacaoComAlergiaSemPrescricao() {
+        Bundle b = builder()
+                .build(sumario()
+                        .restricaoFuncional(null)
+                        .prescricaoAlta(null)
+                        .informacoesAdicionais(null)
+                        .build());
+        imprimir(b);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 3: paciente por CPF, com prescrição e procedimento, sem diagnóstico nem alergia")
+    void variacaoPrescricaoSemDiagnosticoNemAlergia() {
+        Bundle b = builder()
+                .build(sumario()
+                        .cnsPaciente(null)
+                        .cpfPaciente("01234567890")
+                        .diagnosticos(List.of())
+                        .alergia(null)
+                        .planoCuidados(null)
+                        .build());
+        imprimir(b);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
     @Test
     @DisplayName("O Bundle do SA passa na Camada 4")
     void bundleConstruidoEConforme() {

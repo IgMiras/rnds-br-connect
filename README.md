@@ -26,7 +26,7 @@ Java 17 e Maven 3. Na raiz do repositório:
 mvn clean install
 ```
 
-O comando compila os dois módulos, roda os testes (181 no core e 9 no `rnds-br-connect-exames-starter`) e instala os artefatos no repositório Maven local. O projeto ainda não está no Maven Central; depois de instalar, declare a dependência:
+O comando compila os dois módulos, roda os testes (202 no core e 9 no `rnds-br-connect-exames-starter`) e instala os artefatos no repositório Maven local. O projeto ainda não está no Maven Central; depois de instalar, declare a dependência:
 
 ```xml
 <dependency>

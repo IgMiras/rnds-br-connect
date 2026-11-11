@@ -117,6 +117,51 @@ class RedfmBundleBuilderTest {
         assertThat(LocalFhirValidator.erros(r)).isEmpty();
     }
 
+    // ══ Combinações de opcionais entre o mínimo e o máximo ══════════════
+
+    @Test
+    @DisplayName("Variação 1: receita embutida, sem as descrições em texto livre")
+    void variacaoSemTextosLivres() {
+        Bundle b = builder()
+                .build(dispensacao()
+                        .descricaoMedicamento(null)
+                        .unidadeQuantidade(null)
+                        .prescricao(prescricao().descricaoUnidadeDose(null).build())
+                        .build());
+        assertThat(b.getEntry()).hasSize(3);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 2: receita na RNDS, paciente por CPF, substituição de documento e observação")
+    void variacaoReceitaNaRndsComSubstituicao() {
+        Bundle b = builder()
+                .build(dispensacao()
+                        .cnsPaciente(null)
+                        .cpfPaciente("01234567890")
+                        .prescricao(null)
+                        .idPrescricaoNaRnds("563BFD7432")
+                        .substituiDocumentoRnds("Composition/123456")
+                        .observacaoDispensacao("Retirada pelo responsável.")
+                        .build());
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 3: dispensação parcial, com a justificativa exigida, e receita com observação")
+    void variacaoParcialComJustificativa() {
+        Bundle b = builder()
+                .build(dispensacao()
+                        .tipoDispensacao(CodedValue.rnds("BRTipoDispensacaoRealizada", "partial-dispensing"))
+                        .quantidade(new BigDecimal("10"))
+                        .observacaoDispensacao("Estoque insuficiente; restante a retirar.")
+                        .prescricao(prescricao()
+                                .observacao("Tomar após as refeições.")
+                                .build())
+                        .build());
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
     // ══ O argumento arquitetônico ═══════════════════════════════════════
 
     @Test

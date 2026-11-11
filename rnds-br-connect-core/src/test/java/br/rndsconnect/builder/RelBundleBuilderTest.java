@@ -302,6 +302,60 @@ class RelBundleBuilderTest {
                 .hasMessageContaining("pelo menos um exame");
     }
 
+    // ══ Combinações de opcionais entre o mínimo e o máximo ══════════════
+
+    @Test
+    @DisplayName("Variação 1: qualitativo sem patógeno, e paciente identificado pelo CPF")
+    void variacaoQualitativoSemPatogenoComCpf() {
+        Bundle b = builder()
+                .build(laudo()
+                        .cnsPaciente(null)
+                        .cpfPaciente("01234567890")
+                        .exames(List.of(exameQualitativo().patogeno(null).build()))
+                        .build());
+        assertThat(b.getEntry()).hasSize(4);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 2: quantitativo com interpretação e observação, sem patógeno")
+    void variacaoQuantitativoComInterpretacao() {
+        Bundle b = builder()
+                .build(laudo().exames(List.of(exameQualitativo()
+                                .resultadoQualitativo(null)
+                                .resultadoQuantitativo(new BigDecimal("4.7"))
+                                .unidadeMedida("log10 cópias/mL")
+                                .interpretacao(CodedValue.rnds("BRResultadoQualitativoExame", "1"))
+                                .observacao("Amostra repetida.")
+                                .patogeno(null)
+                                .build()))
+                        .build());
+        assertThat(b.getEntry()).hasSize(4);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 3: três exames com combinações diferentes de opcionais no mesmo laudo")
+    void variacaoTresExamesMistos() {
+        Bundle b = builder()
+                .build(laudo().exames(List.of(
+                                exameQualitativo().build(),
+                                exameQualitativo()
+                                        .patogeno(null)
+                                        .observacao("Sem observações adicionais.")
+                                        .build(),
+                                exameQualitativo()
+                                        .resultadoQualitativo(null)
+                                        .resultadoQuantitativo(new BigDecimal("12"))
+                                        .unidadeMedida("UI/mL")
+                                        .interpretacao(CodedValue.rnds("BRResultadoQualitativoExame", "3"))
+                                        .patogeno(null)
+                                        .build()))
+                        .build());
+        assertThat(b.getEntry()).as("2 + 2×N").hasSize(8);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
     // ══ Auxiliares ══════════════════════════════════════════════════════
 
     private static String canonico(Bundle b) {
