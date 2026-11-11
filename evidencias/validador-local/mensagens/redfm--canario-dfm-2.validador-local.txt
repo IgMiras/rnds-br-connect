@@ -1,0 +1,50 @@
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:07.603
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 3
+-----------------------------------
+
+====== item[0] ======
+
+-----------------------------------
+>>> Validação COM FALHAS ----------
+   Δ 00:00:02.617
+-----------------------------------
+               error: 3
+-----------------------------------
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Unable to find matching profile for urn:uuid:ff000000-0000-4000-8000-000000000518 among choices: http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSMedicamentoDispensadoFornecido",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).section[0].entry[0]", "Line 59, Col 16" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Details for urn:uuid:ff000000-0000-4000-8000-000000000518 matching against Profilehttp://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSMedicamentoDispensadoFornecido",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).section[0].entry[0]", "Line 59, Col 16" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) dfm-2: A quantidade (quantity) e o indivíduo que retirou o medicamento (receiver) são obrigatórios caso a prescrição seja atendida. [MedicationDispense.medication.ofType(Reference).exists() implies (MedicationDispense.quantity.exists() and MedicationDispense.receiver.exists())]",
+    "location": [ "Bundle.entry[1].resource.ofType(MedicationDispense)", "Line 302, Col 18" ]
+  } ]
+}
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:07.603
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 3
+-----------------------------------

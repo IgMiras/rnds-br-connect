@@ -1,0 +1,40 @@
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:09.209
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 1
+-----------------------------------
+
+====== item[0] ======
+
+-----------------------------------
+>>> Validação COM FALHAS ----------
+   Δ 00:00:02.131
+-----------------------------------
+               error: 1
+-----------------------------------
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegulacaoAssistencial, Element 'Bundle.entry[0].resource.ofType(Composition).event': minimum required = 1, but only found 0",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition)", "Line 41, Col 21" ]
+  } ]
+}
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:09.209
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 1
+-----------------------------------

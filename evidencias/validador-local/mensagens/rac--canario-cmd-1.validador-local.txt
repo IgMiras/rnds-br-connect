@@ -1,0 +1,75 @@
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:10.021
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 8
+-----------------------------------
+
+====== item[0] ======
+
+-----------------------------------
+>>> Validação COM FALHAS ----------
+   Δ 00:00:02.863
+-----------------------------------
+               error: 8
+-----------------------------------
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) This element does not match any known slice defined in the profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroAtendimentoClinico",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).section[0]", "Line 58, Col 12" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) This element does not match any known slice defined in the profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroAtendimentoClinico",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).section[2]", "Line 72, Col 12" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroAtendimentoClinico, Element 'Bundle.entry[0].resource.ofType(Composition).section[informacoesContatoAssistencial]': minimum required = 1, but only found 0",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition)", "Line 41, Col 21" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroAtendimentoClinico, Element 'Bundle.entry[0].resource.ofType(Composition).section[procedimentosRealizados]': minimum required = 1, but only found 0",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition)", "Line 41, Col 21" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Details for urn:uuid:7a000000-0000-4000-8000-000000000406 matching against Profilehttp://hl7.org/fhir/StructureDefinition/Procedure",
+    "location": [ "Bundle.entry[1].resource.ofType(Encounter).diagnosis[1].condition", "Line 278, Col 29" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) This element does not match any known slice defined in the profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoAssistencial-1.0",
+    "location": [ "resource.diagnosis[1]", "Line 276, Col 12" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoAssistencial-1.0, Element 'resource.diagnosis[procedure]': minimum required = 1, but only found 0",
+    "location": [ "resource", "Line 329, Col 29" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) cmd-1: O número de autorização deve possuir a seguinte máscara: 9999999-A-99-99-9999999-999999-9 [identifier.exists() implies identifier.value.matches('^\\\\d{6}-[ME]-\\\\d{2}-\\\\d{2}-\\\\d{6}-\\\\d{7}-\\\\d{1}$')]",
+    "location": [ "resource", "Line 464, Col 21" ]
+  } ]
+}
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:10.021
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 8
+-----------------------------------

@@ -1,0 +1,181 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "lastUpdated": "2024-12-30T11:46:12.000-03:00"
+  },
+  "identifier": {
+    "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-12345",
+    "value": "73549927"
+  },
+  "type": "document",
+  "timestamp": "2024-12-30T11:46:12.000-03:00",
+  "entry": [ {
+    "fullUrl": "urn:uuid:ff000000-0000-4000-8000-000000000101",
+    "resource": {
+      "resourceType": "Composition",
+      "meta": {
+        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSRegistroEletronicoDispensacaoFornecimentoMedicamento" ]
+      },
+      "status": "final",
+      "type": {
+        "coding": [ {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
+          "code": "REDFM"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value": "712176901347489"
+        }
+      },
+      "date": "2024-12-30T11:46:12-03:00",
+      "author": [ {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+          "value": "5354072"
+        }
+      } ],
+      "title": "Registro Eletrônico de Dispensação ou Fornecimento de Medicamentos",
+      "section": [ {
+        "title": "Medicamentos Dispensados",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "56445-0"
+          } ]
+        },
+        "entry": [ {
+          "reference": "urn:uuid:ff000000-0000-4000-8000-000000000102",
+          "display": "Amoxicilina 500 mg cápsula"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:ff000000-0000-4000-8000-000000000102",
+    "resource": {
+      "resourceType": "MedicationDispense",
+      "meta": {
+        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSMedicamentoDispensadoFornecido" ]
+      },
+      "contained": [ {
+        "resourceType": "Practitioner",
+        "id": "pharmacist-crf",
+        "meta": {
+          "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSProfissional" ]
+        },
+        "identifier": [ {
+          "use": "official",
+          "type": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code": "RPH"
+            } ]
+          },
+          "system": "https://saude.gov.br/sid/crf-sp",
+          "value": "154735"
+        } ],
+        "active": true
+      } ],
+      "identifier": [ {
+        "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/dispensed-item-id",
+        "value": "e6f89964-b218-4fb3-9603-e0897c5c2181"
+      } ],
+      "status": "completed",
+      "category": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-category",
+          "code": "community"
+        } ]
+      },
+      "medicationReference": {
+        "reference": "urn:uuid:ff000000-0000-4000-8000-000000000103"
+      },
+      "subject": {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value": "712176901347489"
+        }
+      },
+      "performer": [ {
+        "id": "organization",
+        "actor": {
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+            "value": "5354072"
+          }
+        }
+      }, {
+        "id": "pharmacist",
+        "function": {
+          "coding": [ {
+            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
+            "code": "223405"
+          } ]
+        },
+        "actor": {
+          "reference": "#pharmacist-crf",
+          "identifier": {
+            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProfissional-1.0",
+            "value": "704200519817090"
+          }
+        }
+      } ],
+      "authorizingPrescription": [ {
+        "id": "in-rnds",
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id",
+          "value": "563BFD7432"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDispensacaoRealizada",
+          "code": "fully-dispensing"
+        } ]
+      },
+      "quantity": {
+        "value": 30,
+        "unit": "Cápsula"
+      },
+      "whenHandedOver": "2024-12-30T11:46:12-03:00",
+      "receiver": [ {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value": "712176901347489"
+        }
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:ff000000-0000-4000-8000-000000000103",
+    "resource": {
+      "resourceType": "Medication",
+      "meta": {
+        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSMedicamentoDispensado" ]
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRObmVMP",
+          "code": "@brasil12898180271",
+          "display": "Amoxicilina 500 mg cápsula"
+        } ]
+      },
+      "manufacturer": {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0",
+          "value": "21341776000145"
+        }
+      },
+      "form": {
+        "coding": [ {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida",
+          "code": "13"
+        } ]
+      },
+      "batch": {
+        "lotNumber": "587AT765H",
+        "expirationDate": "2025-10-31"
+      }
+    }
+  } ]
+}

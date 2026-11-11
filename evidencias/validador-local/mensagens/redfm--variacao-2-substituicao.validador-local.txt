@@ -1,0 +1,40 @@
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:07.151
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 1
+-----------------------------------
+
+====== item[0] ======
+
+-----------------------------------
+>>> Validação COM FALHAS ----------
+   Δ 00:00:02.613
+-----------------------------------
+               error: 1
+-----------------------------------
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) ValueSet http://hl7.org/fhir/R4/valueset-document-relationship-type.html not found by validator",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).relatesTo[0].code", "Line 41, Col 28" ]
+  } ]
+}
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:07.151
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 1
+-----------------------------------

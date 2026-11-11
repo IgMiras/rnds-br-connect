@@ -1,0 +1,26 @@
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:10.006
+-----------------------------------
+>>> Validação sem falhas ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 0
+       itens sucesso: 1
+-----------------------------------
+
+====== item[0] ======
+
+-----------------------------------
+>>> Validação sem falhas ----------
+   Δ 00:00:02.679
+-----------------------------------
+-----------------------------------
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "severity": "information",
+    "code": "informational",
+    "diagnostics": "No issues detected during validation"
+  } ]
+}

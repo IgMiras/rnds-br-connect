@@ -1,0 +1,50 @@
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:04.498
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 3
+-----------------------------------
+
+====== item[0] ======
+
+-----------------------------------
+>>> Validação COM FALHAS ----------
+   Δ 00:00:02.383
+-----------------------------------
+               error: 3
+-----------------------------------
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Unable to find matching profile for urn:uuid:22222222-2222-4222-8222-222222222222 among choices: http://www.saude.gov.br/fhir/r4/StructureDefinition/BRImunobiologicoAdministrado-3.0",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).section[0].entry[0]", "Line 50, Col 16" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Details for urn:uuid:22222222-2222-4222-8222-222222222222 matching against Profilehttp://www.saude.gov.br/fhir/r4/StructureDefinition/BRImunobiologicoAdministrado-3.0",
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).section[0].entry[0]", "Line 50, Col 16" ]
+  }, {
+    "severity": "error",
+    "code": "processing",
+    "diagnostics": "(PROFILE) Profile http://www.saude.gov.br/fhir/r4/StructureDefinition/BRImunobiologicoAdministrado-3.0, Element 'Bundle.entry[1].resource.ofType(Immunization).route': minimum required = 1, but only found 0",
+    "location": [ "Bundle.entry[1].resource.ofType(Immunization)", "Line 107, Col 18" ]
+  } ]
+}
+-----------------------------------
+       >>> RESUMO GERAL <<<
+          Δ 00:00:04.498
+-----------------------------------
+>>> Validação COM FALHAS ----------
+-----------------------------------
+         total itens: 1
+         itens falha: 1
+       itens sucesso: 0
+               error: 3
+-----------------------------------

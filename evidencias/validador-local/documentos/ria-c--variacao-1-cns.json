@@ -1,0 +1,101 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "lastUpdated": "2024-04-01T14:59:51.283-03:00"
+  },
+  "identifier": {
+    "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-1",
+    "value": "012345678"
+  },
+  "type": "document",
+  "timestamp": "2024-04-01T14:59:51.283-03:00",
+  "entry": [ {
+    "fullUrl": "urn:uuid:cccccccc-0001-4ccc-8ccc-ccccccccccc1",
+    "resource": {
+      "resourceType": "Composition",
+      "meta": {
+        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroImunobiologicoAdministradoCampanha-2.0" ]
+      },
+      "status": "final",
+      "type": {
+        "coding": [ {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
+          "code": "RIA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value": "898005900000823"
+        }
+      },
+      "date": "2024-04-01T08:18:30-03:00",
+      "author": [ {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+          "value": "0123456"
+        }
+      } ],
+      "title": "Registro de Imunobiologico Administrado na Campanha",
+      "section": [ {
+        "entry": [ {
+          "reference": "urn:uuid:cccccccc-0001-4ccc-8ccc-ccccccccccc2"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:cccccccc-0001-4ccc-8ccc-ccccccccccc2",
+    "resource": {
+      "resourceType": "Immunization",
+      "meta": {
+        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRImunobiologicoAdministradoCampanha-2.0" ]
+      },
+      "extension": [ {
+        "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRGrupoAtendimento",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRGrupoAtendimento",
+            "code": "000703"
+          } ]
+        }
+      }, {
+        "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCondicaoMaternal",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCondicaoMaternal",
+            "code": "1"
+          } ]
+        }
+      } ],
+      "status": "completed",
+      "vaccineCode": {
+        "coding": [ {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRImunobiologico",
+          "code": "88"
+        } ]
+      },
+      "patient": {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value": "898005900000823"
+        }
+      },
+      "occurrenceDateTime": "2024-04-01",
+      "manufacturer": {
+        "identifier": {
+          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRFabricantePNI",
+          "value": "30587"
+        }
+      },
+      "lotNumber": "220262",
+      "performer": [ {
+        "actor": {
+          "reference": "Practitioner/012345678912345"
+        }
+      } ],
+      "protocolApplied": [ {
+        "doseNumberString": "1"
+      } ]
+    }
+  } ]
+}
