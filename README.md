@@ -1,5 +1,7 @@
 # RNDS-BR Connect
 
+[![Testes](https://github.com/IgMiras/rnds-br-connect/actions/workflows/testes.yml/badge.svg)](https://github.com/IgMiras/rnds-br-connect/actions/workflows/testes.yml)
+
 Framework em Java 17 que prepara documentos clínicos no padrão HL7 FHIR conformes aos perfis da Rede Nacional de Dados em Saúde (RNDS), a partir dos dados de um sistema de saúde e no vocabulário desse sistema. O sistema cliente informa os seus códigos locais, e o framework confere as regras de negócio dos manuais de integração, traduz cada código para a terminologia nacional por meio de estratégias substituíveis, registra a origem de cada tradução, monta o documento e o valida localmente contra os artefatos oficiais de conformidade.
 
 ## Escopo

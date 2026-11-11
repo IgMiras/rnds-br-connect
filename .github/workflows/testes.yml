@@ -1,0 +1,48 @@
+# Roda a suíte inteira (core e módulo do catálogo de exames) a cada push e a cada pull request.
+#
+# A suíte não precisa de rede para validar: os pacotes de conformidade estão no repositório.
+# A rede só é usada pelo Maven, para baixar as dependências, que ficam em cache entre execuções.
+# Cada classe de teste roda numa JVM própria com 2 GB (ver o surefire no pom.xml).
+#
+# A conferência com o Validador Local da RNDS não roda aqui: o aplicativo é do DATASUS e não é
+# redistribuído. Ela é feita por scripts/evidencias-validador-local.py, e o resultado fica
+# versionado em evidencias/validador-local/.
+name: Testes
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: testes-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  suite:
+    name: Suíte (Java 17)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Compilar e rodar a suíte
+        run: mvn -B -ntp verify
+
+      - name: Guardar os relatórios dos testes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-dos-testes
+          path: "**/target/surefire-reports/"
+          if-no-files-found: ignore
+          retention-days: 30
