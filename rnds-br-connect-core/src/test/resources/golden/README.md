@@ -66,15 +66,18 @@ os identificadores transientes; os nº 25 e nº 7, inconsistências internas do 
 removidos (abaixo). Tudo o mais é cópia literal.
 
 O defeito nº 6 merece registro próprio porque é **estrutural e não foi detectado por
-inspeção**: só apareceu quando o validador HAPI rodou. O FHIR exige que o esquema
-`urn:uuid:` seja seguido de um UUID conforme a RFC 4122; `transient-0` não é. A mensagem é
-`Type_Specific_Checks_DT_UUID_Valid`, severidade ERROR, e ocorre em **toda** entrada de
-**todos** os três exemplos oficiais.
+inspeção**: só apareceu quando a Camada 4 (HAPI FHIR 7.6.0) rodou. O FHIR exige que o
+esquema `urn:uuid:` seja seguido de um UUID conforme a RFC 4122; `transient-0` não é. A
+mensagem é `Type_Specific_Checks_DT_UUID_Valid`, severidade ERROR, e ocorre em **toda**
+entrada de **todo** exemplo oficial que usa `transient-N`, os de seis dos sete documentos.
 
-Consequência para o ADR-07: a decisão de emitir `urn:uuid:{UUID}` deixa de ser apenas
-"a forma canônica do FHIR" e passa a ser a única forma que o próprio validador do
-Ministério da Saúde aceita. O risco se inverte — o formato do exemplo é que precisa ser
-confirmado em homologação, não o do framework.
+Consequência para o ADR-07: emitir `urn:uuid:{UUID}` é a forma que o FHIR prevê e a única
+que a Camada 4 aceita. O validador do Ministério da Saúde, porém, aceita as duas: o
+Validador Local da RNDS (HAPI FHIR 5.1.0) aprova sem erro o exemplo oficial do RIA-R, com
+oito ocorrências de `transient-N` (verificado em 10/11/2026; ver
+[`evidencias/validador-local/`](../../../../../evidencias/validador-local/)). Os dois validadores
+discordam aqui, e nenhum deles decide a questão: qual forma o barramento aceita, só a
+homologação diria.
 
 > ⚠️ **Item de homologação nº 1** (Arquitetura §10.5) — confirmar se o barramento aceita `urn:uuid` com UUID
 > real. Ele aceita `transient-N` (está nos próprios exemplos), mas isso não implica que
@@ -152,7 +155,7 @@ A comparação também expôs algo que passa despercebido na leitura: o exemplo 
 | `Composition.date` | `2024-04-01T08:18:30-03:00` | quando o documento foi criado no **sistema de origem** |
 | `Condition.onsetDateTime` | `2024-03-30T14:59:51.283-03:00` | início da **condição clínica** |
 
-São seis horas e quarenta minutos entre os dois primeiros. Tratá-los como o mesmo campo —
+São seis horas e quarenta e um minutos entre os dois primeiros (de 08:18:30 a 14:59:51). Tratá-los como o mesmo campo —
 tentação natural, já que ambos são "a data do registro" — apaga informação real. No
 framework, `Composition.date` vem do DTO (`dataRegistroOrigem`) e `Bundle.timestamp` é
 responsabilidade do Builder, que o obtém de um relógio injetável.
@@ -177,12 +180,15 @@ a suíte só reprova mensagens de severidade `ERROR` ou `FATAL`.
 
 ## 6. Fontes
 
-- `ExemploJSONPreenchidoRIAR.json` — arquivos de definição da adoção FHIR R4, Portal de
-  Serviços do DATASUS.
+- `ExemploJSONPreenchidoRIAR.json` — exemplo oficial do RIA-R, publicado com os arquivos
+  de definição da adoção FHIR R4 no Portal de Serviços do DATASUS, página do serviço RIA:
+  <https://servicos-datasus.saude.gov.br/detalhe/urB3hXWTee>. Obtido em maio de 2026 (data do
+  arquivo baixado); cópia em
+  [`evidencias/validador-local/controle/`](../../../../../evidencias/validador-local/controle/).
 - `BRRegistroImunobiologicoAdministradoRotina-2.0`, `BRImunobiologicoAdministrado-3.0`,
-  `BRCID10Avaliado-1.0` — mesma fonte.
-- Manual de Integração RIA-R, §7.1 (Modelo de Informação) e §8 (exemplo).
+  `BRCID10Avaliado-1.0` — mesma fonte; a distribuição usada está versionada em
+  [IgMiras/rnds-artefatos](https://github.com/IgMiras/rnds-artefatos), pasta `br-core-ril-ria-rel`.
+- Manual de Integração RNDS — Registro de Imunobiológico Administrado em Rotina (RIA-R),
+  versão 1.9, de 10/07/2025, §7.1 (Modelo de Informação) e §8 (exemplo). Mesma página do
+  Portal de Serviços; acesso em 3/11/2026.
 - Arquitetura do Módulo v2.1, §8.0, §8.0.1, §8.0.2 e §8.1.
-
-> ⚠️ **[CITAR FONTE]** — completar com a URL e a data de acesso do download dos arquivos de
-> definição, e com a versão/data do PDF do manual RIA-R usado na conferência.
