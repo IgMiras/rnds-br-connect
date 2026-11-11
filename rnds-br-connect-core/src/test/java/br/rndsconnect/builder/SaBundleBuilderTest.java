@@ -16,6 +16,7 @@ import br.rndsconnect.model.VocabularioClinicoFhir.CriticidadeAlergia;
 import br.rndsconnect.model.VocabularioClinicoFhir.SituacaoPrescricao;
 import br.rndsconnect.model.VocabularioClinicoFhir.UnidadeTempo;
 import br.rndsconnect.model.VocabularioClinicoFhir.VerificacaoAlergia;
+import br.rndsconnect.tools.ExportadorDeEvidencias;
 import br.rndsconnect.validator.ConformancePackage;
 import br.rndsconnect.validator.LocalFhirValidator;
 import br.rndsconnect.validator.Servico;
@@ -165,6 +166,7 @@ class SaBundleBuilderTest {
                         .planoCuidados(null)
                         .informacoesAdicionais(null)
                         .build());
+        ExportadorDeEvidencias.gravar("sa--variacao-1-sem-alergia-prescricao", b);
         imprimir(b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -178,6 +180,7 @@ class SaBundleBuilderTest {
                         .prescricaoAlta(null)
                         .informacoesAdicionais(null)
                         .build());
+        ExportadorDeEvidencias.gravar("sa--variacao-2-alergia-sem-prescricao", b);
         imprimir(b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -193,6 +196,7 @@ class SaBundleBuilderTest {
                         .alergia(null)
                         .planoCuidados(null)
                         .build());
+        ExportadorDeEvidencias.gravar("sa--variacao-3-cpf-sem-diagnostico", b);
         imprimir(b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }

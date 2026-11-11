@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import br.rndsconnect.model.CodedValue;
 import br.rndsconnect.model.EnrichedRegistroImunizacao;
 import br.rndsconnect.model.PesquisaClinica;
+import br.rndsconnect.tools.ExportadorDeEvidencias;
 import br.rndsconnect.validator.ConformancePackage;
 import br.rndsconnect.validator.LocalFhirValidator;
 import br.rndsconnect.validator.Servico;
@@ -141,6 +142,7 @@ class RiaBundleBuilderTest {
     void bundlesConstruidosSaoConformes() {
         Bundle min = builderCom("11111111-1111-4111-8111-111111111111", "22222222-2222-4222-8222-222222222222")
                 .build(minimo().build());
+        ExportadorDeEvidencias.gravar("ria-r--minimo", min);
         ValidationResult rMin = validador.validar(min);
         imprimir("construído: mínimo", rMin);
         assertThat(LocalFhirValidator.erros(rMin)).isEmpty();
@@ -150,6 +152,7 @@ class RiaBundleBuilderTest {
                         "44444444-4444-4444-8444-444444444444",
                         "55555555-5555-4555-8555-555555555555")
                 .build(completo());
+        ExportadorDeEvidencias.gravar("ria-r--completo", comp);
         ValidationResult rComp = validador.validar(comp);
         imprimir("construído: completo", rComp);
         assertThat(LocalFhirValidator.erros(rComp)).isEmpty();
@@ -227,6 +230,7 @@ class RiaBundleBuilderTest {
                         .cid10(CodedValue.rnds("BRCID10", "B15"))
                         .dataInicioCondicao(INICIO_CONDICAO)
                         .build());
+        ExportadorDeEvidencias.gravar("ria-r--variacao-1-especial-cid-cbo", b);
         assertThat(b.getEntry()).hasSize(3);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -240,6 +244,7 @@ class RiaBundleBuilderTest {
                         .primarySource(false)
                         .codigoPaisOrigem("10")
                         .build());
+        ExportadorDeEvidencias.gravar("ria-r--variacao-2-transcricao", b);
         assertThat(b.getEntry()).hasSize(2);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -257,6 +262,7 @@ class RiaBundleBuilderTest {
                                 .numeroProtocoloEstudoAnvisa("GU1AMT9CYR")
                                 .build())
                         .build());
+        ExportadorDeEvidencias.gravar("ria-r--variacao-3-lote-pesquisa-parcial", b);
         assertThat(b.getEntry()).hasSize(2);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }

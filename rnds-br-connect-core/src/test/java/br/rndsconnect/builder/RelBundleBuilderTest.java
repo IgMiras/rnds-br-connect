@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import br.rndsconnect.model.CodedValue;
 import br.rndsconnect.model.EnrichedRegistroExameLaboratorial;
 import br.rndsconnect.model.EnrichedRegistroExameLaboratorial.ExameLaboratorial;
+import br.rndsconnect.tools.ExportadorDeEvidencias;
 import br.rndsconnect.validator.ConformancePackage;
 import br.rndsconnect.validator.LocalFhirValidator;
 import br.rndsconnect.validator.Servico;
@@ -118,6 +119,7 @@ class RelBundleBuilderTest {
     void bundleConstruidoEConforme() {
         Bundle b = builder()
                 .build(laudo().exames(List.of(exameQualitativo().build())).build());
+        ExportadorDeEvidencias.gravar("rel--completo", b);
         ValidationResult r = validador.validar(b);
         LocalFhirValidator.erros(r)
                 .forEach(m ->
@@ -313,6 +315,7 @@ class RelBundleBuilderTest {
                         .cpfPaciente("01234567890")
                         .exames(List.of(exameQualitativo().patogeno(null).build()))
                         .build());
+        ExportadorDeEvidencias.gravar("rel--variacao-1-sem-patogeno-cpf", b);
         assertThat(b.getEntry()).hasSize(4);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -330,6 +333,7 @@ class RelBundleBuilderTest {
                                 .patogeno(null)
                                 .build()))
                         .build());
+        ExportadorDeEvidencias.gravar("rel--variacao-2-quantitativo-interpretacao", b);
         assertThat(b.getEntry()).hasSize(4);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -352,6 +356,7 @@ class RelBundleBuilderTest {
                                         .patogeno(null)
                                         .build()))
                         .build());
+        ExportadorDeEvidencias.gravar("rel--variacao-3-tres-exames", b);
         assertThat(b.getEntry()).as("2 + 2×N").hasSize(8);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }

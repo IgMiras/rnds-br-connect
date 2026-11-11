@@ -19,6 +19,7 @@ import br.rndsconnect.model.VocabularioClinicoFhir.CriticidadeAlergia;
 import br.rndsconnect.model.VocabularioClinicoFhir.SituacaoPrescricao;
 import br.rndsconnect.model.VocabularioClinicoFhir.UnidadeTempo;
 import br.rndsconnect.model.VocabularioClinicoFhir.VerificacaoAlergia;
+import br.rndsconnect.tools.ExportadorDeEvidencias;
 import br.rndsconnect.validator.ConformancePackage;
 import br.rndsconnect.validator.LocalFhirValidator;
 import br.rndsconnect.validator.Servico;
@@ -257,6 +258,7 @@ class RacBundleBuilderTest {
                         .alergias(base.getAlergias())
                         .planoCuidados("Repouso pós-medicação intramuscular")
                         .build());
+        ExportadorDeEvidencias.gravar("rac--variacao-1-alergia-plano", b);
         imprimir(b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -272,6 +274,7 @@ class RacBundleBuilderTest {
                         .medidas(medidas())
                         .atestados(base.getAtestados())
                         .build());
+        ExportadorDeEvidencias.gravar("rac--variacao-2-cpf-medidas-atestado", b);
         imprimir(b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -288,6 +291,7 @@ class RacBundleBuilderTest {
                                 .build())
                         .prescricao(base.getPrescricao())
                         .build());
+        ExportadorDeEvidencias.gravar("rac--variacao-3-contato-prescricao", b);
         imprimir(b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }

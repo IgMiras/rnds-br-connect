@@ -7,6 +7,7 @@ import br.rndsconnect.model.CodedValue;
 import br.rndsconnect.model.EnrichedRegistroRegulacaoAssistencial;
 import br.rndsconnect.model.EnrichedRegistroRegulacaoAssistencial.EventoRegulacao;
 import br.rndsconnect.model.EstadoRegulacao;
+import br.rndsconnect.tools.ExportadorDeEvidencias;
 import br.rndsconnect.validator.ConformancePackage;
 import br.rndsconnect.validator.LocalFhirValidator;
 import br.rndsconnect.validator.Servico;
@@ -86,6 +87,7 @@ class RiraBundleBuilderTest {
     @DisplayName("O Bundle construído passa na Camada 4, com o pacote do RIRA")
     void bundleConstruidoEConforme() {
         Bundle b = builder().build(solicitacao().build());
+        ExportadorDeEvidencias.gravar("rira--um-evento", b);
         ValidationResult r = validador.validar(b);
         LocalFhirValidator.erros(r)
                 .forEach(m ->
@@ -115,6 +117,7 @@ class RiraBundleBuilderTest {
                                         .build()))
                         .build());
 
+        ExportadorDeEvidencias.gravar("rira--tres-eventos", b);
         Composition c = (Composition) b.getEntry().get(0).getResource();
         assertThat(c.getEvent())
                 .as("RIA e REL registram fato consumado; o RIRA registra a trajetória")
@@ -211,6 +214,7 @@ class RiraBundleBuilderTest {
                 .map(e -> EventoRegulacao.builder().estado(e).quando(QUANDO).build())
                 .toList();
         Bundle b = builder().build(solicitacao().eventos(todos).build());
+        ExportadorDeEvidencias.gravar("rira--variacao-1-sete-estados", b);
         Composition c = (Composition) b.getEntry().get(0).getResource();
         assertThat(c.getEvent()).hasSize(7);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
@@ -227,6 +231,7 @@ class RiraBundleBuilderTest {
                         .observacaoCondicao("Suspeita de varizes esofagianas.")
                         .cnesExecutante(null)
                         .build());
+        ExportadorDeEvidencias.gravar("rira--variacao-2-urgente-sem-executante", b);
         assertThat(b.getEntry()).hasSize(4);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -250,6 +255,7 @@ class RiraBundleBuilderTest {
                                         .quando(QUANDO)
                                         .build()))
                         .build());
+        ExportadorDeEvidencias.gravar("rira--variacao-3-sem-agendamento", b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 

@@ -56,13 +56,17 @@ As tabelas de correspondência entre os códigos locais e os da RNDS são da ins
 
 Os pacotes de conformidade foram recortados das distribuições oficiais espelhadas em [IgMiras/rnds-artefatos](https://github.com/IgMiras/rnds-artefatos); o `index.txt` de cada pacote registra de qual distribuição ele foi copiado.
 
+## Conformidade verificada
+
+Todo documento passa pela Camada 4, a validação local do framework, antes de sair da Facade, e a suíte confere isso a cada execução. Como verificação externa, os documentos dos sete construtores, inclusive as variações de campos opcionais, foram submetidos também ao Validador Local da RNDS, o aplicativo que o DATASUS distribui aos integradores. Os arquivos, as mensagens dos dois validadores e a tabela dos veredictos estão em [`evidencias/validador-local/`](evidencias/validador-local/), e o script que os gera, em `scripts/evidencias-validador-local.py`.
+
 ## Licença e autoria
 
 Copyright 2026 Igor Mendes Domingues Miras. Distribuído sob a [Licença Apache 2.0](LICENSE); veja também o [NOTICE](NOTICE).
 
 Desenvolvido como Trabalho de Conclusão de Curso do Bacharelado em Ciência da Computação da FCT/UNESP, Presidente Prudente, sob orientação do Prof. Dr. Ronaldo Celso Messias Correia.
 
-Os artefatos de conformidade em `rnds-br-connect-core/src/main/resources/conformance/` são publicados pelo Ministério da Saúde (DATASUS) e não são cobertos por esta licença.
+Os artefatos de conformidade em `rnds-br-connect-core/src/main/resources/conformance/` e o exemplo oficial em `evidencias/validador-local/controle/` são publicados pelo Ministério da Saúde (DATASUS) e não são cobertos por esta licença.
 
 ## Como citar
 

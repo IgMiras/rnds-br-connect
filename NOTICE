@@ -16,3 +16,9 @@ do differential publicado e gravado no próprio arquivo.
 Os exemplos de referência em rnds-br-connect-core/src/test/resources/golden/
 derivam dos exemplos oficiais da RNDS, corrigidos dos defeitos documentados
 no README daquela pasta.
+
+O arquivo em evidencias/validador-local/controle/ é o exemplo oficial do RIA-R
+(ExemploJSONPreenchidoRIAR.json), publicado pelo Ministério da Saúde (DATASUS)
+no Portal de Serviços, copiado sem alteração e não coberto pela licença deste
+projeto. O Validador Local da RNDS, aplicativo do DATASUS usado para gerar as
+evidências dessa pasta, não é distribuído com este projeto.

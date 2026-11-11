@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import br.rndsconnect.model.CodedValue;
 import br.rndsconnect.model.EnrichedRegistroImunizacaoCampanha;
+import br.rndsconnect.tools.ExportadorDeEvidencias;
 import br.rndsconnect.validator.ConformancePackage;
 import br.rndsconnect.validator.LocalFhirValidator;
 import br.rndsconnect.validator.Servico;
@@ -102,6 +103,7 @@ class RiaCampanhaBundleBuilderTest {
     void bundleConstruidoEConforme() {
         Bundle b = builderCom("11111111-1111-4111-8111-111111111111", "22222222-2222-4222-8222-222222222222")
                 .build(campanha().build());
+        ExportadorDeEvidencias.gravar("ria-c--completo", b);
         ValidationResult r = validador.validar(b);
         LocalFhirValidator.erros(r)
                 .forEach(m ->
@@ -218,6 +220,7 @@ class RiaCampanhaBundleBuilderTest {
                         .cpfPaciente(null)
                         .cnsPaciente("898005900000823")
                         .build());
+        ExportadorDeEvidencias.gravar("ria-c--variacao-1-cns", b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 
@@ -230,6 +233,7 @@ class RiaCampanhaBundleBuilderTest {
                         .condicaoMaternal(CodedValue.rnds("BRCondicaoMaternal", "2"))
                         .doseNumber("9")
                         .build());
+        ExportadorDeEvidencias.gravar("ria-c--variacao-2-outros-codigos", b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 
@@ -241,6 +245,7 @@ class RiaCampanhaBundleBuilderTest {
                         .codigoFabricante("152")
                         .lote("AB-123/X")
                         .build());
+        ExportadorDeEvidencias.gravar("ria-c--variacao-3-lote-alfanumerico", b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 

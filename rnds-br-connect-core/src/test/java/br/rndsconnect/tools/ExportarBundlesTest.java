@@ -18,6 +18,7 @@ import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.hl7.fhir.r4.model.Bundle;
@@ -59,7 +60,13 @@ import org.junit.jupiter.api.Test;
  */
 class ExportarBundlesTest {
 
-    private static final Path DESTINO = Paths.get(System.getProperty("java.io.tmpdir"));
+    /**
+     * A pasta de evidências, quando {@code scripts/evidencias-validador-local.py} a define; nos
+     * demais casos, a pasta temporária do sistema.
+     */
+    private static final Path DESTINO = Paths.get(Optional.ofNullable(System.getenv(ExportadorDeEvidencias.VARIAVEL))
+            .filter(p -> !p.isBlank())
+            .orElse(System.getProperty("java.io.tmpdir")));
     private static final Instant QUANDO = Instant.parse("2024-12-30T14:46:12Z");
     private static final AtomicInteger SEQ = new AtomicInteger();
 
@@ -77,11 +84,11 @@ class ExportarBundlesTest {
         RedfmBundleBuilder builder = new RedfmBundleBuilder(
                 "12345", () -> String.format("ff000000-0000-4000-8000-%012d", SEQ.incrementAndGet()), () -> QUANDO);
 
-        gravar("redfm-receita-embutida.json", builder.build(dispensacao().build()));
+        gravar("redfm--receita-embutida.json", builder.build(dispensacao().build()));
 
         SEQ.set(100);
         gravar(
-                "redfm-receita-na-rnds.json",
+                "redfm--receita-na-rnds.json",
                 builder.build(dispensacao()
                         .prescricao(null)
                         .idPrescricaoNaRnds("563BFD7432")
@@ -98,12 +105,12 @@ class ExportarBundlesTest {
         // do SA — com o BREntregaSuprimentos presente só pela estrutura — não escondeu erro
         // que o validador oficial, com o pacote completo, apontaria.
         SEQ.set(200);
-        gravar("sa-gerado.json", builder.build(sumario("BR0267778").build()));
+        gravar("sa--completo.json", builder.build(sumario("BR0267778").build()));
 
         // Sexta demonstração: dipirona prescrita a paciente com anafilaxia por dipirona.
         SEQ.set(300);
         gravar(
-                "sa-alergia-contraditoria-gerado.json",
+                "sa--sexta-demonstracao.json",
                 builder.build(sumario("BR0267203").build()));
     }
 
@@ -116,14 +123,14 @@ class ExportarBundlesTest {
         // Completo: 24 entradas, 18 seções. Carrega a sétima demonstração — o peso de 1,83 m
         // está entre as onze medidas observadas, com o mesmo código LOINC do peso de verdade.
         SEQ.set(400);
-        gravar("rac-gerado.json", builder.build(racCompleto().build()));
+        gravar("rac--completo.json", builder.build(racCompleto().build()));
 
         // Oitava demonstração: sem CNS nem CPF. Saem alergia, prescrição, plano de cuidados,
         // atestado e motivo de atendimento — os perfis deles exigem subject.identifier 1..1 ou
         // não permitem a extensão. As medidas ficam: o BRMedidaObservada não emite subject.
         SEQ.set(500);
         gravar(
-                "rac-nao-identificado-gerado.json",
+                "rac--nao-identificado.json",
                 builder.build(racMinimo()
                         .cnsPaciente(null)
                         .individuoNaoIdentificado(EnrichedRegistroAtendimentoClinico.IndividuoNaoIdentificado.builder()
@@ -395,6 +402,7 @@ class ExportarBundlesTest {
     }
 
     private void gravar(String nome, Bundle b) throws Exception {
+        Files.createDirectories(DESTINO);
         Path arquivo = DESTINO.resolve(nome);
         Files.writeString(
                 arquivo, ctx.newJsonParser().setPrettyPrint(true).encodeResourceToString(b), StandardCharsets.UTF_8);

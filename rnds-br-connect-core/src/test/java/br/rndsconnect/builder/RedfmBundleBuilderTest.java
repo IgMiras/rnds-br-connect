@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import br.rndsconnect.model.CodedValue;
 import br.rndsconnect.model.EnrichedRegistroDispensacaoMedicamento;
 import br.rndsconnect.model.EnrichedRegistroDispensacaoMedicamento.Prescricao;
+import br.rndsconnect.tools.ExportadorDeEvidencias;
 import br.rndsconnect.validator.ConformancePackage;
 import br.rndsconnect.validator.LocalFhirValidator;
 import br.rndsconnect.validator.Servico;
@@ -128,6 +129,7 @@ class RedfmBundleBuilderTest {
                         .unidadeQuantidade(null)
                         .prescricao(prescricao().descricaoUnidadeDose(null).build())
                         .build());
+        ExportadorDeEvidencias.gravar("redfm--variacao-1-sem-textos-livres", b);
         assertThat(b.getEntry()).hasSize(3);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
@@ -144,6 +146,7 @@ class RedfmBundleBuilderTest {
                         .substituiDocumentoRnds("Composition/123456")
                         .observacaoDispensacao("Retirada pelo responsável.")
                         .build());
+        ExportadorDeEvidencias.gravar("redfm--variacao-2-substituicao", b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 
@@ -159,6 +162,7 @@ class RedfmBundleBuilderTest {
                                 .observacao("Tomar após as refeições.")
                                 .build())
                         .build());
+        ExportadorDeEvidencias.gravar("redfm--variacao-3-dispensacao-parcial", b);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 
