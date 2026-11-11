@@ -653,11 +653,13 @@ class FacadeIntegracaoTest {
 
         org.hl7.fhir.r4.model.MedicationDispense d = (org.hl7.fhir.r4.model.MedicationDispense)
                 doc.bundle().getEntry().get(1).getResource();
-        // getId() devolve o id COM o prefixo "#" quando o recurso esta contido: e assim que
-        // o FHIR distingue referencia interna de referencia a entrada do Bundle.
+        // O id do contido sai sem "#", como o construtor o grava (RedfmBundleBuilderTest); o
+        // "#" fica nas referencias. Ate a 7.6.0, a Camada 4 reescrevia em memoria o id dos
+        // contidos para "#id" ao serializar o documento, e este teste esperava o prefixo. A
+        // 5.1.0 nao altera o recurso validado.
         assertThat(d.getContained())
                 .extracting(org.hl7.fhir.r4.model.Resource::getId)
-                .containsExactly("#prescription", "#prescriber-identifier", "#prescriber-specialty", "#pharmacist-crf");
+                .containsExactly("prescription", "prescriber-identifier", "prescriber-specialty", "pharmacist-crf");
 
         // Nove domínios traduzidos: cinco na dispensação, quatro na receita.
         assertThat(doc.trilha().size()).isEqualTo(9);
@@ -678,7 +680,7 @@ class FacadeIntegracaoTest {
         assertThat(d.getContained())
                 .as("se a receita está na RNDS, os dados de quem prescreveu vêm com ela")
                 .extracting(org.hl7.fhir.r4.model.Resource::getId)
-                .containsExactly("#pharmacist-crf");
+                .containsExactly("pharmacist-crf");
 
         assertThat(doc.trilha().size())
                 .as("cinco domínios; os quatro da receita não existem")
