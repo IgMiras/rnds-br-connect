@@ -24,9 +24,12 @@
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <!-- CLAUDE.md: HAPI FHIR 7.x. Confirmar o patch mais recente da linha 7
-         antes do primeiro build; a versao abaixo e o alvo declarado. -->
-    <hapi.version>7.6.0</hapi.version>
+    <!-- HAPI FHIR 5.1.0: a versao que o Validador Local da RNDS, distribuido pelo
+         DATASUS, embute. A Camada 4 usa o mesmo motor, e o veredicto dela coincide com o
+         da ferramenta que o integrador e mandado usar. O pom do HAPI 5.1.0 fixa o nucleo
+         org.hl7.fhir.* em 5.1.0, a mesma versao dos jars do aplicativo. Ate o commit
+         ba06025, o framework usava o HAPI FHIR 7.6.0. -->
+    <hapi.version>5.1.0</hapi.version>
 
     <junit.version>5.11.3</junit.version>
     <assertj.version>3.26.3</assertj.version>
@@ -57,15 +60,6 @@
         <artifactId>hapi-fhir-validation-resources-r4</artifactId>
         <version>${hapi.version}</version>
       </dependency>
-      <!-- Implementacao de cache resolvida por ServiceLoader: o hapi-fhir-caching-api
-           traz so a interface, e sem uma implementacao o FhirInstanceValidator falha
-           com HAPI-2200 no primeiro validate(). -->
-      <dependency>
-        <groupId>ca.uhn.hapi.fhir</groupId>
-        <artifactId>hapi-fhir-caching-caffeine</artifactId>
-        <version>${hapi.version}</version>
-      </dependency>
-
       <!-- Fonte de mapeamento terminologico em YAML (Camada 2, Frente B). -->
       <dependency>
         <groupId>org.yaml</groupId>
