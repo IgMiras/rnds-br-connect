@@ -144,7 +144,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -234,6 +234,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -423,11 +426,7 @@
       <element id="Condition.clinicalStatus">
          <path value="Condition.clinicalStatus"></path>
          <short value="Estado da Resolução"></short>
-         <definition value="Situação que o Diagnóstico/Problema se encontra no momento da informação.
-resolved: Resolvido
-active: Resolvendo
-active: Não resolvido
-null: Indeterminado"></definition>
+         <definition value="Situação que o Diagnóstico/Problema se encontra no momento da informação. resolved: Resolvido active: Resolvendo active: Não resolvido null: Indeterminado"></definition>
          <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."></comment>
          <min value="0"></min>
          <max value="1"></max>
@@ -1922,6 +1921,281 @@ null: Indeterminado"></definition>
             <map value="n/a"></map>
          </mapping>
       </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:gender.extension.id">
+         <path value="Condition.subject.extension.extension.extension.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:gender.extension.extension">
+         <path value="Condition.subject.extension.extension.extension.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:gender.extension.url">
+         <path value="Condition.subject.extension.extension.extension.url"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="identifies the meaning of the extension"></short>
+         <definition value="Source of the definition for the extension code - a logical name or a URL."></definition>
+         <comment value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension."></comment>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.url"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="uri"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:gender.extension.value[x]">
+         <path value="Condition.subject.extension.extension.extension.value[x]"></path>
+         <short value="Value of extension"></short>
+         <definition value="Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.value[x]"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="base64Binary"></code>
+         </type>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <type>
+            <code value="canonical"></code>
+         </type>
+         <type>
+            <code value="code"></code>
+         </type>
+         <type>
+            <code value="date"></code>
+         </type>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <type>
+            <code value="decimal"></code>
+         </type>
+         <type>
+            <code value="id"></code>
+         </type>
+         <type>
+            <code value="instant"></code>
+         </type>
+         <type>
+            <code value="integer"></code>
+         </type>
+         <type>
+            <code value="markdown"></code>
+         </type>
+         <type>
+            <code value="oid"></code>
+         </type>
+         <type>
+            <code value="positiveInt"></code>
+         </type>
+         <type>
+            <code value="string"></code>
+         </type>
+         <type>
+            <code value="time"></code>
+         </type>
+         <type>
+            <code value="unsignedInt"></code>
+         </type>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <type>
+            <code value="url"></code>
+         </type>
+         <type>
+            <code value="uuid"></code>
+         </type>
+         <type>
+            <code value="Address"></code>
+         </type>
+         <type>
+            <code value="Age"></code>
+         </type>
+         <type>
+            <code value="Annotation"></code>
+         </type>
+         <type>
+            <code value="Attachment"></code>
+         </type>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <type>
+            <code value="Coding"></code>
+         </type>
+         <type>
+            <code value="ContactPoint"></code>
+         </type>
+         <type>
+            <code value="Count"></code>
+         </type>
+         <type>
+            <code value="Distance"></code>
+         </type>
+         <type>
+            <code value="Duration"></code>
+         </type>
+         <type>
+            <code value="HumanName"></code>
+         </type>
+         <type>
+            <code value="Identifier"></code>
+         </type>
+         <type>
+            <code value="Money"></code>
+         </type>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <type>
+            <code value="Quantity"></code>
+         </type>
+         <type>
+            <code value="Range"></code>
+         </type>
+         <type>
+            <code value="Ratio"></code>
+         </type>
+         <type>
+            <code value="Reference"></code>
+         </type>
+         <type>
+            <code value="SampledData"></code>
+         </type>
+         <type>
+            <code value="Signature"></code>
+         </type>
+         <type>
+            <code value="Timing"></code>
+         </type>
+         <type>
+            <code value="ContactDetail"></code>
+         </type>
+         <type>
+            <code value="Contributor"></code>
+         </type>
+         <type>
+            <code value="DataRequirement"></code>
+         </type>
+         <type>
+            <code value="Expression"></code>
+         </type>
+         <type>
+            <code value="ParameterDefinition"></code>
+         </type>
+         <type>
+            <code value="RelatedArtifact"></code>
+         </type>
+         <type>
+            <code value="TriggerDefinition"></code>
+         </type>
+         <type>
+            <code value="UsageContext"></code>
+         </type>
+         <type>
+            <code value="Dosage"></code>
+         </type>
+         <type>
+            <code value="Meta"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
       <element id="Condition.subject.extension:unidentifiedPatient.extension:gender.url">
          <path value="Condition.subject.extension.extension.url"></path>
          <representation value="xmlAttr"></representation>
@@ -2086,6 +2360,281 @@ null: Indeterminado"></definition>
             <map value="n/a"></map>
          </mapping>
       </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:birthYear.extension.id">
+         <path value="Condition.subject.extension.extension.extension.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:birthYear.extension.extension">
+         <path value="Condition.subject.extension.extension.extension.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:birthYear.extension.url">
+         <path value="Condition.subject.extension.extension.extension.url"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="identifies the meaning of the extension"></short>
+         <definition value="Source of the definition for the extension code - a logical name or a URL."></definition>
+         <comment value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension."></comment>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.url"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="uri"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:birthYear.extension.value[x]">
+         <path value="Condition.subject.extension.extension.extension.value[x]"></path>
+         <short value="Value of extension"></short>
+         <definition value="Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.value[x]"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="base64Binary"></code>
+         </type>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <type>
+            <code value="canonical"></code>
+         </type>
+         <type>
+            <code value="code"></code>
+         </type>
+         <type>
+            <code value="date"></code>
+         </type>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <type>
+            <code value="decimal"></code>
+         </type>
+         <type>
+            <code value="id"></code>
+         </type>
+         <type>
+            <code value="instant"></code>
+         </type>
+         <type>
+            <code value="integer"></code>
+         </type>
+         <type>
+            <code value="markdown"></code>
+         </type>
+         <type>
+            <code value="oid"></code>
+         </type>
+         <type>
+            <code value="positiveInt"></code>
+         </type>
+         <type>
+            <code value="string"></code>
+         </type>
+         <type>
+            <code value="time"></code>
+         </type>
+         <type>
+            <code value="unsignedInt"></code>
+         </type>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <type>
+            <code value="url"></code>
+         </type>
+         <type>
+            <code value="uuid"></code>
+         </type>
+         <type>
+            <code value="Address"></code>
+         </type>
+         <type>
+            <code value="Age"></code>
+         </type>
+         <type>
+            <code value="Annotation"></code>
+         </type>
+         <type>
+            <code value="Attachment"></code>
+         </type>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <type>
+            <code value="Coding"></code>
+         </type>
+         <type>
+            <code value="ContactPoint"></code>
+         </type>
+         <type>
+            <code value="Count"></code>
+         </type>
+         <type>
+            <code value="Distance"></code>
+         </type>
+         <type>
+            <code value="Duration"></code>
+         </type>
+         <type>
+            <code value="HumanName"></code>
+         </type>
+         <type>
+            <code value="Identifier"></code>
+         </type>
+         <type>
+            <code value="Money"></code>
+         </type>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <type>
+            <code value="Quantity"></code>
+         </type>
+         <type>
+            <code value="Range"></code>
+         </type>
+         <type>
+            <code value="Ratio"></code>
+         </type>
+         <type>
+            <code value="Reference"></code>
+         </type>
+         <type>
+            <code value="SampledData"></code>
+         </type>
+         <type>
+            <code value="Signature"></code>
+         </type>
+         <type>
+            <code value="Timing"></code>
+         </type>
+         <type>
+            <code value="ContactDetail"></code>
+         </type>
+         <type>
+            <code value="Contributor"></code>
+         </type>
+         <type>
+            <code value="DataRequirement"></code>
+         </type>
+         <type>
+            <code value="Expression"></code>
+         </type>
+         <type>
+            <code value="ParameterDefinition"></code>
+         </type>
+         <type>
+            <code value="RelatedArtifact"></code>
+         </type>
+         <type>
+            <code value="TriggerDefinition"></code>
+         </type>
+         <type>
+            <code value="UsageContext"></code>
+         </type>
+         <type>
+            <code value="Dosage"></code>
+         </type>
+         <type>
+            <code value="Meta"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
       <element id="Condition.subject.extension:unidentifiedPatient.extension:birthYear.url">
          <path value="Condition.subject.extension.extension.url"></path>
          <representation value="xmlAttr"></representation>
@@ -2248,6 +2797,281 @@ null: Indeterminado"></definition>
          <mapping>
             <identity value="rim"></identity>
             <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:reason.extension.id">
+         <path value="Condition.subject.extension.extension.extension.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:reason.extension.extension">
+         <path value="Condition.subject.extension.extension.extension.extension"></path>
+         <slicing>
+            <discriminator>
+               <type value="value"></type>
+               <path value="url"></path>
+            </discriminator>
+            <description value="Extensions are always sliced by (at least) url"></description>
+            <rules value="open"></rules>
+         </slicing>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:reason.extension.url">
+         <path value="Condition.subject.extension.extension.extension.url"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="identifies the meaning of the extension"></short>
+         <definition value="Source of the definition for the extension code - a logical name or a URL."></definition>
+         <comment value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension."></comment>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.url"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="uri"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="Condition.subject.extension:unidentifiedPatient.extension:reason.extension.value[x]">
+         <path value="Condition.subject.extension.extension.extension.value[x]"></path>
+         <short value="Value of extension"></short>
+         <definition value="Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list)."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Extension.value[x]"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="base64Binary"></code>
+         </type>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <type>
+            <code value="canonical"></code>
+         </type>
+         <type>
+            <code value="code"></code>
+         </type>
+         <type>
+            <code value="date"></code>
+         </type>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <type>
+            <code value="decimal"></code>
+         </type>
+         <type>
+            <code value="id"></code>
+         </type>
+         <type>
+            <code value="instant"></code>
+         </type>
+         <type>
+            <code value="integer"></code>
+         </type>
+         <type>
+            <code value="markdown"></code>
+         </type>
+         <type>
+            <code value="oid"></code>
+         </type>
+         <type>
+            <code value="positiveInt"></code>
+         </type>
+         <type>
+            <code value="string"></code>
+         </type>
+         <type>
+            <code value="time"></code>
+         </type>
+         <type>
+            <code value="unsignedInt"></code>
+         </type>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <type>
+            <code value="url"></code>
+         </type>
+         <type>
+            <code value="uuid"></code>
+         </type>
+         <type>
+            <code value="Address"></code>
+         </type>
+         <type>
+            <code value="Age"></code>
+         </type>
+         <type>
+            <code value="Annotation"></code>
+         </type>
+         <type>
+            <code value="Attachment"></code>
+         </type>
+         <type>
+            <code value="CodeableConcept"></code>
+         </type>
+         <type>
+            <code value="Coding"></code>
+         </type>
+         <type>
+            <code value="ContactPoint"></code>
+         </type>
+         <type>
+            <code value="Count"></code>
+         </type>
+         <type>
+            <code value="Distance"></code>
+         </type>
+         <type>
+            <code value="Duration"></code>
+         </type>
+         <type>
+            <code value="HumanName"></code>
+         </type>
+         <type>
+            <code value="Identifier"></code>
+         </type>
+         <type>
+            <code value="Money"></code>
+         </type>
+         <type>
+            <code value="Period"></code>
+         </type>
+         <type>
+            <code value="Quantity"></code>
+         </type>
+         <type>
+            <code value="Range"></code>
+         </type>
+         <type>
+            <code value="Ratio"></code>
+         </type>
+         <type>
+            <code value="Reference"></code>
+         </type>
+         <type>
+            <code value="SampledData"></code>
+         </type>
+         <type>
+            <code value="Signature"></code>
+         </type>
+         <type>
+            <code value="Timing"></code>
+         </type>
+         <type>
+            <code value="ContactDetail"></code>
+         </type>
+         <type>
+            <code value="Contributor"></code>
+         </type>
+         <type>
+            <code value="DataRequirement"></code>
+         </type>
+         <type>
+            <code value="Expression"></code>
+         </type>
+         <type>
+            <code value="ParameterDefinition"></code>
+         </type>
+         <type>
+            <code value="RelatedArtifact"></code>
+         </type>
+         <type>
+            <code value="TriggerDefinition"></code>
+         </type>
+         <type>
+            <code value="UsageContext"></code>
+         </type>
+         <type>
+            <code value="Dosage"></code>
+         </type>
+         <type>
+            <code value="Meta"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
          </mapping>
       </element>
       <element id="Condition.subject.extension:unidentifiedPatient.extension:reason.url">
@@ -2755,6 +3579,9 @@ null: Indeterminado"></definition>
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -3936,11 +4763,7 @@ null: Indeterminado"></definition>
       <element id="Condition.clinicalStatus">
          <path value="Condition.clinicalStatus"></path>
          <short value="Estado da Resolução"></short>
-         <definition value="Situação que o Diagnóstico/Problema se encontra no momento da informação.
-resolved: Resolvido
-active: Resolvendo
-active: Não resolvido
-null: Indeterminado"></definition>
+         <definition value="Situação que o Diagnóstico/Problema se encontra no momento da informação. resolved: Resolvido active: Resolvendo active: Não resolvido null: Indeterminado"></definition>
          <mustSupport value="true"></mustSupport>
          <binding>
             <strength value="required"></strength>

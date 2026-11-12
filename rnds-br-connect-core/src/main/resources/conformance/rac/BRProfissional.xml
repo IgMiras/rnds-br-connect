@@ -110,7 +110,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -200,6 +200,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -496,8 +499,7 @@
       <element id="Practitioner.identifier.use">
          <path value="Practitioner.identifier.use"></path>
          <short value="Uso do Documento"></short>
-         <definition value="official: Documentos oficiais ou o CNS Definitivo
-secondary: CNS Provisório"></definition>
+         <definition value="official: Documentos oficiais ou o CNS Definitivo secondary: CNS Provisório"></definition>
          <comment value="Applications can assume that an identifier is permanent unless it explicitly says that it is temporary."></comment>
          <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers."></requirements>
          <min value="1"></min>
@@ -1526,8 +1528,7 @@ secondary: CNS Provisório"></definition>
       <element id="Practitioner.active">
          <path value="Practitioner.active"></path>
          <short value="Registro em Uso"></short>
-         <definition value="Indica se o registro desse profissional ainda está em uso.
-A codição de inativo pode indicar que tanto uma informação errada quanto um profissional que não está mais atuando."></definition>
+         <definition value="Indica se o registro desse profissional ainda está em uso. A codição de inativo pode indicar que tanto uma informação errada quanto um profissional que não está mais atuando."></definition>
          <comment value="If the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role."></comment>
          <requirements value="Need to be able to mark a practitioner record as not to be used because it was created in error."></requirements>
          <min value="1"></min>
@@ -1682,12 +1683,7 @@ A codição de inativo pode indicar que tanto uma informação errada quanto um 
       <element id="Practitioner.name.use">
          <path value="Practitioner.name.use"></path>
          <short value="Tipo de Nome"></short>
-         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do profissional.
-maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo.
-old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união.
-usual: nome social.
-temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas.
-anonymous: uso exclusivo para anonimização de registros de profissionais."></definition>
+         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do profissional. maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo. old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união. usual: nome social. temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas. anonymous: uso exclusivo para anonimização de registros de profissionais."></definition>
          <comment value="Applications can assume that a name is current unless it explicitly says that it is temporary or old."></comment>
          <requirements value="Allows the appropriate name for a particular context of use to be selected from among a set of names."></requirements>
          <min value="1"></min>
@@ -2246,13 +2242,7 @@ anonymous: uso exclusivo para anonimização de registros de profissionais."></d
       <element id="Practitioner.telecom.system">
          <path value="Practitioner.telecom.system"></path>
          <short value="Tipo de Meio de Contato"></short>
-         <definition value="sms: número de telefone celular.
-phone: número de telefone fixo.
-fax: número de fax.
-email: endereço de correio eletrônico (e-mail).
-pager: número de pager/bip.
-url: endereço do sítio eletrônico na internet, inclusive redes sociais.
-other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
+         <definition value="sms: número de telefone celular. phone: número de telefone fixo. fax: número de fax. email: endereço de correio eletrônico (e-mail). pager: número de pager/bip. url: endereço do sítio eletrônico na internet, inclusive redes sociais. other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
          <min value="1"></min>
          <max value="1"></max>
          <base>
@@ -2339,9 +2329,7 @@ other: outros meios de contato, inserir no value uma descrição, seguida do car
       <element id="Practitioner.telecom.use">
          <path value="Practitioner.telecom.use"></path>
          <short value="Uso do Meio de Contato"></short>
-         <definition value="work: comercial.
-temp: temporário ou de recado.
-mobile: dispositivo móvel, como um telefone celular."></definition>
+         <definition value="work: comercial. temp: temporário ou de recado. mobile: dispositivo móvel, como um telefone celular."></definition>
          <comment value="Applications can assume that a contact is current unless it explicitly says that it is temporary or old."></comment>
          <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose."></requirements>
          <min value="0"></min>
@@ -2727,9 +2715,7 @@ mobile: dispositivo móvel, como um telefone celular."></definition>
       <element id="Practitioner.address.use">
          <path value="Practitioner.address.use"></path>
          <short value="Uso do Endereço"></short>
-         <definition value="work: endereço comercial ou de trabalho atual.
-temp: endereço temporário, como uma instalação/edificação de trabalho provisória, etc.
-old: endereço anterior."></definition>
+         <definition value="work: endereço comercial ou de trabalho atual. temp: endereço temporário, como uma instalação/edificação de trabalho provisória, etc. old: endereço anterior."></definition>
          <comment value="Applications can assume that an address is current unless it explicitly says that it is temporary or old."></comment>
          <requirements value="Allows an appropriate address to be chosen from a list of many."></requirements>
          <min value="0"></min>
@@ -2782,8 +2768,7 @@ old: endereço anterior."></definition>
       <element id="Practitioner.address.type">
          <path value="Practitioner.address.type"></path>
          <short value="Tipo de Endereço"></short>
-         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc.
-postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
+         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc. postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
          <comment value="The definition of Address states that &quot;address is intended to describe postal addresses, not physical locations&quot;. However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource)."></comment>
          <min value="0"></min>
          <max value="1"></max>
@@ -3596,9 +3581,7 @@ postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística
       <element id="Practitioner.gender">
          <path value="Practitioner.gender"></path>
          <short value="Sexo"></short>
-         <definition value="male: masculino.
-female: feminino.
-unknown: ignorado."></definition>
+         <definition value="male: masculino. female: feminino. unknown: ignorado."></definition>
          <requirements value="Needed to address the person correctly."></requirements>
          <min value="0"></min>
          <max value="1"></max>
@@ -4591,6 +4574,9 @@ unknown: ignorado."></definition>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/languages"></valueSet>
@@ -4631,8 +4617,7 @@ unknown: ignorado."></definition>
       <element id="Practitioner.active">
          <path value="Practitioner.active"></path>
          <short value="Registro em Uso"></short>
-         <definition value="Indica se o registro desse profissional ainda está em uso.
-A codição de inativo pode indicar que tanto uma informação errada quanto um profissional que não está mais atuando."></definition>
+         <definition value="Indica se o registro desse profissional ainda está em uso. A codição de inativo pode indicar que tanto uma informação errada quanto um profissional que não está mais atuando."></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
       </element>
@@ -4647,12 +4632,7 @@ A codição de inativo pode indicar que tanto uma informação errada quanto um 
       </element>
       <element id="Practitioner.name.use">
          <path value="Practitioner.name.use"></path>
-         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do profissional.
-maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo.
-old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união.
-usual: nome social.
-temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas.
-anonymous: uso exclusivo para anonimização de registros de profissionais."></definition>
+         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do profissional. maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo. old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união. usual: nome social. temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas. anonymous: uso exclusivo para anonimização de registros de profissionais."></definition>
       </element>
       <element id="Practitioner.name.text">
          <path value="Practitioner.name.text"></path>
@@ -4668,9 +4648,7 @@ anonymous: uso exclusivo para anonimização de registros de profissionais."></d
       </element>
       <element id="Practitioner.telecom.use">
          <path value="Practitioner.telecom.use"></path>
-         <definition value="work: comercial.
-temp: temporário ou de recado.
-mobile: dispositivo móvel, como um telefone celular."></definition>
+         <definition value="work: comercial. temp: temporário ou de recado. mobile: dispositivo móvel, como um telefone celular."></definition>
       </element>
       <element id="Practitioner.telecom.period">
          <path value="Practitioner.telecom.period"></path>
@@ -4694,16 +4672,12 @@ mobile: dispositivo móvel, como um telefone celular."></definition>
       </element>
       <element id="Practitioner.address.use">
          <path value="Practitioner.address.use"></path>
-         <definition value="work: endereço comercial ou de trabalho atual.
-temp: endereço temporário, como uma instalação/edificação de trabalho provisória, etc.
-old: endereço anterior."></definition>
+         <definition value="work: endereço comercial ou de trabalho atual. temp: endereço temporário, como uma instalação/edificação de trabalho provisória, etc. old: endereço anterior."></definition>
       </element>
       <element id="Practitioner.gender">
          <path value="Practitioner.gender"></path>
          <short value="Sexo"></short>
-         <definition value="male: masculino.
-female: feminino.
-unknown: ignorado."></definition>
+         <definition value="male: masculino. female: feminino. unknown: ignorado."></definition>
          <mustSupport value="true"></mustSupport>
          <binding>
             <strength value="required"></strength>

@@ -107,7 +107,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -197,6 +197,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -1882,7 +1885,7 @@
                <path value="$this"></path>
             </discriminator>
             <ordered value="false"></ordered>
-            <rules value="open"></rules>
+            <rules value="closed"></rules>
          </slicing>
          <short value="Relacionamento alvo"></short>
          <definition value="Relacionamento alvo"></definition>
@@ -2207,6 +2210,9 @@
          </mapping>
       </element>
       <element id="Composition.section">
+         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+            <valueString value="Section"></valueString>
+         </extension>
          <path value="Composition.section"></path>
          <short value="A secção inicial da composition a partir da qual as demais seções são definidas"></short>
          <definition value="A secção inicial da composition a partir da qual as demais seções são definidas"></definition>
@@ -2708,7 +2714,7 @@
             <min value="0"></min>
             <max value="*"></max>
          </base>
-         <contentReference value="http://hl7.org/fhir/StructureDefinition/Composition#Composition.section"></contentReference>
+         <contentReference value="#Composition.section"></contentReference>
          <condition value="cmp-1"></condition>
          <constraint>
             <key value="ele-1"></key>

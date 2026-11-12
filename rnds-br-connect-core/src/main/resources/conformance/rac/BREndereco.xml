@@ -134,10 +134,7 @@
       <element id="Address.use">
          <path value="Address.use"></path>
          <short value="Uso do Endereço"></short>
-         <definition value="home: endereço residencial atual.
-work: endereço comercial ou de trabalho atual.
-temp: endereço temporário, como um hotel, a casa de amigos ou familiares, uma instalação/edificação provisória, etc.
-old: endereço anterior."></definition>
+         <definition value="home: endereço residencial atual. work: endereço comercial ou de trabalho atual. temp: endereço temporário, como um hotel, a casa de amigos ou familiares, uma instalação/edificação provisória, etc. old: endereço anterior."></definition>
          <comment value="Applications can assume that an address is current unless it explicitly says that it is temporary or old."></comment>
          <requirements value="Allows an appropriate address to be chosen from a list of many."></requirements>
          <min value="0"></min>
@@ -190,8 +187,7 @@ old: endereço anterior."></definition>
       <element id="Address.type">
          <path value="Address.type"></path>
          <short value="Tipo de Endereço"></short>
-         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc.
-postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
+         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc. postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
          <comment value="The definition of Address states that &quot;address is intended to describe postal addresses, not physical locations&quot;. However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource)."></comment>
          <min value="0"></min>
          <max value="1"></max>
@@ -1012,17 +1008,13 @@ postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística
       <element id="Address.use">
          <path value="Address.use"></path>
          <short value="Uso do Endereço"></short>
-         <definition value="home: endereço residencial atual.
-work: endereço comercial ou de trabalho atual.
-temp: endereço temporário, como um hotel, a casa de amigos ou familiares, uma instalação/edificação provisória, etc.
-old: endereço anterior."></definition>
+         <definition value="home: endereço residencial atual. work: endereço comercial ou de trabalho atual. temp: endereço temporário, como um hotel, a casa de amigos ou familiares, uma instalação/edificação provisória, etc. old: endereço anterior."></definition>
          <mustSupport value="true"></mustSupport>
       </element>
       <element id="Address.type">
          <path value="Address.type"></path>
          <short value="Tipo de Endereço"></short>
-         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc.
-postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
+         <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc. postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex."></definition>
          <mustSupport value="true"></mustSupport>
       </element>
       <element id="Address.text">

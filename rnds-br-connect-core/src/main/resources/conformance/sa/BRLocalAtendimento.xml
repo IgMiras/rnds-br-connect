@@ -101,7 +101,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -191,6 +191,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>

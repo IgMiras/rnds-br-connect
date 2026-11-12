@@ -181,7 +181,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -271,6 +271,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -362,6 +365,52 @@
             <code value="MedicationRequest"></code>
             <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSPrescricaoMedicamentoDispensado"></profile>
          </type>
+         <constraint>
+            <key value="dom-2"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"></human>
+            <expression value="contained.contained.empty()"></expression>
+            <xpath value="not(parent::f:contained and f:contained)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-3"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource"></human>
+            <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()"></expression>
+            <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-4"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"></human>
+            <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-5"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a security label"></human>
+            <expression value="contained.meta.security.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:security))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+               <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."></valueMarkdown>
+            </extension>
+            <key value="dom-6"></key>
+            <severity value="warning"></severity>
+            <human value="A resource should have narrative for robust management"></human>
+            <expression value="text.`div`.exists()"></expression>
+            <xpath value="exists(f:text/h:div)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
          <isModifier value="false"></isModifier>
          <isSummary value="false"></isSummary>
          <mapping>
@@ -395,7 +444,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -635,6 +684,9 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="SecurityLabels"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="Security Labels from the Healthcare Privacy and Security Classification System."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/security-labels"></valueSet>
@@ -732,6 +784,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -889,29 +944,7 @@
             <rules value="open"></rules>
          </slicing>
          <short value="Cada item prescrito DEVE ser identificado pelo ID local e também pode ser identificado pelo número do Sistema Nacional de Controle de Receituários - SNCR."></short>
-         <definition value="Exemplos de identificação (apenas para fins ilustrativos):
-
-ID Local:
-
-```json
- &quot;identifier&quot;:  [
-    {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id&quot;,
-        &quot;value&quot;: &quot;a54219b8-f741-4c47-b662-e4f8dfa49ab6&quot;
-    }
-]
-```
-
-Número do Sistema Nacional de Controle de Receituários:
-
-```json
- &quot;identifier&quot;:  [
-    {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/sncr-number&quot;,
-        &quot;value&quot;: &quot;19356261&quot;
-    }
-]
-```"></definition>
+         <definition value="Exemplos de identificação (apenas para fins ilustrativos):  ID Local:  ```json  &quot;identifier&quot;:  [     {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id&quot;,         &quot;value&quot;: &quot;a54219b8-f741-4c47-b662-e4f8dfa49ab6&quot;     } ] ```  Número do Sistema Nacional de Controle de Receituários:  ```json  &quot;identifier&quot;:  [     {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/sncr-number&quot;,         &quot;value&quot;: &quot;19356261&quot;     } ] ```"></definition>
          <comment value="This is a business identifier, not a resource identifier."></comment>
          <min value="1"></min>
          <max value="*"></max>
@@ -1149,6 +1182,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -1519,6 +1555,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -2471,16 +2510,7 @@ Número do Sistema Nacional de Controle de Receituários:
       <element id="MedicationDispense.contained:prescriptionDetails.subject">
          <path value="MedicationDispense.contained.subject"></path>
          <short value="A quem ou a que grupo se destina a requisição de medicamento"></short>
-         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.
-
-```json
-&quot;subject&quot;: {
-    &quot;identifier&quot;: {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,
-        &quot;value&quot;: &quot;53678720454&quot;
-    }
-}
-```"></definition>
+         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.  ```json &quot;subject&quot;: {     &quot;identifier&quot;: {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,         &quot;value&quot;: &quot;53678720454&quot;     } } ```"></definition>
          <comment value="The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified."></comment>
          <min value="1"></min>
          <max value="1"></max>
@@ -2848,6 +2878,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -3545,6 +3578,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -4638,55 +4674,7 @@ Número do Sistema Nacional de Controle de Receituários:
       <element id="MedicationDispense.contained:prescriptionDetails.dosageInstruction">
          <path value="MedicationDispense.contained.dosageInstruction"></path>
          <short value="Como o medicamento deve ser usado"></short>
-         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.
-
-`dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento. 
-
-O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.
-
-
-```json
-&quot;dosageInstruction&quot;: [
-   {
-        &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,
-        &quot;timing&quot;: {
-            &quot;repeat&quot;: {
-                &quot;boundsDuration&quot;: {
-                    &quot;value&quot;: 10,
-                    &quot;unit&quot;: &quot;day&quot;,
-                     &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,
-                     &quot;code&quot;: &quot;d&quot;
-                },
-                 &quot;frequency&quot;: 1,
-                 &quot;period&quot;: 1,
-                 &quot;periodUnit&quot;: &quot;d&quot;,
-                 &quot;when&quot;: &quot;MORN&quot;
-             }
-        },
-        &quot;route&quot;: {
-            &quot;coding&quot;: [
-                {
-                    &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-                    &quot;code&quot;: &quot;10907&quot;,
-                    &quot;display&quot;: &quot;Oral&quot;
-                }
-            ]
-        },
-        &quot;doseAndRate&quot;: [
-   {
-    &quot;doseQuantity&quot;: {
-     &quot;value&quot;: 1,
-     &quot;unit&quot;: &quot;Comprimido&quot;,
-     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,
-     &quot;code&quot;: &quot;19&quot;
-    }
-   }
-  ],
- }
-]
-
-
-```"></definition>
+         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.  `dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento.   O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.   ```json &quot;dosageInstruction&quot;: [    {         &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,         &quot;timing&quot;: {             &quot;repeat&quot;: {                 &quot;boundsDuration&quot;: {                     &quot;value&quot;: 10,                     &quot;unit&quot;: &quot;day&quot;,                      &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,                      &quot;code&quot;: &quot;d&quot;                 },                  &quot;frequency&quot;: 1,                  &quot;period&quot;: 1,                  &quot;periodUnit&quot;: &quot;d&quot;,                  &quot;when&quot;: &quot;MORN&quot;              }         },         &quot;route&quot;: {             &quot;coding&quot;: [                 {                     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,                     &quot;code&quot;: &quot;10907&quot;,                     &quot;display&quot;: &quot;Oral&quot;                 }             ]         },         &quot;doseAndRate&quot;: [    {     &quot;doseQuantity&quot;: {      &quot;value&quot;: 1,      &quot;unit&quot;: &quot;Comprimido&quot;,      &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,      &quot;code&quot;: &quot;19&quot;     }    }   ],  } ]   ```"></definition>
          <comment value="There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, &quot;Ondansetron 8mg orally or IV twice a day as needed for nausea&quot; or &quot;Compazine® (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting&quot;.  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed."></comment>
          <min value="1"></min>
          <max value="*"></max>
@@ -5100,19 +5088,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.contained:prescriptionDetails.dosageInstruction.route">
          <path value="MedicationDispense.contained.dosageInstruction.route"></path>
          <short value="Via de admiminstração do medicamento"></short>
-         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.
-
-```json
-&quot;route&quot;: {
-    &quot;coding&quot;: [
-        {
-            &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-            &quot;code&quot;: &quot;10907&quot;,
-            &quot;display&quot;: &quot;Oral&quot;
-        }
-    ]
-}
-```"></definition>
+         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.  ```json &quot;route&quot;: {     &quot;coding&quot;: [         {             &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,             &quot;code&quot;: &quot;10907&quot;,             &quot;display&quot;: &quot;Oral&quot;         }     ] } ```"></definition>
          <requirements value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."></requirements>
          <min value="1"></min>
          <max value="1"></max>
@@ -7091,6 +7067,52 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <code value="Practitioner"></code>
             <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSProfissional"></profile>
          </type>
+         <constraint>
+            <key value="dom-2"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"></human>
+            <expression value="contained.contained.empty()"></expression>
+            <xpath value="not(parent::f:contained and f:contained)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-3"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource"></human>
+            <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()"></expression>
+            <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-4"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"></human>
+            <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-5"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a security label"></human>
+            <expression value="contained.meta.security.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:security))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+               <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."></valueMarkdown>
+            </extension>
+            <key value="dom-6"></key>
+            <severity value="warning"></severity>
+            <human value="A resource should have narrative for robust management"></human>
+            <expression value="text.`div`.exists()"></expression>
+            <xpath value="exists(f:text/h:div)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
          <isModifier value="false"></isModifier>
          <isSummary value="false"></isSummary>
          <mapping>
@@ -7124,7 +7146,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -7364,6 +7386,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="SecurityLabels"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="Security Labels from the Healthcare Privacy and Security Classification System."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/security-labels"></valueSet>
@@ -7461,6 +7486,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -15805,6 +15833,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="AdministrativeGender"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="required"></strength>
             <description value="The gender of a person used for administrative purposes."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.0.1"></valueSet>
@@ -16618,6 +16649,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/languages"></valueSet>
@@ -16652,6 +16686,52 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <code value="PractitionerRole"></code>
             <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSLotacaoProfissional"></profile>
          </type>
+         <constraint>
+            <key value="dom-2"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"></human>
+            <expression value="contained.contained.empty()"></expression>
+            <xpath value="not(parent::f:contained and f:contained)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-3"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource"></human>
+            <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()"></expression>
+            <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-4"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"></human>
+            <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-5"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a security label"></human>
+            <expression value="contained.meta.security.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:security))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+               <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."></valueMarkdown>
+            </extension>
+            <key value="dom-6"></key>
+            <severity value="warning"></severity>
+            <human value="A resource should have narrative for robust management"></human>
+            <expression value="text.`div`.exists()"></expression>
+            <xpath value="exists(f:text/h:div)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
          <isModifier value="false"></isModifier>
          <isSummary value="false"></isSummary>
          <mapping>
@@ -16685,7 +16765,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -16925,6 +17005,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="SecurityLabels"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="Security Labels from the Healthcare Privacy and Security Classification System."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/security-labels"></valueSet>
@@ -17022,6 +17105,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -17345,6 +17431,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -18785,6 +18874,52 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <code value="Practitioner"></code>
             <profile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSProfissional"></profile>
          </type>
+         <constraint>
+            <key value="dom-2"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"></human>
+            <expression value="contained.contained.empty()"></expression>
+            <xpath value="not(parent::f:contained and f:contained)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-3"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource"></human>
+            <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()"></expression>
+            <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-4"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"></human>
+            <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-5"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a security label"></human>
+            <expression value="contained.meta.security.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:security))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+               <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."></valueMarkdown>
+            </extension>
+            <key value="dom-6"></key>
+            <severity value="warning"></severity>
+            <human value="A resource should have narrative for robust management"></human>
+            <expression value="text.`div`.exists()"></expression>
+            <xpath value="exists(f:text/h:div)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
          <isModifier value="false"></isModifier>
          <isSummary value="false"></isSummary>
          <mapping>
@@ -18818,7 +18953,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -18909,6 +19044,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -27252,6 +27390,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="AdministrativeGender"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="required"></strength>
             <description value="The gender of a person used for administrative purposes."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.0.1"></valueSet>
@@ -28065,6 +28206,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/languages"></valueSet>
@@ -28404,6 +28548,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -28771,6 +28918,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"></valueSet>
@@ -29076,20 +29226,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.category">
          <path value="MedicationDispense.category"></path>
          <short value="Categoria de dispensação de medicamentos"></short>
-         <definition value="Na Atenção Primária, o código `community` deve ser usado. Na Atenção Especializada, a categoria frequentemente corresponderá ao tipo de atendimento prestado.
-
-```json
-&quot;category&quot;: [
-    {
-        &quot;coding&quot;: [
-            {
-                &quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/medicationdispense-category&quot;,
-                &quot;code&quot;: &quot;community&quot;
-            }
-        ]
-    }
-],
-```"></definition>
+         <definition value="Na Atenção Primária, o código `community` deve ser usado. Na Atenção Especializada, a categoria frequentemente corresponderá ao tipo de atendimento prestado.  ```json &quot;category&quot;: [     {         &quot;coding&quot;: [             {                 &quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/medicationdispense-category&quot;,                 &quot;code&quot;: &quot;community&quot;             }         ]     } ], ```"></definition>
          <comment value="The category can be used to include where the medication is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind."></comment>
          <min value="0"></min>
          <max value="1"></max>
@@ -29182,16 +29319,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.subject">
          <path value="MedicationDispense.subject"></path>
          <short value="Para quem é a dispensação"></short>
-         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.
-
-```json
-&quot;subject&quot;: {
-    &quot;identifier&quot;: {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,
-        &quot;value&quot;: &quot;53678720454&quot;
-    }
-}
-```"></definition>
+         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.  ```json &quot;subject&quot;: {     &quot;identifier&quot;: {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,         &quot;value&quot;: &quot;53678720454&quot;     } } ```"></definition>
          <comment value="SubstanceAdministration-&gt;subject-&gt;Patient."></comment>
          <min value="1"></min>
          <max value="1"></max>
@@ -29555,6 +29683,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -31082,6 +31213,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"></valueSet>
@@ -32248,6 +32382,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -33534,6 +33671,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -35262,6 +35402,9 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"></valueSet>
@@ -35510,55 +35653,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.dosageInstruction">
          <path value="MedicationDispense.dosageInstruction"></path>
          <short value="Como o medicamento deve ser usado"></short>
-         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.
-
-`dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento. 
-
-O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.
-
-
-```json
-&quot;dosageInstruction&quot;: [
-   {
-        &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,
-        &quot;timing&quot;: {
-            &quot;repeat&quot;: {
-                &quot;boundsDuration&quot;: {
-                    &quot;value&quot;: 10,
-                    &quot;unit&quot;: &quot;day&quot;,
-                     &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,
-                     &quot;code&quot;: &quot;d&quot;
-                },
-                 &quot;frequency&quot;: 1,
-                 &quot;period&quot;: 1,
-                 &quot;periodUnit&quot;: &quot;d&quot;,
-                 &quot;when&quot;: &quot;MORN&quot;
-             }
-        },
-        &quot;route&quot;: {
-            &quot;coding&quot;: [
-                {
-                    &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-                    &quot;code&quot;: &quot;10907&quot;,
-                    &quot;display&quot;: &quot;Oral&quot;
-                }
-            ]
-        },
-        &quot;doseAndRate&quot;: [
-   {
-    &quot;doseQuantity&quot;: {
-     &quot;value&quot;: 1,
-     &quot;unit&quot;: &quot;Comprimido&quot;,
-     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,
-     &quot;code&quot;: &quot;19&quot;
-    }
-   }
-  ],
- }
-]
-
-
-```"></definition>
+         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.  `dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento.   O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.   ```json &quot;dosageInstruction&quot;: [    {         &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,         &quot;timing&quot;: {             &quot;repeat&quot;: {                 &quot;boundsDuration&quot;: {                     &quot;value&quot;: 10,                     &quot;unit&quot;: &quot;day&quot;,                      &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,                      &quot;code&quot;: &quot;d&quot;                 },                  &quot;frequency&quot;: 1,                  &quot;period&quot;: 1,                  &quot;periodUnit&quot;: &quot;d&quot;,                  &quot;when&quot;: &quot;MORN&quot;              }         },         &quot;route&quot;: {             &quot;coding&quot;: [                 {                     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,                     &quot;code&quot;: &quot;10907&quot;,                     &quot;display&quot;: &quot;Oral&quot;                 }             ]         },         &quot;doseAndRate&quot;: [    {     &quot;doseQuantity&quot;: {      &quot;value&quot;: 1,      &quot;unit&quot;: &quot;Comprimido&quot;,      &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,      &quot;code&quot;: &quot;19&quot;     }    }   ],  } ]   ```"></definition>
          <comment value="When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates. The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed."></comment>
          <min value="0"></min>
          <max value="*"></max>
@@ -35967,19 +36062,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.dosageInstruction.route">
          <path value="MedicationDispense.dosageInstruction.route"></path>
          <short value="Via de admiminstração do medicamento"></short>
-         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.
-
-```json
-&quot;route&quot;: {
-    &quot;coding&quot;: [
-        {
-            &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-            &quot;code&quot;: &quot;10907&quot;,
-            &quot;display&quot;: &quot;Oral&quot;
-        }
-    ]
-}
-```"></definition>
+         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.  ```json &quot;route&quot;: {     &quot;coding&quot;: [         {             &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,             &quot;code&quot;: &quot;10907&quot;,             &quot;display&quot;: &quot;Oral&quot;         }     ] } ```"></definition>
          <requirements value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."></requirements>
          <min value="1"></min>
          <max value="1"></max>
@@ -37640,20 +37723,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.category">
          <path value="MedicationDispense.category"></path>
          <short value="Categoria de dispensação de medicamentos"></short>
-         <definition value="Na Atenção Primária, o código `community` deve ser usado. Na Atenção Especializada, a categoria frequentemente corresponderá ao tipo de atendimento prestado.
-
-```json
-&quot;category&quot;: [
-    {
-        &quot;coding&quot;: [
-            {
-                &quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/medicationdispense-category&quot;,
-                &quot;code&quot;: &quot;community&quot;
-            }
-        ]
-    }
-],
-```"></definition>
+         <definition value="Na Atenção Primária, o código `community` deve ser usado. Na Atenção Especializada, a categoria frequentemente corresponderá ao tipo de atendimento prestado.  ```json &quot;category&quot;: [     {         &quot;coding&quot;: [             {                 &quot;system&quot;: &quot;http://terminology.hl7.org/CodeSystem/medicationdispense-category&quot;,                 &quot;code&quot;: &quot;community&quot;             }         ]     } ], ```"></definition>
       </element>
       <element id="MedicationDispense.medication[x]">
          <path value="MedicationDispense.medication[x]"></path>
@@ -37673,16 +37743,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.subject">
          <path value="MedicationDispense.subject"></path>
          <short value="Para quem é a dispensação"></short>
-         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.
-
-```json
-&quot;subject&quot;: {
-    &quot;identifier&quot;: {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,
-        &quot;value&quot;: &quot;53678720454&quot;
-    }
-}
-```"></definition>
+         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.  ```json &quot;subject&quot;: {     &quot;identifier&quot;: {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,         &quot;value&quot;: &quot;53678720454&quot;     } } ```"></definition>
          <min value="1"></min>
          <type>
             <code value="Reference"></code>
@@ -38021,72 +38082,12 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationDispense.dosageInstruction">
          <path value="MedicationDispense.dosageInstruction"></path>
          <short value="Como o medicamento deve ser usado"></short>
-         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.
-
-`dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento. 
-
-O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.
-
-
-```json
-&quot;dosageInstruction&quot;: [
-   {
-        &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,
-        &quot;timing&quot;: {
-            &quot;repeat&quot;: {
-                &quot;boundsDuration&quot;: {
-                    &quot;value&quot;: 10,
-                    &quot;unit&quot;: &quot;day&quot;,
-                     &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,
-                     &quot;code&quot;: &quot;d&quot;
-                },
-                 &quot;frequency&quot;: 1,
-                 &quot;period&quot;: 1,
-                 &quot;periodUnit&quot;: &quot;d&quot;,
-                 &quot;when&quot;: &quot;MORN&quot;
-             }
-        },
-        &quot;route&quot;: {
-            &quot;coding&quot;: [
-                {
-                    &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-                    &quot;code&quot;: &quot;10907&quot;,
-                    &quot;display&quot;: &quot;Oral&quot;
-                }
-            ]
-        },
-        &quot;doseAndRate&quot;: [
-   {
-    &quot;doseQuantity&quot;: {
-     &quot;value&quot;: 1,
-     &quot;unit&quot;: &quot;Comprimido&quot;,
-     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,
-     &quot;code&quot;: &quot;19&quot;
-    }
-   }
-  ],
- }
-]
-
-
-```"></definition>
+         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.  `dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento.   O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.   ```json &quot;dosageInstruction&quot;: [    {         &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,         &quot;timing&quot;: {             &quot;repeat&quot;: {                 &quot;boundsDuration&quot;: {                     &quot;value&quot;: 10,                     &quot;unit&quot;: &quot;day&quot;,                      &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,                      &quot;code&quot;: &quot;d&quot;                 },                  &quot;frequency&quot;: 1,                  &quot;period&quot;: 1,                  &quot;periodUnit&quot;: &quot;d&quot;,                  &quot;when&quot;: &quot;MORN&quot;              }         },         &quot;route&quot;: {             &quot;coding&quot;: [                 {                     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,                     &quot;code&quot;: &quot;10907&quot;,                     &quot;display&quot;: &quot;Oral&quot;                 }             ]         },         &quot;doseAndRate&quot;: [    {     &quot;doseQuantity&quot;: {      &quot;value&quot;: 1,      &quot;unit&quot;: &quot;Comprimido&quot;,      &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,      &quot;code&quot;: &quot;19&quot;     }    }   ],  } ]   ```"></definition>
       </element>
       <element id="MedicationDispense.dosageInstruction.route">
          <path value="MedicationDispense.dosageInstruction.route"></path>
          <short value="Via de admiminstração do medicamento"></short>
-         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.
-
-```json
-&quot;route&quot;: {
-    &quot;coding&quot;: [
-        {
-            &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-            &quot;code&quot;: &quot;10907&quot;,
-            &quot;display&quot;: &quot;Oral&quot;
-        }
-    ]
-}
-```"></definition>
+         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.  ```json &quot;route&quot;: {     &quot;coding&quot;: [         {             &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,             &quot;code&quot;: &quot;10907&quot;,             &quot;display&quot;: &quot;Oral&quot;         }     ] } ```"></definition>
          <min value="1"></min>
          <binding>
             <strength value="required"></strength>

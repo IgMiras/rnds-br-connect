@@ -81,7 +81,6 @@
             <human value="dataAbsentReason SHALL only be present if Observation.value[x] is not present"></human>
             <expression value="dataAbsentReason.empty() or value.empty()"></expression>
             <xpath value="not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), 'value')])))"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="obs-7"></key>
@@ -89,7 +88,6 @@
             <human value="If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present"></human>
             <expression value="value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()"></expression>
             <xpath value="not(f:*[starts-with(local-name(.), 'value')] and (for $coding in f:code/f:coding return f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value] [f:system/@value=$coding/f:system/@value]))"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <isModifier value="false"></isModifier>
          <isSummary value="false"></isSummary>
@@ -128,7 +126,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -218,6 +216,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -354,7 +355,7 @@
             <human value="Must have either extensions or value[x], not both"></human>
             <expression value="extension.exists() != value.exists()"></expression>
             <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <isModifier value="false"></isModifier>
          <mapping>
@@ -397,7 +398,7 @@
             <human value="Must have either extensions or value[x], not both"></human>
             <expression value="extension.exists() != value.exists()"></expression>
             <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <isModifier value="false"></isModifier>
          <mapping>
@@ -1260,6 +1261,9 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"></valueSet>
@@ -1774,7 +1778,6 @@
             <human value="if there's a duration, there needs to be duration units"></human>
             <expression value="duration.empty() or durationUnit.exists()"></expression>
             <xpath value="not(exists(f:duration)) or exists(f:durationUnit)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-2"></key>
@@ -1782,7 +1785,6 @@
             <human value="if there's a period, there needs to be period units"></human>
             <expression value="period.empty() or periodUnit.exists()"></expression>
             <xpath value="not(exists(f:period)) or exists(f:periodUnit)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-4"></key>
@@ -1790,7 +1792,6 @@
             <human value="duration SHALL be a non-negative value"></human>
             <expression value="duration.exists() implies duration &gt;= 0"></expression>
             <xpath value="f:duration/@value &gt;= 0 or not(f:duration/@value)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-5"></key>
@@ -1798,7 +1799,6 @@
             <human value="period SHALL be a non-negative value"></human>
             <expression value="period.exists() implies period &gt;= 0"></expression>
             <xpath value="f:period/@value &gt;= 0 or not(f:period/@value)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-6"></key>
@@ -1806,7 +1806,6 @@
             <human value="If there's a periodMax, there must be a period"></human>
             <expression value="periodMax.empty() or period.exists()"></expression>
             <xpath value="not(exists(f:periodMax)) or exists(f:period)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-7"></key>
@@ -1814,7 +1813,6 @@
             <human value="If there's a durationMax, there must be a duration"></human>
             <expression value="durationMax.empty() or duration.exists()"></expression>
             <xpath value="not(exists(f:durationMax)) or exists(f:duration)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-8"></key>
@@ -1822,7 +1820,6 @@
             <human value="If there's a countMax, there must be a count"></human>
             <expression value="countMax.empty() or count.exists()"></expression>
             <xpath value="not(exists(f:countMax)) or exists(f:count)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-9"></key>
@@ -1830,7 +1827,6 @@
             <human value="If there's an offset, there must be a when (and not C, CM, CD, CV)"></human>
             <expression value="offset.empty() or (when.exists() and ((when in ('C' | 'CM' | 'CD' | 'CV')).not()))"></expression>
             <xpath value="not(exists(f:offset)) or exists(f:when)"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <constraint>
             <key value="tim-10"></key>
@@ -1838,7 +1834,6 @@
             <human value="If there's a timeOfDay, there cannot be a when, or vice versa"></human>
             <expression value="timeOfDay.empty() or when.empty()"></expression>
             <xpath value="not(exists(f:timeOfDay)) or not(exists(f:when))"></xpath>
-            <source value="http://hl7.org/fhir/StructureDefinition/Observation"></source>
          </constraint>
          <isModifier value="false"></isModifier>
          <isSummary value="true"></isSummary>
@@ -3864,7 +3859,7 @@
             <min value="0"></min>
             <max value="*"></max>
          </base>
-         <contentReference value="http://hl7.org/fhir/StructureDefinition/Observation#Observation.referenceRange"></contentReference>
+         <contentReference value="#Observation.referenceRange"></contentReference>
          <constraint>
             <key value="ele-1"></key>
             <severity value="error"></severity>

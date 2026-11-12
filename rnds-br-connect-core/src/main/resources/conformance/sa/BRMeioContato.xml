@@ -148,13 +148,7 @@
       <element id="ContactPoint.system">
          <path value="ContactPoint.system"></path>
          <short value="Tipo de Meio de Contato"></short>
-         <definition value="sms: número de telefone celular.
-phone: número de telefone fixo.
-fax: número de fax.
-email: endereço de correio eletrônico (e-mail).
-pager: número de pager/bip.
-url: endereço do sítio eletrônico na internet, inclusive redes sociais.
-other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
+         <definition value="sms: número de telefone celular. phone: número de telefone fixo. fax: número de fax. email: endereço de correio eletrônico (e-mail). pager: número de pager/bip. url: endereço do sítio eletrônico na internet, inclusive redes sociais. other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
          <min value="1"></min>
          <max value="1"></max>
          <base>
@@ -241,10 +235,7 @@ other: outros meios de contato, inserir no value uma descrição, seguida do car
       <element id="ContactPoint.use">
          <path value="ContactPoint.use"></path>
          <short value="Uso do Meio de Contato"></short>
-         <definition value="home: residencial.
-work: comercial.
-temp: temporário ou de recado.
-mobile: dispositivo móvel, como um telefone celular."></definition>
+         <definition value="home: residencial. work: comercial. temp: temporário ou de recado. mobile: dispositivo móvel, como um telefone celular."></definition>
          <comment value="Applications can assume that a contact is current unless it explicitly says that it is temporary or old."></comment>
          <requirements value="Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose."></requirements>
          <min value="0"></min>
@@ -527,13 +518,7 @@ mobile: dispositivo móvel, como um telefone celular."></definition>
       <element id="ContactPoint.system">
          <path value="ContactPoint.system"></path>
          <short value="Tipo de Meio de Contato"></short>
-         <definition value="sms: número de telefone celular.
-phone: número de telefone fixo.
-fax: número de fax.
-email: endereço de correio eletrônico (e-mail).
-pager: número de pager/bip.
-url: endereço do sítio eletrônico na internet, inclusive redes sociais.
-other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
+         <definition value="sms: número de telefone celular. phone: número de telefone fixo. fax: número de fax. email: endereço de correio eletrônico (e-mail). pager: número de pager/bip. url: endereço do sítio eletrônico na internet, inclusive redes sociais. other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)."></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
       </element>
@@ -547,10 +532,7 @@ other: outros meios de contato, inserir no value uma descrição, seguida do car
       <element id="ContactPoint.use">
          <path value="ContactPoint.use"></path>
          <short value="Uso do Meio de Contato"></short>
-         <definition value="home: residencial.
-work: comercial.
-temp: temporário ou de recado.
-mobile: dispositivo móvel, como um telefone celular."></definition>
+         <definition value="home: residencial. work: comercial. temp: temporário ou de recado. mobile: dispositivo móvel, como um telefone celular."></definition>
          <mustSupport value="true"></mustSupport>
       </element>
       <element id="ContactPoint.rank">

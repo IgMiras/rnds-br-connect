@@ -1,1645 +1,1333 @@
-<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="profile-brquestionarioresposta" />
-  <language value="pt-BR" />
-  <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuestionarioResposta" />
-  <version value="1.0.0" />
-  <name value="BRQuestionarioResposta" />
-  <title value="Resposta de Questionário RNDS" />
-  <status value="active" />
-  <date value="2024-11-01T16:00:00-03:00" />
-  <publisher value="Ministério da Saúde do Brasil" />
-  <contact>
-    <name value="Walter" />
-    <telecom>
-      <system value="email" />
-      <value value="walter.domingos@saude.gov.br" />
-      <use value="work" />
-      <period>
-        <start value="2023-01-25" />
-      </period>
-    </telecom>
-  </contact>
-  <description value="Perfil destinado a modelar dados de resposta de um questionário na RNDS." />
-  <fhirVersion value="4.0.1" />
-  <mapping>
-    <identity value="workflow" />
-    <uri value="http://hl7.org/fhir/workflow" />
-    <name value="Workflow Pattern" />
-  </mapping>
-  <mapping>
-    <identity value="rim" />
-    <uri value="http://hl7.org/v3" />
-    <name value="RIM Mapping" />
-  </mapping>
-  <mapping>
-    <identity value="w5" />
-    <uri value="http://hl7.org/fhir/fivews" />
-    <name value="FiveWs Pattern Mapping" />
-  </mapping>
-  <kind value="resource" />
-  <abstract value="false" />
-  <type value="QuestionnaireResponse" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
-  <derivation value="constraint" />
-  <snapshot>
-    <element id="QuestionnaireResponse">
-      <path value="QuestionnaireResponse" />
-      <short value="A structured set of questions and their answers" />
-      <definition value="A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to." />
-      <comment value="The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don't need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse." />
-      <alias value="Form" />
-      <alias value="QuestionnaireAnswers" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="QuestionnaireResponse" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <constraint>
-        <key value="dom-2" />
-        <severity value="error" />
-        <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources" />
-        <expression value="contained.contained.empty()" />
-        <xpath value="not(parent::f:contained and f:contained)" />
-        <source value="http://hl7.org/fhir/StructureDefinition/DomainResource" />
-      </constraint>
-      <constraint>
-        <key value="dom-4" />
-        <severity value="error" />
-        <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated" />
-        <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()" />
-        <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))" />
-        <source value="http://hl7.org/fhir/StructureDefinition/DomainResource" />
-      </constraint>
-      <constraint>
-        <key value="dom-3" />
-        <severity value="error" />
-        <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource" />
-        <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()" />
-        <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))" />
-        <source value="http://hl7.org/fhir/StructureDefinition/DomainResource" />
-      </constraint>
-      <constraint>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
-          <valueBoolean value="true" />
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
-          <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time." />
-        </extension>
-        <key value="dom-6" />
-        <severity value="warning" />
-        <human value="A resource should have narrative for robust management" />
-        <expression value="text.`div`.exists()" />
-        <xpath value="exists(f:text/h:div)" />
-        <source value="http://hl7.org/fhir/StructureDefinition/DomainResource" />
-      </constraint>
-      <constraint>
-        <key value="dom-5" />
-        <severity value="error" />
-        <human value="If a resource is contained in another resource, it SHALL NOT have a security label" />
-        <expression value="contained.meta.security.empty()" />
-        <xpath value="not(exists(f:contained/*/f:meta/f:security))" />
-        <source value="http://hl7.org/fhir/StructureDefinition/DomainResource" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="Entity. Role, or Act" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="Observation[moodCode=EVN]" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.id">
-      <path value="QuestionnaireResponse.id" />
-      <short value="Logical id of this artifact" />
-      <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes." />
-      <comment value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="Resource.id" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-          <valueUrl value="string" />
-        </extension>
-        <code value="http://hl7.org/fhirpath/System.String" />
-      </type>
-      <isSummary value="true" />
-    </element>
-    <element id="QuestionnaireResponse.meta">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.meta" />
-      <short value="Metadata about the resource" />
-      <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="Resource.meta" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="Meta" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.implicitRules">
-      <path value="QuestionnaireResponse.implicitRules" />
-      <short value="A set of rules under which this content was created" />
-      <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc." />
-      <comment value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="Resource.implicitRules" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="uri" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <isModifier value="true" />
-      <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation" />
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.language">
-      <path value="QuestionnaireResponse.language" />
-      <short value="Language of the resource content" />
-      <definition value="The base language in which the resource is written." />
-      <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="Resource.language" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="code" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages" />
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Language" />
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true" />
-        </extension>
-        <strength value="preferred" />
-        <description value="A human language." />
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages" />
-      </binding>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.text">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.text" />
-      <short value="Text summary of the resource, for human interpretation" />
-      <definition value="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety." />
-      <comment value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded information is added later." />
-      <alias value="narrative" />
-      <alias value="html" />
-      <alias value="xhtml" />
-      <alias value="display" />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="DomainResource.text" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="Narrative" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="Act.text?" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.contained">
-      <path value="QuestionnaireResponse.contained" />
-      <short value="Contained, inline Resources" />
-      <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope." />
-      <comment value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels." />
-      <alias value="inline resources" />
-      <alias value="anonymous resources" />
-      <alias value="contained resources" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="DomainResource.contained" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Resource" />
-      </type>
-      <mapping>
-        <identity value="rim" />
-        <map value="Entity. Role, or Act" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.extension">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <description value="Extensions are always sliced by (at least) url" />
-        <rules value="open" />
-      </slicing>
-      <short value="Additional content defined by implementations" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." />
-      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
-      <alias value="extensions" />
-      <alias value="user content" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="DomainResource.extension" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Extension" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Extension" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.modifierExtension">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.modifierExtension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <description value="Extensions are always sliced by (at least) url" />
-        <rules value="open" />
-      </slicing>
-      <short value="Extensions that cannot be ignored" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." />
-      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
-      <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)." />
-      <alias value="extensions" />
-      <alias value="user content" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="DomainResource.modifierExtension" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Extension" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Extension" />
-      </constraint>
-      <isModifier value="true" />
-      <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.identifier">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.identifier" />
-      <short value="Unique id for this set of answers" />
-      <definition value="A business identifier assigned to a particular completed (or partially completed) questionnaire." />
-      <requirements value="Used for tracking, registration and other business purposes." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.identifier" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="Identifier" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="v2" />
-        <map value="CX / EI (occasionally, more often EI maps to a resource id or a URL)" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="II - The Identifier class is a little looser than the v3 type II because it allows URIs as well as registered OIDs or GUIDs.  Also maps to Role[classCode=IDENT]" />
-      </mapping>
-      <mapping>
-        <identity value="servd" />
-        <map value="Identifier" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.identifier" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.identifier" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".id" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.basedOn">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.basedOn" />
-      <short value="Request fulfilled by this QuestionnaireResponse" />
-      <definition value="The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression." />
-      <comment value="References SHALL be a reference to an actual FHIR resource, and SHALL be resolveable (allowing for access control, temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL and looking it up in a local registry/repository." />
-      <requirements value="Supports traceability of responsibility for the action and allows linkage of an action to the recommendations acted upon." />
-      <alias value="order" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="QuestionnaireResponse.basedOn" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ref-1" />
-        <severity value="error" />
-        <human value="SHALL have a contained resource if a local reference is provided" />
-        <expression value="reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))" />
-        <xpath value="not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Reference" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="The target of a resource reference is a RIM entry point (Act, Role, or Entity)" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.basedOn" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=FLFS].target" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.partOf">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.partOf" />
-      <short value="Part of this action" />
-      <definition value="A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of." />
-      <comment value="Composition of questionnaire responses will be handled by the parent questionnaire having answers that reference the child questionnaire.  For relationships to referrals, and other types of requests, use basedOn." />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="QuestionnaireResponse.partOf" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ref-1" />
-        <severity value="error" />
-        <human value="SHALL have a contained resource if a local reference is provided" />
-        <expression value="reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))" />
-        <xpath value="not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Reference" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="The target of a resource reference is a RIM entry point (Act, Role, or Entity)" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.partOf" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.questionnaire">
-      <path value="QuestionnaireResponse.questionnaire" />
-      <short value="Form being answered" />
-      <definition value="The Questionnaire that defines and organizes the questions for which answers are being provided." />
-      <comment value="If a QuestionnaireResponse references a Questionnaire, then the QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc.)." />
-      <requirements value="Needed to allow editing of the questionnaire response in a manner that enforces the constraints of the original form." />
-      <alias value="Form" />
-      <min value="1" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.questionnaire" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="canonical" />
-        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuestionarioBase" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.instantiates" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.status">
-      <path value="QuestionnaireResponse.status" />
-      <short value="in-progress | completed | amended | entered-in-error | stopped" />
-      <definition value="The position of the questionnaire response within its overall lifecycle." />
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid." />
-      <requirements value="The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished." />
-      <min value="1" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.status" />
-        <min value="1" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="code" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <isModifier value="true" />
-      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid" />
-      <isSummary value="true" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="QuestionnaireResponseStatus" />
-        </extension>
-        <strength value="required" />
-        <description value="Lifecycle status of the questionnaire response." />
-        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers-status|4.0.1" />
-      </binding>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.status" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.status" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish &quot;in-progress&quot; from &quot;published)" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.subject">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.subject" />
-      <short value="The subject of the questions" />
-      <definition value="The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information." />
-      <comment value="If the Questionnaire declared a subjectType, the resource pointed to by this element must be an instance of one of the listed types." />
-      <requirements value="Allows linking the answers to the individual the answers describe.  May also affect access control." />
-      <alias value="Patient" />
-      <alias value="Focus" />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.subject" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ref-1" />
-        <severity value="error" />
-        <human value="SHALL have a contained resource if a local reference is provided" />
-        <expression value="reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))" />
-        <xpath value="not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Reference" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="The target of a resource reference is a RIM entry point (Act, Role, or Entity)" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.subject" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.subject[x]" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".participation[typeCode=SBJ].role" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.subject" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.encounter">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.encounter" />
-      <short value="Encounter created as part of" />
-      <definition value="The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated." />
-      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter." />
-      <requirements value="Provides context for the information that was captured.  May also affect access control." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.encounter" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ref-1" />
-        <severity value="error" />
-        <human value="SHALL have a contained resource if a local reference is provided" />
-        <expression value="reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))" />
-        <xpath value="not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Reference" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="The target of a resource reference is a RIM entry point (Act, Role, or Entity)" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.encounter" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.context" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.authored">
-      <path value="QuestionnaireResponse.authored" />
-      <short value="Date the answers were gathered" />
-      <definition value="The date and/or time that this set of answers were last changed." />
-      <comment value="May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.&#xA;&#xA;This element is optional to allow for systems that might not know the value, however it SHOULD be populated if possible." />
-      <requirements value="Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers." />
-      <alias value="Date Created" />
-      <alias value="Date published" />
-      <alias value="Date Issued" />
-      <alias value="Date updated" />
-      <min value="1" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.authored" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="dateTime" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.occurrence[x]" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.recorded" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".participation[typeCode=AUT].time" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.author">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.author" />
-      <short value="Person who received and recorded the answers" />
-      <definition value="Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system." />
-      <comment value="Mapping a subject's answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation.  Authoring by device would indicate that some portion of the questionnaire had been auto-populated." />
-      <requirements value="Need to know who interpreted the subject's answers to the questions in the questionnaire, and selected the appropriate options for answers." />
-      <alias value="Laboratory" />
-      <alias value="Service" />
-      <alias value="Practitioner" />
-      <alias value="Department" />
-      <alias value="Company" />
-      <alias value="Performer" />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.author" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ref-1" />
-        <severity value="error" />
-        <human value="SHALL have a contained resource if a local reference is provided" />
-        <expression value="reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))" />
-        <xpath value="not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Reference" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="The target of a resource reference is a RIM entry point (Act, Role, or Entity)" />
-      </mapping>
-      <mapping>
-        <identity value="workflow" />
-        <map value="Event.performer" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.author" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".participation[typeCode=AUT].role" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.source">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.source" />
-      <short value="The person who answered the questions" />
-      <definition value="The person who answered the questions about the subject." />
-      <comment value="If not specified, no inference can be made about who provided the data." />
-      <requirements value="When answering questions about a subject that is minor, incapable of answering or an animal, another human source may answer the questions." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.source" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ref-1" />
-        <severity value="error" />
-        <human value="SHALL have a contained resource if a local reference is provided" />
-        <expression value="reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids'))" />
-        <xpath value="not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Reference" />
-      </constraint>
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="The target of a resource reference is a RIM entry point (Act, Role, or Entity)" />
-      </mapping>
-      <mapping>
-        <identity value="w5" />
-        <map value="FiveWs.source" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".participation[typeCode=INF].role" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.item" />
-      <short value="Groups and questions" />
-      <definition value="A group or question item from the original questionnaire for which answers are provided." />
-      <comment value="Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer)." />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="QuestionnaireResponse.item" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="BackboneElement" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="qrs-1" />
-        <severity value="error" />
-        <human value="Nested item can't be beneath both item and answer" />
-        <expression value="(answer.exists() and item.exists()).not()" />
-        <xpath value="not(exists(f:answer) and exists(f:item))" />
-        <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" />
-      </constraint>
-      <mustSupport value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.id">
-      <path value="QuestionnaireResponse.item.id" />
-      <representation value="xmlAttr" />
-      <short value="Unique id for inter-element referencing" />
-      <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="Element.id" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-          <valueUrl value="string" />
-        </extension>
-        <code value="http://hl7.org/fhirpath/System.String" />
-      </type>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.extension">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.item.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <description value="Extensions are always sliced by (at least) url" />
-        <rules value="open" />
-      </slicing>
-      <short value="Additional content defined by implementations" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." />
-      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
-      <alias value="extensions" />
-      <alias value="user content" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="Element.extension" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Extension" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Extension" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.modifierExtension">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.item.modifierExtension" />
-      <short value="Extensions that cannot be ignored even if unrecognized" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." />
-      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
-      <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)." />
-      <alias value="extensions" />
-      <alias value="user content" />
-      <alias value="modifiers" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="BackboneElement.modifierExtension" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Extension" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Extension" />
-      </constraint>
-      <isModifier value="true" />
-      <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them" />
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.linkId">
-      <path value="QuestionnaireResponse.item.linkId" />
-      <short value="Pointer to specific item from Questionnaire" />
-      <definition value="The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource." />
-      <comment value="Note that FHIR strings SHALL NOT exceed 1MB in size" />
-      <requirements value="Items can repeat in the answers, so a direct 1..1 correspondence by position might not exist - requiring correspondence by identifier." />
-      <min value="1" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.item.linkId" />
-        <min value="1" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="string" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.definition">
-      <path value="QuestionnaireResponse.item.definition" />
-      <short value="ElementDefinition - details for the item" />
-      <definition value="A reference to an [ElementDefinition](elementdefinition.html) that provides the details for the item." />
-      <comment value="The ElementDefinition must be in a [StructureDefinition](structuredefinition.html#), and must have a fragment identifier that identifies the specific data element by its id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x].&#xA;&#xA;There is no need for this element if the item pointed to by the linkId has a definition listed." />
-      <requirements value="A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.item.definition" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="uri" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].code" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.text">
-      <path value="QuestionnaireResponse.item.text" />
-      <short value="Name for group or question text" />
-      <definition value="Text that is displayed above the contents of the group or as the text of the question being answered." />
-      <comment value="Note that FHIR strings SHALL NOT exceed 1MB in size" />
-      <requirements value="Allows the questionnaire response to be read without access to the questionnaire." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.item.text" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="string" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".text" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.answer">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.item.answer" />
-      <short value="The response(s) to the question" />
-      <definition value="The respondent's answer(s) to the question." />
-      <comment value="The value is nested because we cannot have a repeating structure that has variable type." />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="QuestionnaireResponse.item.answer" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="BackboneElement" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <mustSupport value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".value[type=LIST_ANY]" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.answer.id">
-      <path value="QuestionnaireResponse.item.answer.id" />
-      <representation value="xmlAttr" />
-      <short value="Unique id for inter-element referencing" />
-      <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="Element.id" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-          <valueUrl value="string" />
-        </extension>
-        <code value="http://hl7.org/fhirpath/System.String" />
-      </type>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.answer.extension">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.item.answer.extension" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="url" />
-        </discriminator>
-        <description value="Extensions are always sliced by (at least) url" />
-        <rules value="open" />
-      </slicing>
-      <short value="Additional content defined by implementations" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." />
-      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
-      <alias value="extensions" />
-      <alias value="user content" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="Element.extension" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Extension" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Extension" />
-      </constraint>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.answer.modifierExtension">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.item.answer.modifierExtension" />
-      <short value="Extensions that cannot be ignored even if unrecognized" />
-      <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&#xA;&#xA;Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)." />
-      <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone." />
-      <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)." />
-      <alias value="extensions" />
-      <alias value="user content" />
-      <alias value="modifiers" />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="BackboneElement.modifierExtension" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <type>
-        <code value="Extension" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <constraint>
-        <key value="ext-1" />
-        <severity value="error" />
-        <human value="Must have either extensions or value[x], not both" />
-        <expression value="extension.exists() != value.exists()" />
-        <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Extension" />
-      </constraint>
-      <isModifier value="true" />
-      <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them" />
-      <isSummary value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value="N/A" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.answer.value[x]">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="normative" />
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-        <valueCode value="4.0.0" />
-      </extension>
-      <path value="QuestionnaireResponse.item.answer.value[x]" />
-      <short value="Single-valued answer to the question" />
-      <definition value="The answer (or one of the answers) provided by the respondent to the question." />
-      <comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire." />
-      <requirements value="Ability to retain a single-valued answer to a question." />
-      <min value="0" />
-      <max value="1" />
-      <base>
-        <path value="QuestionnaireResponse.item.answer.value[x]" />
-        <min value="0" />
-        <max value="1" />
-      </base>
-      <type>
-        <code value="boolean" />
-      </type>
-      <type>
-        <code value="decimal" />
-      </type>
-      <type>
-        <code value="integer" />
-      </type>
-      <type>
-        <code value="date" />
-      </type>
-      <type>
-        <code value="dateTime" />
-      </type>
-      <type>
-        <code value="time" />
-      </type>
-      <type>
-        <code value="string" />
-      </type>
-      <type>
-        <code value="uri" />
-      </type>
-      <type>
-        <code value="Attachment" />
-      </type>
-      <type>
-        <code value="Coding" />
-      </type>
-      <type>
-        <code value="Quantity" />
-      </type>
-      <type>
-        <code value="Reference" />
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
-      </type>
-      <condition value="ele-1" />
-      <constraint>
-        <key value="ele-1" />
-        <severity value="error" />
-        <human value="All FHIR elements must have a @value or children" />
-        <expression value="hasValue() or (children().count() &gt; id.count())" />
-        <xpath value="@value|f:*|h:div" />
-        <source value="http://hl7.org/fhir/StructureDefinition/Element" />
-      </constraint>
-      <mustSupport value="true" />
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="QuestionnaireAnswer" />
-        </extension>
-        <strength value="example" />
-        <description value="Code indicating the response provided for a question." />
-        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRRespostaMarcosDesenvolvimento" />
-      </binding>
-      <mapping>
-        <identity value="rim" />
-        <map value="n/a" />
-      </mapping>
-      <mapping>
-        <identity value="rim" />
-        <map value=".item" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.answer.item">
-      <path value="QuestionnaireResponse.item.answer.item" />
-      <short value="Nested groups and questions" />
-      <definition value="Nested groups and/or questions found within this particular answer." />
-      <requirements value="It is useful to have &quot;sub-questions&quot;, questions which normally appear when certain answers are given and which collect additional details." />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="QuestionnaireResponse.item.answer.item" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse#QuestionnaireResponse.item" />
-      <mustSupport value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]" />
-      </mapping>
-    </element>
-    <element id="QuestionnaireResponse.item.item">
-      <path value="QuestionnaireResponse.item.item" />
-      <short value="Nested questionnaire response items" />
-      <definition value="Questions or sub-groups nested beneath a question or group." />
-      <requirements value="Reports can consist of complex nested groups." />
-      <min value="0" />
-      <max value="*" />
-      <base>
-        <path value="QuestionnaireResponse.item.item" />
-        <min value="0" />
-        <max value="*" />
-      </base>
-      <contentReference value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse#QuestionnaireResponse.item" />
-      <mustSupport value="true" />
-      <mapping>
-        <identity value="rim" />
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]" />
-      </mapping>
-    </element>
-  </snapshot>
-  <differential>
-    <element id="QuestionnaireResponse.questionnaire">
-      <path value="QuestionnaireResponse.questionnaire" />
-      <min value="1" />
-      <type>
-        <code value="canonical" />
-        <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuestionarioBase" />
-      </type>
-    </element>
-    <element id="QuestionnaireResponse.authored">
-      <path value="QuestionnaireResponse.authored" />
-      <min value="1" />
-    </element>
-    <element id="QuestionnaireResponse.item">
-      <path value="QuestionnaireResponse.item" />
-      <mustSupport value="true" />
-    </element>
-    <element id="QuestionnaireResponse.item.answer">
-      <path value="QuestionnaireResponse.item.answer" />
-      <mustSupport value="true" />
-    </element>
-    <element id="QuestionnaireResponse.item.answer.value[x]">
-      <path value="QuestionnaireResponse.item.answer.value[x]" />
-      <mustSupport value="true" />
-      <binding>
-        <strength value="example" />
-        <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRRespostaMarcosDesenvolvimento" />
-      </binding>
-    </element>
-    <element id="QuestionnaireResponse.item.answer.item">
-      <path value="QuestionnaireResponse.item.answer.item" />
-      <mustSupport value="true" />
-    </element>
-    <element id="QuestionnaireResponse.item.item">
-      <path value="QuestionnaireResponse.item.item" />
-      <mustSupport value="true" />
-    </element>
-  </differential>
+   <id value="profile-brquestionarioresposta"></id>
+   <language value="pt-BR"></language>
+   <url value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuestionarioResposta"></url>
+   <version value="1.0.0"></version>
+   <name value="BRQuestionarioResposta"></name>
+   <title value="Resposta de Questionário RNDS"></title>
+   <status value="active"></status>
+   <date value="2024-11-01T16:00:00-03:00"></date>
+   <publisher value="Ministério da Saúde do Brasil"></publisher>
+   <contact>
+      <name value="Walter"></name>
+      <telecom>
+         <system value="email"></system>
+         <value value="walter.domingos@saude.gov.br"></value>
+         <use value="work"></use>
+         <period>
+            <start value="2023-01-25"></start>
+         </period>
+      </telecom>
+   </contact>
+   <description value="Perfil destinado a modelar dados de resposta de um questionário na RNDS."></description>
+   <fhirVersion value="4.0.1"></fhirVersion>
+   <mapping>
+      <identity value="workflow"></identity>
+      <uri value="http://hl7.org/fhir/workflow"></uri>
+      <name value="Workflow Pattern"></name>
+   </mapping>
+   <mapping>
+      <identity value="rim"></identity>
+      <uri value="http://hl7.org/v3"></uri>
+      <name value="RIM Mapping"></name>
+   </mapping>
+   <mapping>
+      <identity value="w5"></identity>
+      <uri value="http://hl7.org/fhir/fivews"></uri>
+      <name value="FiveWs Pattern Mapping"></name>
+   </mapping>
+   <kind value="resource"></kind>
+   <abstract value="false"></abstract>
+   <type value="QuestionnaireResponse"></type>
+   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"></baseDefinition>
+   <derivation value="constraint"></derivation>
+   <snapshot>
+      <element id="QuestionnaireResponse">
+         <path value="QuestionnaireResponse"></path>
+         <short value="A structured set of questions and their answers"></short>
+         <definition value="A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to."></definition>
+         <comment value="The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don't need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse."></comment>
+         <alias value="Form"></alias>
+         <alias value="QuestionnaireAnswers"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="QuestionnaireResponse"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <constraint>
+            <key value="dom-2"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"></human>
+            <expression value="contained.contained.empty()"></expression>
+            <xpath value="not(parent::f:contained and f:contained)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-3"></key>
+            <severity value="error"></severity>
+            <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource"></human>
+            <expression value="contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()"></expression>
+            <xpath value="not(exists(for $id in f:contained/*/f:id/@value return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-4"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"></human>
+            <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <key value="dom-5"></key>
+            <severity value="error"></severity>
+            <human value="If a resource is contained in another resource, it SHALL NOT have a security label"></human>
+            <expression value="contained.meta.security.empty()"></expression>
+            <xpath value="not(exists(f:contained/*/f:meta/f:security))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <constraint>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+               <valueMarkdown value="When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."></valueMarkdown>
+            </extension>
+            <key value="dom-6"></key>
+            <severity value="warning"></severity>
+            <human value="A resource should have narrative for robust management"></human>
+            <expression value="text.`div`.exists()"></expression>
+            <xpath value="exists(f:text/h:div)"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Entity. Role, or Act"></map>
+         </mapping>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Observation[moodCode=EVN]"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.id">
+         <path value="QuestionnaireResponse.id"></path>
+         <short value="Logical id of this artifact"></short>
+         <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."></definition>
+         <comment value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="QuestionnaireResponse.meta">
+         <path value="QuestionnaireResponse.meta"></path>
+         <short value="Metadata about the resource"></short>
+         <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.meta"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Meta"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="QuestionnaireResponse.implicitRules">
+         <path value="QuestionnaireResponse.implicitRules"></path>
+         <short value="A set of rules under which this content was created"></short>
+         <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc."></definition>
+         <comment value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it's narrative along with other profiles, value sets, etc."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.implicitRules"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation"></isModifierReason>
+         <isSummary value="true"></isSummary>
+      </element>
+      <element id="QuestionnaireResponse.language">
+         <path value="QuestionnaireResponse.language"></path>
+         <short value="Language of the resource content"></short>
+         <definition value="The base language in which the resource is written."></definition>
+         <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."></comment>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Resource.language"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+               <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"></valueCanonical>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
+            <strength value="preferred"></strength>
+            <description value="A human language."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/languages"></valueSet>
+         </binding>
+      </element>
+      <element id="QuestionnaireResponse.text">
+         <path value="QuestionnaireResponse.text"></path>
+         <short value="Text summary of the resource, for human interpretation"></short>
+         <definition value="A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."></definition>
+         <comment value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded information is added later."></comment>
+         <alias value="narrative"></alias>
+         <alias value="html"></alias>
+         <alias value="xhtml"></alias>
+         <alias value="display"></alias>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="DomainResource.text"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Narrative"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="Act.text?"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.contained">
+         <path value="QuestionnaireResponse.contained"></path>
+         <short value="Contained, inline Resources"></short>
+         <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."></definition>
+         <comment value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags In their meta elements, but SHALL NOT have security labels."></comment>
+         <alias value="inline resources"></alias>
+         <alias value="anonymous resources"></alias>
+         <alias value="contained resources"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.contained"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Resource"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.extension">
+         <path value="QuestionnaireResponse.extension"></path>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.modifierExtension">
+         <path value="QuestionnaireResponse.modifierExtension"></path>
+         <short value="Extensions that cannot be ignored"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."></requirements>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="DomainResource.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them"></isModifierReason>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.identifier">
+         <path value="QuestionnaireResponse.identifier"></path>
+         <short value="Unique id for this set of answers"></short>
+         <definition value="A business identifier assigned to a particular completed (or partially completed) questionnaire."></definition>
+         <requirements value="Used for tracking, registration and other business purposes."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.identifier"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Identifier"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.identifier"></map>
+         </mapping>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.identifier"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".id"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.basedOn">
+         <path value="QuestionnaireResponse.basedOn"></path>
+         <short value="Request fulfilled by this QuestionnaireResponse"></short>
+         <definition value="The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression."></definition>
+         <requirements value="Supports traceability of responsibility for the action and allows linkage of an action to the recommendations acted upon."></requirements>
+         <alias value="order"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="QuestionnaireResponse.basedOn"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.basedOn"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".outboundRelationship[typeCode=FLFS].target"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.partOf">
+         <path value="QuestionnaireResponse.partOf"></path>
+         <short value="Part of this action"></short>
+         <definition value="A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of."></definition>
+         <comment value="Composition of questionnaire responses will be handled by the parent questionnaire having answers that reference the child questionnaire.  For relationships to referrals, and other types of requests, use basedOn."></comment>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="QuestionnaireResponse.partOf"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.partOf"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.questionnaire">
+         <path value="QuestionnaireResponse.questionnaire"></path>
+         <short value="Form being answered"></short>
+         <definition value="The Questionnaire that defines and organizes the questions for which answers are being provided."></definition>
+         <comment value="If a QuestionnaireResponse references a Questionnaire, then the QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc.)."></comment>
+         <requirements value="Needed to allow editing of the questionnaire response in a manner that enforces the constraints of the original form."></requirements>
+         <alias value="Form"></alias>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.questionnaire"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="canonical"></code>
+            <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuestionarioBase"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.instantiates"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.status">
+         <path value="QuestionnaireResponse.status"></path>
+         <short value="in-progress | completed | amended | entered-in-error | stopped"></short>
+         <definition value="The position of the questionnaire response within its overall lifecycle."></definition>
+         <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."></comment>
+         <requirements value="The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.status"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="code"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+               <valueString value="QuestionnaireResponseStatus"></valueString>
+            </extension>
+            <strength value="required"></strength>
+            <description value="Lifecycle status of the questionnaire response."></description>
+            <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers-status|4.0.1"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.status"></map>
+         </mapping>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.status"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish &quot;in-progress&quot; from &quot;published)"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.subject">
+         <path value="QuestionnaireResponse.subject"></path>
+         <short value="The subject of the questions"></short>
+         <definition value="The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information."></definition>
+         <comment value="If the Questionnaire declared a subjectType, the resource pointed to by this element must be an instance of one of the listed types."></comment>
+         <requirements value="Allows linking the answers to the individual the answers describe.  May also affect access control."></requirements>
+         <alias value="Patient"></alias>
+         <alias value="Focus"></alias>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.subject"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.subject"></map>
+         </mapping>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.subject[x]"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".participation[typeCode=SBJ].role"></map>
+         </mapping>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.subject"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.encounter">
+         <path value="QuestionnaireResponse.encounter"></path>
+         <short value="Encounter created as part of"></short>
+         <definition value="The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated."></definition>
+         <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter."></comment>
+         <requirements value="Provides context for the information that was captured.  May also affect access control."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.encounter"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.encounter"></map>
+         </mapping>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.context"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.authored">
+         <path value="QuestionnaireResponse.authored"></path>
+         <short value="Date the answers were gathered"></short>
+         <definition value="The date and/or time that this set of answers were last changed."></definition>
+         <comment value="May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.  This element is optional to allow for systems that might not know the value, however it SHOULD be populated if possible."></comment>
+         <requirements value="Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers."></requirements>
+         <alias value="Date Created"></alias>
+         <alias value="Date published"></alias>
+         <alias value="Date Issued"></alias>
+         <alias value="Date updated"></alias>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.authored"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.occurrence[x]"></map>
+         </mapping>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.recorded"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".participation[typeCode=AUT].time"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.author">
+         <path value="QuestionnaireResponse.author"></path>
+         <short value="Person who received and recorded the answers"></short>
+         <definition value="Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system."></definition>
+         <comment value="Mapping a subject's answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation.  Authoring by device would indicate that some portion of the questionnaire had been auto-populated."></comment>
+         <requirements value="Need to know who interpreted the subject's answers to the questions in the questionnaire, and selected the appropriate options for answers."></requirements>
+         <alias value="Laboratory"></alias>
+         <alias value="Service"></alias>
+         <alias value="Practitioner"></alias>
+         <alias value="Department"></alias>
+         <alias value="Company"></alias>
+         <alias value="Performer"></alias>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.author"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="workflow"></identity>
+            <map value="Event.performer"></map>
+         </mapping>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.author"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".participation[typeCode=AUT].role"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.source">
+         <path value="QuestionnaireResponse.source"></path>
+         <short value="The person who answered the questions"></short>
+         <definition value="The person who answered the questions about the subject."></definition>
+         <comment value="If not specified, no inference can be made about who provided the data."></comment>
+         <requirements value="When answering questions about a subject that is minor, incapable of answering or an animal, another human source may answer the questions."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.source"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"></targetProfile>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="w5"></identity>
+            <map value="FiveWs.source"></map>
+         </mapping>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".participation[typeCode=INF].role"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item">
+         <path value="QuestionnaireResponse.item"></path>
+         <short value="Groups and questions"></short>
+         <definition value="A group or question item from the original questionnaire for which answers are provided."></definition>
+         <comment value="Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer)."></comment>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="QuestionnaireResponse.item"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="BackboneElement"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="qrs-1"></key>
+            <severity value="error"></severity>
+            <human value="Nested item can't be beneath both item and answer"></human>
+            <expression value="(answer.exists() and item.exists()).not()"></expression>
+            <xpath value="not(exists(f:answer) and exists(f:item))"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.id">
+         <path value="QuestionnaireResponse.item.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.extension">
+         <path value="QuestionnaireResponse.item.extension"></path>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.modifierExtension">
+         <path value="QuestionnaireResponse.item.modifierExtension"></path>
+         <short value="Extensions that cannot be ignored even if unrecognized"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."></requirements>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <alias value="modifiers"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="BackboneElement.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.linkId">
+         <path value="QuestionnaireResponse.item.linkId"></path>
+         <short value="Pointer to specific item from Questionnaire"></short>
+         <definition value="The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource."></definition>
+         <requirements value="Items can repeat in the answers, so a direct 1..1 correspondence by position might not exist - requiring correspondence by identifier."></requirements>
+         <min value="1"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.item.linkId"></path>
+            <min value="1"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.definition">
+         <path value="QuestionnaireResponse.item.definition"></path>
+         <short value="ElementDefinition - details for the item"></short>
+         <definition value="A reference to an [ElementDefinition](elementdefinition.html) that provides the details for the item."></definition>
+         <comment value="The ElementDefinition must be in a [StructureDefinition](structuredefinition.html#), and must have a fragment identifier that identifies the specific data element by its id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x].  There is no need for this element if the item pointed to by the linkId has a definition listed."></comment>
+         <requirements value="A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.item.definition"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].code"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.text">
+         <path value="QuestionnaireResponse.item.text"></path>
+         <short value="Name for group or question text"></short>
+         <definition value="Text that is displayed above the contents of the group or as the text of the question being answered."></definition>
+         <requirements value="Allows the questionnaire response to be read without access to the questionnaire."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.item.text"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="string"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".text"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.answer">
+         <path value="QuestionnaireResponse.item.answer"></path>
+         <short value="The response(s) to the question"></short>
+         <definition value="The respondent's answer(s) to the question."></definition>
+         <comment value="The value is nested because we cannot have a repeating structure that has variable type."></comment>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="QuestionnaireResponse.item.answer"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="BackboneElement"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".value[type=LIST_ANY]"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.answer.id">
+         <path value="QuestionnaireResponse.item.answer.id"></path>
+         <representation value="xmlAttr"></representation>
+         <short value="Unique id for inter-element referencing"></short>
+         <definition value="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."></definition>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="Element.id"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
+               <valueUrl value="string"></valueUrl>
+            </extension>
+            <code value="http://hl7.org/fhirpath/System.String"></code>
+         </type>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.answer.extension">
+         <path value="QuestionnaireResponse.item.answer.extension"></path>
+         <short value="Additional content defined by implementations"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="Element.extension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="n/a"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.answer.modifierExtension">
+         <path value="QuestionnaireResponse.item.answer.modifierExtension"></path>
+         <short value="Extensions that cannot be ignored even if unrecognized"></short>
+         <definition value="May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.  Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself)."></definition>
+         <comment value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."></comment>
+         <requirements value="Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension)."></requirements>
+         <alias value="extensions"></alias>
+         <alias value="user content"></alias>
+         <alias value="modifiers"></alias>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="BackboneElement.modifierExtension"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <type>
+            <code value="Extension"></code>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <constraint>
+            <key value="ext-1"></key>
+            <severity value="error"></severity>
+            <human value="Must have either extensions or value[x], not both"></human>
+            <expression value="extension.exists() != value.exists()"></expression>
+            <xpath value="exists(f:extension)!=exists(f:*[starts-with(local-name(.), &quot;value&quot;)])"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Extension"></source>
+         </constraint>
+         <isModifier value="true"></isModifier>
+         <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"></isModifierReason>
+         <isSummary value="true"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value="N/A"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.answer.value[x]">
+         <path value="QuestionnaireResponse.item.answer.value[x]"></path>
+         <short value="Single-valued answer to the question"></short>
+         <definition value="The answer (or one of the answers) provided by the respondent to the question."></definition>
+         <comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire."></comment>
+         <requirements value="Ability to retain a single-valued answer to a question."></requirements>
+         <min value="0"></min>
+         <max value="1"></max>
+         <base>
+            <path value="QuestionnaireResponse.item.answer.value[x]"></path>
+            <min value="0"></min>
+            <max value="1"></max>
+         </base>
+         <type>
+            <code value="boolean"></code>
+         </type>
+         <type>
+            <code value="decimal"></code>
+         </type>
+         <type>
+            <code value="integer"></code>
+         </type>
+         <type>
+            <code value="date"></code>
+         </type>
+         <type>
+            <code value="dateTime"></code>
+         </type>
+         <type>
+            <code value="time"></code>
+         </type>
+         <type>
+            <code value="string"></code>
+         </type>
+         <type>
+            <code value="uri"></code>
+         </type>
+         <type>
+            <code value="Attachment"></code>
+         </type>
+         <type>
+            <code value="Coding"></code>
+         </type>
+         <type>
+            <code value="Quantity"></code>
+         </type>
+         <type>
+            <code value="Reference"></code>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"></targetProfile>
+         </type>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <binding>
+            <strength value="example"></strength>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRRespostaMarcosDesenvolvimento"></valueSet>
+         </binding>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".item"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.answer.item">
+         <path value="QuestionnaireResponse.item.answer.item"></path>
+         <short value="Nested groups and questions"></short>
+         <definition value="Nested groups and/or questions found within this particular answer."></definition>
+         <requirements value="It is useful to have &quot;sub-questions&quot;, questions which normally appear when certain answers are given and which collect additional details."></requirements>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="QuestionnaireResponse.item.answer.item"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <contentReference value="#QuestionnaireResponse.item"></contentReference>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"></map>
+         </mapping>
+      </element>
+      <element id="QuestionnaireResponse.item.item">
+         <path value="QuestionnaireResponse.item.item"></path>
+         <short value="Nested questionnaire response items"></short>
+         <definition value="Questions or sub-groups nested beneath a question or group."></definition>
+         <requirements value="Reports can consist of complex nested groups."></requirements>
+         <min value="0"></min>
+         <max value="*"></max>
+         <base>
+            <path value="QuestionnaireResponse.item.item"></path>
+            <min value="0"></min>
+            <max value="*"></max>
+         </base>
+         <contentReference value="#QuestionnaireResponse.item"></contentReference>
+         <constraint>
+            <key value="ele-1"></key>
+            <severity value="error"></severity>
+            <human value="All FHIR elements must have a @value or children"></human>
+            <expression value="hasValue() or (children().count() &gt; id.count())"></expression>
+            <xpath value="@value|f:*|h:div"></xpath>
+            <source value="http://hl7.org/fhir/StructureDefinition/Element"></source>
+         </constraint>
+         <mustSupport value="true"></mustSupport>
+         <isModifier value="false"></isModifier>
+         <isSummary value="false"></isSummary>
+         <mapping>
+            <identity value="rim"></identity>
+            <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"></map>
+         </mapping>
+      </element>
+   </snapshot>
+   <differential>
+      <element id="QuestionnaireResponse.questionnaire">
+         <path value="QuestionnaireResponse.questionnaire"></path>
+         <min value="1"></min>
+         <type>
+            <code value="canonical"></code>
+            <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuestionarioBase"></targetProfile>
+         </type>
+      </element>
+      <element id="QuestionnaireResponse.authored">
+         <path value="QuestionnaireResponse.authored"></path>
+         <min value="1"></min>
+      </element>
+      <element id="QuestionnaireResponse.item">
+         <path value="QuestionnaireResponse.item"></path>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="QuestionnaireResponse.item.answer">
+         <path value="QuestionnaireResponse.item.answer"></path>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="QuestionnaireResponse.item.answer.value[x]">
+         <path value="QuestionnaireResponse.item.answer.value[x]"></path>
+         <mustSupport value="true"></mustSupport>
+         <binding>
+            <strength value="example"></strength>
+            <valueSet value="http://www.saude.gov.br/fhir/r4/ValueSet/BRRespostaMarcosDesenvolvimento"></valueSet>
+         </binding>
+      </element>
+      <element id="QuestionnaireResponse.item.answer.item">
+         <path value="QuestionnaireResponse.item.answer.item"></path>
+         <mustSupport value="true"></mustSupport>
+      </element>
+      <element id="QuestionnaireResponse.item.item">
+         <path value="QuestionnaireResponse.item.item"></path>
+         <mustSupport value="true"></mustSupport>
+      </element>
+   </differential>
 </StructureDefinition>

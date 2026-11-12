@@ -134,12 +134,7 @@
       <element id="HumanName.use">
          <path value="HumanName.use"></path>
          <short value="Tipo de Nome"></short>
-         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do indivíduo.
-maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo.
-old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união.
-usual: nome social.
-temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas.
-anonymous: uso exclusivo para anonimização de registros de indivíudos."></definition>
+         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do indivíduo. maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo. old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união. usual: nome social. temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas. anonymous: uso exclusivo para anonimização de registros de indivíudos."></definition>
          <comment value="Applications can assume that a name is current unless it explicitly says that it is temporary or old."></comment>
          <requirements value="Allows the appropriate name for a particular context of use to be selected from among a set of names."></requirements>
          <min value="1"></min>
@@ -574,12 +569,7 @@ anonymous: uso exclusivo para anonimização de registros de indivíudos."></def
       <element id="HumanName.use">
          <path value="HumanName.use"></path>
          <short value="Tipo de Nome"></short>
-         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do indivíduo.
-maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo.
-old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união.
-usual: nome social.
-temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas.
-anonymous: uso exclusivo para anonimização de registros de indivíudos."></definition>
+         <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do indivíduo. maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo. old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união. usual: nome social. temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas. anonymous: uso exclusivo para anonimização de registros de indivíudos."></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
          <isModifierReason value="É importante que as aplicações saibam interpretar corretamente o tipo de nome que está sendo utilizado, para dar a tratativa correta ao indivíduo."></isModifierReason>

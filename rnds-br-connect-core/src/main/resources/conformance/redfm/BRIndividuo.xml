@@ -112,7 +112,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -202,6 +202,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -1634,9 +1637,7 @@
       <element id="Patient.active">
          <path value="Patient.active"></path>
          <short value="Registro em Uso"></short>
-         <definition value="Indica se o registro desse indivíduo ainda está em uso.
-A codição de inativo pode indicar que tanto uma informação errada quanto um indivíduo falecido, e indivíduos falecidos podem permanecer ativos por algum tempo após o falecimento para fins de registro da informação.
-Logo, esta não deve ser opção para identificar um indivíduo falecido, sendo mais adequado o elemento deceased."></definition>
+         <definition value="Indica se o registro desse indivíduo ainda está em uso. A codição de inativo pode indicar que tanto uma informação errada quanto um indivíduo falecido, e indivíduos falecidos podem permanecer ativos por algum tempo após o falecimento para fins de registro da informação. Logo, esta não deve ser opção para identificar um indivíduo falecido, sendo mais adequado o elemento deceased."></definition>
          <comment value="Valor padrão é true."></comment>
          <requirements value="Identificar registros que não estão mais em uso."></requirements>
          <min value="1"></min>
@@ -1758,9 +1759,7 @@ Logo, esta não deve ser opção para identificar um indivíduo falecido, sendo 
       <element id="Patient.gender">
          <path value="Patient.gender"></path>
          <short value="Sexo"></short>
-         <definition value="male: masculino.
-female: feminino.
-unknown: ignorado."></definition>
+         <definition value="male: masculino. female: feminino. unknown: ignorado."></definition>
          <comment value="The gender might not match the biological sex as determined by genetics or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than male and female, though the vast majority of systems and contexts only support male and female.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific sex or gender aspect of interest (anatomical, chromosomal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosomal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overridable error, not a &quot;hard&quot; error.  See the Patient Gender and Sex section for additional information about communicating patient gender and sex."></comment>
          <requirements value="Needed for identification of the individual, in combination with (at least) name and birth date."></requirements>
          <min value="1"></min>
@@ -2459,8 +2458,7 @@ unknown: ignorado."></definition>
       <element id="Patient.maritalStatus">
          <path value="Patient.maritalStatus"></path>
          <short value="Estado Civil"></short>
-         <definition value="Complexo das qualidades do indivíudo referentes à ordem pública, à ordem privada e à ordem física do ser humano. Refere-se, assim, à cidadania, à família, e à capacidade civil.
-MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir. São Paulo: Atlas, 2003."></definition>
+         <definition value="Complexo das qualidades do indivíudo referentes à ordem pública, à ordem privada e à ordem física do ser humano. Refere-se, assim, à cidadania, à família, e à capacidade civil. MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir. São Paulo: Atlas, 2003."></definition>
          <requirements value="Most, if not all systems capture it."></requirements>
          <min value="0"></min>
          <max value="0"></max>
@@ -2486,6 +2484,9 @@ MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir.
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="MaritalStatus"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="The domestic partnership status of a person."></description>
@@ -3008,6 +3009,9 @@ MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir.
          </mapping>
       </element>
       <element id="Patient.contact">
+         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+            <valueString value="Contact"></valueString>
+         </extension>
          <path value="Patient.contact"></path>
          <short value="A contact party (e.g. guardian, partner, friend) for the patient"></short>
          <definition value="A contact party (e.g. guardian, partner, friend) for the patient."></definition>
@@ -3348,6 +3352,9 @@ MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir.
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="AdministrativeGender"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="required"></strength>
             <description value="The gender of a person used for administrative purposes."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.0.1"></valueSet>
@@ -3613,6 +3620,9 @@ MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir.
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -4151,9 +4161,7 @@ MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir.
       <element id="Patient.active">
          <path value="Patient.active"></path>
          <short value="Registro em Uso"></short>
-         <definition value="Indica se o registro desse indivíduo ainda está em uso.
-A codição de inativo pode indicar que tanto uma informação errada quanto um indivíduo falecido, e indivíduos falecidos podem permanecer ativos por algum tempo após o falecimento para fins de registro da informação.
-Logo, esta não deve ser opção para identificar um indivíduo falecido, sendo mais adequado o elemento deceased."></definition>
+         <definition value="Indica se o registro desse indivíduo ainda está em uso. A codição de inativo pode indicar que tanto uma informação errada quanto um indivíduo falecido, e indivíduos falecidos podem permanecer ativos por algum tempo após o falecimento para fins de registro da informação. Logo, esta não deve ser opção para identificar um indivíduo falecido, sendo mais adequado o elemento deceased."></definition>
          <comment value="Valor padrão é true."></comment>
          <requirements value="Identificar registros que não estão mais em uso."></requirements>
          <min value="1"></min>
@@ -4177,9 +4185,7 @@ Logo, esta não deve ser opção para identificar um indivíduo falecido, sendo 
       <element id="Patient.gender">
          <path value="Patient.gender"></path>
          <short value="Sexo"></short>
-         <definition value="male: masculino.
-female: feminino.
-unknown: ignorado."></definition>
+         <definition value="male: masculino. female: feminino. unknown: ignorado."></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
          <binding>
@@ -4225,8 +4231,7 @@ unknown: ignorado."></definition>
       <element id="Patient.maritalStatus">
          <path value="Patient.maritalStatus"></path>
          <short value="Estado Civil"></short>
-         <definition value="Complexo das qualidades do indivíudo referentes à ordem pública, à ordem privada e à ordem física do ser humano. Refere-se, assim, à cidadania, à família, e à capacidade civil.
-MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir. São Paulo: Atlas, 2003."></definition>
+         <definition value="Complexo das qualidades do indivíudo referentes à ordem pública, à ordem privada e à ordem física do ser humano. Refere-se, assim, à cidadania, à família, e à capacidade civil. MIRABETE, Julio Fabbrini. Código de processo penal interpretado.11. ed. 6. tir. São Paulo: Atlas, 2003."></definition>
          <max value="0"></max>
          <mustSupport value="true"></mustSupport>
       </element>

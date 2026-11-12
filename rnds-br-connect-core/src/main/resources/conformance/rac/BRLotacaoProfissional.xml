@@ -111,7 +111,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -201,6 +201,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -429,8 +432,7 @@
       <element id="PractitionerRole.active">
          <path value="PractitionerRole.active"></path>
          <short value="Registro em Uso"></short>
-         <definition value="Indica se o registro dessa lotação profissional ainda está em uso.
-A codição de inativo pode indicar que tanto uma informação errada quanto o profissional não estar mais lotado no Estabelecimento de Saúde."></definition>
+         <definition value="Indica se o registro dessa lotação profissional ainda está em uso. A codição de inativo pode indicar que tanto uma informação errada quanto o profissional não estar mais lotado no Estabelecimento de Saúde."></definition>
          <comment value="If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active."></comment>
          <requirements value="Need to be able to mark a practitioner role record as not to be used because it was created in error, or otherwise no longer in active use."></requirements>
          <min value="1"></min>
@@ -2298,8 +2300,7 @@ A codição de inativo pode indicar que tanto uma informação errada quanto o p
       <element id="PractitionerRole.active">
          <path value="PractitionerRole.active"></path>
          <short value="Registro em Uso"></short>
-         <definition value="Indica se o registro dessa lotação profissional ainda está em uso.
-A codição de inativo pode indicar que tanto uma informação errada quanto o profissional não estar mais lotado no Estabelecimento de Saúde."></definition>
+         <definition value="Indica se o registro dessa lotação profissional ainda está em uso. A codição de inativo pode indicar que tanto uma informação errada quanto o profissional não estar mais lotado no Estabelecimento de Saúde."></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
       </element>

@@ -108,7 +108,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -198,6 +198,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -564,9 +567,7 @@
       <element id="CarePlan.status">
          <path value="CarePlan.status"></path>
          <short value="Estado do Plano de Cuidados"></short>
-         <definition value="Indica se o plano está em curso, se representa intenções guturas ou é um registro de histórico.
-active: Ativo
-entered-in-error: Cancelado por informação errada"></definition>
+         <definition value="Indica se o plano está em curso, se representa intenções guturas ou é um registro de histórico. active: Ativo entered-in-error: Cancelado por informação errada"></definition>
          <comment value="The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the care plan.  This element is labeled as a modifier because the status contains the code entered-in-error that marks the plan as not currently valid."></comment>
          <requirements value="Allows clinicians to determine whether the plan is actionable or not."></requirements>
          <min value="1"></min>
@@ -1113,6 +1114,9 @@ entered-in-error: Cancelado por informação errada"></definition>
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -2850,9 +2854,7 @@ entered-in-error: Cancelado por informação errada"></definition>
          </extension>
          <path value="CarePlan.status"></path>
          <short value="Estado do Plano de Cuidados"></short>
-         <definition value="Indica se o plano está em curso, se representa intenções guturas ou é um registro de histórico.
-active: Ativo
-entered-in-error: Cancelado por informação errada"></definition>
+         <definition value="Indica se o plano está em curso, se representa intenções guturas ou é um registro de histórico. active: Ativo entered-in-error: Cancelado por informação errada"></definition>
          <mustSupport value="true"></mustSupport>
          <binding>
             <strength value="required"></strength>

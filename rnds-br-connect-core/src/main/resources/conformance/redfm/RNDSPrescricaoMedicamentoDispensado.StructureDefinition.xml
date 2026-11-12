@@ -132,7 +132,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -222,6 +222,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -379,29 +382,7 @@
             <rules value="open"></rules>
          </slicing>
          <short value="Cada item prescrito DEVE ser identificado pelo ID local e também pode ser identificado pelo número do Sistema Nacional de Controle de Receituários - SNCR."></short>
-         <definition value="Exemplos de identificação (apenas para fins ilustrativos):
-
-ID Local:
-
-```json
- &quot;identifier&quot;:  [
-    {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id&quot;,
-        &quot;value&quot;: &quot;a54219b8-f741-4c47-b662-e4f8dfa49ab6&quot;
-    }
-]
-```
-
-Número do Sistema Nacional de Controle de Receituários:
-
-```json
- &quot;identifier&quot;:  [
-    {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/sncr-number&quot;,
-        &quot;value&quot;: &quot;19356261&quot;
-    }
-]
-```"></definition>
+         <definition value="Exemplos de identificação (apenas para fins ilustrativos):  ID Local:  ```json  &quot;identifier&quot;:  [     {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id&quot;,         &quot;value&quot;: &quot;a54219b8-f741-4c47-b662-e4f8dfa49ab6&quot;     } ] ```  Número do Sistema Nacional de Controle de Receituários:  ```json  &quot;identifier&quot;:  [     {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/sncr-number&quot;,         &quot;value&quot;: &quot;19356261&quot;     } ] ```"></definition>
          <comment value="This is a business identifier, not a resource identifier."></comment>
          <min value="1"></min>
          <max value="*"></max>
@@ -639,6 +620,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -1009,6 +993,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -1961,16 +1948,7 @@ Número do Sistema Nacional de Controle de Receituários:
       <element id="MedicationRequest.subject">
          <path value="MedicationRequest.subject"></path>
          <short value="A quem ou a que grupo se destina a requisição de medicamento"></short>
-         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.
-
-```json
-&quot;subject&quot;: {
-    &quot;identifier&quot;: {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,
-        &quot;value&quot;: &quot;53678720454&quot;
-    }
-}
-```"></definition>
+         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.  ```json &quot;subject&quot;: {     &quot;identifier&quot;: {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,         &quot;value&quot;: &quot;53678720454&quot;     } } ```"></definition>
          <comment value="The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified."></comment>
          <min value="1"></min>
          <max value="1"></max>
@@ -2338,6 +2316,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -3035,6 +3016,9 @@ Número do Sistema Nacional de Controle de Receituários:
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -4128,55 +4112,7 @@ Número do Sistema Nacional de Controle de Receituários:
       <element id="MedicationRequest.dosageInstruction">
          <path value="MedicationRequest.dosageInstruction"></path>
          <short value="Como o medicamento deve ser usado"></short>
-         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.
-
-`dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento. 
-
-O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.
-
-
-```json
-&quot;dosageInstruction&quot;: [
-   {
-        &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,
-        &quot;timing&quot;: {
-            &quot;repeat&quot;: {
-                &quot;boundsDuration&quot;: {
-                    &quot;value&quot;: 10,
-                    &quot;unit&quot;: &quot;day&quot;,
-                     &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,
-                     &quot;code&quot;: &quot;d&quot;
-                },
-                 &quot;frequency&quot;: 1,
-                 &quot;period&quot;: 1,
-                 &quot;periodUnit&quot;: &quot;d&quot;,
-                 &quot;when&quot;: &quot;MORN&quot;
-             }
-        },
-        &quot;route&quot;: {
-            &quot;coding&quot;: [
-                {
-                    &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-                    &quot;code&quot;: &quot;10907&quot;,
-                    &quot;display&quot;: &quot;Oral&quot;
-                }
-            ]
-        },
-        &quot;doseAndRate&quot;: [
-   {
-    &quot;doseQuantity&quot;: {
-     &quot;value&quot;: 1,
-     &quot;unit&quot;: &quot;Comprimido&quot;,
-     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,
-     &quot;code&quot;: &quot;19&quot;
-    }
-   }
-  ],
- }
-]
-
-
-```"></definition>
+         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.  `dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento.   O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.   ```json &quot;dosageInstruction&quot;: [    {         &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,         &quot;timing&quot;: {             &quot;repeat&quot;: {                 &quot;boundsDuration&quot;: {                     &quot;value&quot;: 10,                     &quot;unit&quot;: &quot;day&quot;,                      &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,                      &quot;code&quot;: &quot;d&quot;                 },                  &quot;frequency&quot;: 1,                  &quot;period&quot;: 1,                  &quot;periodUnit&quot;: &quot;d&quot;,                  &quot;when&quot;: &quot;MORN&quot;              }         },         &quot;route&quot;: {             &quot;coding&quot;: [                 {                     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,                     &quot;code&quot;: &quot;10907&quot;,                     &quot;display&quot;: &quot;Oral&quot;                 }             ]         },         &quot;doseAndRate&quot;: [    {     &quot;doseQuantity&quot;: {      &quot;value&quot;: 1,      &quot;unit&quot;: &quot;Comprimido&quot;,      &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,      &quot;code&quot;: &quot;19&quot;     }    }   ],  } ]   ```"></definition>
          <comment value="There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, &quot;Ondansetron 8mg orally or IV twice a day as needed for nausea&quot; or &quot;Compazine® (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting&quot;.  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed."></comment>
          <min value="1"></min>
          <max value="*"></max>
@@ -4590,19 +4526,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
       <element id="MedicationRequest.dosageInstruction.route">
          <path value="MedicationRequest.dosageInstruction.route"></path>
          <short value="Via de admiminstração do medicamento"></short>
-         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.
-
-```json
-&quot;route&quot;: {
-    &quot;coding&quot;: [
-        {
-            &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-            &quot;code&quot;: &quot;10907&quot;,
-            &quot;display&quot;: &quot;Oral&quot;
-        }
-    ]
-}
-```"></definition>
+         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.  ```json &quot;route&quot;: {     &quot;coding&quot;: [         {             &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,             &quot;code&quot;: &quot;10907&quot;,             &quot;display&quot;: &quot;Oral&quot;         }     ] } ```"></definition>
          <requirements value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."></requirements>
          <min value="1"></min>
          <max value="1"></max>
@@ -6576,29 +6500,7 @@ O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor 
             <rules value="open"></rules>
          </slicing>
          <short value="Cada item prescrito DEVE ser identificado pelo ID local e também pode ser identificado pelo número do Sistema Nacional de Controle de Receituários - SNCR."></short>
-         <definition value="Exemplos de identificação (apenas para fins ilustrativos):
-
-ID Local:
-
-```json
- &quot;identifier&quot;:  [
-    {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id&quot;,
-        &quot;value&quot;: &quot;a54219b8-f741-4c47-b662-e4f8dfa49ab6&quot;
-    }
-]
-```
-
-Número do Sistema Nacional de Controle de Receituários:
-
-```json
- &quot;identifier&quot;:  [
-    {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/sncr-number&quot;,
-        &quot;value&quot;: &quot;19356261&quot;
-    }
-]
-```"></definition>
+         <definition value="Exemplos de identificação (apenas para fins ilustrativos):  ID Local:  ```json  &quot;identifier&quot;:  [     {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id&quot;,         &quot;value&quot;: &quot;a54219b8-f741-4c47-b662-e4f8dfa49ab6&quot;     } ] ```  Número do Sistema Nacional de Controle de Receituários:  ```json  &quot;identifier&quot;:  [     {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/NamingSystem/sncr-number&quot;,         &quot;value&quot;: &quot;19356261&quot;     } ] ```"></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
       </element>
@@ -6667,16 +6569,7 @@ Número do Sistema Nacional de Controle de Receituários:
       <element id="MedicationRequest.subject">
          <path value="MedicationRequest.subject"></path>
          <short value="A quem ou a que grupo se destina a requisição de medicamento"></short>
-         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.
-
-```json
-&quot;subject&quot;: {
-    &quot;identifier&quot;: {
-        &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,
-        &quot;value&quot;: &quot;53678720454&quot;
-    }
-}
-```"></definition>
+         <definition value="É necessária a identificação de um paciente com um número de CPF ou CNS.  ```json &quot;subject&quot;: {     &quot;identifier&quot;: {         &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0&quot;,         &quot;value&quot;: &quot;53678720454&quot;     } } ```"></definition>
          <type>
             <code value="Reference"></code>
             <targetProfile value="http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSPaciente"></targetProfile>
@@ -6752,74 +6645,14 @@ Número do Sistema Nacional de Controle de Receituários:
       <element id="MedicationRequest.dosageInstruction">
          <path value="MedicationRequest.dosageInstruction"></path>
          <short value="Como o medicamento deve ser usado"></short>
-         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.
-
-`dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento. 
-
-O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.
-
-
-```json
-&quot;dosageInstruction&quot;: [
-   {
-        &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,
-        &quot;timing&quot;: {
-            &quot;repeat&quot;: {
-                &quot;boundsDuration&quot;: {
-                    &quot;value&quot;: 10,
-                    &quot;unit&quot;: &quot;day&quot;,
-                     &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,
-                     &quot;code&quot;: &quot;d&quot;
-                },
-                 &quot;frequency&quot;: 1,
-                 &quot;period&quot;: 1,
-                 &quot;periodUnit&quot;: &quot;d&quot;,
-                 &quot;when&quot;: &quot;MORN&quot;
-             }
-        },
-        &quot;route&quot;: {
-            &quot;coding&quot;: [
-                {
-                    &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-                    &quot;code&quot;: &quot;10907&quot;,
-                    &quot;display&quot;: &quot;Oral&quot;
-                }
-            ]
-        },
-        &quot;doseAndRate&quot;: [
-   {
-    &quot;doseQuantity&quot;: {
-     &quot;value&quot;: 1,
-     &quot;unit&quot;: &quot;Comprimido&quot;,
-     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,
-     &quot;code&quot;: &quot;19&quot;
-    }
-   }
-  ],
- }
-]
-
-
-```"></definition>
+         <definition value="O conteúdo do `dosageInstruction` deve seguir as orientações contidas em cada elemento.  `dosageInstruction.text` **DEVE** ser fornecido e é uma versão legível por humanos da dose estruturada, como seria impressa em uma prescrição de papel. O prescritor deve inserir uma dosagem de item de medicamento.   O prescritor deve inserir uma dosagem de item de medicamento. O uso de um valor padrão genérico, por exemplo, &quot;Use conforme as instruções&quot;, se um valor não for inserido, não é aceitável de uma perspectiva clínica. O usuário deve ser solicitado a selecionar uma instrução de dosagem de uma lista de seleção, digitar manualmente ou fazer com que o sistema preencha com uma instrução de dosagem válida e clinicamente segura, relevante para o medicamento prescrito ou circunstâncias clínicas.   ```json &quot;dosageInstruction&quot;: [    {         &quot;text&quot;: &quot;Tomar 1 comprimido via oral pela manhã por 10 dias&quot;,         &quot;timing&quot;: {             &quot;repeat&quot;: {                 &quot;boundsDuration&quot;: {                     &quot;value&quot;: 10,                     &quot;unit&quot;: &quot;day&quot;,                      &quot;system&quot;: &quot;http://unitsofmeasure.org&quot;,                      &quot;code&quot;: &quot;d&quot;                 },                  &quot;frequency&quot;: 1,                  &quot;period&quot;: 1,                  &quot;periodUnit&quot;: &quot;d&quot;,                  &quot;when&quot;: &quot;MORN&quot;              }         },         &quot;route&quot;: {             &quot;coding&quot;: [                 {                     &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,                     &quot;code&quot;: &quot;10907&quot;,                     &quot;display&quot;: &quot;Oral&quot;                 }             ]         },         &quot;doseAndRate&quot;: [    {     &quot;doseQuantity&quot;: {      &quot;value&quot;: 1,      &quot;unit&quot;: &quot;Comprimido&quot;,      &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida&quot;,      &quot;code&quot;: &quot;19&quot;     }    }   ],  } ]   ```"></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
       </element>
       <element id="MedicationRequest.dosageInstruction.route">
          <path value="MedicationRequest.dosageInstruction.route"></path>
          <short value="Via de admiminstração do medicamento"></short>
-         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.
-
-```json
-&quot;route&quot;: {
-    &quot;coding&quot;: [
-        {
-            &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,
-            &quot;code&quot;: &quot;10907&quot;,
-            &quot;display&quot;: &quot;Oral&quot;
-        }
-    ]
-}
-```"></definition>
+         <definition value="Conceito - referência a uma terminologia que representa a via de administração do medicamento.  ```json &quot;route&quot;: {     &quot;coding&quot;: [         {             &quot;system&quot;: &quot;http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao&quot;,             &quot;code&quot;: &quot;10907&quot;,             &quot;display&quot;: &quot;Oral&quot;         }     ] } ```"></definition>
          <min value="1"></min>
          <binding>
             <strength value="required"></strength>

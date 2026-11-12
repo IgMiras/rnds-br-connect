@@ -39,7 +39,7 @@ class CamadaQuatroTest {
      * {@code SnapshotGeneratingValidationSupport} grava o snapshot que gera na própria
      * instância do StructureDefinition, e essas instâncias são as mesmas que o
      * {@link ConformancePackage} guarda. Medir depois de qualquer validação contaria os
-     * snapshots produzidos em runtime, não os publicados pela RNDS — e o resultado passaria
+     * snapshots produzidos em runtime, não os gravados no pacote — e o resultado passaria
      * a depender da ordem de execução dos testes.
      */
     private static long sdSemSnapshotNaCarga;
@@ -85,12 +85,17 @@ class CamadaQuatroTest {
     }
 
     @Test
-    @DisplayName("Os perfis do pacote do RIA e do REL vêm sem snapshot — a cadeia precisa gerá-lo")
-    void perfisNaoTrazemSnapshot() {
+    @DisplayName("Os perfis do pacote do RIA e do REL chegam com o snapshot pré-gerado")
+    void perfisTrazemSnapshotPreGerado() {
+        // A RNDS publica os perfis só com differential. Desde 12/11/2026, o pacote do
+        // framework traz o snapshot de cada perfil, gerado pelo scripts/gerar-snapshots.sh
+        // com o HAPI FHIR 5.1.0, o motor do Validador Local. Se um perfil chegar sem ele, por
+        // exemplo depois de uma nova cópia dos artefatos, a Camada 4 ainda valida, porque o
+        // SnapshotGeneratingValidationSupport continua na cadeia, mas sobre um snapshot
+        // calculado na hora, e a auditoria de MustSupport cai no differential.
         assertThat(sdSemSnapshotNaCarga)
-                .as("Se algum dia vierem com snapshot, o elo SnapshotGeneratingValidationSupport "
-                        + "deixa de ser obrigatório e este teste avisa")
-                .isEqualTo(pacote.structureDefinitions().size());
+                .as("Perfil sem snapshot no pacote: rode scripts/gerar-snapshots.sh")
+                .isZero();
     }
 
     @Test

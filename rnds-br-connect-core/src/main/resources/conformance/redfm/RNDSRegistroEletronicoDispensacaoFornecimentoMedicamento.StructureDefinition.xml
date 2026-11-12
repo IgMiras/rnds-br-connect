@@ -106,7 +106,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -196,6 +196,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -1307,6 +1310,9 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
             </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
+            </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
             <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"></valueSet>
@@ -1976,6 +1982,9 @@
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -3259,6 +3268,9 @@
          </mapping>
       </element>
       <element id="Composition.section">
+         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+            <valueString value="Section"></valueString>
+         </extension>
          <path value="Composition.section"></path>
          <slicing>
             <discriminator>
@@ -3768,7 +3780,7 @@
             <min value="0"></min>
             <max value="*"></max>
          </base>
-         <contentReference value="http://hl7.org/fhir/StructureDefinition/Composition#Composition.section"></contentReference>
+         <contentReference value="#Composition.section"></contentReference>
          <condition value="cmp-1"></condition>
          <constraint>
             <key value="ele-1"></key>
@@ -3790,6 +3802,9 @@
          </mapping>
       </element>
       <element id="Composition.section:dispensedMedications">
+         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+            <valueString value="Section"></valueString>
+         </extension>
          <path value="Composition.section"></path>
          <sliceName value="dispensedMedications"></sliceName>
          <short value="A secção inicial da composition a partir da qual as demais seções são definidas"></short>
@@ -4928,7 +4943,7 @@
             <min value="0"></min>
             <max value="*"></max>
          </base>
-         <contentReference value="http://hl7.org/fhir/StructureDefinition/Composition#Composition.section"></contentReference>
+         <contentReference value="#Composition.section:dispensedMedications"></contentReference>
          <condition value="cmp-1"></condition>
          <constraint>
             <key value="ele-1"></key>

@@ -123,7 +123,7 @@
          </base>
          <type>
             <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type">
-               <valueUrl value="id"></valueUrl>
+               <valueUrl value="string"></valueUrl>
             </extension>
             <code value="http://hl7.org/fhirpath/System.String"></code>
          </type>
@@ -213,6 +213,9 @@
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="Language"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="preferred"></strength>
             <description value="A human language."></description>
@@ -912,9 +915,7 @@
       <element id="AllergyIntolerance.type">
          <path value="AllergyIntolerance.type"></path>
          <short value="Tipo de Reação"></short>
-         <definition value="Tipo de mecanismos fisiológico subjacente à reação.
-allergy: alergia
-intolerance: intolerância"></definition>
+         <definition value="Tipo de mecanismos fisiológico subjacente à reação. allergy: alergia intolerance: intolerância"></definition>
          <comment value="Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians might not be in a position to distinguish the mechanism of a particular reaction. Often the term &quot;allergy&quot; is used rather generically and may overlap with the use of &quot;intolerance&quot; - in practice the boundaries between these two concepts might not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource."></comment>
          <alias value="Category"></alias>
          <alias value="Class"></alias>
@@ -1888,6 +1889,9 @@ intolerance: intolerância"></definition>
          <binding>
             <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                <valueString value="IdentifierType"></valueString>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+               <valueBoolean value="true"></valueBoolean>
             </extension>
             <strength value="extensible"></strength>
             <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."></description>
@@ -3389,9 +3393,7 @@ intolerance: intolerância"></definition>
       <element id="AllergyIntolerance.type">
          <path value="AllergyIntolerance.type"></path>
          <short value="Tipo de Reação"></short>
-         <definition value="Tipo de mecanismos fisiológico subjacente à reação.
-allergy: alergia
-intolerance: intolerância"></definition>
+         <definition value="Tipo de mecanismos fisiológico subjacente à reação. allergy: alergia intolerance: intolerância"></definition>
          <mustSupport value="true"></mustSupport>
       </element>
       <element id="AllergyIntolerance.category">

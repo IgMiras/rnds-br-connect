@@ -158,8 +158,7 @@
       <element id="Identifier.use">
          <path value="Identifier.use"></path>
          <short value="Uso do Documento"></short>
-         <definition value="official: Documentos oficiais ou o CNS Definitivo
-secondary: CNS Provisório"></definition>
+         <definition value="official: Documentos oficiais ou o CNS Definitivo secondary: CNS Provisório"></definition>
          <comment value="Applications can assume that an identifier is permanent unless it explicitly says that it is temporary."></comment>
          <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers."></requirements>
          <min value="1"></min>
@@ -1217,8 +1216,7 @@ secondary: CNS Provisório"></definition>
       <element id="Identifier.use">
          <path value="Identifier.use"></path>
          <short value="Uso do Documento"></short>
-         <definition value="official: Documentos oficiais ou o CNS Definitivo
-secondary: CNS Provisório"></definition>
+         <definition value="official: Documentos oficiais ou o CNS Definitivo secondary: CNS Provisório"></definition>
          <min value="1"></min>
          <mustSupport value="true"></mustSupport>
       </element>
