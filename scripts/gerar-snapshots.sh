@@ -6,6 +6,11 @@
 #
 #   uso: ./scripts/gerar-snapshots.sh <subdiretorio-do-pacote> [heap]
 #   exemplo: ./scripts/gerar-snapshots.sh redfm -Xmx3g
+#   pacote do RIA e do REL, na raiz de conformance/: ./scripts/gerar-snapshots.sh .
+#
+# So gera os perfis que ainda nao tem snapshot. Para regerar um pacote, apague
+# antes os snapshots dele. Desde 12/11/2026 os cinco pacotes trazem snapshots
+# gerados com o HAPI FHIR 5.1.0, o motor do Validador Local da RNDS.
 #
 # POR QUE ISTO EXISTE, E POR QUE UM PROCESSO POR PERFIL
 #

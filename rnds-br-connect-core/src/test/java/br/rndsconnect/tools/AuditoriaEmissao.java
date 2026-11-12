@@ -58,12 +58,20 @@ import org.hl7.fhir.r4.model.StructureDefinition;
  *
  * <p><strong>Perfil sem snapshot cai no {@code differential}, e a auditoria diz quantos.</strong>
  * O pacote do RIA e do REL não publica snapshot nenhum, e os demais publicam uma minoria (RIRA
- * 11 de 127, SA 8 de 143, REDFM 26 de 281); o {@code scripts/gerar-snapshots.sh} completou os
- * do REDFM, do SA e do RAC. Os 12 perfis sem snapshot derivam todos de resource
- * base do FHIR, que não marca {@code MustSupport} — nos 14 casos em que há os dois, delta
- * maior que zero só aparece quando o {@code baseDefinition} é ele mesmo um perfil. Por isso o
- * fallback não perde nada aqui; mas ele é <strong>relatado</strong>, porque medir parcialmente
- * e parecer completo é o erro que a Arquitetura registra (§12.7).
+ * 11 de 127, SA 8 de 143, REDFM 26 de 281). Desde 12/11/2026 o
+ * {@code scripts/gerar-snapshots.sh} gera, com o HAPI FHIR 5.1.0, o snapshot de todos os perfis
+ * dos cinco pacotes, e nenhum cai no fallback. Antes, os 12 perfis auditados sem snapshot
+ * derivavam todos de resource base do FHIR, que não marca {@code MustSupport}, e o fallback não
+ * perdia nada: com o snapshot, os números do RIA, do REL e do RIRA são os mesmos. Ele continua
+ * <strong>relatado</strong>, porque medir parcialmente e parecer completo é o erro que a
+ * Arquitetura registra (§12.7).
+ *
+ * <p><strong>Os números mudaram com os snapshots de 12/11/2026, e não por versão.</strong> O
+ * snapshot gravado do {@code BRRegistroAtendimentoClinico} estava desatualizado: trazia 7
+ * elementos {@code MustSupport}, e o perfil tem 33, herdados do {@code BRConjuntoMinimoDados-1.1}
+ * e das seções que o RAC fatia. A 7.6.0 e a 5.1.0, rodadas sobre o pacote atual, geram o mesmo
+ * snapshot. O RAC passou de 103 para 127 elementos, com 122 emitidos, e o total de 384, 349 e
+ * 35 para 408, 373 e 35.
  *
  * <h2>O que ela não garante</h2>
  *

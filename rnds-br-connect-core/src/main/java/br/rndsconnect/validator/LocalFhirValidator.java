@@ -31,9 +31,12 @@ import org.hl7.fhir.instance.model.api.IBaseResource;
  *   <li>{@code PrePopulatedValidationSupport} — os artefatos da RNDS, na forma avulsa em
  *       que o DATASUS os distribui (ADR-03).
  *   <li>{@code SnapshotGeneratingValidationSupport} — <strong>obrigatório.</strong> A maioria
- *       dos StructureDefinition da RNDS contém apenas {@code differential}. Sem este elo o HAPI
- *       não monta o snapshot, não aplica as restrições do perfil e aprova Bundles que a
- *       RNDS recusa. É a diferença entre validar e parecer validar.
+ *       dos StructureDefinition da RNDS contém apenas {@code differential}. Sem snapshot o HAPI
+ *       não aplica as restrições do perfil e aprova Bundles que a RNDS recusa. Os pacotes do
+ *       framework já trazem o snapshot de cada perfil, gerado com o HAPI FHIR 5.1.0 pelo
+ *       {@code scripts/gerar-snapshots.sh}; este elo cobre o perfil que chegar sem ele, por
+ *       exemplo depois de uma nova cópia dos artefatos. É a diferença entre validar e parecer
+ *       validar.
  *   <li>{@code InMemoryTerminologyServerValidationSupport} — expande os ValueSets avulsos;
  *       sem ele os bindings {@code required} não são efetivamente conferidos.
  *   <li>{@code CommonCodeSystemsTerminologyService} — valida os sistemas de códigos que não

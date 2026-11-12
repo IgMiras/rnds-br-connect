@@ -2,14 +2,15 @@
 
 Registro da troca do motor de validação da Camada 4, do HAPI FHIR 7.6.0 para o 5.1.0, a versão
 que o Validador Local da RNDS embute. Executada em 11 e 12/11/2026, na branch
-`migracao/hapi-5.1.0`, a partir do commit `ba06025`.
+`migracao/hapi-5.1.0`, a partir do commit `ba06025`. Os snapshots de todos os pacotes foram
+regerados com a 5.1.0 depois, na branch `snapshots/hapi-5.1.0` (Seção 7).
 
 ## 1. Resumo
 
 1. A Camada 4 roda no HAPI FHIR 5.1.0, com o núcleo `org.hl7.fhir.*` 5.1.0, o mesmo do Validador Local.
 2. A suíte inteira passa (202 + 9), no Java 23 e no Java 17. Quebraram 74 testes por um jar ausente (`hapi-fhir-structures-r5`) e 2 por um efeito colateral da 7.6.0; nenhum por veredicto.
 3. Das duas divergências com o Validador Local, a do `transient-N` vinha da versão e sumiu. A do `relatesTo` continua e não vem da versão nem da configuração: o aplicativo promove avisos a erro.
-4. Os canários continuam reprovando nos dois validadores, e a auditoria de `MustSupport` dá os mesmos números (384, 349, 35).
+4. Os canários continuam reprovando nos dois validadores. Os snapshots dos cinco pacotes passaram a ser gerados pela 5.1.0; isso corrigiu dois snapshots desatualizados e mudou a auditoria de `MustSupport` de 384, 349 e 35 para 408, 373 e 35. A mudança não vem da versão (Seção 7).
 5. Custo: oito bibliotecas auxiliares atualizadas por vulnerabilidades conhecidas; o núcleo 5.1.0 fica com as dele, sem correção possível dentro da versão.
 
 ## 2. Suíte
@@ -83,7 +84,9 @@ idêntico ao da 7.6.0.
 | `b9a3cf1` | `scripts/evidencias-validador-local.py` | `DIVERGENCIAS_CONHECIDAS` sem o controle | evidência |
 | `6f2dd35`, `bb919e6` | `evidencias/validador-local/` | conferência externa refeita | evidência |
 | `f716fa7` | `pom.xml` | bibliotecas auxiliares sem vulnerabilidade conhecida (Seção 8) | segurança |
-| este commit | documentação, Javadoc e descrições de asserção | o que descrevia a 7.6.0 como versão atual | documentação |
+| `0c564c8` | documentação, Javadoc e descrições de asserção | o que descrevia a 7.6.0 como versão atual | documentação |
+| `94a1bfc` | os 242 arquivos de StructureDefinition dos cinco pacotes que mudaram; `CamadaQuatroTest` | snapshots de todos os perfis gerados pela 5.1.0 (Seção 7) | conformidade |
+| commits seguintes | Javadoc, `scripts/gerar-snapshots.sh`, este registro, `evidencias/validador-local/` | os snapshots e a correção da Seção 7; conferência externa refeita | documentação e evidência |
 
 O código principal e os testes compilam na 5.1.0 sem nenhuma alteração de API. As classes da
 cadeia de validação existem todas, inclusive a `CommonCodeSystemsTerminologyService`.
@@ -104,6 +107,19 @@ componente, e a diferença fica dentro da variação entre rodadas. Os 1,24 s e 
 continuam na mesma faixa. Rodadas isoladas dos outros pacotes, na 5.1.0: RAC 1758 a 2079 ms,
 REDFM 1853 a 2284 ms, RIRA 2550 a 3169 ms; na 7.6.0, uma rodada: 1728, 1803 e 2269 ms.
 
+**Com os snapshots gravados** (Seção 7), a carga mede também a leitura deles, que antes eram
+calculados durante a validação. Mesmo método, Java 17, cinco rodadas por estado, alternando,
+em 12/11/2026, com o tempo da `CamadaQuatroTest` inteira (carga, montagem da cadeia e seis
+validações):
+
+| | Carga, mediana (mínimo a máximo) | `CamadaQuatroTest` inteira, mediana |
+|---|---|---|
+| Snapshot calculado na validação (`0c564c8`) | 1206 ms (1174 a 1291) | 5,10 s |
+| Snapshot gravado no pacote (`94a1bfc`) | 1432 ms (1356 a 1461) | 4,92 s |
+
+A carga fica cerca de 0,2 s mais lenta, e o conjunto, um pouco mais rápido. O número que o
+ADR-03 cita como custo de inicialização passa, então, de cerca de 1,2 s para cerca de 1,4 s.
+
 O tempo total da suíte não foi medido com repetição. Rodadas isoladas no Java 23: 203 s na
 7.6.0 (a primeira rodada da sessão) e de 156 a 167 s na 5.1.0.
 
@@ -117,30 +133,52 @@ sonda, o `vaccineCode` com o código `99999` (ValueSet `BRImunobiologico`, `incl
 `version="*"`) reprova com os mesmos três erros com e sem a normalização, e o original aprova
 nos dois. Na 5.1.0 a normalização é desnecessária e inofensiva; fica no código.
 
-**Os snapshots.** A Camada 4 lê os snapshots gravados no REDFM, no SA e no RAC, gerados com a
-7.6.0. A `GeradorDeSnapshots` funciona na 5.1.0: os 105 perfis foram regerados numa cópia, sem
-falha. Comparação elemento a elemento:
+**Os snapshots.** A RNDS publica os perfis só com o `differential`, e o HAPI valida sobre o
+`snapshot`, que calcula aplicando o `differential` sobre o perfil base. Até a migração, o REDFM,
+o SA e o RAC traziam snapshots gravados com a 7.6.0, e o RIA, o REL e o RIRA os calculavam na
+hora da validação.
 
-| Pacote | Perfis iguais | Elementos (7.6.0 → 5.1.0) | Atributos diferentes |
-|---|---|---|---|
-| REDFM | 15 de 15 | 2336 → 2336 | 0 |
-| SA | 30 de 43 | 2587 → 2709 | 5 |
-| RAC | 33 de 47 | 2843 → 3008 | 43 |
+Uma primeira comparação, entre os snapshots gravados e os gerados pela 5.1.0, atribuiu à versão
+todas as diferenças. Estava errada. A comparação em três vias, feita depois sobre os 105 perfis
+com snapshot gravado (o gravado, o gerado hoje pela 7.6.0 e o gerado hoje pela 5.1.0, a partir
+do mesmo pacote), separa duas causas:
 
-A maior parte é estrutural: a 5.1.0 desdobra os filhos de extensões complexas. As diferenças
-de restrição:
+| Pacote | Gravado igual à 7.6.0 de hoje | 7.6.0 igual à 5.1.0 |
+|---|---|---|
+| REDFM | 15 de 15 | 15 de 15 |
+| SA | 42 de 43 | 30 de 43 |
+| RAC | 45 de 47 | 33 de 47 |
 
-- `BRIndividuo`: `Patient.address.line` com `min` 4 na 7.6.0 e 1 na 5.1.0.
-- `BRPrescricaoMedicamento`: `dose[x]` e `rate[x]` perdem o perfil `SimpleQuantity`, e o
-  `comparator` deixa de ser proibido.
-- `BRRegistroAtendimentoClinico`: `Composition.author` deixa de aceitar `BREstabelecimentoSaude-1.0`;
-  `title` passa a proibido em três seções; `unidentifiedPatient` passa a `0..*` e perde os vínculos
-  `required` de `gender` e `reason`; aparece a fatia `section:informacoesOPM`; o `mustSupport`
-  muda em 30 elementos.
+1. **Dois snapshots gravados estavam desatualizados.** Nenhuma das duas versões os reproduz a
+   partir do pacote atual:
+   - `BRRegistroAtendimentoClinico` (RAC): o gravado tinha 323 elementos e 7 `MustSupport`. As
+     duas versões geram 33 `MustSupport`: 27 herdados do `BRConjuntoMinimoDados-1.1`, o perfil
+     base, e 6 das seções que o próprio RAC fatia. Faltava ainda a fatia
+     `section:informacoesOPM`, e o `author` aceitava o `BREstabelecimentoSaude-1.0`, que o base
+     não aceita.
+   - `BRPrescricaoMedicamento` (SA e RAC): o gravado tinha 202 elementos, com o perfil
+     `SimpleQuantity` em `dose[x]` e `rate[x]`; as duas versões geram 188, sem ele.
 
-Com os snapshots do SA e do RAC regerados pela 5.1.0 (medição temporária, desfeita), a suíte
-continua verde, e a auditoria de `MustSupport` passa de 384, 349 e 35 para 408, 373 e 35: o RAC
-vai de 103 para 127 elementos `MustSupport`, com 122 emitidos.
+   O git não mostra quando foram gerados: os arquivos entraram de uma vez no commit `86c19f2`.
+2. **A versão do gerador**, em 13 perfis do SA e 14 do RAC: a 5.1.0 desdobra os filhos das
+   sub-extensões (`extension`, `id`, `url` e `value[x]`), de 8 a 16 elementos a mais por perfil.
+   Só duas regras diferem: no `BRIndividuo`, `Patient.address.line` tem `min` 4 na 7.6.0, a soma
+   das fatias obrigatórias, e 1 na 5.1.0, e as fatias continuam exigindo as quatro linhas; no
+   `BRPrescricaoMedicamento`, o `max` de um `id` dentro de uma extensão. O `MustSupport` é o
+   mesmo, perfil a perfil.
+
+**A regeneração** (`94a1bfc`, branch `snapshots/hapi-5.1.0`). Os 266 perfis dos cinco pacotes
+passaram a trazer o snapshot gerado pela 5.1.0, sem falha, e a Camada 4 deixou de calcular
+snapshot na hora. O `differential` e o resto de cada perfil não mudam de conteúdo, mas o HAPI
+regrava o arquivo inteiro: em 46 perfis, quebras de linha em textos de documentação viram
+espaço, e em 2 do RIRA, `mustSupport` e `constraint` passam à ordem canônica do XML do FHIR. Só
+arquivos de StructureDefinition mudam.
+
+A suíte continua verde. Na auditoria de `MustSupport`, o RIA, o REL e o RIRA dão os mesmos
+números de antes; o RAC passa de 103 para 127 elementos, com 122 emitidos, e o total vai de
+384, 349 e 35 para **408, 373 e 35**. Os 24 elementos a mais já eram emitidos pelo construtor,
+e nenhuma lacuna nova aparece. A `section:informacoesOPM` entra na conta do RAC: vale conferir se
+ela conta como emitida pelo mesmo viés de fatia já registrado para o SA.
 
 ## 8. Vulnerabilidades
 
@@ -163,21 +201,21 @@ conferência externa dão o mesmo resultado antes e depois.
 
 ## 9. Pendências do autor
 
-1. **Push, tag e merge.** O push da branch dispara o CI. Antes do merge, a tag `hapi-7.6.0` em
-   `ba06025`. A história é linear: merge por fast-forward.
-2. **A regra de promoção do aplicativo.** Para a paridade completa, a Camada 4 poderia reprovar
+Resolvidas: o push, a tag `hapi-7.6.0` em `ba06025` e o merge por fast-forward (12/11/2026), e
+a regeneração dos snapshots de todos os pacotes com a 5.1.0 (Seção 7). Ficam:
+
+1. **A regra de promoção do aplicativo.** Para a paridade completa, a Camada 4 poderia reprovar
    como o aplicativo, promovendo a erro os avisos fora das três exceções. O REDFM com
    substituição passaria a reprovar (defeito nº 12), e os cinco documentos do SA e do RAC
    também, a menos que o `BRTerminologiaMedicamento` entre no recorte. Hoje a Camada 4 segue o
    critério do HAPI.
-3. **Os snapshots do SA e do RAC.** Hoje a Camada 4 é híbrida nesses dois serviços: valida com a
-   5.1.0 sobre snapshots da 7.6.0. Regerá-los dá a mesma base do aplicativo, mantém a suíte
-   verde e muda os números da auditoria (Seção 7).
-4. **A normalização do `*`.** Desnecessária na 5.1.0; removê-la não muda veredicto.
-5. **A branch `migracao/hapi-5.1.0-config`.** A cadeia do aplicativo não muda nenhum veredicto
+2. **A normalização do `*`.** Desnecessária na 5.1.0; removê-la não muda veredicto.
+3. **A branch `migracao/hapi-5.1.0-config`.** A cadeia do aplicativo não muda nenhum veredicto
    atual; adotá-la ou descartá-la.
-6. **Fora do repositório** (Seção 8.2 do plano): a monografia, os slides e o Notion. Além do
+4. **Fora do repositório** (Seção 8.2 do plano): a monografia, os slides e o Notion. Além do
    que o plano lista:
+   - os números da auditoria de `MustSupport`: 408, 373 e 35, no lugar de 384, 349 e 35, e o RAC
+     com 127 elementos e 122 emitidos (Seção 7);
    - o defeito nº 6 deixou de ser acusado pela Camada 4: o texto que diz que só a Camada 4 o
      detecta, ou que ela reprova o exemplo oficial, muda;
    - o argumento das duas versões vira prova de paridade, e a divergência que sobra tem causa
@@ -194,6 +232,6 @@ Reverter os commits da migração, do mais novo para o mais antigo:
 git revert --no-edit ba06025..<último commit da migração>
 ```
 
-Nenhum arquivo de conformidade mudou, e a volta não exige regerar nada. A reversão devolve
-também as evidências da 7.6.0 e as duas entradas de `DIVERGENCIAS_CONHECIDAS`, coerentes com o
-código revertido. A branch de diagnóstico não entra nessa conta.
+A reversão devolve também as evidências da 7.6.0, as duas entradas de
+`DIVERGENCIAS_CONHECIDAS` e os snapshots gravados antes da regeneração, coerentes com o código
+revertido. A branch de diagnóstico não entra nessa conta.

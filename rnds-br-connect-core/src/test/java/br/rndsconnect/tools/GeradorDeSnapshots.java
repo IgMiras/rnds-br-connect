@@ -48,6 +48,14 @@ import org.hl7.fhir.r4.model.ValueSet;
  *
  * <p>Dai <strong>um perfil por execucao</strong>: cada JVM converte, grava e morre.
  *
+ * <p><strong>Desde 12/11/2026, todos os pacotes trazem snapshot</strong>, gerado por esta
+ * ferramenta com o HAPI FHIR 5.1.0, o motor do Validador Local da RNDS: os 266 perfis do RIA e
+ * do REL, do RIRA, do REDFM, do SA e do RAC. Antes, so o REDFM, o SA e o RAC os traziam,
+ * gerados com a 7.6.0, e dois deles estavam desatualizados (ver MIGRACAO-HAPI-5.1.0.md).
+ * Para regerar um pacote, apague os snapshots dele e rode o script: a ferramenta so gera os
+ * perfis que nao tem. O arquivo e regravado inteiro pelo HAPI, e o differential nao muda de
+ * conteudo.
+ *
  * <h2>Duas licoes que estao no codigo</h2>
  *
  * <p><strong>Le do sistema de arquivos, nao do classpath.</strong> Os snapshots sao gravados

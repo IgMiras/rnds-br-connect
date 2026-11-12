@@ -60,8 +60,10 @@ versão que o aplicativo embute, para que o veredicto dela venha do mesmo motor 
 que o integrador é mandado usar. A comparação é, portanto, uma prova de **paridade**, e não
 uma segunda opinião independente. O que ainda difere entre os dois é:
 
-- o **pacote**: a Camada 4 carrega um recorte de cada distribuição, alterado na carga, e o
-  Validador Local carrega a distribuição inteira;
+- o **pacote**: a Camada 4 carrega um recorte de cada distribuição, alterado na carga, com o
+  snapshot de cada perfil já gravado, e o Validador Local carrega a distribuição inteira e
+  calcula os snapshots na hora. Os dois snapshots saem do mesmo gerador, o do HAPI FHIR 5.1.0;
+  os do framework foram gerados pelo `scripts/gerar-snapshots.sh` em 12/11/2026;
 - a **configuração** da cadeia de validação, próxima, mas não idêntica;
 - o **tratamento das mensagens**: depois de validar, o aplicativo promove a erro toda mensagem,
   de qualquer severidade, que não seja aviso de vínculo `extensible`, informação de vínculo

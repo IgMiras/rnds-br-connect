@@ -64,9 +64,11 @@ import org.hl7.fhir.r4.model.ValueSet;
  *
  * <ol>
  *   <li><em>A maioria dos StructureDefinition da RNDS não traz {@code snapshot}</em> — publica
- *       apenas {@code differential}, e no pacote do RIA e do REL nenhum o traz. Isso não é
- *       tratado aqui, e sim na cadeia de validação,
- *       pelo elo {@code SnapshotGeneratingValidationSupport} (ver {@link LocalFhirValidator}).
+ *       apenas {@code differential}. Isso não é tratado aqui: os pacotes do framework trazem
+ *       o snapshot de cada perfil, gerado fora da carga pelo {@code scripts/gerar-snapshots.sh}
+ *       com o HAPI FHIR 5.1.0, e a cadeia de validação mantém o elo
+ *       {@code SnapshotGeneratingValidationSupport} para qualquer perfil que chegue sem ele
+ *       (ver {@link LocalFhirValidator}).
  *   <li><em>A maioria dos ValueSets declara {@code compose.include.version = "*"}</em> — ver
  *       {@link #normalizarVersaoCoringa(ValueSet)}.
  * </ol>
