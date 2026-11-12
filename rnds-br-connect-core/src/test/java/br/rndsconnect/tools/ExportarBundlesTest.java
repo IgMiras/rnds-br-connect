@@ -35,12 +35,13 @@ import org.junit.jupiter.api.Test;
  * {@code ui.FhirValidacaoWindow}.
  *
  * <p><strong>O que esse confronto e, e o que nao e.</strong> Medido em 12/10 no {@code libs/}
- * do aplicativo: ele embute <strong>HAPI FHIR 5.1.0</strong> -- o mesmo
- * {@code InstanceValidator} que a Camada 4 usa na versao 7.6.0. Nao e implementacao
+ * do aplicativo: ele embute <strong>HAPI FHIR 5.1.0</strong>, e desde 12/11/2026 a Camada 4
+ * usa a mesma versao (ate o commit ba06025, usava a 7.6.0). Nao e implementacao
  * independente, e chamar assim seria contradizer o que o Javadoc do
- * {@code LocalFhirValidator} ja dizia: «mesmo motor de validacao». A independencia que resta
- * e tripla, e vale: o pacote (349 arquivos soltos contra o fecho estrito de 142), a geracao
- * do motor (duas versoes maiores de distancia) e o argumento institucional -- e o validador
+ * {@code LocalFhirValidator} ja dizia: «mesmo motor de validacao». O confronto e prova de
+ * paridade com a ferramenta oficial. O que difere entre os dois e o pacote (349 arquivos
+ * soltos contra o fecho estrito de 142), a configuracao da cadeia, o tratamento das
+ * mensagens (o aplicativo promove avisos a erro) e o argumento institucional -- e o validador
  * do proprio orgao.
  *
  * <p>No caso do RAC a pergunta era mais forte: o documento sem identificador nacional -- a

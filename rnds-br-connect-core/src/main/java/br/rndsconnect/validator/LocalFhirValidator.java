@@ -19,7 +19,9 @@ import org.hl7.fhir.instance.model.api.IBaseResource;
  *
  * <p>Executa em processo, a cada documento preparado, o que o validador desktop do DATASUS executa
  * manualmente: mesma base de artefatos, mesmo motor de validação, dentro do ciclo de vida
- * da integração.
+ * da integração. O motor é o HAPI FHIR 5.1.0, a versão que o Validador Local da RNDS embute.
+ * O critério de reprovação é o do HAPI, só erro e fatal; o aplicativo promove ainda a erro
+ * os avisos que não estejam na sua lista de exceções (ver {@code evidencias/validador-local/}).
  *
  * <p><strong>A cadeia tem cinco elos, e nenhum é decorativo:</strong>
  *

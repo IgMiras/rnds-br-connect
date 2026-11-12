@@ -66,18 +66,19 @@ os identificadores transientes; os nº 25 e nº 7, inconsistências internas do 
 removidos (abaixo). Tudo o mais é cópia literal.
 
 O defeito nº 6 merece registro próprio porque é **estrutural e não foi detectado por
-inspeção**: só apareceu quando a Camada 4 (HAPI FHIR 7.6.0) rodou. O FHIR exige que o
-esquema `urn:uuid:` seja seguido de um UUID conforme a RFC 4122; `transient-0` não é. A
-mensagem é `Type_Specific_Checks_DT_UUID_Valid`, severidade ERROR, e ocorre em **toda**
-entrada de **todo** exemplo oficial que usa `transient-N`, os de seis dos sete documentos.
+inspeção**: só apareceu quando a Camada 4 rodou, ainda com o HAPI FHIR 7.6.0. O FHIR exige
+que o esquema `urn:uuid:` seja seguido de um UUID conforme a RFC 4122; `transient-0` não é.
+A 7.6.0 emitia `Type_Specific_Checks_DT_UUID_Valid`, severidade ERROR, em **toda** entrada de
+**todo** exemplo oficial que usa `transient-N`, os de seis dos sete documentos.
 
-Consequência para o ADR-07: emitir `urn:uuid:{UUID}` é a forma que o FHIR prevê e a única
-que a Camada 4 aceita. O validador do Ministério da Saúde, porém, aceita as duas: o
-Validador Local da RNDS (HAPI FHIR 5.1.0) aprova sem erro o exemplo oficial do RIA-R, com
-oito ocorrências de `transient-N` (verificado em 10/11/2026; ver
-[`evidencias/validador-local/`](../../../../../evidencias/validador-local/)). Os dois validadores
-discordam aqui, e nenhum deles decide a questão: qual forma o barramento aceita, só a
-homologação diria.
+Consequência para o ADR-07: emitir `urn:uuid:{UUID}` é a forma que o FHIR prevê, e é a que
+os construtores emitem. O HAPI FHIR 5.1.0, porém, aceita as duas: o Validador Local da RNDS,
+que o embute, aprova sem erro o exemplo oficial do RIA-R, com oito ocorrências de
+`transient-N` (verificado em 10/11/2026), e a Camada 4, desde a migração para a mesma versão,
+também aprova (12/11/2026; ver
+[`evidencias/validador-local/`](../../../../../evidencias/validador-local/)). O defeito
+continua sendo defeito pela especificação, mas nenhum dos dois validadores o acusa mais, e
+qual forma o barramento aceita, só a homologação diria.
 
 > ⚠️ **Item de homologação nº 1** (Arquitetura §10.5) — confirmar se o barramento aceita `urn:uuid` com UUID
 > real. Ele aceita `transient-N` (está nos próprios exemplos), mas isso não implica que
@@ -162,12 +163,14 @@ responsabilidade do Builder, que o obtém de um relógio injetável.
 
 ## 4. Pré-requisito de terminologia
 
-Estes arquivos só são aprovados se o `ConformancePackage` tiver aplicado a normalização de
-versão coringa. 35 dos 38 ValueSets da RNDS declaram `compose.include.version = "*"` —
-construção válida do FHIR R4, cujo tratamento a especificação deixa a critério do servidor.
-O expansor em memória do HAPI não a implementa, e sem a normalização **todo** binding
-`required` reprova com `HAPI-0702`. Ver o Javadoc de
-`ConformancePackage.normalizarVersaoCoringa`.
+35 dos 38 ValueSets da RNDS declaram `compose.include.version = "*"` — construção válida do
+FHIR R4, cujo tratamento a especificação deixa a critério do servidor. O `ConformancePackage`
+remove o coringa na carga. Com o HAPI FHIR 7.6.0, a normalização era pré-requisito: o
+expansor em memória tratava o `*` como versão literal, e sem ela **todo** binding `required`
+reprovava com `HAPI-0702`. Com o 5.1.0, versão atual da Camada 4, ela é desnecessária e
+inofensiva: medido em 12/11/2026, os documentos e os canários têm o mesmo veredicto com e sem
+ela, e um código inexistente num binding `required` com coringa continua reprovado. Ver o
+Javadoc de `ConformancePackage.normalizarVersaoCoringa`.
 
 ## 5. Avisos esperados na validação
 

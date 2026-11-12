@@ -41,8 +41,9 @@ import org.hl7.fhir.r4.model.StringType;
  * {@code Immunization.reasonReference}.
  *
  * <p><strong>Toda referência interna usa {@code urn:uuid} com UUID da RFC 4122</strong>
- * (ADR-07). Os exemplos oficiais usam {@code urn:uuid:transient-N}, que não é UUID válido e
- * é reprovado pelo próprio validador do Ministério da Saúde — ver Arquitetura §8.1.2, defeito nº 6.
+ * (ADR-07). Os exemplos oficiais usam {@code urn:uuid:transient-N}, que não é UUID válido pela
+ * especificação — ver Arquitetura §8.1.2, defeito nº 6. O HAPI FHIR 7.6.0 o reprovava; o
+ * 5.1.0, versão do Validador Local da RNDS e da Camada 4, o aceita.
  *
  * <p>O gerador de UUID é injetável para permitir construção determinística nos testes. Em
  * produção usa-se o construtor de um argumento, que sorteia UUID v4.

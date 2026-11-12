@@ -97,10 +97,11 @@ class CamadaQuatroTest {
     @DisplayName("Os ValueSets da RNDS usam versão coringa e são normalizados na carga")
     void valueSetsUsamVersaoCoringa() {
         assertThat(pacote.valueSetsNormalizados())
-                .as("O FHIR R4 admite compose.include.version=\"*\", mas o expansor em memória "
-                        + "do HAPI não implementa essa semântica. Se um dia implementar, ou se a "
-                        + "RNDS parar de usar o coringa, este teste avisa que a normalização "
-                        + "virou desnecessária.")
+                .as("O FHIR R4 admite compose.include.version=\"*\", e a RNDS o usa. O expansor "
+                        + "em memória do HAPI 7.6.0 tratava o coringa como versão literal; o do "
+                        + "5.1.0 resolve o CodeSystem e confere o binding mesmo com ele, e a "
+                        + "normalização ficou desnecessária, mas é mantida. Se a RNDS parar de "
+                        + "usar o coringa, este teste avisa.")
                 .isNotEmpty();
         assertThat(pacote.referenciasCoringaRemovidas())
                 .isGreaterThanOrEqualTo(pacote.valueSetsNormalizados().size());

@@ -201,7 +201,7 @@ class RiaBundleBuilderTest {
                 .build(completo());
 
         assertThat(b.getEntry()).allSatisfy(e -> assertThat(e.getFullUrl())
-                .as("os exemplos oficiais usam urn:uuid:transient-N, que o validador reprova "
+                .as("os exemplos oficiais usam urn:uuid:transient-N, que não é UUID "
                         + "(§8.1.2, defeito nº 6)")
                 .matches("urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"));
     }

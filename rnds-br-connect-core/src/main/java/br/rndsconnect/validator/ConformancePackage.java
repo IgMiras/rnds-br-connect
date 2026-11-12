@@ -171,12 +171,18 @@ public final class ConformancePackage {
      * de "códigos de todas as versões do CodeSystem", e deixa expressamente a cargo do
      * servidor decidir como tratá-lo. Os ValueSets da RNDS usam esse recurso: 35 dos 38.
      *
-     * <p>O <code>InMemoryTerminologyServerValidationSupport</code> do HAPI não implementa
-     * essa semântica — trata o <code>"*"</code> como versão literal e busca por
-     * <code>{url}|*</code>. Como os 39 CodeSystems da RNDS declaram versões concretas
+     * <p>No HAPI FHIR 7.6.0, o <code>InMemoryTerminologyServerValidationSupport</code> não
+     * implementava essa semântica — tratava o <code>"*"</code> como versão literal e buscava
+     * por <code>{url}|*</code>. Como os 39 CodeSystems da RNDS declaram versões concretas
      * (<code>BRImunobiologico</code> é <code>02.16</code>, <code>BRCBO</code> é
-     * <code>201701A</code>, e assim por diante), a busca falha e <em>todo</em> binding
-     * <code>required</code> é reprovado com <code>HAPI-0702</code>.
+     * <code>201701A</code>, e assim por diante), a busca falhava e <em>todo</em> binding
+     * <code>required</code> era reprovado com <code>HAPI-0702</code>.
+     *
+     * <p>No HAPI FHIR 5.1.0, versão atual da Camada 4, a normalização é desnecessária e
+     * inofensiva. Medido em 12/11/2026, sem ela: os testes do RIA e do REL têm o mesmo
+     * veredicto, e o <code>vaccineCode</code> com um código inexistente, num binding
+     * <code>required</code> cujo ValueSet usa o coringa, continua reprovado com os mesmos
+     * erros. Ela fica, porque removê-la não muda veredicto e é decisão à parte.
      *
      * <p>Removendo o <code>"*"</code>, o HAPI passa a resolver o CodeSystem pela URL
      * canônica, sem restrição de versão. A troca é semanticamente segura <em>neste

@@ -55,23 +55,41 @@ commit reproduz os mesmos arquivos e os mesmos SHA-256.
 
 ## O que a comparação prova, e o que não prova
 
-Os dois validadores usam a mesma biblioteca, o HAPI FHIR, em versões diferentes (7.6.0 na
-Camada 4, 5.1.0 no aplicativo), e com configurações próximas, mas não idênticas. A
-independência entre eles é de **pacote**, porque a Camada 4 carrega um recorte de cada
-distribuição, alterado na carga, e o Validador Local carrega a distribuição inteira, e de
-**versão e configuração** do motor. Não é independência de implementação: um erro do HAPI
-FHIR presente nas duas versões passaria pelos dois sem divergência.
+Os dois validadores usam o mesmo motor, o HAPI FHIR **5.1.0**: a Camada 4 foi migrada para a
+versão que o aplicativo embute, para que o veredicto dela venha do mesmo motor da ferramenta
+que o integrador é mandado usar. A comparação é, portanto, uma prova de **paridade**, e não
+uma segunda opinião independente. O que ainda difere entre os dois é:
+
+- o **pacote**: a Camada 4 carrega um recorte de cada distribuição, alterado na carga, e o
+  Validador Local carrega a distribuição inteira;
+- a **configuração** da cadeia de validação, próxima, mas não idêntica;
+- o **tratamento das mensagens**: depois de validar, o aplicativo promove a erro toda mensagem,
+  de qualquer severidade, que não seja aviso de vínculo `extensible`, informação de vínculo
+  `preferred` ou aviso de referência sem `display` (`fhir.val.ValidarItemCallable`, no
+  bytecode do aplicativo). A Camada 4 segue o critério do HAPI: só erro e fatal reprovam.
+
+Não é independência de implementação: um erro do HAPI FHIR 5.1.0 passaria pelos dois sem
+divergência.
+
+Até o commit `ba06025`, a Camada 4 usava o HAPI FHIR 7.6.0, e a independência era também de
+versão do motor. Com a 7.6.0 havia uma segunda divergência, o exemplo oficial do RIA-R, com
+`urn:uuid:transient-N` (defeito nº 6), que só a Camada 4 reprovava. Ela vinha da versão e
+sumiu com a migração: os dois validadores aprovam o controle.
 
 Os canários mostram que cada validador está, de fato, aplicando o pacote: os quatro precisam
-ser reprovados pelos dois. O controle mostra uma divergência já documentada, em que só a
-Camada 4 reprova.
+ser reprovados pelos dois.
 
-## Divergências conhecidas
+## Divergência conhecida
 
 | Arquivo | Camada 4 | Validador Local | Causa |
 |---|---|---|---|
-| `controle/ria-r--ExemploJSONPreenchidoRIAR.json` | reprova | aprova | `urn:uuid:transient-N` não é UUID (defeito nº 6) |
-| `documentos/redfm--variacao-2-substituicao.json` | aprova | reprova | O vínculo required de `Composition.relatesTo.code`, herdado do `br-core-composition`, aponta para uma página de documentação, e não para um `ValueSet` (defeito nº 12). A Camada 4 trata o `ValueSet` não encontrado como aviso; o Validador Local, como erro. |
+| `documentos/redfm--variacao-2-substituicao.json` | aprova | reprova | O vínculo required de `Composition.relatesTo.code`, herdado do `br-core-composition`, aponta para uma página de documentação, e não para um `ValueSet` (defeito nº 12). Os dois emitem a mesma mensagem, `ValueSet ... not found by validator`, como aviso. O aplicativo a promove a erro, pela regra descrita acima. |
 
-Nenhuma das duas pode ser resolvida nos validadores: as duas vêm de defeitos dos artefatos
-oficiais, e qual veredicto o barramento da RNDS dá, só o envio diria.
+A causa foi isolada em 12/11/2026. Com a cadeia e as opções do aplicativo, a Camada 4
+continua emitindo aviso e aprovando; numa sonda com essa cadeia e os 401 arquivos XML da
+distribuição do REDFM, também. A regra de promoção do aplicativo, aplicada às mensagens da
+Camada 4, reproduz o veredicto dele em 33 dos 38 arquivos; nos outros cinco, a Camada 4 emite
+um aviso a mais, de um `ValueSet` de vínculo `preferred` que ficou fora do recorte do SA e do
+RAC. A diferença não é de versão nem de configuração, e sim do tratamento das mensagens. A
+divergência vem de um defeito do artefato oficial, e qual veredicto o barramento da RNDS dá,
+só o envio diria.
