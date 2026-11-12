@@ -1,150 +1,150 @@
 {
-  "resourceType": "Bundle",
-  "meta": {
-    "lastUpdated": "2021-09-15T11:57:05.995-02:00"
+  "resourceType" : "Bundle",
+  "meta" : {
+    "lastUpdated" : "2021-09-15T11:57:05.995-02:00"
   },
-  "identifier": {
-    "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-29376",
-    "value": "12345678"
+  "identifier" : {
+    "system" : "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-29376",
+    "value" : "12345678"
   },
-  "type": "document",
-  "timestamp": "2021-09-15T11:57:05.995-02:00",
-  "entry": [ {
-    "fullUrl": "urn:uuid:ee000000-0000-4000-8000-000000000031",
-    "resource": {
-      "resourceType": "Composition",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRResultadoExameLaboratorial-3.2.1" ]
+  "type" : "document",
+  "timestamp" : "2021-09-15T11:57:05.995-02:00",
+  "entry" : [ {
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000031",
+    "resource" : {
+      "resourceType" : "Composition",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRResultadoExameLaboratorial-3.2.1" ]
       },
-      "status": "final",
-      "type": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
-          "code": "REL"
+      "status" : "final",
+      "type" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
+          "code" : "REL"
         } ]
       },
-      "subject": {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
-          "value": "898005900000823"
+      "subject" : {
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value" : "898005900000823"
         }
       },
-      "date": "2021-09-15T11:57:06-02:00",
-      "author": [ {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0",
-          "value": "00394544000185"
+      "date" : "2021-09-15T11:57:06-02:00",
+      "author" : [ {
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0",
+          "value" : "00394544000185"
         }
       } ],
-      "title": "Resultado de Exame Laboratorial",
-      "section": [ {
-        "entry": [ {
-          "reference": "urn:uuid:ee000000-0000-4000-8000-000000000032"
+      "title" : "Resultado de Exame Laboratorial",
+      "section" : [ {
+        "entry" : [ {
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000032"
         }, {
-          "reference": "urn:uuid:ee000000-0000-4000-8000-000000000033"
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000033"
         } ]
       } ]
     }
   }, {
-    "fullUrl": "urn:uuid:ee000000-0000-4000-8000-000000000032",
-    "resource": {
-      "resourceType": "Condition",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCondicaoSaude" ]
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000032",
+    "resource" : {
+      "resourceType" : "Condition",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRCondicaoSaude" ]
       },
-      "code": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
-          "code": "B04"
+      "code" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
+          "code" : "B04"
         } ]
       },
-      "subject": {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
-          "value": "898005900000823"
+      "subject" : {
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value" : "898005900000823"
         }
       },
-      "stage": [ {
-        "assessment": [ {
-          "reference": "urn:uuid:ee000000-0000-4000-8000-000000000033"
+      "stage" : [ {
+        "assessment" : [ {
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000033"
         } ]
       } ]
     }
   }, {
-    "fullUrl": "urn:uuid:ee000000-0000-4000-8000-000000000033",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRDiagnosticoLaboratorioClinico-3.2.1" ]
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000033",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRDiagnosticoLaboratorioClinico-3.2.1" ]
       },
-      "extension": [ {
-        "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPatogeno",
-        "valueCodeableConcept": {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTerminologiaPatogeno",
-            "code": "01"
+      "extension" : [ {
+        "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPatogeno",
+        "valueCodeableConcept" : {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTerminologiaPatogeno",
+            "code" : "01"
           } ]
         }
       } ],
-      "status": "final",
-      "category": [ {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRSubgrupoTabelaSUS",
-          "code": "0202"
+      "status" : "final",
+      "category" : [ {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRSubgrupoTabelaSUS",
+          "code" : "0202"
         } ]
       } ],
-      "code": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameLOINC",
-          "code": "94309-2"
+      "code" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRNomeExameLOINC",
+          "code" : "94309-2"
         } ]
       },
-      "subject": {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
-          "value": "898005900000823"
+      "subject" : {
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+          "value" : "898005900000823"
         }
       },
-      "effectiveDateTime": "2021-09-15T11:57:06-02:00",
-      "issued": "2021-09-15T12:57:06-02:00",
-      "performer": [ {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
-          "value": "034544015"
+      "effectiveDateTime" : "2021-09-15T11:57:06-02:00",
+      "issued" : "2021-09-15T12:57:06-02:00",
+      "performer" : [ {
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+          "value" : "034544015"
         }
       }, {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0",
-          "value": "00394544000185"
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0",
+          "value" : "00394544000185"
         }
       } ],
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT",
-          "code": "2"
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoResultadoDTNT",
+          "code" : "2"
         } ]
       },
-      "method": {
-        "text": "Diagnóstico através de um hemograma."
+      "method" : {
+        "text" : "Diagnóstico através de um hemograma."
       },
-      "specimen": {
-        "reference": "urn:uuid:ee000000-0000-4000-8000-000000000034"
+      "specimen" : {
+        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000034"
       },
-      "referenceRange": [ {
-        "text": "Escala de -1 para +1."
+      "referenceRange" : [ {
+        "text" : "Escala de -1 para +1."
       } ]
     }
   }, {
-    "fullUrl": "urn:uuid:ee000000-0000-4000-8000-000000000034",
-    "resource": {
-      "resourceType": "Specimen",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAmostraBiologica-1.0" ]
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000034",
+    "resource" : {
+      "resourceType" : "Specimen",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRAmostraBiologica-1.0" ]
       },
-      "type": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAmostraGAL",
-          "code": "SWNAFA"
+      "type" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAmostraGAL",
+          "code" : "SWNAFA"
         } ]
       }
     }

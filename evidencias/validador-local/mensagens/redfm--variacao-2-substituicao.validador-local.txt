@@ -1,6 +1,6 @@
 -----------------------------------
        >>> RESUMO GERAL <<<
-          Δ 00:00:07.780
+          Δ 00:00:07.354
 -----------------------------------
 >>> Validação COM FALHAS ----------
 -----------------------------------
@@ -14,7 +14,7 @@
 
 -----------------------------------
 >>> Validação COM FALHAS ----------
-   Δ 00:00:02.941
+   Δ 00:00:02.606
 -----------------------------------
                error: 1
 -----------------------------------
@@ -24,12 +24,12 @@
     "severity": "error",
     "code": "processing",
     "diagnostics": "(PROFILE) ValueSet http://hl7.org/fhir/R4/valueset-document-relationship-type.html not found by validator",
-    "location": [ "Bundle.entry[0].resource.ofType(Composition).relatesTo[0].code", "Line 41, Col 28" ]
+    "location": [ "Bundle.entry[0].resource.ofType(Composition).relatesTo[0].code", "Line 41, Col 29" ]
   } ]
 }
 -----------------------------------
        >>> RESUMO GERAL <<<
-          Δ 00:00:07.780
+          Δ 00:00:07.354
 -----------------------------------
 >>> Validação COM FALHAS ----------
 -----------------------------------

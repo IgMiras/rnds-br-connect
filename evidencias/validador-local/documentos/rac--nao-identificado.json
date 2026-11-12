@@ -1,651 +1,651 @@
 {
-  "resourceType": "Bundle",
-  "meta": {
-    "lastUpdated": "2024-12-30T11:46:12.000-03:00"
+  "resourceType" : "Bundle",
+  "meta" : {
+    "lastUpdated" : "2024-12-30T11:46:12.000-03:00"
   },
-  "identifier": {
-    "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-12345",
-    "value": "RAC-EXPORT-0001"
+  "identifier" : {
+    "system" : "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-12345",
+    "value" : "RAC-EXPORT-0001"
   },
-  "type": "document",
-  "timestamp": "2024-12-30T11:46:12.000-03:00",
-  "entry": [ {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000501",
-    "resource": {
-      "resourceType": "Composition",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroAtendimentoClinico" ]
+  "type" : "document",
+  "timestamp" : "2024-12-30T11:46:12.000-03:00",
+  "entry" : [ {
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000501",
+    "resource" : {
+      "resourceType" : "Composition",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRegistroAtendimentoClinico" ]
       },
-      "status": "final",
-      "type": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
-          "code": "RAC"
+      "status" : "final",
+      "type" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoDocumento",
+          "code" : "RAC"
         } ]
       },
-      "category": [ {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial",
-          "code": "04"
+      "category" : [ {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial",
+          "code" : "04"
         } ]
       } ],
-      "subject": {
-        "extension": [ {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
-          "extension": [ {
-            "url": "gender",
-            "valueCode": "male"
+      "subject" : {
+        "extension" : [ {
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
+          "extension" : [ {
+            "url" : "gender",
+            "valueCode" : "male"
           }, {
-            "url": "birthYear",
-            "valueDate": "1980"
+            "url" : "birthYear",
+            "valueDate" : "1980"
           }, {
-            "url": "reason",
-            "valueCodeableConcept": {
-              "coding": [ {
-                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
-                "code": "03"
+            "url" : "reason",
+            "valueCodeableConcept" : {
+              "coding" : [ {
+                "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
+                "code" : "03"
               } ]
             }
           } ]
         } ]
       },
-      "date": "2022-05-09T09:00:00-03:00",
-      "author": [ {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
-          "value": "3191384"
+      "date" : "2022-05-09T09:00:00-03:00",
+      "author" : [ {
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+          "value" : "3191384"
         }
       } ],
-      "title": "Registro de Atendimento Clínico",
-      "section": [ {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000502"
+      "title" : "Registro de Atendimento Clínico",
+      "section" : [ {
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000502"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000504"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000504"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000505"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000505"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000506"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000506"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000507"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000507"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000508"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000508"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000509"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000509"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000510"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000510"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000511"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000511"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000512"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000512"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000513"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000513"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000514"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000514"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000515"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000515"
         } ]
       }, {
-        "entry": [ {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000516"
+        "entry" : [ {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000516"
         } ]
       } ]
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000502",
-    "resource": {
-      "resourceType": "Encounter",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoAssistencial-1.0" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000502",
+    "resource" : {
+      "resourceType" : "Encounter",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRContatoAssistencial-1.0" ]
       },
-      "status": "finished",
-      "class": {
-        "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial",
-        "code": "04"
+      "status" : "finished",
+      "class" : {
+        "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRModalidadeAssistencial",
+        "code" : "04"
       },
-      "priority": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCaraterAtendimento",
-          "code": "01"
+      "priority" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCaraterAtendimento",
+          "code" : "01"
         } ]
       },
-      "subject": {
-        "extension": [ {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
-          "extension": [ {
-            "url": "gender",
-            "valueCode": "male"
+      "subject" : {
+        "extension" : [ {
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
+          "extension" : [ {
+            "url" : "gender",
+            "valueCode" : "male"
           }, {
-            "url": "birthYear",
-            "valueDate": "1980"
+            "url" : "birthYear",
+            "valueDate" : "1980"
           }, {
-            "url": "reason",
-            "valueCodeableConcept": {
-              "coding": [ {
-                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
-                "code": "03"
+            "url" : "reason",
+            "valueCodeableConcept" : {
+              "coding" : [ {
+                "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
+                "code" : "03"
               } ]
             }
           } ]
         } ]
       },
-      "participant": [ {
-        "extension": [ {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROcupacao-1.0",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
-              "code": "223505"
+      "participant" : [ {
+        "extension" : [ {
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROcupacao-1.0",
+          "valueCodeableConcept" : {
+            "coding" : [ {
+              "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
+              "code" : "223505"
             } ]
           }
         }, {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIdentificacaoEquipe-1.0",
-          "valueInteger": 2
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIdentificacaoEquipe-1.0",
+          "valueInteger" : 2
         } ],
-        "type": [ {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRResponsabilidadeParticipante",
-            "code": "solicitante"
+        "type" : [ {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRResponsabilidadeParticipante",
+            "code" : "solicitante"
           } ]
         } ],
-        "individual": {
-          "identifier": {
-            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLotacaoProfissional-1.0",
-            "value": "815113499149874-3191384"
+        "individual" : {
+          "identifier" : {
+            "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLotacaoProfissional-1.0",
+            "value" : "815113499149874-3191384"
           }
         }
       } ],
-      "period": {
-        "start": "2022-04-09T09:00:00-03:00",
-        "end": "2022-05-09T09:00:00-03:00"
+      "period" : {
+        "start" : "2022-04-09T09:00:00-03:00",
+        "end" : "2022-05-09T09:00:00-03:00"
       },
-      "diagnosis": [ {
-        "condition": {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000504"
+      "diagnosis" : [ {
+        "condition" : {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000504"
         },
-        "use": {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRPapelProblemaDiagnostico",
-            "code": "NAD"
+        "use" : {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRPapelProblemaDiagnostico",
+            "code" : "NAD"
           } ]
         },
-        "rank": 1
+        "rank" : 1
       }, {
-        "condition": {
-          "extension": [ {
-            "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRFinanciamento-1.0",
-            "valueCodeableConcept": {
-              "coding": [ {
-                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRFinanciamento",
-                "code": "01"
+        "condition" : {
+          "extension" : [ {
+            "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRFinanciamento-1.0",
+            "valueCodeableConcept" : {
+              "coding" : [ {
+                "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRFinanciamento",
+                "code" : "01"
               } ]
             }
           } ],
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000505"
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000505"
         }
       } ],
-      "hospitalization": {
-        "extension": [ {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROutrasInformacoes",
-          "valueAnnotation": {
-            "time": "2022-05-09T09:00:00-03:00",
-            "text": "Paciente trazido inconsciente pelo resgate."
+      "hospitalization" : {
+        "extension" : [ {
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROutrasInformacoes",
+          "valueAnnotation" : {
+            "time" : "2022-05-09T09:00:00-03:00",
+            "text" : "Paciente trazido inconsciente pelo resgate."
           }
         } ],
-        "admitSource": {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRProcedencia",
-            "code": "99"
+        "admitSource" : {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRProcedencia",
+            "code" : "99"
           } ]
         },
-        "dischargeDisposition": {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRMotivoDesfecho",
-            "code": "06"
+        "dischargeDisposition" : {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRMotivoDesfecho",
+            "code" : "06"
           } ]
         }
       },
-      "location": [ {
-        "location": {
-          "reference": "urn:uuid:7a000000-0000-4000-8000-000000000503"
+      "location" : [ {
+        "location" : {
+          "reference" : "urn:uuid:7a000000-0000-4000-8000-000000000503"
         }
       } ],
-      "serviceProvider": {
-        "identifier": {
-          "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
-          "value": "3191384"
+      "serviceProvider" : {
+        "identifier" : {
+          "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+          "value" : "3191384"
         }
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000503",
-    "resource": {
-      "resourceType": "Location",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLocalAtendimento-1.0" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000503",
+    "resource" : {
+      "resourceType" : "Location",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLocalAtendimento-1.0" ]
       },
-      "status": "active",
-      "name": "Consultório",
-      "mode": "kind"
+      "status" : "active",
+      "name" : "Consultório",
+      "mode" : "kind"
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000504",
-    "resource": {
-      "resourceType": "Condition",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProblemaDiagnostico" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000504",
+    "resource" : {
+      "resourceType" : "Condition",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProblemaDiagnostico" ]
       },
-      "clinicalStatus": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-          "code": "active"
+      "clinicalStatus" : {
+        "coding" : [ {
+          "system" : "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code" : "active"
         } ]
       },
-      "category": [ {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-          "code": "encounter-diagnosis"
+      "category" : [ {
+        "coding" : [ {
+          "system" : "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code" : "encounter-diagnosis"
         } ]
       } ],
-      "code": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
-          "code": "I859"
+      "code" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
+          "code" : "I859"
         } ]
       },
-      "subject": {
-        "extension": [ {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
-          "extension": [ {
-            "url": "gender",
-            "valueCode": "male"
+      "subject" : {
+        "extension" : [ {
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
+          "extension" : [ {
+            "url" : "gender",
+            "valueCode" : "male"
           }, {
-            "url": "birthYear",
-            "valueDate": "1980"
+            "url" : "birthYear",
+            "valueDate" : "1980"
           }, {
-            "url": "reason",
-            "valueCodeableConcept": {
-              "coding": [ {
-                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
-                "code": "03"
+            "url" : "reason",
+            "valueCodeableConcept" : {
+              "coding" : [ {
+                "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
+                "code" : "03"
               } ]
             }
           } ]
         } ]
       },
-      "note": [ {
-        "text": "Varizes esofagianas sem sangramento."
+      "note" : [ {
+        "text" : "Varizes esofagianas sem sangramento."
       } ]
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000505",
-    "resource": {
-      "resourceType": "Procedure",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProcedimentoRealizado-1.0" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000505",
+    "resource" : {
+      "resourceType" : "Procedure",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProcedimentoRealizado-1.0" ]
       },
-      "extension": [ {
-        "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuantidade-1.0",
-        "valuePositiveInt": 23
+      "extension" : [ {
+        "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRQuantidade-1.0",
+        "valuePositiveInt" : 23
       } ],
-      "identifier": [ {
-        "type": {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoIdentificador",
-            "code": "AUTH"
+      "identifier" : [ {
+        "type" : {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoIdentificador",
+            "code" : "AUTH"
           } ]
         },
-        "value": "462921-M-13-17-026312-9159748-3"
+        "value" : "462921-M-13-17-026312-9159748-3"
       } ],
-      "status": "completed",
-      "code": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTabelaSUS",
-          "code": "0301010048"
+      "status" : "completed",
+      "code" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTabelaSUS",
+          "code" : "0301010048"
         } ]
       },
-      "subject": {
-        "extension": [ {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
-          "extension": [ {
-            "url": "gender",
-            "valueCode": "male"
+      "subject" : {
+        "extension" : [ {
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuoNaoIdentificado-1.0",
+          "extension" : [ {
+            "url" : "gender",
+            "valueCode" : "male"
           }, {
-            "url": "birthYear",
-            "valueDate": "1980"
+            "url" : "birthYear",
+            "valueDate" : "1980"
           }, {
-            "url": "reason",
-            "valueCodeableConcept": {
-              "coding": [ {
-                "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
-                "code": "03"
+            "url" : "reason",
+            "valueCodeableConcept" : {
+              "coding" : [ {
+                "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRJustificativaIndividuoNaoIdentificado",
+                "code" : "03"
               } ]
             }
           } ]
         } ]
       },
-      "performedDateTime": "2022-05-09T09:00:00-03:00",
-      "performer": [ {
-        "extension": [ {
-          "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIdentificacaoEquipe-1.0",
-          "valueInteger": 2
+      "performedDateTime" : "2022-05-09T09:00:00-03:00",
+      "performer" : [ {
+        "extension" : [ {
+          "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIdentificacaoEquipe-1.0",
+          "valueInteger" : 2
         } ],
-        "function": {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
-            "code": "223605"
+        "function" : {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCBO",
+            "code" : "223605"
           } ]
         },
-        "actor": {
-          "identifier": {
-            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLotacaoProfissional-1.0",
-            "value": "815113499149874-3191384"
+        "actor" : {
+          "identifier" : {
+            "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLotacaoProfissional-1.0",
+            "value" : "815113499149874-3191384"
           }
         },
-        "onBehalfOf": {
-          "identifier": {
-            "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
-            "value": "162338254590005"
+        "onBehalfOf" : {
+          "identifier" : {
+            "system" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0",
+            "value" : "162338254590005"
           }
         }
       } ]
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000506",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000506",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "extension": [ {
-        "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROrigemMedida",
-        "valueCodeableConcept": {
-          "coding": [ {
-            "system": "https://loinc.org/",
-            "code": "3137-7"
+      "extension" : [ {
+        "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROrigemMedida",
+        "valueCodeableConcept" : {
+          "coding" : [ {
+            "system" : "https://loinc.org/",
+            "code" : "3137-7"
           } ]
         }
       } ],
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "29463-7"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "29463-7"
         } ]
       },
-      "valueQuantity": {
-        "value": 1.83,
-        "system": "http://unitsofmeasure.org",
-        "code": "m"
+      "valueQuantity" : {
+        "value" : 1.83,
+        "system" : "http://unitsofmeasure.org",
+        "code" : "m"
       },
-      "method": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "LA11870-5"
+      "method" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "LA11870-5"
         } ]
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000507",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000507",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "8280-0"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "8280-0"
         } ]
       },
-      "valueQuantity": {
-        "value": 135.5,
-        "system": "http://unitsofmeasure.org",
-        "code": "cm"
+      "valueQuantity" : {
+        "value" : 135.5,
+        "system" : "http://unitsofmeasure.org",
+        "code" : "cm"
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000508",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000508",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "8665-2"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "8665-2"
         } ]
       },
-      "valueDateTime": "2022-05-22T21:00:00-03:00"
+      "valueDateTime" : "2022-05-22T21:00:00-03:00"
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000509",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000509",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "56832-9"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "56832-9"
         } ]
       },
-      "effectiveTiming": {
-        "code": {
-          "coding": [ {
-            "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRFrequenciaUsoSubstancia",
-            "code": "uma-ou-duas"
+      "effectiveTiming" : {
+        "code" : {
+          "coding" : [ {
+            "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRFrequenciaUsoSubstancia",
+            "code" : "uma-ou-duas"
           } ]
         }
       },
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoSubstanciaUso",
-          "code": "alcool"
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoSubstanciaUso",
+          "code" : "alcool"
         } ]
       },
-      "note": [ {
-        "text": "Uso ocasional."
+      "note" : [ {
+        "text" : "Uso ocasional."
       } ]
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000510",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000510",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "11885-1"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "11885-1"
         } ]
       },
-      "valueQuantity": {
-        "value": 3.5,
-        "system": "http://unitsofmeasure.org",
-        "code": "wk"
+      "valueQuantity" : {
+        "value" : 3.5,
+        "system" : "http://unitsofmeasure.org",
+        "code" : "wk"
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000511",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000511",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "9843-4"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "9843-4"
         } ]
       },
-      "valueQuantity": {
-        "value": 45.5,
-        "system": "http://unitsofmeasure.org",
-        "code": "cm"
+      "valueQuantity" : {
+        "value" : 45.5,
+        "system" : "http://unitsofmeasure.org",
+        "code" : "cm"
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000512",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000512",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "extension": [ {
-        "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROrigemMedida",
-        "valueCodeableConcept": {
-          "coding": [ {
-            "system": "https://loinc.org/",
-            "code": "3138-5"
+      "extension" : [ {
+        "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BROrigemMedida",
+        "valueCodeableConcept" : {
+          "coding" : [ {
+            "system" : "https://loinc.org/",
+            "code" : "3138-5"
           } ]
         }
       }, {
-        "url": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRoupasUsadasMedicao",
-        "valueCodeableConcept": {
-          "coding": [ {
-            "system": "https://loinc.org/",
-            "code": "LA11873-9"
+        "url" : "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRRoupasUsadasMedicao",
+        "valueCodeableConcept" : {
+          "coding" : [ {
+            "system" : "https://loinc.org/",
+            "code" : "LA11873-9"
           } ]
         }
       } ],
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "29463-7"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "29463-7"
         } ]
       },
-      "valueQuantity": {
-        "value": 88.15,
-        "system": "http://unitsofmeasure.org",
-        "code": "kg"
+      "valueQuantity" : {
+        "value" : 88.15,
+        "system" : "http://unitsofmeasure.org",
+        "code" : "kg"
       },
-      "method": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "LA11870-5"
-        } ]
-      }
-    }
-  }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000513",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "8480-6"
-        } ]
-      },
-      "valueQuantity": {
-        "value": 0.15,
-        "system": "http://unitsofmeasure.org",
-        "code": "mm[Hg]"
-      },
-      "bodySite": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRLocalAfericao",
-          "code": "6"
-        } ]
-      },
-      "method": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "LA11868-9"
+      "method" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "LA11870-5"
         } ]
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000514",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000513",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "11612-9"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "8480-6"
         } ]
       },
-      "valueQuantity": {
-        "value": 1
+      "valueQuantity" : {
+        "value" : 0.15,
+        "system" : "http://unitsofmeasure.org",
+        "code" : "mm[Hg]"
+      },
+      "bodySite" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRLocalAfericao",
+          "code" : "6"
+        } ]
+      },
+      "method" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "LA11868-9"
+        } ]
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000515",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000514",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "11996-6"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "11612-9"
         } ]
       },
-      "valueQuantity": {
-        "value": 2
+      "valueQuantity" : {
+        "value" : 1
       }
     }
   }, {
-    "fullUrl": "urn:uuid:7a000000-0000-4000-8000-000000000516",
-    "resource": {
-      "resourceType": "Observation",
-      "meta": {
-        "profile": [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000515",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
       },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "https://loinc.org/",
-          "code": "11996-6"
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "11996-6"
         } ]
       },
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAleitamentoMaterno",
-          "code": "predominante"
+      "valueQuantity" : {
+        "value" : 2
+      }
+    }
+  }, {
+    "fullUrl" : "urn:uuid:7a000000-0000-4000-8000-000000000516",
+    "resource" : {
+      "resourceType" : "Observation",
+      "meta" : {
+        "profile" : [ "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRMedidaObservada" ]
+      },
+      "status" : "final",
+      "code" : {
+        "coding" : [ {
+          "system" : "https://loinc.org/",
+          "code" : "11996-6"
+        } ]
+      },
+      "valueCodeableConcept" : {
+        "coding" : [ {
+          "system" : "http://www.saude.gov.br/fhir/r4/CodeSystem/BRTipoAleitamentoMaterno",
+          "code" : "predominante"
         } ]
       }
     }
