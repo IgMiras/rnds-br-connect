@@ -71,6 +71,56 @@
         <version>${hapi.version}</version>
         <scope>runtime</scope>
       </dependency>
+      <!-- Bibliotecas auxiliares do HAPI FHIR 5.1.0, fixadas na menor versao sem
+           vulnerabilidade conhecida (OSV, 12/11/2026). O HAPI 5.1.0 as traria em versoes de
+           2019 e 2020, com falhas como a CVE-2022-42889 do commons-text 1.7. Nenhuma define o
+           veredicto: o nucleo org.hl7.fhir.*, o gson (parser JSON do nucleo) e o ucum
+           (unidades UCUM) ficam nas versoes do HAPI 5.1.0, as mesmas do Validador Local da
+           RNDS. A suite e a conferencia externa dao o mesmo resultado com e sem estas
+           versoes. O commons-codec 1.16.1 e o que o commons-compress 1.26.0 exige. -->
+      <dependency>
+        <groupId>com.fasterxml.jackson</groupId>
+        <artifactId>jackson-bom</artifactId>
+        <version>2.18.11</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>33.7.2-jre</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-text</artifactId>
+        <version>1.10.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.18.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-compress</artifactId>
+        <version>1.26.0</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.15.1</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.16.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.5.13</version>
+      </dependency>
+
       <!-- Fonte de mapeamento terminologico em YAML (Camada 2, Frente B). -->
       <dependency>
         <groupId>org.yaml</groupId>
