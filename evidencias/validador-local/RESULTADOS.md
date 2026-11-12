@@ -1,6 +1,6 @@
 # Camada 4 × Validador Local da RNDS
 
-Gerado por `scripts/evidencias-validador-local.py` em 12/11/2026 01:33 -0300, sobre o commit `f716fa7` (árvore limpa). Leia o [README](README.md) antes.
+Gerado por `scripts/evidencias-validador-local.py` em 12/11/2026 13:22 -0300, sobre o commit `222431f` (árvore limpa). Leia o [README](README.md) antes.
 
 - **Camada 4:** HAPI FHIR 5.1.0, com o pacote do serviço que o framework carrega.
 - **Validador Local da RNDS:** HAPI FHIR 5.1.0 (`tarea-fhir-validator.jar`, SHA-256 `6dc1529fddc0c374…`), com a distribuição inteira do serviço.
