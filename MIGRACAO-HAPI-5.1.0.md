@@ -10,7 +10,7 @@ regerados com a 5.1.0 depois, na branch `snapshots/hapi-5.1.0` (Seção 7).
 1. A Camada 4 roda no HAPI FHIR 5.1.0, com o núcleo `org.hl7.fhir.*` 5.1.0, o mesmo do Validador Local.
 2. A suíte inteira passa (202 + 9), no Java 23 e no Java 17. Quebraram 74 testes por um jar ausente (`hapi-fhir-structures-r5`) e 2 por um efeito colateral da 7.6.0; nenhum por veredicto.
 3. Das duas divergências com o Validador Local, a do `transient-N` vinha da versão e sumiu. A do `relatesTo` continua e não vem da versão nem da configuração: o aplicativo promove avisos a erro.
-4. Os canários continuam reprovando nos dois validadores. Os snapshots dos cinco pacotes passaram a ser gerados pela 5.1.0; isso corrigiu dois snapshots desatualizados e mudou a auditoria de `MustSupport` de 384, 349 e 35 para 408, 373 e 35. A mudança não vem da versão (Seção 7).
+4. Os canários continuam reprovando nos dois validadores. Os snapshots dos cinco pacotes passaram a ser gerados pela 5.1.0, o que corrigiu dois snapshots desatualizados, e a auditoria de `MustSupport` passou a distinguir as fatias. Ela foi de 384 elementos, 349 emitidos e 35 sem emissão para 408, 363 e 45. Nada disso vem da versão (Seção 7).
 5. Custo: oito bibliotecas auxiliares atualizadas por vulnerabilidades conhecidas; o núcleo 5.1.0 fica com as dele, sem correção possível dentro da versão.
 
 ## 2. Suíte
@@ -86,7 +86,8 @@ idêntico ao da 7.6.0.
 | `f716fa7` | `pom.xml` | bibliotecas auxiliares sem vulnerabilidade conhecida (Seção 8) | segurança |
 | `0c564c8` | documentação, Javadoc e descrições de asserção | o que descrevia a 7.6.0 como versão atual | documentação |
 | `94a1bfc` | os 242 arquivos de StructureDefinition dos cinco pacotes que mudaram; `CamadaQuatroTest` | snapshots de todos os perfis gerados pela 5.1.0 (Seção 7) | conformidade |
-| commits seguintes | Javadoc, `scripts/gerar-snapshots.sh`, este registro, `evidencias/validador-local/` | os snapshots e a correção da Seção 7; conferência externa refeita | documentação e evidência |
+| `222431f`, `bf1a873` | Javadoc, `scripts/gerar-snapshots.sh`, este registro, `evidencias/validador-local/` | os snapshots e a correção da Seção 7; conferência externa refeita | documentação e evidência |
+| branch `auditoria/fatias` | `AuditoriaEmissao`, `CoberturaMustSupportTest`, este registro | a auditoria aplica o discriminador das fatias; nove lacunas declaradas | auditoria |
 
 O código principal e os testes compilam na 5.1.0 sem nenhuma alteração de API. As classes da
 cadeia de validação existem todas, inclusive a `CommonCodeSystemsTerminologyService`.
@@ -175,10 +176,29 @@ espaço, e em 2 do RIRA, `mustSupport` e `constraint` passam à ordem canônica 
 arquivos de StructureDefinition mudam.
 
 A suíte continua verde. Na auditoria de `MustSupport`, o RIA, o REL e o RIRA dão os mesmos
-números de antes; o RAC passa de 103 para 127 elementos, com 122 emitidos, e o total vai de
-384, 349 e 35 para **408, 373 e 35**. Os 24 elementos a mais já eram emitidos pelo construtor,
-e nenhuma lacuna nova aparece. A `section:informacoesOPM` entra na conta do RAC: vale conferir se
-ela conta como emitida pelo mesmo viés de fatia já registrado para o SA.
+números de antes, e o RAC passa de 103 para 127 elementos: entram 28, herdados do perfil base,
+e saem 4 (os `identifier.system` e `identifier.value` de `author` e de `subject`), que o
+snapshot antigo marcava e o perfil base não marca.
+
+**A auditoria das fatias** (branch `auditoria/fatias`). A auditoria dava como emitidos alguns
+desses 24 elementos sem que estivessem no documento. Para fatias que não são de extensão, ela
+procurava só o caminho base: qualquer `section` contava como a `section:informacoesOPM`, e
+qualquer `identifier`, como o `identifier:sncrNumber`. Agora ela aplica o discriminador que o
+próprio perfil declara: o perfil do recurso referenciado (`entry.resolve()`,
+`condition.resolve()`) ou o valor fixo do caminho do discriminador (`identifier.system`). Nove
+lacunas apareceram, todas conferidas nos documentos:
+
+| Documento | Elemento | Motivo declarado |
+|---|---|---|
+| SA e RAC | `section:informacoesOPM`, com `entry` e `entry.reference` (3 em cada) | fora do escopo: exige um `SupplyDelivery` (`BREntregaSuprimentos`) |
+| RAC | `section:marcosDesenvolvimento` | fora do escopo: exige um `QuestionnaireResponse` |
+| REL | `Observation.performer:lotacaoProfissional` | não implementado: o DTO não tem a lotação do profissional executante |
+| REDFM | `identifier:sncrNumber`, na dispensação e na prescrição | não implementado: o DTO não tem o número do SNCR |
+
+O total fica em **408 elementos, 363 emitidos e 45 sem emissão**, e os 45 estão declarados um
+a um no portão da `AuditoriaEmissao`, com o motivo: 32 por defeito dos artefatos (defeitos nº 20
+e nº 21 e o bloqueio do RIRA), 3 por decisão de desenho (`Encounter.partOf` e
+`Medication.status`), 7 fora do escopo e 3 não implementados. Os 35 de antes eram os 32 e os 3.
 
 ## 8. Vulnerabilidades
 
@@ -214,8 +234,9 @@ a regeneração dos snapshots de todos os pacotes com a 5.1.0 (Seção 7). Ficam
    atual; adotá-la ou descartá-la.
 4. **Fora do repositório** (Seção 8.2 do plano): a monografia, os slides e o Notion. Além do
    que o plano lista:
-   - os números da auditoria de `MustSupport`: 408, 373 e 35, no lugar de 384, 349 e 35, e o RAC
-     com 127 elementos e 122 emitidos (Seção 7);
+   - os números da auditoria de `MustSupport`: 408 elementos, 363 emitidos e 45 sem emissão, no
+     lugar de 384, 349 e 35; e os 45 não são mais todos inexequíveis: 32 por defeito dos
+     artefatos, 3 por decisão de desenho, 7 fora do escopo e 3 não implementados (Seção 7);
    - o defeito nº 6 deixou de ser acusado pela Camada 4: o texto que diz que só a Camada 4 o
      detecta, ou que ela reprova o exemplo oficial, muda;
    - o argumento das duas versões vira prova de paridade, e a divergência que sobra tem causa
