@@ -10,7 +10,7 @@ regerados com a 5.1.0 depois, na branch `snapshots/hapi-5.1.0` (Seção 7).
 1. A Camada 4 roda no HAPI FHIR 5.1.0, com o núcleo `org.hl7.fhir.*` 5.1.0, o mesmo do Validador Local.
 2. A suíte inteira passa (202 + 9), no Java 23 e no Java 17. Quebraram 74 testes por um jar ausente (`hapi-fhir-structures-r5`) e 2 por um efeito colateral da 7.6.0; nenhum por veredicto.
 3. Das duas divergências com o Validador Local, a do `transient-N` vinha da versão e sumiu. A do `relatesTo` continua e não vem da versão nem da configuração: o aplicativo promove avisos a erro.
-4. Os canários continuam reprovando nos dois validadores. Os snapshots dos cinco pacotes passaram a ser gerados pela 5.1.0, o que corrigiu dois snapshots desatualizados, e a auditoria de `MustSupport` passou a distinguir as fatias. Ela foi de 384 elementos, 349 emitidos e 35 sem emissão para 408, 363 e 45. Nada disso vem da versão (Seção 7).
+4. Os canários continuam reprovando nos dois validadores. Os snapshots dos cinco pacotes passaram a ser gerados pela 5.1.0, o que corrigiu dois snapshots desatualizados, e a auditoria de `MustSupport` passou a distinguir as fatias, o que revelou três elementos não emitidos, depois implementados. Ela foi de 384 elementos, 349 emitidos e 35 sem emissão para 408, 366 e 42. Nada disso vem da versão (Seção 7).
 5. Custo: oito bibliotecas auxiliares atualizadas por vulnerabilidades conhecidas; o núcleo 5.1.0 fica com as dele, sem correção possível dentro da versão.
 
 ## 2. Suíte
@@ -88,6 +88,7 @@ idêntico ao da 7.6.0.
 | `94a1bfc` | os 242 arquivos de StructureDefinition dos cinco pacotes que mudaram; `CamadaQuatroTest` | snapshots de todos os perfis gerados pela 5.1.0 (Seção 7) | conformidade |
 | `222431f`, `bf1a873` | Javadoc, `scripts/gerar-snapshots.sh`, este registro, `evidencias/validador-local/` | os snapshots e a correção da Seção 7; conferência externa refeita | documentação e evidência |
 | branch `auditoria/fatias` | `AuditoriaEmissao`, `CoberturaMustSupportTest`, este registro | a auditoria aplica o discriminador das fatias; nove lacunas declaradas | auditoria |
+| branch `mustsupport/lotacao-e-sncr` | DTOs, modelos, Camada 2 e construtores do REL e do REDFM; testes; evidências | lotação do responsável no REL e SNCR no REDFM emitidos; três declarações retiradas | funcionalidade |
 
 O código principal e os testes compilam na 5.1.0 sem nenhuma alteração de API. As classes da
 cadeia de validação existem todas, inclusive a `CommonCodeSystemsTerminologyService`.
@@ -192,13 +193,27 @@ lacunas apareceram, todas conferidas nos documentos:
 |---|---|---|
 | SA e RAC | `section:informacoesOPM`, com `entry` e `entry.reference` (3 em cada) | fora do escopo: exige um `SupplyDelivery` (`BREntregaSuprimentos`) |
 | RAC | `section:marcosDesenvolvimento` | fora do escopo: exige um `QuestionnaireResponse` |
-| REL | `Observation.performer:lotacaoProfissional` | não implementado: o DTO não tem a lotação do profissional executante |
-| REDFM | `identifier:sncrNumber`, na dispensação e na prescrição | não implementado: o DTO não tem o número do SNCR |
+| REL | `Observation.performer:lotacaoProfissional` | implementado em 12/11/2026 |
+| REDFM | `identifier:sncrNumber`, na dispensação e na prescrição | implementado em 12/11/2026 |
 
-O total fica em **408 elementos, 363 emitidos e 45 sem emissão**, e os 45 estão declarados um
+**A implementação** (branch `mustsupport/lotacao-e-sncr`). Os dois últimos não eram decisão:
+nenhum estava no exemplo oficial do serviço, que serviu de base aos construtores, e a auditoria
+contava qualquer `performer` e qualquer `identifier` como a fatia. Passaram a ser emitidos:
+
+- **REL:** campo opcional `cnsProfissionalResponsavel`; presente, vai para a fatia
+  `lotacaoProfissional` do `performer`, com a lotação `CNS-CNES` no estabelecimento executor, o
+  mesmo formato do SA e do RAC. O CNS passa pelo Módulo 11 na Camada 2.
+- **REDFM:** campo opcional `numeroSncr` na dispensação e na receita embutida; presente, vai
+  para o `identifier:sncrNumber` do `MedicationDispense` e do `MedicationRequest`.
+
+Uma variação nova em cada construtor exporta o documento com os campos, e a conferência externa
+mostra os dois aprovados pela Camada 4 e pelo Validador Local.
+
+O total fica em **408 elementos, 366 emitidos e 42 sem emissão**, e os 42 estão declarados um
 a um no portão da `AuditoriaEmissao`, com o motivo: 32 por defeito dos artefatos (defeitos nº 20
 e nº 21 e o bloqueio do RIRA), 3 por decisão de desenho (`Encounter.partOf` e
-`Medication.status`), 7 fora do escopo e 3 não implementados. Os 35 de antes eram os 32 e os 3.
+`Medication.status`) e 7 fora do escopo (as seções de OPM e de marcos de desenvolvimento). Os 35
+de antes eram os 32 e os 3.
 
 ## 8. Vulnerabilidades
 
@@ -234,9 +249,11 @@ a regeneração dos snapshots de todos os pacotes com a 5.1.0 (Seção 7). Ficam
    atual; adotá-la ou descartá-la.
 4. **Fora do repositório** (Seção 8.2 do plano): a monografia, os slides e o Notion. Além do
    que o plano lista:
-   - os números da auditoria de `MustSupport`: 408 elementos, 363 emitidos e 45 sem emissão, no
-     lugar de 384, 349 e 35; e os 45 não são mais todos inexequíveis: 32 por defeito dos
-     artefatos, 3 por decisão de desenho, 7 fora do escopo e 3 não implementados (Seção 7);
+   - os números da auditoria de `MustSupport`: 408 elementos, 366 emitidos e 42 sem emissão, no
+     lugar de 384, 349 e 35; e os 42 não são todos inexequíveis: 32 por defeito dos artefatos,
+     3 por decisão de desenho e 7 fora do escopo (Seção 7);
+   - os campos novos e opcionais: `cnsProfissionalResponsavel` no REL e `numeroSncr` no REDFM,
+     na dispensação e na receita (Seção 7);
    - o defeito nº 6 deixou de ser acusado pela Camada 4: o texto que diz que só a Camada 4 o
      detecta, ou que ela reprova o exemplo oficial, muda;
    - o argumento das duas versões vira prova de paridade, e a divergência que sobra tem causa
