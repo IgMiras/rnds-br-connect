@@ -1,15 +1,15 @@
 # Camada 4 × Validador Local da RNDS
 
-Gerado por `scripts/evidencias-validador-local.py` em 11/11/2026 17:09 -0300, sobre o commit `cc65a2d` (árvore limpa). Leia o [README](README.md) antes.
+Gerado por `scripts/evidencias-validador-local.py` em 12/11/2026 01:19 -0300, sobre o commit `b9a3cf1` (árvore limpa). Leia o [README](README.md) antes.
 
-- **Camada 4:** HAPI FHIR 7.6.0, com o pacote do serviço que o framework carrega.
+- **Camada 4:** HAPI FHIR 5.1.0, com o pacote do serviço que o framework carrega.
 - **Validador Local da RNDS:** HAPI FHIR 5.1.0 (`tarea-fhir-validator.jar`, SHA-256 `6dc1529fddc0c374…`), com a distribuição inteira do serviço.
 
 ## Resumo
 
 - Documentos produzidos pelo framework: 32 de 33 com o mesmo veredicto nos dois validadores.
 - Canários: 4 de 4 com o mesmo veredicto nos dois validadores.
-- Controle: exemplo oficial: 0 de 1 com o mesmo veredicto nos dois validadores.
+- Controle: exemplo oficial: 1 de 1 com o mesmo veredicto nos dois validadores.
 - Divergências inesperadas: 0.
 
 ## Documentos produzidos pelo framework
@@ -21,11 +21,11 @@ Gerado por `scripts/evidencias-validador-local.py` em 11/11/2026 17:09 -0300, so
 | `documentos/rac--variacao-1-alergia-plano.json` | [aprovado](mensagens/rac--variacao-1-alergia-plano.camada4.txt) (0 erros) | [aprovado](mensagens/rac--variacao-1-alergia-plano.validador-local.txt) (0 erros) | sim |  | `4ad2880ca27b438b` |
 | `documentos/rac--variacao-2-cpf-medidas-atestado.json` | [aprovado](mensagens/rac--variacao-2-cpf-medidas-atestado.camada4.txt) (0 erros) | [aprovado](mensagens/rac--variacao-2-cpf-medidas-atestado.validador-local.txt) (0 erros) | sim |  | `9c95146e823e67a5` |
 | `documentos/rac--variacao-3-contato-prescricao.json` | [aprovado](mensagens/rac--variacao-3-contato-prescricao.camada4.txt) (0 erros) | [aprovado](mensagens/rac--variacao-3-contato-prescricao.validador-local.txt) (0 erros) | sim |  | `f7769918af576bec` |
-| `documentos/redfm--receita-embutida.json` | [aprovado](mensagens/redfm--receita-embutida.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--receita-embutida.validador-local.txt) (0 erros) | sim |  | `5b21ab29e47ee8b3` |
+| `documentos/redfm--receita-embutida.json` | [aprovado](mensagens/redfm--receita-embutida.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--receita-embutida.validador-local.txt) (0 erros) | sim |  | `15b3d39181538cd3` |
 | `documentos/redfm--receita-na-rnds.json` | [aprovado](mensagens/redfm--receita-na-rnds.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--receita-na-rnds.validador-local.txt) (0 erros) | sim |  | `afa632af95036e56` |
-| `documentos/redfm--variacao-1-sem-textos-livres.json` | [aprovado](mensagens/redfm--variacao-1-sem-textos-livres.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--variacao-1-sem-textos-livres.validador-local.txt) (0 erros) | sim |  | `17ced056b9bbd3c4` |
-| `documentos/redfm--variacao-2-substituicao.json` | [aprovado](mensagens/redfm--variacao-2-substituicao.camada4.txt) (0 erros) | [reprovado](mensagens/redfm--variacao-2-substituicao.validador-local.txt) (1 erro) | **não** | Divergência conhecida. O vínculo required de Composition.relatesTo.code, herdado do br-core-composition, aponta para uma página de documentação (defeito nº 12). A Camada 4 registra o ValueSet não encontrado como aviso; o Validador Local, como erro. | `56f98d693aec2ad3` |
-| `documentos/redfm--variacao-3-dispensacao-parcial.json` | [aprovado](mensagens/redfm--variacao-3-dispensacao-parcial.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--variacao-3-dispensacao-parcial.validador-local.txt) (0 erros) | sim |  | `f5b77a4e673b7f2c` |
+| `documentos/redfm--variacao-1-sem-textos-livres.json` | [aprovado](mensagens/redfm--variacao-1-sem-textos-livres.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--variacao-1-sem-textos-livres.validador-local.txt) (0 erros) | sim |  | `894b4985a314b90c` |
+| `documentos/redfm--variacao-2-substituicao.json` | [aprovado](mensagens/redfm--variacao-2-substituicao.camada4.txt) (0 erros) | [reprovado](mensagens/redfm--variacao-2-substituicao.validador-local.txt) (1 erro) | **não** | Divergência conhecida. O vínculo required de Composition.relatesTo.code, herdado do br-core-composition, aponta para uma página de documentação (defeito nº 12). Com o mesmo motor, o HAPI FHIR 5.1.0, e a mesma mensagem, a Camada 4 registra o ValueSet não encontrado como aviso, e o Validador Local, como erro: a diferença vem da configuração ou do pacote, e não da versão. | `56f98d693aec2ad3` |
+| `documentos/redfm--variacao-3-dispensacao-parcial.json` | [aprovado](mensagens/redfm--variacao-3-dispensacao-parcial.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--variacao-3-dispensacao-parcial.validador-local.txt) (0 erros) | sim |  | `8146029303bc1cae` |
 | `documentos/rel--completo.json` | [aprovado](mensagens/rel--completo.camada4.txt) (0 erros) | [aprovado](mensagens/rel--completo.validador-local.txt) (0 erros) | sim |  | `2064ac38ebb21dd1` |
 | `documentos/rel--variacao-1-sem-patogeno-cpf.json` | [aprovado](mensagens/rel--variacao-1-sem-patogeno-cpf.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-1-sem-patogeno-cpf.validador-local.txt) (0 erros) | sim |  | `5dd8d8bed1914013` |
 | `documentos/rel--variacao-2-quantitativo-interpretacao.json` | [aprovado](mensagens/rel--variacao-2-quantitativo-interpretacao.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-2-quantitativo-interpretacao.validador-local.txt) (0 erros) | sim |  | `08c9968b564207a7` |
@@ -55,7 +55,7 @@ Gerado por `scripts/evidencias-validador-local.py` em 11/11/2026 17:09 -0300, so
 | Arquivo | Camada 4 | Validador Local | Iguais | Observação | SHA-256 (16) |
 |---|---|---|---|---|---|
 | `canarios/rac--canario-cmd-1.json` | [reprovado](mensagens/rac--canario-cmd-1.camada4.txt) (4 erros) | [reprovado](mensagens/rac--canario-cmd-1.validador-local.txt) (8 erros) | sim | Canário: `rac--completo` com `Procedure.identifier` fora da máscara da invariante cmd-1; precisa reprovar nos dois. | `8d7032ffbf5c7a14` |
-| `canarios/redfm--canario-dfm-2.json` | [reprovado](mensagens/redfm--canario-dfm-2.camada4.txt) (2 erros) | [reprovado](mensagens/redfm--canario-dfm-2.validador-local.txt) (3 erros) | sim | Canário: `redfm--receita-embutida` sem `MedicationDispense.quantity`, que a invariante dfm-2 exige; precisa reprovar nos dois. | `cf7107c7a6bd3f80` |
+| `canarios/redfm--canario-dfm-2.json` | [reprovado](mensagens/redfm--canario-dfm-2.camada4.txt) (2 erros) | [reprovado](mensagens/redfm--canario-dfm-2.validador-local.txt) (3 erros) | sim | Canário: `redfm--receita-embutida` sem `MedicationDispense.quantity`, que a invariante dfm-2 exige; precisa reprovar nos dois. | `26673c1244f4a4a7` |
 | `canarios/ria-r--canario-sem-route.json` | [reprovado](mensagens/ria-r--canario-sem-route.camada4.txt) (2 erros) | [reprovado](mensagens/ria-r--canario-sem-route.validador-local.txt) (3 erros) | sim | Canário: `ria-r--minimo` sem `Immunization.route`, 1..1 no perfil; precisa reprovar nos dois. | `87b371c55f8573bc` |
 | `canarios/rira--canario-sem-event.json` | [reprovado](mensagens/rira--canario-sem-event.camada4.txt) (1 erro) | [reprovado](mensagens/rira--canario-sem-event.validador-local.txt) (1 erro) | sim | Canário: `rira--um-evento` sem `Composition.event`, 1..* no perfil; precisa reprovar nos dois. | `17bff81c4eb84909` |
 
@@ -63,7 +63,7 @@ Gerado por `scripts/evidencias-validador-local.py` em 11/11/2026 17:09 -0300, so
 
 | Arquivo | Camada 4 | Validador Local | Iguais | Observação | SHA-256 (16) |
 |---|---|---|---|---|---|
-| `controle/ria-r--ExemploJSONPreenchidoRIAR.json` | [reprovado](mensagens/ria-r--ExemploJSONPreenchidoRIAR.camada4.txt) (3 erros) | [aprovado](mensagens/ria-r--ExemploJSONPreenchidoRIAR.validador-local.txt) (0 erros) | **não** | Divergência conhecida. O exemplo oficial usa urn:uuid:transient-N, que não é UUID (defeito nº 6). Só a Camada 4 reprova. | `0ef5cec4f965ec10` |
+| `controle/ria-r--ExemploJSONPreenchidoRIAR.json` | [aprovado](mensagens/ria-r--ExemploJSONPreenchidoRIAR.camada4.txt) (0 erros) | [aprovado](mensagens/ria-r--ExemploJSONPreenchidoRIAR.validador-local.txt) (0 erros) | sim |  | `0ef5cec4f965ec10` |
 
 ## Pacotes
 

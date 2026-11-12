@@ -76,78 +76,6 @@
         },
         "contained": [
           {
-            "resourceType": "MedicationRequest",
-            "id": "prescription",
-            "meta": {
-              "profile": [
-                "http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSPrescricaoMedicamentoDispensado"
-              ]
-            },
-            "identifier": [
-              {
-                "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id",
-                "value": "e6f89964-b218-4fb3-9603-e0897c5c2181"
-              }
-            ],
-            "status": "active",
-            "intent": "order",
-            "medicationCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRObmVMP",
-                  "code": "@brasil12898180271",
-                  "display": "Amoxicilina 500 mg cápsula"
-                }
-              ]
-            },
-            "subject": {
-              "identifier": {
-                "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
-                "value": "712176901347489"
-              }
-            },
-            "authoredOn": "2024-12-30T11:46:12-03:00",
-            "requester": {
-              "reference": "PractitionerRole/prescriber-info",
-              "identifier": {
-                "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProfissional-1.0",
-                "value": "704200519817090"
-              }
-            },
-            "reasonCode": [
-              {
-                "coding": [
-                  {
-                    "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
-                    "code": "I10"
-                  }
-                ]
-              }
-            ],
-            "dosageInstruction": [
-              {
-                "route": {
-                  "coding": [
-                    {
-                      "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao",
-                      "code": "10907"
-                    }
-                  ]
-                },
-                "doseAndRate": [
-                  {
-                    "doseQuantity": {
-                      "value": 1,
-                      "unit": "Comprimido",
-                      "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida",
-                      "code": "13"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
             "resourceType": "Practitioner",
             "id": "prescriber-identifier",
             "meta": {
@@ -228,6 +156,78 @@
               }
             ],
             "active": true
+          },
+          {
+            "resourceType": "MedicationRequest",
+            "id": "prescription",
+            "meta": {
+              "profile": [
+                "http://www.saude.gov.br/fhir/r4/StructureDefinition/RNDSPrescricaoMedicamentoDispensado"
+              ]
+            },
+            "identifier": [
+              {
+                "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/prescription-item-id",
+                "value": "e6f89964-b218-4fb3-9603-e0897c5c2181"
+              }
+            ],
+            "status": "active",
+            "intent": "order",
+            "medicationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRObmVMP",
+                  "code": "@brasil12898180271",
+                  "display": "Amoxicilina 500 mg cápsula"
+                }
+              ]
+            },
+            "subject": {
+              "identifier": {
+                "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRIndividuo-1.0",
+                "value": "712176901347489"
+              }
+            },
+            "authoredOn": "2024-12-30T11:46:12-03:00",
+            "requester": {
+              "reference": "PractitionerRole/prescriber-info",
+              "identifier": {
+                "system": "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRProfissional-1.0",
+                "value": "704200519817090"
+              }
+            },
+            "reasonCode": [
+              {
+                "coding": [
+                  {
+                    "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRCID10",
+                    "code": "I10"
+                  }
+                ]
+              }
+            ],
+            "dosageInstruction": [
+              {
+                "route": {
+                  "coding": [
+                    {
+                      "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRViaAdministracao",
+                      "code": "10907"
+                    }
+                  ]
+                },
+                "doseAndRate": [
+                  {
+                    "doseQuantity": {
+                      "value": 1,
+                      "unit": "Comprimido",
+                      "system": "http://www.saude.gov.br/fhir/r4/CodeSystem/BRUnidadeMedida",
+                      "code": "13"
+                    }
+                  }
+                ]
+              }
+            ]
           }
         ],
         "identifier": [
