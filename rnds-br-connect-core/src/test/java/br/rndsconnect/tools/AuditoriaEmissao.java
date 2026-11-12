@@ -73,11 +73,12 @@ import org.hl7.fhir.r4.model.StructureDefinition;
  * snapshot. O RAC passou de 103 para 127 elementos.
  *
  * <p><strong>E mudaram de novo quando a auditoria passou a aplicar o discriminador das
- * fatias</strong> (12/11/2026). Nove elementos que ela dava como emitidos não estão nos
+ * fatias</strong> (12/11/2026). Nove elementos que ela dava como emitidos não estavam nos
  * documentos: as seções de OPM do SA e do RAC (três cada), a de marcos de desenvolvimento do
  * RAC, a lotação do executante no REL e o número do SNCR na dispensação e na prescrição do
- * REDFM. O total é de 408 elementos, 363 emitidos e 45 sem emissão, todos declarados em
- * {@link #LACUNAS_DECLARADAS} com o motivo.
+ * REDFM. Os três últimos foram implementados no mesmo dia; os outros, fora do escopo, estão
+ * declarados em {@link #LACUNAS_DECLARADAS}. O total é de 408 elementos, 366 emitidos e 42 sem
+ * emissão.
  *
  * <h2>O que ela não garante</h2>
  *
@@ -235,20 +236,6 @@ public final class AuditoriaEmissao {
                     + "marcos de desenvolvimento da criança: outro modelo de informação, como registra "
                     + "o Javadoc do RegistroAtendimentoClinicoDTO.";
 
-    private static final String LOTACAO_EXECUTANTE =
-            "Não implementado. A fatia lotacaoProfissional do performer identifica quem realizou o "
-                    + "exame pela lotação (BRLotacaoProfissional-1.0, CNS e CNES do profissional). O "
-                    + "RegistroExameLaboratorialDTO não tem o campo, e o Builder emite só o "
-                    + "estabelecimento e a pessoa jurídica executante. Lacuna do framework, não do "
-                    + "artefato.";
-
-    private static final String SNCR =
-            "Não implementado. O número do SNCR, o Sistema Nacional de Controle de Receituário, "
-                    + "identifica a receita de medicamento sujeito a controle especial. O "
-                    + "RegistroDispensacaoMedicamentoDTO não tem o campo, e o Builder emite só os "
-                    + "identificadores do item prescrito e do item dispensado. Lacuna do framework, "
-                    + "não do artefato.";
-
     private static final String PART_OF =
             "Referencia outro BRContatoAssistencial-1.0 no mesmo Bundle. Emiti-lo exige um segundo "
                     + "Encounter completo, com diagnósticos e procedimentos próprios — exclusão de "
@@ -281,10 +268,8 @@ public final class AuditoriaEmissao {
         secao(m, "SA", "BRSumarioAlta", "informacoesOPM", true, OPM);
         secao(m, "RAC", "BRRegistroAtendimentoClinico", "informacoesOPM", true, OPM);
         secao(m, "RAC", "BRRegistroAtendimentoClinico", "marcosDesenvolvimento", false, MARCOS);
-        m.put("REL · BRDiagnosticoLaboratorioClinico-3.2.1 · Observation.performer:lotacaoProfissional",
-                LOTACAO_EXECUTANTE);
-        m.put("REDFM · RNDSMedicamentoDispensadoFornecido · MedicationDispense.identifier:sncrNumber", SNCR);
-        m.put("REDFM · RNDSPrescricaoMedicamentoDispensado · MedicationRequest.identifier:sncrNumber", SNCR);
+        // A lotação do executante no REL e o número do SNCR no REDFM também apareceram com a
+        // auditoria das fatias, e foram implementados no mesmo dia: não constam daqui.
         m.put("REDFM · RNDSMedicamentoDispensado · Medication.status", MEDICATION_STATUS);
         familia(m, "SA", "BRContatoAssistencial-1.0", "Encounter", DEFEITO_20);
         familia(m, "SA", "BRProblemaDiagnostico", "Condition", DEFEITO_20);

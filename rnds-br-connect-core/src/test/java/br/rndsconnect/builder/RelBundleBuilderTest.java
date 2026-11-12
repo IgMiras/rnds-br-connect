@@ -361,6 +361,40 @@ class RelBundleBuilderTest {
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 
+    @Test
+    @DisplayName("Variação 4: profissional responsável pelo resultado, pela lotação no estabelecimento")
+    void variacaoLotacaoDoProfissionalResponsavel() {
+        Bundle b = builder()
+                .build(laudo().cnsProfissionalResponsavel("898005900000003")
+                        .exames(List.of(exameQualitativo().build()))
+                        .build());
+        ExportadorDeEvidencias.gravar("rel--variacao-4-lotacao-responsavel", b);
+
+        Observation o = (Observation) b.getEntry().get(2).getResource();
+        // A terceira fatia do performer, lotacaoProfissional (0..1, MustSupport), identifica o
+        // profissional pela lotação CNS-CNES no estabelecimento executor, como no SA e no RAC.
+        assertThat(o.getPerformer())
+                .extracting(r -> r.getIdentifier().getSystem(), r -> r.getIdentifier().getValue())
+                .containsExactly(
+                        org.assertj.core.groups.Tuple.tuple(
+                                "http://www.saude.gov.br/fhir/r4/StructureDefinition/BREstabelecimentoSaude-1.0", CNES),
+                        org.assertj.core.groups.Tuple.tuple(
+                                "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRPessoaJuridicaProfissionalLiberal-1.0",
+                                CNPJ),
+                        org.assertj.core.groups.Tuple.tuple(
+                                "http://www.saude.gov.br/fhir/r4/StructureDefinition/BRLotacaoProfissional-1.0",
+                                "898005900000003-" + CNES));
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Sem o CNS do responsável, o performer fica com as duas fatias de antes")
+    void semResponsavelNaoHaLotacao() {
+        Bundle b = builder().build(laudo().exames(List.of(exameQualitativo().build())).build());
+        Observation o = (Observation) b.getEntry().get(2).getResource();
+        assertThat(o.getPerformer()).hasSize(2);
+    }
+
     // ══ Auxiliares ══════════════════════════════════════════════════════
 
     private static String canonico(Bundle b) {

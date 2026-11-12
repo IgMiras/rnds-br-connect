@@ -43,6 +43,12 @@ public class EnrichedRegistroExameLaboratorial {
     String cnpjLaboratorio;
     /** CNES — {@code Observation.performer:estabelecimentoSaude}, {@code 1..1}. */
     String cnesEstabelecimento;
+    /**
+     * CNS do profissional responsável pelo resultado —
+     * {@code Observation.performer:lotacaoProfissional}, {@code 0..1} e {@code MustSupport}, com a
+     * lotação {@code CNS-CNES} no estabelecimento executor.
+     */
+    String cnsProfissionalResponsavel;
     /** {@code Composition.date} — criação do documento no sistema de origem. */
     Instant dataRegistroOrigem;
 

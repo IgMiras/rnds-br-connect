@@ -248,6 +248,33 @@ class RegrasDeNegocioTest {
                 .hasMessageContaining("inversão causal");
     }
 
+    // ══ CNS do profissional responsável ═════════════════════════════════
+
+    @Test
+    @DisplayName("O CNS do profissional responsável pelo resultado passa pelo Módulo 11, quando vem")
+    void cnsDoResponsavelPeloResultadoEhVerificado() {
+        java.util.function.Function<String, RegistroExameLaboratorialDTO> laudo = cns ->
+                RegistroExameLaboratorialDTO.builder()
+                        .idLocalRegistro("LAUDO-RESPONSAVEL")
+                        .cpfPaciente(CPF)
+                        .cnpjLaboratorio("00394544000185")
+                        .cnesEstabelecimento("0123456")
+                        .cnsProfissionalResponsavel(cns)
+                        .dataRegistroOrigem(QUANDO)
+                        .suspeitaDiagnosticaLocal("MONKEYPOX")
+                        .exames(List.of(exameLocal().build()))
+                        .build();
+        // Reprova no Módulo 11 com resto 5, o mesmo CNS inválido do FrenteATresDocumentosTest.
+        assertThatThrownBy(() -> RegrasPadrao.exameLaboratorialA1().validar(laudo.apply("819217217061851")))
+                .isInstanceOf(RndsValidationException.class)
+                .hasMessageContaining("cnsProfissionalResponsavel");
+        assertThatCode(() -> RegrasPadrao.exameLaboratorialA1().validar(laudo.apply("898005900000003")))
+                .doesNotThrowAnyException();
+        assertThatCode(() -> RegrasPadrao.exameLaboratorialA1().validar(laudo.apply(null)))
+                .as("o campo é opcional")
+                .doesNotThrowAnyException();
+    }
+
     // ══ Fixtures ════════════════════════════════════════════════════════
 
     private static RegistroExameLaboratorialDTO.ExameDTO.ExameDTOBuilder exameLocal() {

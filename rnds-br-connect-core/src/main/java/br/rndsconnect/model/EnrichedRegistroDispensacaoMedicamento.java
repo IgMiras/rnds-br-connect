@@ -47,6 +47,8 @@ public class EnrichedRegistroDispensacaoMedicamento {
     String idLocalRegistro;
     /** Identificador do item dispensado — {@code MedicationDispense.identifier}. */
     String idItemDispensado;
+    /** Número do SNCR do item dispensado — {@code MedicationDispense.identifier:sncrNumber}, {@code 0..1}. */
+    String numeroSncr;
 
     // ── Indivíduo ───────────────────────────────────────────────────────
     String cnsPaciente;
@@ -136,6 +138,8 @@ public class EnrichedRegistroDispensacaoMedicamento {
     public static class Prescricao {
         /** Identificador do item prescrito. */
         String idItemPrescrito;
+        /** Número do SNCR do item prescrito — {@code MedicationRequest.identifier:sncrNumber}, {@code 0..1}. */
+        String numeroSncr;
         /** {@code MedicationRequest.authoredOn}. */
         Instant dataPrescricao;
         /** CNS do prescritor. */

@@ -305,6 +305,7 @@ public class MappingOrchestrator {
                 .cpfPaciente(bruto.getCpfPaciente())
                 .cnpjLaboratorio(bruto.getCnpjLaboratorio())
                 .cnesEstabelecimento(bruto.getCnesEstabelecimento())
+                .cnsProfissionalResponsavel(bruto.getCnsProfissionalResponsavel())
                 .dataRegistroOrigem(bruto.getDataRegistroOrigem())
                 .suspeitaDiagnostica(traduzir(
                         TerminologyDomain.SUSPEITA_DIAGNOSTICA, bruto.getSuspeitaDiagnosticaLocal(), ctx, trilha))
@@ -422,6 +423,7 @@ public class MappingOrchestrator {
             RegistroDispensacaoMedicamentoDTO.PrescricaoDTO p = bruto.getPrescricao();
             prescricao = EnrichedRegistroDispensacaoMedicamento.Prescricao.builder()
                     .idItemPrescrito(p.getIdItemPrescrito())
+                    .numeroSncr(p.getNumeroSncr())
                     .dataPrescricao(p.getDataPrescricao())
                     .cnsPrescritor(p.getCnsPrescritor())
                     .conselhoPrescritor(p.getConselhoPrescritor())
@@ -441,6 +443,7 @@ public class MappingOrchestrator {
         EnrichedRegistroDispensacaoMedicamento enriquecido = EnrichedRegistroDispensacaoMedicamento.builder()
                 .idLocalRegistro(bruto.getIdLocalRegistro())
                 .idItemDispensado(bruto.getIdItemDispensado())
+                .numeroSncr(bruto.getNumeroSncr())
                 .cnsPaciente(bruto.getCnsPaciente())
                 .cpfPaciente(bruto.getCpfPaciente())
                 .cnesEstabelecimento(bruto.getCnesEstabelecimento())

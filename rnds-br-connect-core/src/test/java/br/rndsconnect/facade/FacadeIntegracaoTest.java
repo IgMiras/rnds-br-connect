@@ -1169,6 +1169,7 @@ class FacadeIntegracaoTest {
         documentos.put(
                 "REL",
                 facade.prepararExameLaboratorial(laudoLocal()
+                                .cnsProfissionalResponsavel("898005900000003")
                                 .exames(List.of(exameLocal()
                                         .interpretacaoLocal("DETECTAVEL")
                                         .observacao("Amostra levemente hemolisada.")
@@ -1188,8 +1189,10 @@ class FacadeIntegracaoTest {
                 facade.prepararDispensacaoMedicamento(dispensacaoLocal()
                                 .observacaoDispensacao("Entrega parcial autorizada pelo prescritor.")
                                 .substituiDocumentoRnds("Composition/REDFM-2024-0000")
+                                .numeroSncr("19356261")
                                 .prescricao(RegistroDispensacaoMedicamentoDTO.PrescricaoDTO.builder()
                                         .idItemPrescrito("e6f89964-b218-4fb3-9603-e0897c5c2181")
+                                        .numeroSncr("19356261")
                                         .dataPrescricao(quando)
                                         .cnsPrescritor("898005900000003")
                                         .conselhoPrescritor("crm-sp")

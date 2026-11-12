@@ -183,6 +183,10 @@ public class RedfmBundleBuilder implements FhirBundleBuilder<EnrichedRegistroDis
         MedicationDispense d = new MedicationDispense();
         d.setMeta(new Meta().addProfile(PERFIL_DISPENSE));
         d.addIdentifier(new Identifier().setSystem(NS + "dispensed-item-id").setValue(dto.getIdItemDispensado()));
+        // identifier:sncrNumber, 0..1 e MustSupport: só para medicamento sujeito a controle especial.
+        if (dto.getNumeroSncr() != null && !dto.getNumeroSncr().isBlank()) {
+            d.addIdentifier(new Identifier().setSystem(NS + "sncr-number").setValue(dto.getNumeroSncr()));
+        }
         d.setStatus(MedicationDispense.MedicationDispenseStatus.COMPLETED);
         d.setCategory(conceito(dto.getCategoriaDispensacao()));
         d.setMedication(new Reference("urn:uuid:" + uuidMedication));
@@ -247,6 +251,9 @@ public class RedfmBundleBuilder implements FhirBundleBuilder<EnrichedRegistroDis
         r.setId(ID_PRESCRICAO);
         r.setMeta(new Meta().addProfile(PERFIL_PRESCRICAO));
         r.addIdentifier(new Identifier().setSystem(NS + "prescription-item-id").setValue(p.getIdItemPrescrito()));
+        if (p.getNumeroSncr() != null && !p.getNumeroSncr().isBlank()) {
+            r.addIdentifier(new Identifier().setSystem(NS + "sncr-number").setValue(p.getNumeroSncr()));
+        }
         r.setStatus(MedicationRequest.MedicationRequestStatus.ACTIVE);
         r.setIntent(MedicationRequest.MedicationRequestIntent.ORDER);
         r.setMedication(conceitoComDisplay(dto.getMedicamento(), dto.getDescricaoMedicamento()));

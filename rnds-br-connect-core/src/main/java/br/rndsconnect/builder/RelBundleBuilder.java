@@ -98,6 +98,7 @@ public class RelBundleBuilder implements FhirBundleBuilder<EnrichedRegistroExame
     private static final String SYSTEM_INDIVIDUO = SD + "BRIndividuo-1.0";
     private static final String SYSTEM_ESTABELECIMENTO = SD + "BREstabelecimentoSaude-1.0";
     private static final String SYSTEM_PESSOA_JURIDICA = SD + "BRPessoaJuridicaProfissionalLiberal-1.0";
+    private static final String SYSTEM_LOTACAO = SD + "BRLotacaoProfissional-1.0";
 
     private static final String EXT_PATOGENO = SD + "BRPatogeno";
 
@@ -217,9 +218,15 @@ public class RelBundleBuilder implements FhirBundleBuilder<EnrichedRegistroExame
         o.setEffective(new DateTimeType(Date.from(exame.getDataColeta()), TemporalPrecisionEnum.SECOND));
         o.setIssuedElement(new InstantType(Date.from(exame.getDataLiberacaoLaudo()), TemporalPrecisionEnum.SECOND));
 
-        // performer é fatiado: estabelecimentoSaude e pessoaJuridicaProfissionalLiberal.
+        // performer é fatiado em três: estabelecimentoSaude (1..*), pessoaJuridicaProfissionalLiberal
+        // (0..1) e lotacaoProfissional (0..1). A terceira, MustSupport, não está no exemplo oficial,
+        // e só apareceu quando a auditoria de emissão passou a distinguir fatias (12/11/2026).
         o.addPerformer(referenciaPorIdentificador(SYSTEM_ESTABELECIMENTO, dto.getCnesEstabelecimento()));
         o.addPerformer(referenciaPorIdentificador(SYSTEM_PESSOA_JURIDICA, dto.getCnpjLaboratorio()));
+        if (dto.getCnsProfissionalResponsavel() != null && !dto.getCnsProfissionalResponsavel().isBlank()) {
+            o.addPerformer(referenciaPorIdentificador(
+                    SYSTEM_LOTACAO, dto.getCnsProfissionalResponsavel() + "-" + dto.getCnesEstabelecimento()));
+        }
 
         // value[x] é 1..1 e aceita Quantity OU CodeableConcept — nunca os dois.
         if (exame.isQuantitativo()) {

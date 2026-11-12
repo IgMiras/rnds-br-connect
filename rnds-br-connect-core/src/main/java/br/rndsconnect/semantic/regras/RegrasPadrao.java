@@ -92,6 +92,10 @@ public final class RegrasPadrao {
         return CadeiaDeValidacao.de(
                 new CnsValido<>("cnsPaciente", RegistroExameLaboratorialDTO::getCnsPaciente, false),
                 new CpfValido<>("cpfPaciente", RegistroExameLaboratorialDTO::getCpfPaciente, false),
+                new CnsValido<>(
+                        "cnsProfissionalResponsavel",
+                        RegistroExameLaboratorialDTO::getCnsProfissionalResponsavel,
+                        false),
                 new DataNaoFutura<>("dataRegistroOrigem", RegistroExameLaboratorialDTO::getDataRegistroOrigem),
                 new ResultadoExclusivo(),
                 new InterpretacaoObrigatoriaSeQuantitativo(),

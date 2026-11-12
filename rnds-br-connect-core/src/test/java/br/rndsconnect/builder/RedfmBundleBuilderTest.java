@@ -18,7 +18,9 @@ import java.time.LocalDate;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.MedicationDispense;
+import org.hl7.fhir.r4.model.MedicationRequest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -163,6 +165,36 @@ class RedfmBundleBuilderTest {
                                 .build())
                         .build());
         ExportadorDeEvidencias.gravar("redfm--variacao-3-dispensacao-parcial", b);
+        assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
+    }
+
+    @Test
+    @DisplayName("Variação 4: medicamento sob controle especial, com o número do SNCR na dispensação e na receita")
+    void variacaoControleEspecialComSncr() {
+        Bundle b = builder()
+                .build(dispensacao()
+                        .numeroSncr("19356261")
+                        .prescricao(prescricao().numeroSncr("19356261").build())
+                        .build());
+        ExportadorDeEvidencias.gravar("redfm--variacao-4-sncr", b);
+
+        // identifier:sncrNumber, 0..1 e MustSupport nos dois perfis, ao lado do id local, que
+        // continua 1..1. O valor é o do exemplo que o próprio perfil traz.
+        String sncr = "http://www.saude.gov.br/fhir/r4/NamingSystem/sncr-number";
+        MedicationDispense d = (MedicationDispense) b.getEntry().get(1).getResource();
+        assertThat(d.getIdentifier())
+                .extracting(Identifier::getSystem, Identifier::getValue)
+                .contains(org.assertj.core.groups.Tuple.tuple(sncr, "19356261"))
+                .hasSize(2);
+        MedicationRequest r = d.getContained().stream()
+                .filter(MedicationRequest.class::isInstance)
+                .map(MedicationRequest.class::cast)
+                .findFirst()
+                .orElseThrow();
+        assertThat(r.getIdentifier())
+                .extracting(Identifier::getSystem, Identifier::getValue)
+                .contains(org.assertj.core.groups.Tuple.tuple(sncr, "19356261"))
+                .hasSize(2);
         assertThat(LocalFhirValidator.erros(validador.validar(b))).isEmpty();
     }
 

@@ -53,7 +53,10 @@ class CoberturaMustSupportTest {
      *
      * <p>Os quatro que faltavam na primeira medição — {@code Observation.note} no REL,
      * {@code Composition.relatesTo}, {@code MedicationDispense.note} e
-     * {@code MedicationRequest.note} no REDFM — foram implementados, e não constam daqui.
+     * {@code MedicationRequest.note} no REDFM — foram implementados, e não constam daqui. O
+     * mesmo vale para os três que a auditoria das fatias revelou em 12/11/2026: a
+     * {@code Observation.performer:lotacaoProfissional} no REL e o {@code identifier:sncrNumber}
+     * na dispensação e na prescrição do REDFM.
      *
      * <p>Uma exclusão fica <em>aqui</em>, com o motivo, em vez de ficar implícita no silêncio do
      * DTO: o integrador que precisa do campo não recebe erro, apenas não encontra por onde
@@ -68,13 +71,6 @@ class CoberturaMustSupportTest {
             "RAC · section:marcosDesenvolvimento",
             "Fora do escopo: a fatia exige um QuestionnaireResponse, outro modelo de informação, "
                     + "registrado no Javadoc do RegistroAtendimentoClinicoDTO.",
-            "REL · Observation.performer:lotacaoProfissional",
-            "Não implementado: o RegistroExameLaboratorialDTO não tem a lotação do profissional que "
-                    + "realizou o exame (CNS e CNES). Lacuna do framework, não do artefato.",
-            "REDFM · identifier:sncrNumber (dispensação e prescrição)",
-            "Não implementado: o RegistroDispensacaoMedicamentoDTO não tem o número do SNCR, o "
-                    + "Sistema Nacional de Controle de Receituário, dos medicamentos sujeitos a controle "
-                    + "especial. Lacuna do framework, não do artefato.",
             "SA · Encounter.partOf",
             "Referencia outro BRContatoAssistencial-1.0 no mesmo Bundle — o contato do qual a "
                     + "internação faz parte. Emiti-lo exige um segundo Encounter completo, com "
@@ -120,8 +116,6 @@ class CoberturaMustSupportTest {
                 .containsExactlyInAnyOrder(
                         "SA e RAC · section:informacoesOPM (3 elementos em cada)",
                         "RAC · section:marcosDesenvolvimento",
-                        "REL · Observation.performer:lotacaoProfissional",
-                        "REDFM · identifier:sncrNumber (dispensação e prescrição)",
                         "SA · Encounter.partOf",
                         "RAC · Encounter.partOf",
                         "SA · subject.extension:unidentifiedPatient (12 elementos)",

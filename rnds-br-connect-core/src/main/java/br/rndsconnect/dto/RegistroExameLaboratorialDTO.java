@@ -33,6 +33,12 @@ public class RegistroExameLaboratorialDTO {
     String cnpjLaboratorio;
     /** CNES do estabelecimento executor. */
     String cnesEstabelecimento;
+    /**
+     * CNS do profissional responsável pelo resultado, opcional. Presente, vai para
+     * {@code Observation.performer:lotacaoProfissional}: a lotação dele no estabelecimento
+     * executor, no formato {@code CNS-CNES}, o mesmo do SA e do RAC.
+     */
+    String cnsProfissionalResponsavel;
 
     Instant dataRegistroOrigem;
 

@@ -26,6 +26,12 @@ public class RegistroDispensacaoMedicamentoDTO {
     String idLocalRegistro;
     /** Identificador do item dispensado no sistema de origem. */
     String idItemDispensado;
+    /**
+     * Número do SNCR, o Sistema Nacional de Controle de Receituários, do item dispensado,
+     * opcional: só existe para medicamento sujeito a controle especial. Presente, vai para
+     * {@code MedicationDispense.identifier:sncrNumber}.
+     */
+    String numeroSncr;
 
     String cnsPaciente;
     String cpfPaciente;
@@ -92,6 +98,11 @@ public class RegistroDispensacaoMedicamentoDTO {
     @Builder
     public static class PrescricaoDTO {
         String idItemPrescrito;
+        /**
+         * Número do SNCR do item prescrito, opcional, para medicamento sujeito a controle
+         * especial. Presente, vai para {@code MedicationRequest.identifier:sncrNumber}.
+         */
+        String numeroSncr;
         Instant dataPrescricao;
         String cnsPrescritor;
         /** Conselho, ex.: {@code "crm-sp"}. */
