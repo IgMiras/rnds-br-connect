@@ -70,18 +70,27 @@ import org.hl7.fhir.r4.model.StructureDefinition;
  * snapshot gravado do {@code BRRegistroAtendimentoClinico} estava desatualizado: trazia 7
  * elementos {@code MustSupport}, e o perfil tem 33, herdados do {@code BRConjuntoMinimoDados-1.1}
  * e das seções que o RAC fatia. A 7.6.0 e a 5.1.0, rodadas sobre o pacote atual, geram o mesmo
- * snapshot. O RAC passou de 103 para 127 elementos, com 122 emitidos, e o total de 384, 349 e
- * 35 para 408, 373 e 35.
+ * snapshot. O RAC passou de 103 para 127 elementos.
+ *
+ * <p><strong>E mudaram de novo quando a auditoria passou a aplicar o discriminador das
+ * fatias</strong> (12/11/2026). Nove elementos que ela dava como emitidos não estão nos
+ * documentos: as seções de OPM do SA e do RAC (três cada), a de marcos de desenvolvimento do
+ * RAC, a lotação do executante no REL e o número do SNCR na dispensação e na prescrição do
+ * REDFM. O total é de 408 elementos, 363 emitidos e 45 sem emissão, todos declarados em
+ * {@link #LACUNAS_DECLARADAS} com o motivo.
  *
  * <h2>O que ela não garante</h2>
  *
  * <p>Três limites, todos por baixo — ela subestima as lacunas, nunca as inventa:
  *
  * <ul>
- *   <li><strong>Fatias comuns.</strong> Uma fatia como {@code diagnosis:procedure} vira
- *       {@code diagnosis} na expressão: FHIRPath não seleciona fatia. Emitir só a outra fatia
- *       conta como emitido. Fatias de extensão, que são a maioria, são resolvidas pela URL e
- *       não sofrem disso.
+ *   <li><strong>Fatias sem discriminador avaliável.</strong> Fatia de extensão é resolvida pela
+ *       URL, e fatia comum, pelo discriminador do perfil: {@code profile} sobre
+ *       {@code X.resolve()} e {@code value} ou {@code pattern} com valor fixo. Outro tipo de
+ *       discriminador cai no caminho base, e o fatiamento aparece no relatório. Até 12/11/2026
+ *       toda fatia comum caía no caminho base, e nove lacunas ficavam escondidas: as seções de
+ *       OPM e de marcos de desenvolvimento, a lotação do executante no REL e o número do SNCR
+ *       no REDFM.
  *   <li><strong>Depende da fixture.</strong> Um campo opcional que o Builder sabe emitir, mas
  *       que a fixture do teste não preenche, aparece como lacuna. É o comportamento desejado:
  *       obriga a fixture a exercitar tudo.
@@ -215,6 +224,31 @@ public final class AuditoriaEmissao {
                     + "BRMedicamento do SA, NÃO se aplicam a este perfil — a geração RNDS* corrigiu "
                     + "o vínculo.";
 
+    private static final String OPM =
+            "Fora do escopo. A fatia informacoesOPM é herdada do BRConjuntoMinimoDados-1.1 e exige "
+                    + "uma entrada BREntregaSuprimentos: órteses, próteses e materiais especiais "
+                    + "entregues no atendimento. É outro modelo de informação, o SupplyDelivery, que o "
+                    + "framework não implementa, e nenhum DTO tem por onde informá-lo.";
+
+    private static final String MARCOS =
+            "Fora do escopo. A fatia marcosDesenvolvimento exige um QuestionnaireResponse, os "
+                    + "marcos de desenvolvimento da criança: outro modelo de informação, como registra "
+                    + "o Javadoc do RegistroAtendimentoClinicoDTO.";
+
+    private static final String LOTACAO_EXECUTANTE =
+            "Não implementado. A fatia lotacaoProfissional do performer identifica quem realizou o "
+                    + "exame pela lotação (BRLotacaoProfissional-1.0, CNS e CNES do profissional). O "
+                    + "RegistroExameLaboratorialDTO não tem o campo, e o Builder emite só o "
+                    + "estabelecimento e a pessoa jurídica executante. Lacuna do framework, não do "
+                    + "artefato.";
+
+    private static final String SNCR =
+            "Não implementado. O número do SNCR, o Sistema Nacional de Controle de Receituário, "
+                    + "identifica a receita de medicamento sujeito a controle especial. O "
+                    + "RegistroDispensacaoMedicamentoDTO não tem o campo, e o Builder emite só os "
+                    + "identificadores do item prescrito e do item dispensado. Lacuna do framework, "
+                    + "não do artefato.";
+
     private static final String PART_OF =
             "Referencia outro BRContatoAssistencial-1.0 no mesmo Bundle. Emiti-lo exige um segundo "
                     + "Encounter completo, com diagnósticos e procedimentos próprios — exclusão de "
@@ -241,15 +275,16 @@ public final class AuditoriaEmissao {
         }
         // Só o snapshot enxerga estes: o differential do BRSumarioAlta não redeclara nada.
         familia(m, "SA", "BRSumarioAlta", "Composition", DEFEITO_20);
-        // A informacoesOPM NÃO entra aqui, e o motivo é uma limitação da própria auditoria.
-        // A fatia é herdada do BRConjuntoMinimoDados-1.1 e o Sumário de Alta não a instancia —
-        // órteses, próteses e materiais especiais são outro modelo de informação, fora do escopo.
-        // Mas FHIRPath não seleciona fatia: `Composition.section:informacoesOPM` é
-        // avaliada como `Composition.section`, que está presente nas dez seções que o SA emite.
-        // A auditoria conta as três linhas como EMITIDAS sem que elas existam, e declarar o que
-        // ela não mede reprovaria o portão pelo lado contrário — lacuna declarada que a medição
-        // não vê. Fica como viés residual, na direção que o projeto já declarou: a auditoria
-        // subestima lacunas, nunca as inventa.
+        // Até 12/11/2026 a informacoesOPM não entrava aqui: a auditoria não distinguia uma seção
+        // da outra e contava a fatia como emitida. Desde que ela aplica o discriminador das
+        // fatias, a lacuna aparece, e é declarada como o que é: fora do escopo.
+        secao(m, "SA", "BRSumarioAlta", "informacoesOPM", true, OPM);
+        secao(m, "RAC", "BRRegistroAtendimentoClinico", "informacoesOPM", true, OPM);
+        secao(m, "RAC", "BRRegistroAtendimentoClinico", "marcosDesenvolvimento", false, MARCOS);
+        m.put("REL · BRDiagnosticoLaboratorioClinico-3.2.1 · Observation.performer:lotacaoProfissional",
+                LOTACAO_EXECUTANTE);
+        m.put("REDFM · RNDSMedicamentoDispensadoFornecido · MedicationDispense.identifier:sncrNumber", SNCR);
+        m.put("REDFM · RNDSPrescricaoMedicamentoDispensado · MedicationRequest.identifier:sncrNumber", SNCR);
         m.put("REDFM · RNDSMedicamentoDispensado · Medication.status", MEDICATION_STATUS);
         familia(m, "SA", "BRContatoAssistencial-1.0", "Encounter", DEFEITO_20);
         familia(m, "SA", "BRProblemaDiagnostico", "Condition", DEFEITO_20);
@@ -258,6 +293,14 @@ public final class AuditoriaEmissao {
         m.put("SA · BRContatoAssistencial-1.0 · Encounter.partOf", PART_OF);
         m.put("RAC · BRContatoAssistencial-1.0 · Encounter.partOf", PART_OF);
         return Collections.unmodifiableMap(m);
+    }
+
+    /** A seção fatiada e, se ela exige entrada, a entrada e a referência. */
+    private static void secao(
+            Map<String, String> m, String servico, String perfil, String fatia, boolean comEntrada, String motivo) {
+        String base = "Composition.section:" + fatia;
+        List<String> els = comEntrada ? List.of(base, base + ".entry", base + ".entry.reference") : List.of(base);
+        els.forEach(el -> m.put(servico + " · " + perfil + " · " + el, motivo));
     }
 
     /** As quatro linhas da família: a extensão e os três filhos que ela exige. */
@@ -295,6 +338,9 @@ public final class AuditoriaEmissao {
         int msNaoExercitados = 0;
         int contidos = 0;
         List<String> fallback = new ArrayList<>();
+        // Fatias cujo discriminador a auditoria não avalia: medidas pelo caminho base, e relatadas.
+        Set<String> naoDiscriminadas = new java.util.TreeSet<>();
+        Map<String, Resource> porReferencia = porReferencia(documentos);
 
         for (StructureDefinition sd : perfis) {
             if (semSnapshot(sd)) {
@@ -338,7 +384,7 @@ public final class AuditoriaEmissao {
                     continue; // a raiz do recurso: presente por construção
                 }
                 String expressao = fhirPath(sd, el);
-                if (!presente(fhirPath, alvos, expressao)) {
+                if (!presente(sd, el, fhirPath, alvos, porReferencia, naoDiscriminadas)) {
                     lacunas.add(new Lacuna(nomeCurto(sd.getUrl()), id, expressao));
                 }
             }
@@ -360,6 +406,11 @@ public final class AuditoriaEmissao {
             System.out.printf(
                     "   %d perfil(is) sem snapshot, medidos pelo differential: %s%n",
                     fallback.size(), String.join(", ", fallback));
+        }
+        if (!naoDiscriminadas.isEmpty()) {
+            System.out.printf(
+                    "   %d fatiamento(s) sem discriminador avaliável, medidos pelo caminho base: %s%n",
+                    naoDiscriminadas.size(), String.join(", ", naoDiscriminadas));
         }
         if (!naoExercitados.isEmpty()) {
             System.out.println("   perfis ausentes deste documento: " + naoExercitados);
@@ -452,8 +503,9 @@ public final class AuditoriaEmissao {
                         .append(urlDaExtensao(sd, idAteAqui.toString(), fatia))
                         .append("')");
             } else {
-                // FHIRPath não seleciona fatia: cai no caminho base, e a auditoria subestima.
-                expr.append('.').append(base);
+                // FHIRPath não seleciona fatia comum. Esta expressão é só a que o relatório
+                // mostra; a presença é decidida em presente(), que aplica o discriminador.
+                expr.append('.').append(base).append("[").append(fatia).append("]");
             }
         }
         return expr.toString();
@@ -505,20 +557,164 @@ public final class AuditoriaEmissao {
 
     // ══ Avaliação ═══════════════════════════════════════════════════════
 
-    private static boolean presente(IFhirPath fhirPath, List<Resource> alvos, String expressao) {
-        for (Resource r : alvos) {
-            try {
-                if (!fhirPath.evaluate(r, expressao, Base.class).isEmpty()) {
-                    return true;
+    /**
+     * O elemento aparece em algum dos recursos?
+     *
+     * <p>Percorre o id do elemento segmento a segmento. Fatia de extensão é resolvida pela URL.
+     * <strong>Fatia comum é resolvida pelo discriminador que o próprio perfil declara</strong>:
+     * {@code profile} sobre {@code X.resolve()} confere o perfil do recurso referenciado em
+     * {@code X}, e {@code value} ou {@code pattern} conferem o valor fixo que a fatia exige no
+     * caminho do discriminador. Até 12/11/2026 a fatia comum caía no caminho base: qualquer seção
+     * contava como a {@code section:informacoesOPM}, e a auditoria dava como emitidas fatias que o
+     * documento não traz. Discriminador que a auditoria não sabe avaliar volta ao caminho base, e o
+     * fatiamento aparece no relatório.
+     */
+    private static boolean presente(
+            StructureDefinition sd,
+            ElementDefinition el,
+            IFhirPath fhirPath,
+            List<Resource> alvos,
+            Map<String, Resource> porReferencia,
+            Set<String> naoDiscriminadas) {
+        String[] seg = el.getId().split("\\.");
+        List<Base> atual = new ArrayList<>(alvos);
+        StringBuilder idAteAqui = new StringBuilder(seg[0]);
+        try {
+            for (int i = 1; i < seg.length && !atual.isEmpty(); i++) {
+                String s = seg[i];
+                String idPai = idAteAqui.toString();
+                idAteAqui.append('.').append(s);
+                int dp = s.indexOf(':');
+                if (dp < 0) {
+                    atual = avaliar(fhirPath, atual, s.replace("[x]", ""));
+                    continue;
                 }
-            } catch (Exception e) {
-                // Expressão que o motor não resolve conta como não emitida, e aparece no
-                // relatório com a expressão ao lado — é sinal de limite da auditoria, não do
-                // Builder. Melhor um falso positivo visível do que um silêncio.
-                return false;
+                String base = s.substring(0, dp);
+                String fatia = s.substring(dp + 1);
+                if (base.equals("extension") || base.equals("modifierExtension")) {
+                    atual = avaliar(
+                            fhirPath, atual, base + "('" + urlDaExtensao(sd, idAteAqui.toString(), fatia) + "')");
+                    continue;
+                }
+                List<Base> candidatos = avaliar(fhirPath, atual, base);
+                List<Base> naFatia = filtrarFatia(
+                        sd, porId(sd, idPai + "." + base), idAteAqui.toString(), candidatos, fhirPath, porReferencia);
+                if (naFatia == null) {
+                    naoDiscriminadas.add(nomeCurto(sd.getUrl()) + " · " + idPai + "." + base);
+                    atual = candidatos;
+                } else {
+                    atual = naFatia;
+                }
+            }
+        } catch (Exception e) {
+            // Expressão que o motor não resolve conta como não emitida, e aparece no
+            // relatório com a expressão ao lado — é sinal de limite da auditoria, não do
+            // Builder. Melhor um falso positivo visível do que um silêncio.
+            return false;
+        }
+        return !atual.isEmpty();
+    }
+
+    private static List<Base> avaliar(IFhirPath fhirPath, List<Base> origens, String expressao) {
+        List<Base> out = new ArrayList<>();
+        for (Base b : origens) {
+            out.addAll(fhirPath.evaluate(b, expressao, Base.class));
+        }
+        return out;
+    }
+
+    /**
+     * Os candidatos que pertencem à fatia, pelo discriminador do elemento fatiado.
+     *
+     * @return os que pertencem, ou {@code null} se algum discriminador não é avaliável
+     */
+    private static List<Base> filtrarFatia(
+            StructureDefinition sd,
+            ElementDefinition fatiado,
+            String idFatia,
+            List<Base> candidatos,
+            IFhirPath fhirPath,
+            Map<String, Resource> porReferencia) {
+        if (fatiado == null || !fatiado.hasSlicing() || !fatiado.getSlicing().hasDiscriminator()) {
+            return null;
+        }
+        List<Base> out = new ArrayList<>(candidatos);
+        for (ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent d :
+                fatiado.getSlicing().getDiscriminator()) {
+            String caminho = d.getPath();
+            if (d.getType() == ElementDefinition.DiscriminatorType.PROFILE && caminho.endsWith(".resolve()")) {
+                String caminhoRef = caminho.substring(0, caminho.length() - ".resolve()".length());
+                ElementDefinition ref = porId(sd, idFatia + "." + caminhoRef);
+                Set<String> perfis = ref == null
+                        ? Set.of()
+                        : ref.getType().stream()
+                                .flatMap(t -> t.getTargetProfile().stream())
+                                .map(p -> p.getValue())
+                                .collect(Collectors.toSet());
+                if (perfis.isEmpty()) {
+                    return null;
+                }
+                out.removeIf(item -> !referenciaPerfil(fhirPath, item, caminhoRef, perfis, porReferencia));
+            } else if (d.getType() == ElementDefinition.DiscriminatorType.VALUE
+                    || d.getType() == ElementDefinition.DiscriminatorType.PATTERN) {
+                ElementDefinition alvo = porId(sd, idFatia + "." + caminho);
+                org.hl7.fhir.r4.model.Type esperado = alvo == null
+                        ? null
+                        : alvo.hasFixed() ? alvo.getFixed() : alvo.hasPattern() ? alvo.getPattern() : null;
+                if (esperado == null || !esperado.isPrimitive()) {
+                    return null;
+                }
+                String valor = esperado.primitiveValue();
+                out.removeIf(item -> avaliar(fhirPath, List.of(item), caminho).stream()
+                        .noneMatch(v -> v.isPrimitive() && valor.equals(v.primitiveValue())));
+            } else {
+                return null;
+            }
+        }
+        return out;
+    }
+
+    /** Alguma referência em {@code caminhoRef} aponta para um recurso com um dos perfis? */
+    private static boolean referenciaPerfil(
+            IFhirPath fhirPath,
+            Base item,
+            String caminhoRef,
+            Set<String> perfis,
+            Map<String, Resource> porReferencia) {
+        for (Base b : avaliar(fhirPath, List.of(item), caminhoRef)) {
+            if (!(b instanceof org.hl7.fhir.r4.model.Reference r)) {
+                continue;
+            }
+            Resource alvo = r.getResource() instanceof Resource em
+                    ? em
+                    : r.hasReference() ? porReferencia.get(r.getReference()) : null;
+            if (alvo != null
+                    && alvo.hasMeta()
+                    && alvo.getMeta().getProfile().stream().anyMatch(p -> perfis.contains(p.getValue()))) {
+                return true;
             }
         }
         return false;
+    }
+
+    /** Cada entrada dos documentos, pelo {@code fullUrl} e por {@code Tipo/id}. */
+    private static Map<String, Resource> porReferencia(Bundle[] documentos) {
+        Map<String, Resource> out = new java.util.HashMap<>();
+        for (Bundle documento : documentos) {
+            for (Bundle.BundleEntryComponent e : documento.getEntry()) {
+                Resource r = e.getResource();
+                if (r == null) {
+                    continue;
+                }
+                if (e.hasFullUrl()) {
+                    out.putIfAbsent(e.getFullUrl(), r);
+                }
+                if (r.hasIdElement() && r.getIdElement().hasIdPart()) {
+                    out.putIfAbsent(r.fhirType() + "/" + r.getIdElement().getIdPart(), r);
+                }
+            }
+        }
+        return out;
     }
 
     /**

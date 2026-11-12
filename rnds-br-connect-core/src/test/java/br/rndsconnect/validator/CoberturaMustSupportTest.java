@@ -59,7 +59,22 @@ class CoberturaMustSupportTest {
      * DTO: o integrador que precisa do campo não recebe erro, apenas não encontra por onde
      * informá-lo.
      */
-    private static final Map<String, String> NAO_COBERTOS = Map.of(
+    private static final Map<String, String> NAO_COBERTOS = pares(
+            "SA e RAC · section:informacoesOPM (3 elementos em cada)",
+            "Fora do escopo: a fatia, herdada do BRConjuntoMinimoDados-1.1, exige uma entrada "
+                    + "BREntregaSuprimentos (órteses, próteses e materiais especiais), outro modelo de "
+                    + "informação, o SupplyDelivery. Nenhum DTO tem por onde informá-la. Até 12/11/2026 "
+                    + "a auditoria a contava como emitida, porque não distinguia uma seção da outra.",
+            "RAC · section:marcosDesenvolvimento",
+            "Fora do escopo: a fatia exige um QuestionnaireResponse, outro modelo de informação, "
+                    + "registrado no Javadoc do RegistroAtendimentoClinicoDTO.",
+            "REL · Observation.performer:lotacaoProfissional",
+            "Não implementado: o RegistroExameLaboratorialDTO não tem a lotação do profissional que "
+                    + "realizou o exame (CNS e CNES). Lacuna do framework, não do artefato.",
+            "REDFM · identifier:sncrNumber (dispensação e prescrição)",
+            "Não implementado: o RegistroDispensacaoMedicamentoDTO não tem o número do SNCR, o "
+                    + "Sistema Nacional de Controle de Receituário, dos medicamentos sujeitos a controle "
+                    + "especial. Lacuna do framework, não do artefato.",
             "SA · Encounter.partOf",
             "Referencia outro BRContatoAssistencial-1.0 no mesmo Bundle — o contato do qual a "
                     + "internação faz parte. Emiti-lo exige um segundo Encounter completo, com "
@@ -103,12 +118,25 @@ class CoberturaMustSupportTest {
         assertThat(NAO_COBERTOS.keySet())
                 .as("acrescentar ou remover uma exclusão é decisão consciente, não efeito colateral")
                 .containsExactlyInAnyOrder(
+                        "SA e RAC · section:informacoesOPM (3 elementos em cada)",
+                        "RAC · section:marcosDesenvolvimento",
+                        "REL · Observation.performer:lotacaoProfissional",
+                        "REDFM · identifier:sncrNumber (dispensação e prescrição)",
                         "SA · Encounter.partOf",
                         "RAC · Encounter.partOf",
                         "SA · subject.extension:unidentifiedPatient (12 elementos)",
                         "RIA-R · subject.extension:unidentifiedPatient (4 elementos)",
                         "RIRA · subject.extension:unidentifiedPatient (8 elementos)",
                         "RAC · subject.extension:unidentifiedPatient (4 elementos)");
+    }
+
+    /** Mapa ordenado a partir de pares chave, valor — o {@code Map.of} para em dez pares. */
+    private static Map<String, String> pares(String... chaveValor) {
+        Map<String, String> m = new java.util.LinkedHashMap<>();
+        for (int i = 0; i < chaveValor.length; i += 2) {
+            m.put(chaveValor[i], chaveValor[i + 1]);
+        }
+        return java.util.Collections.unmodifiableMap(m);
     }
 
     /**
