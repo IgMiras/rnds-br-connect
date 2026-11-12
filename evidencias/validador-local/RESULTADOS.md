@@ -1,13 +1,13 @@
 # Camada 4 × Validador Local da RNDS
 
-Gerado por `scripts/evidencias-validador-local.py` em 12/11/2026 13:22 -0300, sobre o commit `222431f` (árvore limpa). Leia o [README](README.md) antes.
+Gerado por `scripts/evidencias-validador-local.py` em 12/11/2026 15:01 -0300, sobre o commit `27db915` (árvore limpa). Leia o [README](README.md) antes.
 
 - **Camada 4:** HAPI FHIR 5.1.0, com o pacote do serviço que o framework carrega.
 - **Validador Local da RNDS:** HAPI FHIR 5.1.0 (`tarea-fhir-validator.jar`, SHA-256 `6dc1529fddc0c374…`), com a distribuição inteira do serviço.
 
 ## Resumo
 
-- Documentos produzidos pelo framework: 32 de 33 com o mesmo veredicto nos dois validadores.
+- Documentos produzidos pelo framework: 34 de 35 com o mesmo veredicto nos dois validadores.
 - Canários: 4 de 4 com o mesmo veredicto nos dois validadores.
 - Controle: exemplo oficial: 1 de 1 com o mesmo veredicto nos dois validadores.
 - Divergências inesperadas: 0.
@@ -26,10 +26,12 @@ Gerado por `scripts/evidencias-validador-local.py` em 12/11/2026 13:22 -0300, so
 | `documentos/redfm--variacao-1-sem-textos-livres.json` | [aprovado](mensagens/redfm--variacao-1-sem-textos-livres.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--variacao-1-sem-textos-livres.validador-local.txt) (0 erros) | sim |  | `de04f11f0af93ca2` |
 | `documentos/redfm--variacao-2-substituicao.json` | [aprovado](mensagens/redfm--variacao-2-substituicao.camada4.txt) (0 erros) | [reprovado](mensagens/redfm--variacao-2-substituicao.validador-local.txt) (1 erro) | **não** | Divergência conhecida. O vínculo required de Composition.relatesTo.code, herdado do br-core-composition, aponta para uma página de documentação (defeito nº 12). Com o mesmo motor, o HAPI FHIR 5.1.0, e a mesma mensagem, a Camada 4 registra o ValueSet não encontrado como aviso, e o Validador Local, como erro: a diferença vem da configuração ou do pacote, e não da versão. | `585f7fe67f55b278` |
 | `documentos/redfm--variacao-3-dispensacao-parcial.json` | [aprovado](mensagens/redfm--variacao-3-dispensacao-parcial.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--variacao-3-dispensacao-parcial.validador-local.txt) (0 erros) | sim |  | `acec02e330a58ec7` |
-| `documentos/rel--completo.json` | [aprovado](mensagens/rel--completo.camada4.txt) (0 erros) | [aprovado](mensagens/rel--completo.validador-local.txt) (0 erros) | sim |  | `66e914269486a7a5` |
-| `documentos/rel--variacao-1-sem-patogeno-cpf.json` | [aprovado](mensagens/rel--variacao-1-sem-patogeno-cpf.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-1-sem-patogeno-cpf.validador-local.txt) (0 erros) | sim |  | `f293cc9eb9e1d1e1` |
-| `documentos/rel--variacao-2-quantitativo-interpretacao.json` | [aprovado](mensagens/rel--variacao-2-quantitativo-interpretacao.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-2-quantitativo-interpretacao.validador-local.txt) (0 erros) | sim |  | `280c2574d2a6c48d` |
-| `documentos/rel--variacao-3-tres-exames.json` | [aprovado](mensagens/rel--variacao-3-tres-exames.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-3-tres-exames.validador-local.txt) (0 erros) | sim |  | `10842a5a08df31a3` |
+| `documentos/redfm--variacao-4-sncr.json` | [aprovado](mensagens/redfm--variacao-4-sncr.camada4.txt) (0 erros) | [aprovado](mensagens/redfm--variacao-4-sncr.validador-local.txt) (0 erros) | sim |  | `b5ac0bbc65b05090` |
+| `documentos/rel--completo.json` | [aprovado](mensagens/rel--completo.camada4.txt) (0 erros) | [aprovado](mensagens/rel--completo.validador-local.txt) (0 erros) | sim |  | `ce61a5ff600d29d2` |
+| `documentos/rel--variacao-1-sem-patogeno-cpf.json` | [aprovado](mensagens/rel--variacao-1-sem-patogeno-cpf.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-1-sem-patogeno-cpf.validador-local.txt) (0 erros) | sim |  | `36ad949f80ba0b01` |
+| `documentos/rel--variacao-2-quantitativo-interpretacao.json` | [aprovado](mensagens/rel--variacao-2-quantitativo-interpretacao.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-2-quantitativo-interpretacao.validador-local.txt) (0 erros) | sim |  | `77d54604e52aaa35` |
+| `documentos/rel--variacao-3-tres-exames.json` | [aprovado](mensagens/rel--variacao-3-tres-exames.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-3-tres-exames.validador-local.txt) (0 erros) | sim |  | `4626ed6b4fe3040f` |
+| `documentos/rel--variacao-4-lotacao-responsavel.json` | [aprovado](mensagens/rel--variacao-4-lotacao-responsavel.camada4.txt) (0 erros) | [aprovado](mensagens/rel--variacao-4-lotacao-responsavel.validador-local.txt) (0 erros) | sim |  | `ecffe11d96c1e02e` |
 | `documentos/ria-c--completo.json` | [aprovado](mensagens/ria-c--completo.camada4.txt) (0 erros) | [aprovado](mensagens/ria-c--completo.validador-local.txt) (0 erros) | sim |  | `20a4c407a136bae4` |
 | `documentos/ria-c--variacao-1-cns.json` | [aprovado](mensagens/ria-c--variacao-1-cns.camada4.txt) (0 erros) | [aprovado](mensagens/ria-c--variacao-1-cns.validador-local.txt) (0 erros) | sim |  | `7768039310d03dac` |
 | `documentos/ria-c--variacao-2-outros-codigos.json` | [aprovado](mensagens/ria-c--variacao-2-outros-codigos.camada4.txt) (0 erros) | [aprovado](mensagens/ria-c--variacao-2-outros-codigos.validador-local.txt) (0 erros) | sim |  | `51da8ffa54fd7499` |

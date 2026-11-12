@@ -10,7 +10,7 @@
   "type" : "document",
   "timestamp" : "2021-09-15T11:57:05.995-02:00",
   "entry" : [ {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000031",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000035",
     "resource" : {
       "resourceType" : "Composition",
       "meta" : {
@@ -39,14 +39,14 @@
       "title" : "Resultado de Exame Laboratorial",
       "section" : [ {
         "entry" : [ {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000032"
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000036"
         }, {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000033"
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000037"
         } ]
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000032",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000036",
     "resource" : {
       "resourceType" : "Condition",
       "meta" : {
@@ -66,12 +66,12 @@
       },
       "stage" : [ {
         "assessment" : [ {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000033"
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000037"
         } ]
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000033",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000037",
     "resource" : {
       "resourceType" : "Observation",
       "meta" : {
@@ -128,14 +128,14 @@
         "text" : "Diagnóstico através de um hemograma."
       },
       "specimen" : {
-        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000034"
+        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000038"
       },
       "referenceRange" : [ {
         "text" : "Escala de -1 para +1."
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000034",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000038",
     "resource" : {
       "resourceType" : "Specimen",
       "meta" : {

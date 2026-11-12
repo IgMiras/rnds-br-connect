@@ -10,7 +10,7 @@
   "type" : "document",
   "timestamp" : "2021-09-15T11:57:05.995-02:00",
   "entry" : [ {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000023",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000027",
     "resource" : {
       "resourceType" : "Composition",
       "meta" : {
@@ -39,18 +39,18 @@
       "title" : "Resultado de Exame Laboratorial",
       "section" : [ {
         "entry" : [ {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000024"
-        }, {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000025"
-        }, {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000027"
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000028"
         }, {
           "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000029"
+        }, {
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000031"
+        }, {
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000033"
         } ]
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000024",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000028",
     "resource" : {
       "resourceType" : "Condition",
       "meta" : {
@@ -70,16 +70,16 @@
       },
       "stage" : [ {
         "assessment" : [ {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000025"
-        }, {
-          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000027"
-        }, {
           "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000029"
+        }, {
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000031"
+        }, {
+          "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000033"
         } ]
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000025",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000029",
     "resource" : {
       "resourceType" : "Observation",
       "meta" : {
@@ -136,14 +136,14 @@
         "text" : "Diagnóstico através de um hemograma."
       },
       "specimen" : {
-        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000026"
+        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000030"
       },
       "referenceRange" : [ {
         "text" : "Escala de -1 para +1."
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000026",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000030",
     "resource" : {
       "resourceType" : "Specimen",
       "meta" : {
@@ -157,7 +157,7 @@
       }
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000027",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000031",
     "resource" : {
       "resourceType" : "Observation",
       "meta" : {
@@ -208,14 +208,14 @@
         "text" : "Diagnóstico através de um hemograma."
       },
       "specimen" : {
-        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000028"
+        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000032"
       },
       "referenceRange" : [ {
         "text" : "Escala de -1 para +1."
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000028",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000032",
     "resource" : {
       "resourceType" : "Specimen",
       "meta" : {
@@ -229,7 +229,7 @@
       }
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000029",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000033",
     "resource" : {
       "resourceType" : "Observation",
       "meta" : {
@@ -281,14 +281,14 @@
         "text" : "Diagnóstico através de um hemograma."
       },
       "specimen" : {
-        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000030"
+        "reference" : "urn:uuid:ee000000-0000-4000-8000-000000000034"
       },
       "referenceRange" : [ {
         "text" : "Escala de -1 para +1."
       } ]
     }
   }, {
-    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000030",
+    "fullUrl" : "urn:uuid:ee000000-0000-4000-8000-000000000034",
     "resource" : {
       "resourceType" : "Specimen",
       "meta" : {
