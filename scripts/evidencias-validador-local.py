@@ -54,19 +54,18 @@ PACOTES = {
 }
 
 # nome do arquivo -> (Camada 4 esperada, Validador Local esperado, explicação)
+#
+# Com o HAPI FHIR 7.6.0 havia uma segunda divergência: o exemplo oficial do RIA-R, com
+# urn:uuid:transient-N (defeito nº 6), só a Camada 4 reprovava. Ela vinha da versão do motor e
+# sumiu com a migração para a 5.1.0, a versão do Validador Local: os dois aprovam.
 DIVERGENCIAS_CONHECIDAS = {
     "redfm--variacao-2-substituicao": (
         "APROVADO",
         "REPROVADO",
         "O vínculo required de Composition.relatesTo.code, herdado do br-core-composition, "
-        "aponta para uma página de documentação (defeito nº 12). A Camada 4 registra o ValueSet "
-        "não encontrado como aviso; o Validador Local, como erro.",
-    ),
-    "ria-r--ExemploJSONPreenchidoRIAR": (
-        "REPROVADO",
-        "APROVADO",
-        "O exemplo oficial usa urn:uuid:transient-N, que não é UUID (defeito nº 6). Só a "
-        "Camada 4 reprova.",
+        "aponta para uma página de documentação (defeito nº 12). Com o mesmo motor, o HAPI FHIR "
+        "5.1.0, e a mesma mensagem, a Camada 4 registra o ValueSet não encontrado como aviso, e o "
+        "Validador Local, como erro: a diferença vem da configuração ou do pacote, e não da versão.",
     ),
 }
 
