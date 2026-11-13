@@ -1,4 +1,4 @@
-package br.rndsconnect.exames;
+package br.rndsconnect.catalogo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import br.rndsconnect.model.CodedTarget;
 import br.rndsconnect.model.TerminologyDomain;
 import br.rndsconnect.semantic.MappingSource;
+import br.rndsconnect.semantic.YamlMappingSource;
+import ca.uhn.fhir.context.FhirContext;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,21 +22,31 @@ import org.junit.jupiter.api.Test;
  * CodeSystem e <strong>não são aceitos</strong>. É a diferença entre 484 e 477, e é o erro que
  * alguém comete ao montar o catálogo somando os CodeSystems sem ler o ValueSet.
  *
+ * <p>O portão, {@link #catalogoNaoDivergeDosArtefatos()}, recalcula o catálogo do pacote do
+ * RIA e do REL e exige igualdade com o arquivo distribuído, como já fazia o do catálogo de
+ * medidas. Sem ele, um catálogo desatualizado em relação ao pacote passava pela conferência
+ * do total declarado e pelo teste da contagem, porque nenhum dos dois lê os artefatos.
+ *
  * @author Igor Mendes Domingues Miras
  */
 class CatalogoExamesRndsTest {
 
-    private static CatalogoExamesRnds catalogo;
+    /** O pacote do RIA e do REL, de onde o catálogo foi gerado. */
+    private static final String PACOTE = "conformance";
+
+    private static final String VS = "http://www.saude.gov.br/fhir/r4/ValueSet/BRNomeExame-2.0";
+    private static final String CS = "http://www.saude.gov.br/fhir/r4/CodeSystem/";
+    private static final String SYSTEM_LOINC = CS + "BRNomeExameLOINC";
+    private static final String SYSTEM_GAL = CS + "BRNomeExameGAL";
+
+    private static CatalogoCodigosAceitos catalogo;
 
     @BeforeAll
     static void carregar() {
-        catalogo = CatalogoExamesRnds.carregar();
+        catalogo = CatalogoCodigosAceitos.exames();
         System.out.printf(
                 "%n[Catálogo] %d códigos (%d LOINC + %d GAL) · sha256:%s%n",
-                catalogo.total(),
-                catalogo.totalDe(CatalogoExamesRnds.SYSTEM_LOINC),
-                catalogo.totalDe(CatalogoExamesRnds.SYSTEM_GAL),
-                catalogo.sha256());
+                catalogo.total(), catalogo.totalDe(SYSTEM_LOINC), catalogo.totalDe(SYSTEM_GAL), catalogo.sha256());
     }
 
     @Test
@@ -44,8 +56,8 @@ class CatalogoExamesRndsTest {
         // Somar os conceitos dos dois CodeSystems dá 484; parar após o exclude dá 477.
         // Nenhum dos dois é o número de códigos que a RNDS aceita.
         assertThat(catalogo.total()).isEqualTo(475);
-        assertThat(catalogo.totalDe(CatalogoExamesRnds.SYSTEM_LOINC)).isEqualTo(442);
-        assertThat(catalogo.totalDe(CatalogoExamesRnds.SYSTEM_GAL)).isEqualTo(33);
+        assertThat(catalogo.totalDe(SYSTEM_LOINC)).isEqualTo(442);
+        assertThat(catalogo.totalDe(SYSTEM_GAL)).isEqualTo(33);
         assertThat(catalogo.systems()).hasSize(2);
     }
 
@@ -57,7 +69,7 @@ class CatalogoExamesRndsTest {
         // `count`, então nada no artefato denuncia a discrepância: quem soma conceitos
         // obtém 451, quem conta códigos obtém 449.
         for (String c : new String[] {"80205-8", "80206-6"}) {
-            assertThat(catalogo.aceita(CatalogoExamesRnds.SYSTEM_LOINC, c))
+            assertThat(catalogo.aceita(SYSTEM_LOINC, c))
                     .as("o código %s é aceito — a duplicidade é do artefato, não do código", c)
                     .isTrue();
         }
@@ -71,7 +83,7 @@ class CatalogoExamesRndsTest {
     void osSeteExcluidosNaoSaoAceitos() {
         String[] excluidos = {"94764-8", "94822-4", "95424-8", "95609-4", "95970-0", "96741-4", "98062-3"};
         for (String c : excluidos) {
-            assertThat(catalogo.aceita(CatalogoExamesRnds.SYSTEM_LOINC, c))
+            assertThat(catalogo.aceita(SYSTEM_LOINC, c))
                     .as(
                             "o código %s consta do BRNomeExameLOINC mas o ValueSet o remove — "
                                     + "um catálogo com 484 entradas o incluiria, e a RNDS o recusaria",
@@ -83,9 +95,9 @@ class CatalogoExamesRndsTest {
     @Test
     @DisplayName("Aceita códigos dos dois CodeSystems, com display oficial")
     void aceitaOsDoisCodeSystems() {
-        assertThat(catalogo.aceita(CatalogoExamesRnds.SYSTEM_LOINC, "94309-2")).isTrue();
-        assertThat(catalogo.aceita(CatalogoExamesRnds.SYSTEM_GAL, "DENAN")).isTrue();
-        assertThat(catalogo.display(CatalogoExamesRnds.SYSTEM_GAL, "DENAN"))
+        assertThat(catalogo.aceita(SYSTEM_LOINC, "94309-2")).isTrue();
+        assertThat(catalogo.aceita(SYSTEM_GAL, "DENAN")).isTrue();
+        assertThat(catalogo.display(SYSTEM_GAL, "DENAN"))
                 .hasValueSatisfying(d -> assertThat(d).containsIgnoringCase("dengue"));
     }
 
@@ -93,12 +105,30 @@ class CatalogoExamesRndsTest {
     @DisplayName("Formato errado denuncia CodeSystem errado")
     void formatoErradoDenunciaCodeSystemErrado() {
         // LOINC é numérico com dígito verificador; GAL é mnemônico alfanumérico.
-        assertThat(catalogo.aceita(CatalogoExamesRnds.SYSTEM_GAL, "94309-2"))
+        assertThat(catalogo.aceita(SYSTEM_GAL, "94309-2"))
                 .as("código LOINC declarado como GAL")
                 .isFalse();
-        assertThat(catalogo.aceita(CatalogoExamesRnds.SYSTEM_LOINC, "DENAN"))
+        assertThat(catalogo.aceita(SYSTEM_LOINC, "DENAN"))
                 .as("código GAL declarado como LOINC")
                 .isFalse();
+    }
+
+    // ══ O portão ════════════════════════════════════════════════════════
+
+    @Test
+    @DisplayName("GATE: o catálogo de exames é exatamente o que os artefatos declaram")
+    void catalogoNaoDivergeDosArtefatos() {
+        RecalculoDeCatalogo artefatos = RecalculoDeCatalogo.doPacote(FhirContext.forR4(), PACOTE, VS, "BRNomeExame");
+
+        assertThat(artefatos.valueSet().getCompose().getInclude())
+                .as("os dois CodeSystems que o ValueSet compõe")
+                .hasSize(2);
+        assertThat(catalogo.codigos())
+                .as(
+                        "o YAML gerado contra o pacote %s — regerar com "
+                                + "scripts/gerar-catalogo-exames.py se os artefatos mudaram",
+                        PACOTE)
+                .isEqualTo(artefatos.codigosAceitos());
     }
 
     // ══ Conferência da tabela do integrador ═════════════════════════════
@@ -108,9 +138,19 @@ class CatalogoExamesRndsTest {
     void tabelaConformePassa() {
         MapeamentoConformeCatalogo conferencia = new MapeamentoConformeCatalogo(catalogo);
         assertThat(conferencia.conferir(fonteFake(Map.of(
-                        "COVID_PCR", alvo(CatalogoExamesRnds.SYSTEM_LOINC, "94309-2"),
-                        "DENGUE_NS1", alvo(CatalogoExamesRnds.SYSTEM_GAL, "DENAN")))))
+                        "COVID_PCR", alvo(SYSTEM_LOINC, "94309-2"),
+                        "DENGUE_NS1", alvo(SYSTEM_GAL, "DENAN")))))
                 .isEmpty();
+    }
+
+    @Test
+    @DisplayName("A tabela de exemplo de exames, lida do YAML, passa na conferência")
+    void tabelaDeExemploPassaNaConferencia() {
+        // Com o catálogo no mesmo módulo das fontes de mapeamento, a conferência é exercida
+        // com a fonte real, e não só com uma tabela montada em memória.
+        MappingSource fonte =
+                new YamlMappingSource(TerminologyDomain.NOME_EXAME, "mapeamentos/exames-multi-codesystem.yml");
+        assertThat(new MapeamentoConformeCatalogo(catalogo).conferir(fonte)).isEmpty();
     }
 
     @Test
@@ -118,8 +158,8 @@ class CatalogoExamesRndsTest {
     void codigoExcluidoEApanhadoNaInicializacao() {
         MapeamentoConformeCatalogo conferencia = new MapeamentoConformeCatalogo(catalogo);
 
-        assertThatThrownBy(() -> conferencia.exigirConformidade(
-                        fonteFake(Map.of("EXAME_X", alvo(CatalogoExamesRnds.SYSTEM_LOINC, "94764-8")))))
+        assertThatThrownBy(() ->
+                        conferencia.exigirConformidade(fonteFake(Map.of("EXAME_X", alvo(SYSTEM_LOINC, "94764-8")))))
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessageContaining("EXAME_X")
                 .hasMessageContaining("compose.exclude");
@@ -129,9 +169,9 @@ class CatalogoExamesRndsTest {
     @DisplayName("A conferência devolve TODAS as divergências, ao contrário da cadeia fail-fast")
     void conferenciaRelataTodasAsDivergencias() {
         Map<String, CodedTarget> tabela = new LinkedHashMap<>();
-        tabela.put("BOM", alvo(CatalogoExamesRnds.SYSTEM_LOINC, "94309-2"));
-        tabela.put("DIGITADO_ERRADO", alvo(CatalogoExamesRnds.SYSTEM_LOINC, "99999-9"));
-        tabela.put("EXCLUIDO", alvo(CatalogoExamesRnds.SYSTEM_LOINC, "95424-8"));
+        tabela.put("BOM", alvo(SYSTEM_LOINC, "94309-2"));
+        tabela.put("DIGITADO_ERRADO", alvo(SYSTEM_LOINC, "99999-9"));
+        tabela.put("EXCLUIDO", alvo(SYSTEM_LOINC, "95424-8"));
         tabela.put("SYSTEM_ERRADO", alvo("http://loinc.org", "94309-2"));
 
         assertThat(new MapeamentoConformeCatalogo(catalogo).conferir(fonteFake(tabela)))
@@ -156,25 +196,10 @@ class CatalogoExamesRndsTest {
     // ══ Auxiliares ══════════════════════════════════════════════════════
 
     private static CodedTarget alvo(String system, String code) {
-        return new CodedTarget(system, code, null);
+        return TabelaDeTeste.alvo(system, code);
     }
 
     private static MappingSource fonteFake(Map<String, CodedTarget> tabela) {
-        return new MappingSource() {
-            @Override
-            public TerminologyDomain getDomain() {
-                return TerminologyDomain.NOME_EXAME;
-            }
-
-            @Override
-            public Map<String, CodedTarget> load() {
-                return tabela;
-            }
-
-            @Override
-            public String getVersion() {
-                return "tabela-de-teste · " + tabela.size() + " entradas";
-            }
-        };
+        return TabelaDeTeste.de(TerminologyDomain.NOME_EXAME, tabela);
     }
 }

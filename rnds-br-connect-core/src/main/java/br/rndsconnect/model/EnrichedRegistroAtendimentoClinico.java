@@ -190,7 +190,8 @@ public class EnrichedRegistroAtendimentoClinico {
      * <p>Lista genérica, e não campos tipados por medida (ADR-05): o que distingue peso de
      * pressão arterial é o código LOINC, e a tabela de códigos é problema clínico do
      * integrador. O framework dá a estrutura e valida o par ({@code system}, {@code code}); o
-     * catálogo dos códigos aceitos cabe a um starter, como no REL.
+     * catálogo dos códigos aceitos está em
+     * {@link br.rndsconnect.catalogo.CatalogoCodigosAceitos#medidas()}, ao lado do de exames.
      *
      * <p>O perfil admite três formas de valor e nenhuma é obrigatória: quantidade, data ou
      * código. Informe exatamente uma.

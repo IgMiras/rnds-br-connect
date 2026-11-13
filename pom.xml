@@ -17,7 +17,6 @@
 
   <modules>
     <module>rnds-br-connect-core</module>
-    <module>rnds-br-connect-exames-starter</module>
   </modules>
 
   <properties>

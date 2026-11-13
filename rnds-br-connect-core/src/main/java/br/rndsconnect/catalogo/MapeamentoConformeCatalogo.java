@@ -1,4 +1,4 @@
-package br.rndsconnect.exames;
+package br.rndsconnect.catalogo;
 
 import br.rndsconnect.model.CodedTarget;
 import br.rndsconnect.semantic.MappingSource;
@@ -9,45 +9,51 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Confere a tabela de mapeamento de exames da instituição contra o catálogo da RNDS,
- * <strong>na inicialização</strong>.
+ * Confere a tabela de mapeamento da instituição contra um catálogo de códigos aceitos pela
+ * RNDS, <strong>na inicialização</strong>.
  *
  * <h2>O problema que resolve</h2>
  *
  * <p>Uma correspondência que aponte para código fora do catálogo produz Bundle reprovado pela
- * Camada 4 — o binding {@code required} do {@code BRNomeExame-2.0} não deixa passar. Mas a
- * reprovação só acontece quando o <strong>primeiro paciente daquele exame</strong> for
- * enviado, o que pode ser meses depois de a tabela ter sido escrita. Até lá, ninguém sabe que
- * há uma linha errada.
+ * Camada 4 — o binding {@code required} não deixa passar. Mas a reprovação só acontece quando
+ * o <strong>primeiro paciente daquele código</strong> for enviado, o que pode ser meses depois
+ * de a tabela ter sido escrita. Até lá, ninguém sabe que há uma linha errada.
  *
  * <p>Esta classe antecipa a descoberta para o momento em que a aplicação sobe, e o
  * diagnóstico aponta a linha da tabela em vez de um caminho FHIR.
  *
+ * <p>Serve a qualquer domínio que tenha catálogo: recebe o {@link CatalogoCodigosAceitos} do
+ * elemento e a fonte de mapeamento do domínio correspondente. Hoje há dois, o dos nomes de
+ * exame do REL e o das medidas observadas do RAC.
+ *
  * <h2>Os dois modos de erro que ela pega</h2>
  *
- * <p><strong>Código inexistente.</strong> Um LOINC digitado errado, ou um código do GAL com
- * formato de LOINC — os dois CodeSystems usam formatos incompatíveis, e um código na forma
- * errada denuncia o CodeSystem errado.
+ * <p><strong>Código inexistente.</strong> Um código digitado errado, ou declarado no
+ * CodeSystem errado. Nos exames, por exemplo, o LOINC e o GAL usam formatos incompatíveis, e
+ * um código na forma errada denuncia o CodeSystem errado.
  *
  * <p><strong>Código existente mas não aceito.</strong> Os 7 códigos que o
- * {@code compose.exclude} do ValueSet remove estão no {@code BRNomeExameLOINC} e não são
- * aceitos pela RNDS. Uma tabela montada a partir do CodeSystem, sem ler o ValueSet, os
- * incluiria — e esse é justamente o erro que a diferença entre 484 e 477 representa.
+ * {@code compose.exclude} do {@code BRNomeExame-2.0} remove estão no {@code BRNomeExameLOINC}
+ * e não são aceitos pela RNDS. Uma tabela montada a partir do CodeSystem, sem ler o ValueSet,
+ * os incluiria — e esse é justamente o erro que a diferença entre 484 e 477 representa.
  *
  * <p>A conferência é <strong>relatório, não exceção</strong>: devolve todas as divergências de
  * uma vez. Aqui, ao contrário da cadeia da Frente A, as ocorrências são independentes entre
  * si — quem revisa uma tabela quer a lista inteira, não a primeira linha errada.
  *
+ * <p>Ela <strong>não</strong> diz se a correspondência está clinicamente certa (ADR-05): um
+ * código aceito que designa outro conceito passa aqui e em qualquer validador.
+ *
  * @author Igor Mendes Domingues Miras
  */
 public final class MapeamentoConformeCatalogo {
 
-    private final CatalogoExamesRnds catalogo;
+    private final CatalogoCodigosAceitos catalogo;
 
     /**
-     * @param catalogo catálogo de referência
+     * @param catalogo catálogo de referência, do mesmo elemento que a tabela a conferir alimenta
      */
-    public MapeamentoConformeCatalogo(CatalogoExamesRnds catalogo) {
+    public MapeamentoConformeCatalogo(CatalogoCodigosAceitos catalogo) {
         this.catalogo = Objects.requireNonNull(catalogo, "catalogo é obrigatório");
     }
 
@@ -66,7 +72,7 @@ public final class MapeamentoConformeCatalogo {
     }
 
     /**
-     * @param fonte tabela de mapeamento do domínio {@code NOME_EXAME}
+     * @param fonte tabela de mapeamento do domínio a que o catálogo se refere
      * @return divergências encontradas; lista vazia se a tabela inteira é aceita
      */
     public List<Divergencia> conferir(MappingSource fonte) {
@@ -82,8 +88,8 @@ public final class MapeamentoConformeCatalogo {
             }
             String motivo;
             if (!catalogo.systems().contains(alvo.system())) {
-                motivo = "CodeSystem fora do catálogo — o BRNomeExame-2.0 compõe apenas "
-                        + String.join(" e ", catalogo.systems());
+                motivo = "CodeSystem fora do catálogo — o elemento aceita códigos apenas de "
+                        + String.join(", ", catalogo.systems());
             } else if (catalogo.display(alvo.system(), alvo.code()).isEmpty()) {
                 motivo = "código não consta entre os " + catalogo.totalDe(alvo.system())
                         + " aceitos deste CodeSystem — verifique digitação, ou se o código "
@@ -99,7 +105,7 @@ public final class MapeamentoConformeCatalogo {
     /**
      * Confere e interrompe a inicialização se houver divergência.
      *
-     * @param fonte tabela de mapeamento do domínio {@code NOME_EXAME}
+     * @param fonte tabela de mapeamento do domínio a que o catálogo se refere
      * @throws IllegalStateException se alguma correspondência não for aceita
      */
     public void exigirConformidade(MappingSource fonte) {
@@ -108,7 +114,9 @@ public final class MapeamentoConformeCatalogo {
             return;
         }
         StringBuilder sb = new StringBuilder()
-                .append("A tabela de mapeamento de exames aponta para ")
+                .append("A tabela de mapeamento do domínio ")
+                .append(fonte.getDomain())
+                .append(" aponta para ")
                 .append(divergencias.size())
                 .append(" código(s) que a RNDS não aceita.")
                 .append(System.lineSeparator())
@@ -116,6 +124,8 @@ public final class MapeamentoConformeCatalogo {
                 .append(fonte.getVersion())
                 .append(System.lineSeparator())
                 .append("Catálogo: ")
+                .append(catalogo.recurso())
+                .append(", ")
                 .append(catalogo.total())
                 .append(" códigos, sha256:")
                 .append(catalogo.sha256())

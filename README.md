@@ -28,7 +28,7 @@ Java 17 e Maven 3. Na raiz do repositório:
 mvn clean install
 ```
 
-O comando compila os dois módulos, roda os testes (202 no core e 9 no `rnds-br-connect-exames-starter`) e instala os artefatos no repositório Maven local. O projeto ainda não está no Maven Central; depois de instalar, declare a dependência:
+O comando compila o projeto, roda os 221 testes e instala o artefato no repositório Maven local. O projeto ainda não está no Maven Central; depois de instalar, declare a dependência:
 
 ```xml
 <dependency>
@@ -55,6 +55,17 @@ DocumentoPreparado documento = facade.prepararImunizacaoRotina(dto);
 ```
 
 As tabelas de correspondência entre os códigos locais e os da RNDS são da instituição que integra, e a correspondência clínica deve ser revisada por profissional de saúde. As tabelas em `rnds-br-connect-core/src/test/resources/mapeamentos/` existem para os testes e não são tabelas clínicas validadas.
+
+### Catálogos dos códigos aceitos
+
+O pacote `br.rndsconnect.catalogo` traz as listas dos códigos que a RNDS aceita em dois elementos, extraídas dos artefatos oficiais: os 475 nomes de exame do REL e as 23 medidas observadas do RAC. Para conferir a tabela da instituição contra o catálogo ao subir a aplicação:
+
+```java
+MappingSource exames = new YamlMappingSource(TerminologyDomain.NOME_EXAME, "mapeamentos/exames.yml");
+new MapeamentoConformeCatalogo(CatalogoCodigosAceitos.exames()).exigirConformidade(exames);
+```
+
+A conferência interrompe a inicialização e lista todas as linhas que apontam para um código não aceito. Ela diz se o código é aceito, e não se é o código clinicamente certo. Os demais domínios terminológicos ainda não têm catálogo.
 
 Os pacotes de conformidade foram recortados das distribuições oficiais espelhadas em [IgMiras/rnds-artefatos](https://github.com/IgMiras/rnds-artefatos); o `index.txt` de cada pacote registra de qual distribuição ele foi copiado.
 

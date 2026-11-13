@@ -179,7 +179,7 @@ def main(origem):
         "codigos:",
     ]
 
-    destino = "rnds-br-connect-exames-starter/src/main/resources/catalogo/exames-rnds.yml"
+    destino = "rnds-br-connect-core/src/main/resources/catalogo/exames-rnds.yml"
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     with open(destino, "w", encoding="utf-8") as fh:
         fh.write("\n".join(cab + linhas) + "\n")

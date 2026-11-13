@@ -1,4 +1,4 @@
-# Roda a suíte inteira (core e módulo do catálogo de exames) a cada push e a cada pull request.
+# Roda a suíte inteira a cada push e a cada pull request.
 #
 # A suíte não precisa de rede para validar: os pacotes de conformidade estão no repositório.
 # A rede só é usada pelo Maven, para baixar as dependências, que ficam em cache entre execuções.

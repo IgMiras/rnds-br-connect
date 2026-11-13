@@ -1,17 +1,17 @@
-package br.rndsconnect.validator;
+package br.rndsconnect.catalogo;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import br.rndsconnect.model.CodedTarget;
+import br.rndsconnect.model.TerminologyDomain;
+import br.rndsconnect.semantic.MappingSource;
+import br.rndsconnect.semantic.YamlMappingSource;
 import ca.uhn.fhir.context.FhirContext;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import org.hl7.fhir.instance.model.api.IBaseResource;
-import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.ValueSet;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,43 +34,30 @@ import org.yaml.snakeyaml.Yaml;
  * «este código é aceito?», não «qual código corresponde ao que eu medi» — e a segunda pergunta
  * permanece com a equipe de saúde.
  *
+ * <p>A segunda metade da classe exercita o que o catálogo de medidas ganhou ao ficar no mesmo
+ * pacote do de exames: a classe de carga e a conferência da tabela da instituição.
+ *
  * @author Igor Mendes Domingues Miras
  */
 class CatalogoMedidasRndsTest {
 
     private static final String PACOTE = "conformance/rac";
-    private static final String CATALOGO = "catalogo/medidas-rnds.yml";
+    private static final String CATALOGO = CatalogoCodigosAceitos.RECURSO_MEDIDAS;
     private static final String VS = "http://www.saude.gov.br/fhir/r4/ValueSet/BRTipoObservacao-1.0";
 
-    private static FhirContext ctx;
-    private static ValueSet valueSet;
-    private static CodeSystem codeSystem;
+    private static final String CS = "http://www.saude.gov.br/fhir/r4/CodeSystem/";
+    private static final String SYSTEM_TIPO_OBSERVACAO = CS + "BRTipoObservacao";
+    private static final String SYSTEM_TABELA_SUS = CS + "BRTabelaSUS";
+    /** O LOINC como o ValueSet o declara, com a barra final. */
+    private static final String SYSTEM_LOINC = "https://loinc.org/";
+
+    private static RecalculoDeCatalogo artefatos;
+    private static CatalogoCodigosAceitos catalogo;
 
     @BeforeAll
     static void carregar() {
-        ctx = FhirContext.forR4();
-        for (String rel : indice()) {
-            if (!rel.toLowerCase().endsWith(".xml")) {
-                continue;
-            }
-            // Crivo de 4 KiB antes de ler o arquivo inteiro: o pacote tem CodeSystem cadastral
-            // de dezenas de MB, e nenhum deles interessa aqui.
-            if (!amostra(rel).contains("BRTipoObservacao")) {
-                continue;
-            }
-            IBaseResource r = ctx.newXmlParser().parseResource(conteudo(rel));
-            if (r instanceof ValueSet v && VS.equals(v.getUrl())) {
-                valueSet = v;
-            } else if (r instanceof CodeSystem c && c.hasUrl() && c.getUrl().endsWith("/BRTipoObservacao")) {
-                codeSystem = c;
-            }
-        }
-        assertThat(valueSet)
-                .as("ValueSet BRTipoObservacao-1.0 no pacote do RAC")
-                .isNotNull();
-        assertThat(codeSystem)
-                .as("CodeSystem BRTipoObservacao no pacote do RAC")
-                .isNotNull();
+        artefatos = RecalculoDeCatalogo.doPacote(FhirContext.forR4(), PACOTE, VS, "BRTipoObservacao");
+        catalogo = CatalogoCodigosAceitos.medidas();
     }
 
     // ══ O portão ════════════════════════════════════════════════════════
@@ -78,7 +65,7 @@ class CatalogoMedidasRndsTest {
     @Test
     @DisplayName("GATE: o catálogo das medidas é exatamente o que os artefatos declaram")
     void catalogoNaoDivergeDosArtefatos() {
-        Map<String, Map<String, String>> medido = recomputar();
+        Map<String, Map<String, String>> medido = artefatos.codigosAceitos();
         Map<String, Map<String, String>> declarado = doCatalogo();
 
         assertThat(declarado)
@@ -100,8 +87,8 @@ class CatalogoMedidasRndsTest {
     void oCatalogoEhDoBindingDaMedida() {
         // Sem isto, o catálogo poderia estar correto e ser de outra coisa. O binding é
         // `required`, de modo que código fora do ValueSet reprova na Camada 4.
-        assertThat(valueSet.getUrl()).isEqualTo(VS);
-        assertThat(valueSet.getCompose().getInclude())
+        assertThat(artefatos.valueSet().getUrl()).isEqualTo(VS);
+        assertThat(artefatos.valueSet().getCompose().getInclude())
                 .as("as três fontes que o ValueSet compõe")
                 .hasSize(3);
     }
@@ -112,7 +99,7 @@ class CatalogoMedidasRndsTest {
     @DisplayName("A mesma medida tem duas grafias oficiais no mesmo ValueSet")
     void cincoParesDeSinonimo() {
         Map<String, String> todos = new LinkedHashMap<>();
-        recomputar().values().forEach(todos::putAll);
+        artefatos.codigosAceitos().values().forEach(todos::putAll);
 
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> sinonimos = (List<Map<String, Object>>) raiz().get("sinonimos");
@@ -131,7 +118,7 @@ class CatalogoMedidasRndsTest {
     @DisplayName("Quatro códigos do ValueSet não são medida de valor, e passam no binding")
     void quatroCodigosNaoSaoMedida() {
         Map<String, String> todos = new LinkedHashMap<>();
-        recomputar().values().forEach(todos::putAll);
+        artefatos.codigosAceitos().values().forEach(todos::putAll);
 
         @SuppressWarnings("unchecked")
         List<String> naoMedida = (List<String>) raiz().get("naoSaoMedida");
@@ -141,46 +128,72 @@ class CatalogoMedidasRndsTest {
                 .allSatisfy(c -> assertThat(todos).containsKey(c));
     }
 
-    // ══ Recomputar dos artefatos ════════════════════════════════════════
+    // ══ A carga pela classe comum ═══════════════════════════════════════
 
-    /** @return sistema → (código → display), como o gerador o monta */
-    private static Map<String, Map<String, String>> recomputar() {
-        Map<String, Map<String, String>> out = new LinkedHashMap<>();
-        for (ValueSet.ConceptSetComponent inc : valueSet.getCompose().getInclude()) {
-            Map<String, String> grupo = new LinkedHashMap<>();
-            if (!inc.getConcept().isEmpty()) {
-                for (ValueSet.ConceptReferenceComponent c : inc.getConcept()) {
-                    grupo.putIfAbsent(c.getCode(), limpo(c.getDisplay()));
-                }
-            } else {
-                for (CodeSystem.ConceptDefinitionComponent c : planos(codeSystem.getConcept())) {
-                    grupo.putIfAbsent(c.getCode(), limpo(c.getDisplay()));
-                }
-            }
-            for (ValueSet.ConceptSetComponent exc : valueSet.getCompose().getExclude()) {
-                if (inc.getSystem().equals(exc.getSystem())) {
-                    exc.getConcept().forEach(c -> grupo.remove(c.getCode()));
-                }
-            }
-            out.put(inc.getSystem(), grupo);
-        }
-        return out;
+    @Test
+    @DisplayName("A classe de carga entrega os 23 códigos, das três fontes, iguais aos dos artefatos")
+    void aClasseDeCargaLeOCatalogoDeMedidas() {
+        assertThat(catalogo.total()).isEqualTo(23);
+        assertThat(catalogo.systems())
+                .containsExactlyInAnyOrder(SYSTEM_TIPO_OBSERVACAO, SYSTEM_TABELA_SUS, SYSTEM_LOINC);
+        assertThat(catalogo.totalDe(SYSTEM_TIPO_OBSERVACAO)).isEqualTo(9);
+        assertThat(catalogo.totalDe(SYSTEM_TABELA_SUS)).isEqualTo(1);
+        assertThat(catalogo.totalDe(SYSTEM_LOINC)).isEqualTo(13);
+
+        // As listas `sinonimos` e `naoSaoMedida` do arquivo não são códigos aceitos, e a
+        // classe de carga não as conta: o que ela entrega é o que os artefatos declaram.
+        assertThat(catalogo.codigos())
+                .as("o que a classe de carga entrega, contra o recálculo do pacote %s", PACOTE)
+                .isEqualTo(artefatos.codigosAceitos());
     }
 
-    /** O CodeSystem pode aninhar conceito; o gerador percorre recursivamente. */
-    private static List<CodeSystem.ConceptDefinitionComponent> planos(List<CodeSystem.ConceptDefinitionComponent> cs) {
-        List<CodeSystem.ConceptDefinitionComponent> out = new ArrayList<>();
-        for (CodeSystem.ConceptDefinitionComponent c : cs) {
-            out.add(c);
-            out.addAll(planos(c.getConcept()));
-        }
-        return out;
+    @Test
+    @DisplayName("As duas grafias do peso são aceitas; a URI canônica do LOINC, não")
+    void aceitaAsDuasGrafiasENaoAUriCanonica() {
+        assertThat(catalogo.aceita(SYSTEM_LOINC, "29463-7")).isTrue();
+        assertThat(catalogo.aceita(SYSTEM_TIPO_OBSERVACAO, "P")).isTrue();
+        assertThat(catalogo.aceita("http://loinc.org", "29463-7"))
+                .as("o ValueSet declara o LOINC com a barra final, e é essa a URL que o vínculo aceita")
+                .isFalse();
     }
 
-    /** O gerador troca aspas duplas por simples para não quebrar o YAML. */
-    private static String limpo(String s) {
-        return s == null ? "" : s.trim().replace("\"", "'");
+    // ══ Conferência da tabela do integrador ═════════════════════════════
+
+    @Test
+    @DisplayName("A tabela de exemplo de medidas, lida do YAML, passa na conferência")
+    void tabelaDeExemploPassaNaConferencia() {
+        MappingSource fonte =
+                new YamlMappingSource(TerminologyDomain.TIPO_OBSERVACAO, "mapeamentos/tipos-observacao.yml");
+        assertThat(new MapeamentoConformeCatalogo(catalogo).conferir(fonte)).isEmpty();
     }
+
+    @Test
+    @DisplayName("Medida fora do catálogo é apanhada na inicialização, com o domínio na mensagem")
+    void medidaForaDoCatalogoEApanhadaNaInicializacao() {
+        Map<String, CodedTarget> tabela = new LinkedHashMap<>();
+        tabela.put("PESO", TabelaDeTeste.alvo(SYSTEM_LOINC, "29463-7"));
+        // 2339-0 é a glicose no sangue: código LOINC verdadeiro, fora dos 13 enumerados.
+        tabela.put("GLICEMIA", TabelaDeTeste.alvo(SYSTEM_LOINC, "2339-0"));
+        tabela.put("PESO_URI_CANONICA", TabelaDeTeste.alvo("http://loinc.org", "29463-7"));
+        MappingSource fonte = TabelaDeTeste.de(TerminologyDomain.TIPO_OBSERVACAO, tabela);
+
+        MapeamentoConformeCatalogo conferencia = new MapeamentoConformeCatalogo(catalogo);
+
+        assertThat(conferencia.conferir(fonte))
+                .extracting(MapeamentoConformeCatalogo.Divergencia::codigoLocal)
+                .containsExactly("GLICEMIA", "PESO_URI_CANONICA");
+        assertThat(conferencia.conferir(fonte).get(0).motivo()).contains("não consta entre os 13 aceitos");
+        assertThat(conferencia.conferir(fonte).get(1).motivo()).contains("CodeSystem fora do catálogo");
+
+        assertThatThrownBy(() -> conferencia.exigirConformidade(fonte))
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining("TIPO_OBSERVACAO")
+                .hasMessageContaining("GLICEMIA")
+                .hasMessageContaining("PESO_URI_CANONICA")
+                .hasMessageContaining(CATALOGO);
+    }
+
+    // ══ Leitura direta do YAML, para o que a classe de carga não entrega ═
 
     @SuppressWarnings("unchecked")
     private static Map<String, Map<String, String>> doCatalogo() {
@@ -196,43 +209,6 @@ class CatalogoMedidasRndsTest {
             return (Map<String, Object>) new Yaml().load(in);
         } catch (java.io.IOException e) {
             throw new IllegalStateException("Falha ao ler " + CATALOGO, e);
-        }
-    }
-
-    // ══ Leitura dos artefatos pelo índice do pacote ═════════════════════
-
-    private static List<String> indice() {
-        return List.of(ler(PACOTE + "/index.txt").split("\\R"));
-    }
-
-    /** Lê no máximo 4 KiB — o crivo tem de ser barato de verdade, não só parecer. */
-    private static String amostra(String rel) {
-        try (InputStream in =
-                CatalogoMedidasRndsTest.class.getClassLoader().getResourceAsStream(PACOTE + "/" + rel.trim())) {
-            if (in == null) {
-                return "";
-            }
-            byte[] buf = new byte[4096];
-            int lidos = in.readNBytes(buf, 0, buf.length);
-            return new String(buf, 0, lidos, StandardCharsets.UTF_8).replace("\uFEFF", "");
-        } catch (java.io.IOException e) {
-            return "";
-        }
-    }
-
-    private static String conteudo(String rel) {
-        return ler(PACOTE + "/" + rel.trim());
-    }
-
-    private static String ler(String caminho) {
-        try (InputStream in = CatalogoMedidasRndsTest.class.getClassLoader().getResourceAsStream(caminho)) {
-            if (in == null) {
-                return "";
-            }
-            // A marca de ordem de bytes aparece em quatro artefatos do REDFM; aqui é barata.
-            return new String(in.readAllBytes(), StandardCharsets.UTF_8).replace("﻿", "");
-        } catch (java.io.IOException e) {
-            throw new IllegalStateException("Falha ao ler " + caminho, e);
         }
     }
 }
